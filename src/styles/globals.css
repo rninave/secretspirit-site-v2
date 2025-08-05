@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme {
+    /* custom container for different screen sizes */
+    --container-hd: 1440px;
+    --container-xl: 1320px;
+    --container-lg: 1200px;
+    --container-md: 992px;
+    --container-sm: 768px;
+    --container-xs: 576px;
+    --container-xxs: 480px;
+
+    /* custom colors */
+    --color-primary: #FF3D00;
+    --color-body: #545B75;
+    --color-primary-light: #FF3D0014;
+
+    /* custom shadows */
+    --shadow-btn: 2px 2px 0px 0px #545B75;
+
+    /* custom fonts */
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+
+}
