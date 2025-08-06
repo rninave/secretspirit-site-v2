@@ -53,36 +53,44 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full py-4 px-6 border-b border-gray-200">
+    <header className="w-full h-[76px] py-4 px-6 border-b border-gray-200">
       <div className="max-w-lg mx-auto w-full flex items-center justify-between">
-        <Image src="/main-logo.png" alt="Secret Spirit" width={190} height={80} />
-        <nav className="flex items-center gap-6">
+        <a href="/">
+          <Image src="/main-logo.png" alt="Secret Spirit"  width={192} height={32} />
+        </a>
+        <nav className="flex items-center gap-8">
           {menuItems.map((item) => (
-            <div key={item.label} className="relative hover:cursor-pointer">
+            <div key={item.label} className="relative">
               {item.dropdown ? (
                 <div ref={(el) => {
                   dropdownRefs.current[item.label] = el;
                 }}>
                   <button 
-                    className="text-body text-[14px] hover:text-primary font-display font-medium flex items-center gap-1"
+                    className="text-body text-[14px] hover:text-primary hover:cursor-pointer font-display font-medium flex items-center gap-1"
                     onClick={() => handleDropdownClick(item.label)}
                   >
                     {item.label}
-                    <FiChevronDown className="text-xs" />
+                    <FiChevronDown 
+                      className={`text-xs transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''}`}
+                    />
                   </button>
-                  {openDropdown === item.label && (
-                    <div className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[200px] z-50">
-                      {item.dropdown.map((dropdownItem: MenuItemDropdown) => (
-                        <a 
-                          key={dropdownItem.label}
-                          href={dropdownItem.href} 
-                          className="block px-4 py-2 text-body hover:bg-primary-light hover:text-primary font-display text-sm"
-                        >
-                          {dropdownItem.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                  <div 
+                    className={`absolute top-full left-0 bg-white rounded-lg mt-2 shadow-lg border border-gray-100 min-w-[200px] z-50 transition-all duration-300 ease-in-out transform origin-top ${
+                      openDropdown === item.label 
+                        ? 'opacity-100 scale-y-100 translate-y-0 pointer-events-auto' 
+                        : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'
+                    }`}
+                  >
+                    {item.dropdown.map((dropdownItem: MenuItemDropdown) => (
+                      <a 
+                        key={dropdownItem.label}
+                        href={dropdownItem.href} 
+                        className="block px-4 py-2 text-body hover:bg-primary-light hover:text-primary font-display text-sm transition-colors duration-200"
+                      >
+                        {dropdownItem.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               ) : (
                 <a 
@@ -95,7 +103,7 @@ export default function Header() {
             </div>
           ))}
         </nav>
-        <button className="bg-primary text-white px-4 py-3 rounded-full font-display shadow-btn font-medium hover:bg-primary/90 transition-colors flex items-center gap-2">
+        <button className="bg-primary text-white px-4 py-3 rounded-full font-display shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors flex items-center gap-2">
           <span>Let's Talk</span>
           <FiPhoneCall className="text-white" />
         </button>

@@ -13,10 +13,12 @@
     /* custom colors */
     --color-primary: #FF3D00;
     --color-body: #545B75;
+    --color-body-dark: #131131;
     --color-primary-light: #FF3D0014;
 
     /* custom shadows */
     --shadow-btn: 2px 2px 0px 0px #545B75;
+    --shadow-btn-reverse: 0px 0px 2px 2px #545B75;
 
     /* custom fonts */
     --font-display: 'Plus Jakarta Sans', sans-serif;

@@ -12,10 +12,18 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: "Secret Spirit",
   description: "Secret Spirit is a platform for creating and sharing secret messages.",
   icons: {
     icon: "/logo.svg",
+  },
+  openGraph: {
+    images: [
+      {
+        url: "/logo.svg",
+      },
+    ],
   },
 };
 

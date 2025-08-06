@@ -1,18 +1,23 @@
-import { FiPhoneCall, FiMail } from "react-icons/fi";
+import { BsFillTelephoneInboundFill } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+
 
 export default function Banner() {
     return (
-        <div className=" w-full bg-primary-light  px-8 py-2 rounded-b-2xl text-sm" style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
+        <div className=" w-full bg-primary-light  px-8 py-2 rounded-b-2xl text-[12px] font-normal" style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
             <div className="max-w-lg mx-auto w-full flex items-center justify-between">
                 <div className="flex items-center gap-2 text-primary">
-                    <FiPhoneCall className="inline-block" />
-                    <a href="tel:+91-786-383-7895" className="font-mediu hover:cursor-pointer font-display text-body">+91-7863837895</a>
+                    <BsFillTelephoneInboundFill className="inline-block text-[12px]" />
+                    <a href="tel:+91-786-383-7895" className="font-medium hover:cursor-pointer outline-0 hover:text-primary font-display text-body text-[12px]">+91-786-383-7895</a>
                 </div>
                 <div className="flex items-center gap-2 text-primary">
-                    <FiMail className="inline-block" />
-                    <a href="mailto:info@secret-spirit.com" className="text-body hover:cursor-pointer font-display font-medium">info@secret-spirit.com</a>
-                    <span className="text-body">|</span>
-                    <a href="mailto:sales@secret-spirit.com" className="text-body hover:cursor-pointer font-display font-medium">sales@secret-spirit.com</a>
+
+                    <a href="mailto:info@secret-spirit.com" className="text-body outline-0 hover:cursor-pointer font-display font-medium text-[12px] flex items-center gap-1">
+                        <MdEmail className="text-[12px] inline-block text-primary" />
+                        info@secret-spirit.com
+                    </a>
+                    <span className="bg-body text-[12px] flex items-center w-[1px] h-[12px]"></span>
+                    <a href="mailto:sales@secret-spirit.com" className="text-body outline-0 hover:cursor-pointer font-display font-medium text-[12px]">sales@secret-spirit.com</a>
                 </div>
             </div>
 

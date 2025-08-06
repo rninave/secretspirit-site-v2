@@ -15,7 +15,7 @@ export default function Hero() {
 
         {/* Main Headline */}
         <h1 className=" font-bold mb-6 font-display">
-          <span className="text-body block text-[42px] text-nowrap">Top-notch digital firm for web & mobile apps in</span>
+          <span className="text-dark-blue block text-[42px] text-nowrap">Top-notch digital firm for web & mobile apps in</span>
           <span className="text-primary block text-[64px]">User Interface</span>
         </h1>
 
