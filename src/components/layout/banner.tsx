@@ -12,12 +12,12 @@ export default function Banner() {
                 </div>
                 <div className="flex items-center gap-2 text-primary">
 
-                    <a href="mailto:info@secret-spirit.com" className="text-body outline-0 hover:cursor-pointer font-display font-medium text-[12px] flex items-center gap-1">
+                    <a href="mailto:info@secret-spirit.com" className="text-body hover:text-primary outline-0 hover:cursor-pointer font-display font-medium text-[12px] flex items-center gap-1">
                         <MdEmail className="text-[12px] inline-block text-primary" />
                         info@secret-spirit.com
                     </a>
                     <span className="bg-body text-[12px] flex items-center w-[1px] h-[12px]"></span>
-                    <a href="mailto:sales@secret-spirit.com" className="text-body outline-0 hover:cursor-pointer font-display font-medium text-[12px]">sales@secret-spirit.com</a>
+                    <a href="mailto:sales@secret-spirit.com" className="text-body hover:text-primary outline-0 hover:cursor-pointer font-display font-medium text-[12px]">sales@secret-spirit.com</a>
                 </div>
             </div>
 

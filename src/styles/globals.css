@@ -18,7 +18,7 @@
 
     /* custom shadows */
     --shadow-btn: 2px 2px 0px 0px #545B75;
-    --shadow-btn-reverse: 0px 0px 2px 2px #545B75;
+    --shadow-btn-reverse: -2px -2px 0px 0px #545B75;
 
     /* custom fonts */
     --font-display: 'Plus Jakarta Sans', sans-serif;
