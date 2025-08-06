@@ -1,4 +1,4 @@
-import HomeSections from "@/features/Home";
+import HomePage from "@/features/Home";
 
 export const metadata = {
   title: "Home | Secret Spirit",
@@ -22,5 +22,5 @@ export const metadata = {
 };
 
 export default function Home() {
-  return <HomeSections />;
+  return <HomePage />;
 }

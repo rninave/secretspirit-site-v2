@@ -16,6 +16,7 @@
     --color-body-dark: #131131;
     --color-primary-light: #FF3D0014;
     --color-border-light: #E5E5E5;
+    --color-primary-gradiant: linear-gradient(60deg,#FF8C21 13.4%,#FF3D00 86.6%);
 
     /* custom shadows */
     --shadow-btn: 2px 2px 0px 0px #545B75;
@@ -24,4 +25,17 @@
     /* custom fonts */
     --font-display: 'Plus Jakarta Sans', sans-serif;
 
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
 }
