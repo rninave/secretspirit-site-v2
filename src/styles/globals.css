@@ -16,6 +16,8 @@
     --color-body-dark: #131131;
     --color-primary-light: #FF3D0014;
     --color-border-light: #E5E5E5;
+    --color-heading: #131131;
+    --color-divider: #E5E5E5;
     --color-primary-gradiant: linear-gradient(60deg,#FF8C21 13.4%,#FF3D00 86.6%);
 
     /* custom shadows */
