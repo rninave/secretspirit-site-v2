@@ -160,10 +160,10 @@ export default function Header() {
                 {item.dropdown ? (
                   <div>
                     <button
-                      className="w-full text-left text-body text-[16px] font-display font-medium flex items-center gap-1 py-2"
+                      className="w-full flex justify-between items-center text-body text-[16px] font-display font-medium gap-1 py-2"
                       onClick={() => setOpenMobileDropdown(openMobileDropdown === item.label ? null : item.label)}
                     >
-                      {item.label}
+                      <span>{item.label}</span>
                       <FiChevronDown
                         className={`text-xs transition-transform duration-300 ${
                           openMobileDropdown === item.label ? "rotate-180" : ""
@@ -203,9 +203,9 @@ export default function Header() {
               </div>
             ))}
           </nav>
-          <button className="bg-primary text-white px-4 py-3 rounded-full font-display shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors flex items-center gap-2 mt-4">
+          <button className="bg-primary  text-white px-4 py-3 rounded-full font-display shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors flex flex-row-reverse items-center gap-2 mt-4 w-full justify-between">
+            <FiPhoneCall className="text-white ml-2" />
             <span>Let's Talk</span>
-            <FiPhoneCall className="text-white" />
           </button>
         </div>
       </div>

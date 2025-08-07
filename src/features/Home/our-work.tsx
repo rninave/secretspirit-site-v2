@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
+import SectionHeader from '@/components/common/SectionHeader';
+import { Meteors } from '@/components/ui/meteors';
 
 const caseStudies = [
   {
@@ -32,17 +34,15 @@ const caseStudies = [
 
 export default function OurWork() {
   return (
-    <section className="bg-white py-16 px-4">
+    <section className="bg-white py-16 px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <div className="flex flex-col items-center mb-12">
-          <span className="text-primary text-xs font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
-            <span className="inline-block w-10 h-0.5 bg-primary" />
-            Our Work
-            <span className="inline-block w-10 h-0.5 bg-primary" />
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#23235F] text-center mt-2">Recent Case Studies</h2>
-        </div>
+        <SectionHeader
+          subtitle="Our Work"
+          title="Recent Case Studies"
+          align="center"
+          className="mb-10"
+        />
         {/* Case Studies Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
           {caseStudies.map((item, idx) => (
@@ -60,15 +60,15 @@ export default function OurWork() {
               <div className="p-6 flex-1 flex flex-col justify-between">
                 {/* Title and Arrow Row */}
                 <div className="flex items-start justify-between mb-1 gap-2">
-                  <h3 className="text-lg md:text-xl font-bold text-heading group-hover:text-primary transition-colors mb-0">{item.title}</h3>
+                  <h3 className="text-lg md:text-2xl font-bold text-heading group-hover:text-primary transition-colors mb-0">{item.title}</h3>
                   <button className="w-10 h-10 hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-heading hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px]">
                     <FiArrowUpRight size={22} />
                   </button>
                 </div>
-                <p className="text-body text-sm md:text-base mb-4 line-clamp-2">{item.description}</p>
+                <p className="text-body font-display font-normal text-xs md:text-sm mb-4 line-clamp-2">{item.description}</p>
                 <div className="flex flex-wrap gap-4 mb-2">
                   {item.tags.map((tag, i) => (
-                    <span key={i} className="bg-white border border-divider text-heading text-base font-semibold px-6 py-2 rounded-full shadow-md">{tag}</span>
+                    <span key={i} className="bg-white border border-divider text-body text-[12px] font-bold px-6 py-2 rounded-full shadow-md">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -77,8 +77,8 @@ export default function OurWork() {
         </div>
         {/* View More Button */}
         <div className="flex justify-center">
-          <button className="bg-primary text-white px-6 py-3 rounded-full font-display font-medium flex items-center gap-2 shadow-btn hover:shadow-btn-reverse hover:bg-primary/90 transition-colors">
-            View More <FiArrowUpRight />
+          <button className="bg-primary text-white px-4 py-3 rounded-full text-sm font-display font-bold flex items-center gap-2 shadow-btn hover:shadow-btn-reverse hover:bg-primary/90 transition-colors">
+            View More <FiArrowUpRight size={16} />
           </button>
         </div>
       </div>

@@ -1,0 +1,33 @@
+import React from 'react';
+import { SectionHeaderProps } from '@/interface/sectionheader.interface';
+
+
+
+export default function SectionHeader({
+  title,
+  subtitle = '',
+  align = 'center',
+  className = '',
+}: SectionHeaderProps) {
+  const alignClass =
+    align === 'left'
+      ? 'items-start text-left'
+      : align === 'right'
+      ? 'items-end text-right'
+      : 'items-center text-center';
+
+  return (
+    <div className={`flex flex-col font-display ${alignClass} ${className}`}>
+      {subtitle && (
+        <span className="text-primary text-xs font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
+          <span className="inline-block w-10 h-0.5 bg-primary" />
+          {subtitle}
+          <span className="inline-block w-10 h-0.5 bg-primary" />
+        </span>
+      )}
+      {title && (
+        <h2 className="text-3xl md:text-4xl font-bold text-heading mt-2" >{title}</h2>
+      )}
+    </div>
+  );
+}

@@ -1,6 +1,7 @@
 'use client'
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
 import Typewriter from 'typewriter-effect'
+import SectionHeader from '@/components/common/SectionHeader';
 
 
 export default function Hero() {
@@ -14,13 +15,11 @@ export default function Hero() {
     <BackgroundBeamsWithCollision className="bg-white h-[90vh] md:h-[85vh] flex items-center">
       <div className="relative z-10 text-center max-w-lg md:max-w-4xl lg:max-w-6xl mx-auto px-4 w-full flex flex-col gap-4 sm:gap-6">
         {/* Top Header Text */}
-        <div className="flex justify-center items-center gap-2 sm:gap-4">
-          <div className="h-px w-4 sm:w-8 bg-primary"></div>
-          <span className="text-primary text-[10px] sm:text-[12px] md:text-sm uppercase tracking-wider font-display font-bold">
-            Building the future with technology
-          </span>
-          <div className="h-px w-4 sm:w-8 bg-primary"></div>
-        </div>
+        <SectionHeader
+          subtitle="Building the future with technology"
+          title=""
+          align="center"
+        />
 
         {/* Main Headline */}
         <h1 className="font-bold font-display mb-2 sm:mb-4 md:mb-6">
@@ -39,7 +38,7 @@ export default function Hero() {
         </h1>
 
         {/* Description */}
-        <p className="text-gray-400 text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-2xl mx-auto leading-relaxed font-display mb-4 sm:mb-8 md:mb-12">
+        <p className="text-[#545B75] text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-2xl mx-auto leading-relaxed font-display mb-4 sm:mb-8 md:mb-12">
           We're a creative digital agency specializing in intuitive and visually compelling user interfaces for web and mobile apps. From concept to execution, we help you stand out, engage users, and leave a lasting impression.
         </p>
       </div>

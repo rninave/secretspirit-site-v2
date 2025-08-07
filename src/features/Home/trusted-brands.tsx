@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import SectionHeader from '@/components/common/SectionHeader';
 
 const brands = [
   {
@@ -13,7 +14,7 @@ const brands = [
   },
   {
     name: 'Kanso Cloud',
-    logo: '/brands/kanso-cloud-logo.png',
+    logo: '/brands/kansocloud-logo.png',
     alt: 'Kanso Cloud Logo'
   },
   {
@@ -40,14 +41,15 @@ const brands = [
 
 export default function TrustedBrands() {
   return (
-    <section className="py-6 md:py-8  bg-[#F6F8FE]">
+    <section className="py-6 md:py-10  bg-[#F6F8FE]">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Title with lines */}
-        <div className="flex items-center justify-center mb-10">
-          <span className="hidden sm:inline-block w-16 h-1 bg-primary rounded-full mr-4" ></span>
-          <h2 className="text-[12px] font-bold text-primary tracking-wider uppercase text-center whitespace-nowrap">Trusted by Brands</h2>
-          <span className="hidden sm:inline-block w-16 h-1 bg-primary rounded-full ml-4" ></span>
-        </div>
+        <SectionHeader
+          subtitle="Trusted by Brands"
+          title=""
+          align="center"
+          className="mb-6"
+        />
         {/* Brands Slider */}
         <Swiper
           modules={[Autoplay]}
@@ -60,7 +62,7 @@ export default function TrustedBrands() {
             1024: { slidesPerView: 5 },
             1280: { slidesPerView: 6 },
           }}
-          className="pb-8"
+          className="py-8"
         >
           {brands.map((brand, index) => (
             <SwiperSlide key={index} className="flex items-center justify-center">
