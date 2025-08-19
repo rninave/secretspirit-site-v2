@@ -5,7 +5,7 @@ type RevealProps = {
   children: React.ReactNode
   className?: string
   delayMs?: number
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
 }
 
 export default function Reveal({ children, className = '', delayMs = 0, as: Tag = 'div' }: RevealProps) {
