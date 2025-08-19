@@ -8,6 +8,7 @@ export default function SectionHeader({
   subtitle = '',
   align = 'center',
   className = '',
+  variant = 'light',
 }: SectionHeaderProps) {
   const alignClass =
     align === 'left'
@@ -15,6 +16,8 @@ export default function SectionHeader({
       : align === 'right'
       ? 'items-end text-right'
       : 'items-center text-center';
+
+  const titleColorClass = variant === 'dark' ? 'text-white' : 'text-heading';
 
   return (
     <div className={`flex flex-col font-display ${alignClass} ${className}`}>
@@ -26,7 +29,7 @@ export default function SectionHeader({
         </span>
       )}
       {title && (
-        <h2 className="text-3xl md:text-4xl font-bold text-heading mt-2" >{title}</h2>
+        <h2 className={`text-3xl md:text-4xl font-bold ${titleColorClass} mt-2`} >{title}</h2>
       )}
     </div>
   );

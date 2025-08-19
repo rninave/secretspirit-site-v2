@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
 import SectionHeader from '@/components/common/SectionHeader';
+import Reveal from '@/components/common/Reveal';
 
 const caseStudies = [
   {
@@ -33,19 +34,22 @@ const caseStudies = [
 
 export default function OurWork() {
   return (
-    <section className="bg-white py-16 px-8">
+    <section className="bg-white py-14 md:py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <SectionHeader
-          subtitle="Our Work"
-          title="Recent Case Studies"
-          align="center"
-          className="mb-10"
-        />
+        <Reveal>
+          <SectionHeader
+            subtitle="Our Work"
+            title="Recent Case Studies"
+            align="center"
+            className="mb-8 md:mb-10"
+          />
+        </Reveal>
         {/* Case Studies Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10">
           {caseStudies.map((item, idx) => (
-            <div key={idx} className="bg-swhite rounded-2xl overflow-hidden shadow-lg flex flex-col group transition-transform duration-300 hover:-translate-y-1">
+            <Reveal key={idx} delayMs={idx * 80}>
+            <div className="bg-swhite rounded-2xl overflow-hidden shadow-lg flex flex-col group transition-transform duration-300 hover:-translate-y-1">
               <div className="relative w-full aspect-[4/3]">
                 <Image
                   src={item.image}
@@ -72,6 +76,7 @@ export default function OurWork() {
                 </div>
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
         {/* View More Button */}

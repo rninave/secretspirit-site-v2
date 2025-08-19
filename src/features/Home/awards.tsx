@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import SectionHeader from '@/components/common/SectionHeader';
+import Reveal from '@/components/common/Reveal';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -27,24 +28,27 @@ export default function AwardsSection() {
   const nextRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <section className="bg-white py-16 px-4">
+    <section className="bg-white py-14 md:py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader
-          subtitle="Accolades"
-          title="Awards & Recognition"
-          align="center"
-          className="mb-10"
-        />
+        <Reveal>
+          <SectionHeader
+            subtitle="Accolades"
+            title="Awards & Recognition"
+            align="center"
+            className="mb-8 md:mb-10"
+          />
+        </Reveal>
         <div className="relative">
           <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={8}
-            slidesPerView={5}
+            slidesPerView={3}
             loop={true}
             autoplay={{ delay: 1800, disableOnInteraction: false }}
             breakpoints={{
-              480: { slidesPerView: 2 },
-              768: { slidesPerView: 3 },
+              0: { slidesPerView: 2 },
+              480: { slidesPerView: 3 },
+              768: { slidesPerView: 4 },
               1024: { slidesPerView: 5 },
               1280: { slidesPerView: 6 },
             }}
@@ -60,16 +64,16 @@ export default function AwardsSection() {
               swiper.navigation.init();
               swiper.navigation.update();
             }}
-            className="pb-8"
+            className="pb-4 md:pb-8"
           >
             {awards.map((src, idx) => (
-              <SwiperSlide key={src} className="flex items-center justify-center p-4 md:p-8">
-                <div className="bg-white rounded-xl shadow-md flex items-center justify-center w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+              <SwiperSlide key={src} className="flex items-center justify-center p-3 sm:p-4 md:p-8">
+                <div className="bg-white rounded-xl shadow-md flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
                   <Image
                     src={src}
                     alt={`Award ${idx + 1}`}
-                    width={120}
-                    height={120}
+                    width={110}
+                    height={110}
                     className="object-contain w-auto h-auto"
                   />
                 </div>

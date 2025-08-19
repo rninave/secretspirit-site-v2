@@ -3,4 +3,5 @@ export interface SectionHeaderProps {
     subtitle?: string;
     align?: 'center' | 'left' | 'right';
     className?: string;
+    variant?: 'light' | 'dark';
   } 

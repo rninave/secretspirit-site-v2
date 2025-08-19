@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import SectionHeader from '@/components/common/SectionHeader';
+import Reveal from '@/components/common/Reveal';
 
 const brands = [
   {
@@ -44,12 +45,14 @@ export default function TrustedBrands() {
     <section className="py-6 md:py-10  bg-[#F6F8FE]">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Title with lines */}
-        <SectionHeader
-          subtitle="Trusted by Brands"
-          title=""
-          align="center"
-          className="mb-6"
-        />
+        <Reveal>
+          <SectionHeader
+            subtitle="Trusted by Brands"
+            title=""
+            align="center"
+            className="mb-6"
+          />
+        </Reveal>
         {/* Brands Slider */}
         <Swiper
           modules={[Autoplay]}

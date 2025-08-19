@@ -2,6 +2,7 @@
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
 import Typewriter from 'typewriter-effect'
 import SectionHeader from '@/components/common/SectionHeader';
+import Reveal from '@/components/common/Reveal';
 
 
 export default function Hero() {
@@ -15,13 +16,16 @@ export default function Hero() {
     <BackgroundBeamsWithCollision className="bg-white h-[90vh] md:h-[85vh] flex items-center">
       <div className="relative z-10 text-center max-w-lg md:max-w-4xl lg:max-w-6xl mx-auto px-4 w-full flex flex-col gap-4 sm:gap-6">
         {/* Top Header Text */}
-        <SectionHeader
-          subtitle="Building the future with technology"
-          title=""
-          align="center"
-        />
+        <Reveal>
+          <SectionHeader
+            subtitle="Building the future with technology"
+            title=""
+            align="center"
+          />
+        </Reveal>
 
         {/* Main Headline */}
+        <Reveal>
         <h1 className="font-bold font-display mb-2 sm:mb-4 md:mb-6">
           <span className="text-dark-blue block text-[22px] xs:text-[26px] sm:text-[32px] md:text-[42px] leading-tight break-words">
             Top-notch digital firm for web & mobile apps in
@@ -36,11 +40,14 @@ export default function Hero() {
             />
           </span>
         </h1>
+        </Reveal>
 
         {/* Description */}
+        <Reveal>
         <p className="text-[#545B75] text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-2xl mx-auto leading-relaxed font-display mb-4 sm:mb-8 md:mb-12">
           We're a creative digital agency specializing in intuitive and visually compelling user interfaces for web and mobile apps. From concept to execution, we help you stand out, engage users, and leave a lasting impression.
         </p>
+        </Reveal>
       </div>
       {/* Scroll Indicator (closer to provided HTML structure) */}
       <div className="tp-scroll-down absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center w-full">
