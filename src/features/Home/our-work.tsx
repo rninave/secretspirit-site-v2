@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
 import SectionHeader from '@/components/common/SectionHeader';
-import { Meteors } from '@/components/ui/meteors';
 
 const caseStudies = [
   {

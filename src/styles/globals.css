@@ -13,6 +13,7 @@
     /* custom colors */
     --color-primary: #FF3D00;
     --color-body: #545B75;
+    --color-primary-dark: #0B0A1D;
     --color-body-dark: #131131;
     --color-primary-light: #FF3D0014;
     --color-border-light: #E5E5E5;
@@ -29,24 +30,6 @@
 
 }
 
-@theme inline {
-  --animate-meteor-effect: meteor 5s linear infinite;
-  
-  @keyframes meteor {
-    0% {
-      transform: rotate(215deg) translateX(0);
-      opacity: 1;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(215deg) translateX(-500px);
-      opacity: 0;
-    }
-  }
-}
-
 
 @keyframes spin-slow {
   from {
@@ -59,4 +42,11 @@
 
 .animate-spin-slow {
   animation: spin-slow 8s linear infinite;
+}
+
+/* Performance highlights styling */
+.performance-number {
+  -webkit-text-stroke: 2px #FF3D00;
+  color: transparent;
+  text-shadow: none;
 }

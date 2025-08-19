@@ -109,6 +109,7 @@ export default function SolutionSection() {
                 ))}
               </div>
             </div>
+            
             {/* Right: GIF */}
             <div className="flex-1 flex items-center justify-center">
               <Image
