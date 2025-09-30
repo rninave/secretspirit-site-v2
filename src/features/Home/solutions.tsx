@@ -13,10 +13,12 @@ const tabs = [
     description:
       'We perform a professional evaluation of the usability of your product. User feedback, product usage analytics, and heuristic evaluation all assist us in determining what needs to be fixed.',
     features: [
-      'User Research',
-      'Usability Test',
+      'User Interviews & Survey ',
+      'Heuristic Analysis',
+      'Journey Mapping',
+      'Analytics & Heatmaps',
+      'Usability Testing',
       'UX Audit',
-      'Heuristic analysis',
     ],
     image: '/solutions/solution-gif-1.gif',
   },
@@ -28,9 +30,11 @@ const tabs = [
       'We create visually compelling and user-friendly interfaces that enhance the user experience and align with your brand identity.',
     features: [
       'UI/UX Design',
-      'Wireframing',
-      'Prototyping',
+      'Wireframing & Prototyping',
       'Interaction Design',
+      'Digital Branding',
+      'Iconography',
+      'Responsive Design',
     ],
     image: '/solutions/solution-gif-2.gif',
   },
@@ -41,14 +45,23 @@ const tabs = [
     description:
       'We build robust, scalable, and high-performance web and mobile applications tailored to your business needs.',
     features: [
-      'Frontend Development',
-      'Backend Development',
-      'API Integration',
-      'Testing & QA',
+      'Web Development',
+      'Responsive UI Development',
+      'Single-Page Applications(SPAs)',
+      'API Development & Integration',
+      'Accessibility (WCAG) Compliance',
+      'Maintenance and Ongoing Support',
     ],
     image: '/solutions/solution-gif-3.gif',
   },
 ];
+
+const iconsPath = {
+  icon1: "solutions/solution-icon-1.svg",
+  icon2: "solutions/solution-icon-2.svg",
+  icon3: "solutions/solution-icon-3.svg",
+  icon4: "solutions/solution-icon-4.svg",
+}
 
 export default function SolutionSection() {
   const [activeTab, setActiveTab] = useState('research');
@@ -82,11 +95,10 @@ export default function SolutionSection() {
             {tabs.map((t) => (
               <button
                 key={t.value}
-                className={`px-5 md:px-8 py-2.5 md:py-3 rounded-full font-medium text-xs md:text-sm border transition-all duration-200 hover:shadow-btn focus:outline-none ${
-                  activeTab === t.value
+                className={`px-5 md:px-8 py-2.5 md:py-3 rounded-full font-medium font-body text-xs md:text-sm border transition-all duration-200 hover:shadow-btn focus:outline-none ${activeTab === t.value
                     ? 'bg-primary/10 text-primary border-divider shadow-btn translate-y-0.5'
                     : 'bg-white text-body hover:text-primary border-divider hover:bg-primary/10'
-                }`}
+                  }`}
                 onClick={() => handleTabChange(t.value)}
               >
                 {t.label}
@@ -99,21 +111,25 @@ export default function SolutionSection() {
           <Reveal delayMs={100}>
             <div
               key={activeTab}
-              className={`bg-white md:max-h-[358px] rounded-2xl shadow-lg p-6 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-12 max-w-5xl mx-auto border border-gray-100 transition-all duration-500 ease-in-out ${
-                animating ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100 translate-y-0'
-              }`}
+              className={`bg-white md:max-h-[358px] rounded-2xl shadow-lg p-6 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-12 mx-auto border border-gray-100 transition-all duration-500 ease-in-out ${animating ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100 translate-y-0'
+                }`}
             >
               {/* Left: Text */}
               <div className="flex-1 min-w-[220px] font-display">
-                <h3 className="text-lg md:text-2xl font-bold mb-3 md:mb-4 text-black">{tab.title}</h3>
-                <p className="text-body text-sm font-normal mb-4 md:mb-6 max-w-xl">{tab.description}</p>
+                <h3 className="text-lg md:text-2xl font-bold font-heading mb-3 md:mb-4 text-black">{tab.title}</h3>
+                <p className="text-body text-sm font-normal font-body mb-4 md:mb-6 max-w-xl">{tab.description}</p>
                 <div className="grid grid-cols-2 sm:grid-cols-2 gap-x-6 gap-y-2">
-                  {tab.features.map((feature) => (
-                    <div key={feature} className="flex items-center gap-2 mb-1.5">
-                      <span className="text-primary text-base md:text-lg">✱</span>
-                      <span className="font-bold text-black text-xs md:text-sm">{feature}</span>
-                    </div>
-                  ))}
+                  {tab.features.map((feature, idx) => {
+                    // Deterministically assign icon by cycling through icon keys
+                    const iconKeys = Object.keys(iconsPath) as (keyof typeof iconsPath)[];
+                    const iconKey = iconKeys[idx % iconKeys.length];
+                    return (
+                      <div key={feature + idx} className="flex items-center gap-2 mb-1.5">
+                        <img src={iconsPath[iconKey]} alt="icons" />
+                        <span className="font-bold text-black text-xs font-body md:text-sm">{feature}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 

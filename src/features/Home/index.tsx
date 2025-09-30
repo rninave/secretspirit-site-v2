@@ -5,20 +5,21 @@ import TrustedBrands from "./trusted-brands";
 import PerformanceHighlights from "./performance-highlights";
 import AwardsSection from "./awards";
 import IndustriesSection from "./industries";
+import Testimonials from "@/components/common/Testimonials";
 
-export default function HomeSections() {
+export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustedBrands />
+      <section id="next-section" className="p-0 m-0">
+        <TrustedBrands />
+      </section>
       <OurWork />
       <SolutionSection />
       <PerformanceHighlights />
       <AwardsSection />
-      {/* New Industries Section */}
-      <section id="next-section" className="p-0 m-0">
-        <IndustriesSection />
-      </section>
+      <IndustriesSection />
+      <Testimonials />
     </>
   );
 }

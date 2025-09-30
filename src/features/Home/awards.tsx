@@ -82,14 +82,14 @@ export default function AwardsSection() {
             {/* Custom Navigation Buttons - hidden on mobile */}
             <button
               ref={prevRef}
-              className="hidden sm:flex absolute left-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
+              className="hidden cursor-pointer sm:flex absolute left-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
               aria-label="Previous"
             >
               <FiArrowLeft />
             </button>
             <button
               ref={nextRef}
-              className="hidden sm:flex absolute right-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
+              className="hidden cursor-pointer sm:flex absolute right-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
               aria-label="Next"
             >
               <FiArrowRight />

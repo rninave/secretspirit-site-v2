@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusJakartaSans.variable} antialiased flex flex-col min-h-screen`}>
+      <body className={`${plusJakartaSans.variable} antialiased flex flex-col min-h-screen overflow-x-hidden bg-white`}>
         <Banner />
         <Header />
         <main className="flex-1 flex flex-col">{children}</main>

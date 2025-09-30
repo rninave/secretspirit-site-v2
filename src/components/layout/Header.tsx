@@ -6,9 +6,9 @@ import { MenuItem, MenuItemDropdown } from "@/interface/header.interface";
 
 const menuItems: MenuItem[] = [
   {
-    label: "About",
+    label: "About Us",
     dropdown: [
-      { label: "About", href: "/about" },
+      { label: "About Secretspirit", href: "/about" },
       { label: "Careers", href: "/careers" },
       { label: "Events", href: "/events" },
     ],
@@ -55,7 +55,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full h-[76px] py-4 px-6 border-b border-gray-200">
+    <header className="sticky top-0 z-[9999] bg-white w-full h-[76px] py-4 px-6 border-b border-gray-200">
       <div className="max-w-lg mx-auto w-full flex items-center justify-between">
         <a href="/">
           <Image
@@ -121,7 +121,7 @@ export default function Header() {
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          {isMobileMenuOpen ? '' : <img src="/icons/menu-icon.svg" alt="Menu" width={24} height={24} />}
         </button>
         {/* Desktop CTA Button */}
         <button className="hidden md:flex bg-primary text-white px-4 py-3 rounded-full font-display shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors items-center gap-2">

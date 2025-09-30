@@ -39,7 +39,7 @@ export default function PerformanceHighlights() {
                     <span className="performance-number text-[40px] md:text-[56px] font-bold tracking-tight mb-3 md:mb-4">
                       {item.value}+
                     </span>
-                    <span className="text-white text-xs sm:text-sm font-medium max-w-[90%] mx-auto leading-relaxed">
+                    <span className="text-white text-xs sm:text-sm font-body font-medium max-w-[90%] mx-auto leading-relaxed">
                       {item.label}
                     </span>
                   </div>

@@ -7,28 +7,28 @@ import Reveal from '@/components/common/Reveal';
 
 const caseStudies = [
   {
-    title: 'Valet Parking',
-    image: '/our-work/valet-parking.png',
-    description: 'Valet parking application provide a convenient and efficient way for users to park their vehicles in busy...',
-    tags: ['UI DESIGN', 'UI DESIGN'],
+    title: 'Unite Matchmaking',
+    image: '/our-work/unite-matchmaking.png',
+    description: 'A platform that blends the trusted wisdom of parental support with cutting-edge technology, highlighting unique approach to meaningful matchmaking.',
+    tags: ['MATCHMAKING', 'UI DESIGN', 'DEVELOPMENT'],
   },
   {
-    title: 'Bloomsbury',
-    image: '/our-work/bloomsbury.png',
-    description: 'Bloomsbury specializes in guiding businesses through their cloud-native transformation journey...',
-    tags: ['UI DESIGN', 'UI DESIGN'],
+    title: 'Yliway',
+    image: '/our-work/yaliway.png',
+    description: 'Yliway connects students, professionals, trainers, and companies to create dynamic professional and business growth opportunities.',
+    tags: ['E-LEARNING', 'UI DESIGN', 'DEVELOPMENT'],
   },
   {
     title: 'ZoopUp',
     image: '/our-work/zoopup.png',
-    description: 'ZoopUp revolutionizes learning and earning, bridging independent talents and teachers with global...',
-    tags: ['UI DESIGN', 'UI DESIGN'],
+    description: 'ZoopUp is the world\'s Learn & Earn marketplace, connecting millions of independent talents, independent teachers with businesses around the globe.',
+    tags: ['MARKETPLACE', 'USER RESEARCH', 'UI/UX DESIGN', 'BRANDING'],
   },
   {
     title: 'SarvM .AI',
-    image: '/our-work/sarvm-ai.png',
+    image: '/our-work/sarvm-ai-2.png',
     description: 'The My Travel Journal application is intended for travel planning and travel diary keeping for...',
-    tags: ['UI DESIGN', 'UI DESIGN'],
+    tags: ['MARKETING', 'UI/UX DESIGN', 'DEVELOPMENT'],
   },
 ];
 
@@ -49,13 +49,13 @@ export default function OurWork() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10">
           {caseStudies.map((item, idx) => (
             <Reveal key={idx} delayMs={idx * 80}>
-            <div className="bg-swhite rounded-2xl overflow-hidden shadow-lg flex flex-col group transition-transform duration-300 hover:-translate-y-1">
+            <div className="bg-swhite  overflow-hidden  flex flex-col group transition-transform duration-300 hover:-translate-y-1">
               <div className="relative w-full aspect-[4/3]">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover"
+                  className="object-cover rounded-2xl"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority={idx < 2}
                 />
@@ -63,17 +63,17 @@ export default function OurWork() {
               <div className="p-6 flex-1 flex flex-col justify-between">
                 {/* Title and Arrow Row */}
                 <div className="flex items-start justify-between mb-1 gap-2">
-                  <h3 className="text-lg md:text-2xl font-bold text-heading group-hover:text-primary transition-colors mb-0">{item.title}</h3>
-                  <button className="w-10 h-10 hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-heading hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px]">
+                  <h3 className="text-lg md:text-2xl font-bold text-heading font-heading group-hover:text-primary transition-colors mb-0">{item.title}</h3>
+                  <button className="w-10 h-10 cursor-pointer hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-heading hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px]">
                     <FiArrowUpRight size={22} />
                   </button>
                 </div>
-                <p className="text-body font-display font-normal text-xs md:text-sm mb-4 line-clamp-2">{item.description}</p>
-                <div className="flex flex-wrap gap-4 mb-2">
+                <div className="flex flex-wrap gap-2 mb-2">
                   {item.tags.map((tag, i) => (
-                    <span key={i} className="bg-white border border-divider text-body text-[12px] font-bold px-6 py-2 rounded-full shadow-md">{tag}</span>
+                    <span key={i} className="bg-white border border-divider text-body text-[8px] text-xs font-heading font-bold px-3 py-2 rounded-full shadow-md">{tag}</span>
                   ))}
                 </div>
+                <p className="text-body font-body font-normal text-xs md:text-sm mb-4 line-clamp-2">{item.description}</p>
               </div>
             </div>
             </Reveal>
@@ -81,8 +81,8 @@ export default function OurWork() {
         </div>
         {/* View More Button */}
         <div className="flex justify-center">
-          <button className="bg-primary text-white px-4 py-3 rounded-full text-sm font-display font-bold flex items-center gap-2 shadow-btn hover:shadow-btn-reverse hover:bg-primary/90 transition-colors">
-            View More <FiArrowUpRight size={16} />
+          <button className="bg-transparent cursor-pointer border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-display font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors">
+            View More <FiArrowUpRight size={16} fontWeight={700} />
           </button>
         </div>
       </div>

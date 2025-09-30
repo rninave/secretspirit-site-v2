@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -19,6 +21,7 @@
     --color-border-light: #E5E5E5;
     --color-heading: #131131;
     --color-divider: #E5E5E5;
+    --color-gray-light: #F6F8FE;
     --color-primary-gradiant: linear-gradient(60deg,#FF8C21 13.4%,#FF3D00 86.6%);
 
     /* custom shadows */
@@ -26,6 +29,8 @@
     --shadow-btn-reverse: -2px -2px 0px 0px #545B75;
 
     /* custom fonts */
+    --font-body: 'Space Grotesk', sans-serif;
+    --font-heading: 'Bricolage Grotesque', sans-serif;
     --font-display: 'Plus Jakarta Sans', sans-serif;
 
 }
