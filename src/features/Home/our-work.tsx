@@ -32,7 +32,7 @@ const caseStudies = [
   },
 ];
 
-export default function OurWork() {
+export default function OurWorkSection() {
   return (
     <section className="bg-white py-14 md:py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
@@ -60,7 +60,7 @@ export default function OurWork() {
                   priority={idx < 2}
                 />
               </div>
-              <div className="p-6 flex-1 flex flex-col justify-between">
+              <div className="py-4 flex-1 flex flex-col justify-between">
                 {/* Title and Arrow Row */}
                 <div className="flex items-start justify-between mb-1 gap-2">
                   <h3 className="text-lg md:text-2xl font-bold text-heading font-heading group-hover:text-primary transition-colors mb-0">{item.title}</h3>
@@ -70,7 +70,12 @@ export default function OurWork() {
                 </div>
                 <div className="flex flex-wrap gap-2 mb-2">
                   {item.tags.map((tag, i) => (
-                    <span key={i} className="bg-white border border-divider text-body text-[8px] text-xs font-heading font-bold px-3 py-2 rounded-full shadow-md">{tag}</span>
+                    <span
+                      key={i}
+                      className={`bg-white border border-divider ${i === 0 ? 'text-primary' : 'text-body'} text-[8px] text-xs font-heading font-bold px-3 py-2 rounded-full shadow-md`}
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
                 <p className="text-body font-body font-normal text-xs md:text-sm mb-4 line-clamp-2">{item.description}</p>

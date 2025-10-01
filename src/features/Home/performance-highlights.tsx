@@ -12,7 +12,7 @@ const highlights = [
   { value: 10, label: "Countries we proudly serve" },
 ];
 
-export default function PerformanceHighlights() {
+export default function PerformanceHighlightsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -26,14 +26,14 @@ export default function PerformanceHighlights() {
             variant="dark"
           />
         </Reveal>
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10 lg:gap-16 mt-10 md:mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-10 lg:gap-16 mt-10 md:mt-16">
           {highlights.map((item, idx) => (
             <Reveal key={item.label} delayMs={idx * 80}>
             <div
               key={item.label}
               className="group flex flex-col items-center justify-center text-center"
             >
-              <div className="w-[180px] h-[180px] sm:w-67 sm:h-67 flex items-center justify-center">
+              <div className="flex items-center justify-center">
                 <WobbleCard className="w-[180px] h-[180px] sm:w-67 sm:h-67 rounded-full performance-card border border-white/20 flex flex-col items-center justify-center cursor-pointer">
                   <div className="flex flex-col items-center justify-center h-full px-4">
                     <span className="performance-number text-[40px] md:text-[56px] font-bold tracking-tight mb-3 md:mb-4">

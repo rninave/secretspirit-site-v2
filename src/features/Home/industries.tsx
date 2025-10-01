@@ -38,7 +38,7 @@ export default function IndustriesSection() {
           {industries.map((item) => (
             <span
               key={item}
-              className="text-white/90 border border-white/15 rounded-full px-5 md:px-8 py-2.5 md:py-4 bg-white/[0.03] hover:bg-white/[0.08] transition-colors text-xs md:text-base font-medium"
+              className="text-white/90 border border-white/15 rounded-full px-5 md:px-8 py-2.5 md:py-4 bg-primary-dark hover:bg-white/[0.08] transition-colors text-xs md:text-base font-medium"
             >
               {item}
             </span>

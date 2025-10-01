@@ -1,8 +1,6 @@
 import React from 'react';
 import { SectionHeaderProps } from '@/interface/sectionheader.interface';
 
-
-
 export default function SectionHeader({
   title,
   subtitle = '',

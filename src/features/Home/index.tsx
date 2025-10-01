@@ -1,25 +1,26 @@
-import Hero from "./hero";
-import OurWork from "./our-work";
+import TestimonialsSection from "@/components/common/Testimonials";
+
 import SolutionSection from "./solutions";
-import TrustedBrands from "./trusted-brands";
-import PerformanceHighlights from "./performance-highlights";
 import AwardsSection from "./awards";
 import IndustriesSection from "./industries";
-import Testimonials from "@/components/common/Testimonials";
+import OurWorkSection from "./our-work";
+import PerformanceHighlightsSection from "./performance-highlights";
+import TrustedBrandsSection from "./trusted-brands";
+import HeroSection from "./hero";
 
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <HeroSection />
       <section id="next-section" className="p-0 m-0">
-        <TrustedBrands />
+        <TrustedBrandsSection />
       </section>
-      <OurWork />
+      <OurWorkSection />
       <SolutionSection />
-      <PerformanceHighlights />
+      <PerformanceHighlightsSection />
       <AwardsSection />
       <IndustriesSection />
-      <Testimonials />
+      <TestimonialsSection />
     </>
   );
 }

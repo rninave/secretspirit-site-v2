@@ -37,10 +37,30 @@ const brands = [
     name: 'Real State',
     logo: '/brands/real-state-logo.png',
     alt: 'Compound Real Estate Bonds Logo'
+  },
+  {
+    name: 'Stonners Lifestyle',
+    logo: '/brands/stonners-lifestyle-logo.png',
+    alt: 'Stonners Lifestyle Logo'
+  },
+  {
+    name: 'Barter Voip',
+    logo: '/brands/barter-voip-logo.png',
+    alt: 'Barter Voip Logo'
+  },
+  {
+    name: 'Fre8wise',
+    logo: '/brands/fre-wise-logo.png',
+    alt: 'Fre8wise Logo'
+  },
+  {
+    name: 'Alchelyst',
+    logo: '/brands/alchelyst-logo.png',
+    alt: 'Alchelyst Logo'
   }
 ]
 
-export default function TrustedBrands() {
+export default function TrustedBrandsSection() {
   return (
     <section className="py-6 md:py-10  bg-[#F6F8FE]">
       <div className="max-w-7xl mx-auto px-4">

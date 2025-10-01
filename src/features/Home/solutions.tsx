@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import SectionHeader from '@/components/common/SectionHeader';
 import Reveal from '@/components/common/Reveal';
+import { FiArrowUpRight } from 'react-icons/fi';
 
 const tabs = [
   {
@@ -96,8 +97,8 @@ export default function SolutionSection() {
               <button
                 key={t.value}
                 className={`px-5 md:px-8 py-2.5 md:py-3 rounded-full font-medium font-body text-xs md:text-sm border transition-all duration-200 hover:shadow-btn focus:outline-none ${activeTab === t.value
-                    ? 'bg-primary/10 text-primary border-divider shadow-btn translate-y-0.5'
-                    : 'bg-white text-body hover:text-primary border-divider hover:bg-primary/10'
+                  ? 'bg-primary/10 text-primary border-divider shadow-btn translate-y-0.5'
+                  : 'bg-white text-body hover:text-primary border-divider hover:bg-primary/10'
                   }`}
                 onClick={() => handleTabChange(t.value)}
               >
@@ -107,15 +108,15 @@ export default function SolutionSection() {
           </div>
         </Reveal>
         {/* Card with animation */}
-        <div className="relative min-h-[320px] md:min-h-[358px]">
+        <div className="relative ">
           <Reveal delayMs={100}>
             <div
               key={activeTab}
-              className={`bg-white md:max-h-[358px] rounded-2xl shadow-lg p-6 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-12 mx-auto border border-gray-100 transition-all duration-500 ease-in-out ${animating ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100 translate-y-0'
+              className={`bg-white rounded-2xl shadow-lg p-6 flex flex-col-reverse md:flex-row items-start gap-6 md:gap-12 mx-auto border border-gray-100 transition-all duration-500 ease-in-out ${animating ? 'opacity-0 translate-y-4 pointer-events-none' : 'opacity-100 translate-y-0'
                 }`}
             >
               {/* Left: Text */}
-              <div className="flex-1 min-w-[220px] font-display">
+              <div className="flex-1 min-w-[220px]">
                 <h3 className="text-lg md:text-2xl font-bold font-heading mb-3 md:mb-4 text-black">{tab.title}</h3>
                 <p className="text-body text-sm font-normal font-body mb-4 md:mb-6 max-w-xl">{tab.description}</p>
                 <div className="grid grid-cols-2 sm:grid-cols-2 gap-x-6 gap-y-2">
@@ -125,12 +126,17 @@ export default function SolutionSection() {
                     const iconKey = iconKeys[idx % iconKeys.length];
                     return (
                       <div key={feature + idx} className="flex items-center gap-2 mb-1.5">
-                        <img src={iconsPath[iconKey]} alt="icons" />
+                        <Image src={iconsPath[iconKey]} width={16} height={16} alt="icons" />
                         <span className="font-bold text-black text-xs font-body md:text-sm">{feature}</span>
                       </div>
                     );
                   })}
+
                 </div>
+                {/* View More Button */}
+                <button className="bg-transparent mt-6 cursor-pointer border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-display font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors">
+                  View More <FiArrowUpRight size={16} fontWeight={700} />
+                </button>
               </div>
 
               {/* Right: GIF */}
@@ -139,9 +145,9 @@ export default function SolutionSection() {
                   src={tab.image}
                   alt={tab.title + ' illustration'}
                   width={520}
-                  height={300}
+                  height={320}
                   unoptimized={true}
-                  className="object-contain"
+                  className="object-contain max-h-[320px]"
                   priority
                 />
               </div>

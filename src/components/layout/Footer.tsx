@@ -1,5 +1,6 @@
-import { FiFacebook, FiInstagram, FiLinkedin, FiDribbble, FiSend } from 'react-icons/fi';
-import { FaBehance } from 'react-icons/fa';
+import { FiDribbble } from 'react-icons/fi';
+import { FaBehance, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
+import { AiFillInstagram } from 'react-icons/ai';
 import Image from 'next/image';
 
 const navLinks = [
@@ -16,19 +17,19 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { icon: FiFacebook, href: '#' },
-  { icon: FiInstagram, href: '#' },
-  { icon: FiLinkedin, href: '#' },
+  { icon: FaFacebookF, href: '#' },
+  { icon: AiFillInstagram, href: '#' },
+  { icon: FaLinkedinIn, href: '#' },
   { icon: FaBehance, href: '#' },
   { icon: FiDribbble, href: '#' },
 ];
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-heading font-display text-divider pt-16 pb-8 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-10 md:gap-0">
+    <footer className="w-full border-t-3 border-t-primary bg-heading text-divider pt-16 pb-8 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-4 md:gap-0">
         {/* Left: Heading & Description */}
-        <div className="flex-1 mb-8 md:mb-0 w-full md:w-[60%]">
+        <div className="flex-1 w-full md:w-[60%]">
           <h2 className="text-xl md:text-2xl font-bold mb-4 text-divider font-heading">Curious Minds. Meaningful Outcomes.</h2>
           <p className="text-divider text-[14px] md:text-lg font-normal max-w-sm font-body">
             We are a team of experts who turn ideas into impact. With empathy and insight, we craft meaningful experiences because real solutions begin with the right mindset.
@@ -50,7 +51,7 @@ export default function Footer() {
         </div>
       </div>
       {/* Divider */}
-      <div className="border-t border-[#23235F] my-10" />
+      <div className="border-t border-[#23235F] my-4 md:my-10" />
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row md:items-start gap-10">
         {/* Social Icons */}
         <div className="flex items-center justify-start gap-2 md:gap-6 mb-4 md:mb-0 w-full md:w-[70%]">

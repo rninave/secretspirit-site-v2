@@ -5,7 +5,7 @@ import SectionHeader from '@/components/common/SectionHeader';
 import Reveal from '@/components/common/Reveal';
 
 
-export default function Hero() {
+export default function HeroSection() {
   const words = [
     "User Research",
     "User Experience",
@@ -27,10 +27,10 @@ export default function Hero() {
         {/* Main Headline */}
         <Reveal>
         <h1 className="font-bold font-display mb-2">
-          <span className="text-dark-blue block text-[26px] sm:text-[32px] md:text-[42px] leading-tight break-words">
+          <span className="text-dark-blue block text-[26px] font-heading sm:text-[32px] md:text-[42px] leading-tight break-words">
             Top-notch digital firm for web & mobile apps in
           </span>
-          <span className="text-primary block text-[32px] sm:text-[40px] md:text-[56px] lg:text-[64px] leading-tight break-words">
+          <span className="text-primary block text-[32px] sm:text-[40px] md:text-[56px] font-heading lg:text-[64px] leading-tight break-words">
             <Typewriter
               options={{
                 strings: words,
@@ -44,7 +44,7 @@ export default function Hero() {
 
         {/* Description */}
         <Reveal>
-        <p className="text-[#545B75] text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-3xl mx-auto leading-relaxed font-display mb-4 sm:mb-8 md:mb-12">
+        <p className="text-[#545B75] text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-3xl mx-auto leading-relaxed font-body mb-4 sm:mb-8 md:mb-12">
           We're a creative digital agency specializing in intuitive and visually compelling user interfaces for web and mobile apps. From concept to execution, we help you stand out, engage users, and leave a lasting impression.
         </p>
         </Reveal>

@@ -55,7 +55,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-[9999] bg-white w-full h-[76px] py-4 px-6 border-b border-gray-200">
+    <header className="sticky top-0 z-[9999] bg-white w-full h-[76px] py-4 px-4 md:px-6 border-b border-gray-200">
       <div className="max-w-lg mx-auto w-full flex items-center justify-between">
         <a href="/">
           <Image
@@ -66,7 +66,7 @@ export default function Header() {
           />
         </a>
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8">
           {menuItems.map((item) => (
             <div key={item.label} className="relative">
               {item.dropdown ? (
@@ -117,14 +117,14 @@ export default function Header() {
         </nav>
         {/* Mobile Burger Icon */}
         <button
-          className={`md:hidden flex items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 ${isMobileMenuOpen ? "rotate-90" : "rotate-0"}`}
+          className={`lg:hidden flex items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 ${isMobileMenuOpen ? "rotate-90" : "rotate-0"}`}
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? '' : <img src="/icons/menu-icon.svg" alt="Menu" width={24} height={24} />}
         </button>
         {/* Desktop CTA Button */}
-        <button className="hidden md:flex bg-primary text-white px-4 py-3 rounded-full font-display shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors items-center gap-2">
+        <button className="hidden lg:flex bg-primary text-white px-4 py-3 rounded-full font-display shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors items-center gap-2">
           <span>Let's Talk</span>
           <FiPhoneCall className="text-white" />
         </button>

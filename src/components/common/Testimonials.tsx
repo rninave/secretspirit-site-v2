@@ -43,7 +43,7 @@ const caseStudies = [
         clientLogo: "/testimonials/meruaccounting.png",
     }
 ];
-export default function Testimonials() {
+export default function TestimonialsSection() {
     const prevRef = useRef<HTMLButtonElement>(null);
     const nextRef = useRef<HTMLButtonElement>(null);
 
@@ -85,7 +85,7 @@ export default function Testimonials() {
                         className="pb-4 md:pb-8"
                     >
                         {caseStudies.map((item, idx) => (
-                            <SwiperSlide key={idx} className="flex items-center justify-center p-2 md:p-4">
+                            <SwiperSlide key={idx} className="flex items-center justify-center pr-2">
                                 <CaseStudyCard item={item} />
                             </SwiperSlide>
                         ))}

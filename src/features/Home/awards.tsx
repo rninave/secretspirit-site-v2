@@ -46,11 +46,10 @@ export default function AwardsSection() {
             loop={true}
             autoplay={{ delay: 1800, disableOnInteraction: false }}
             breakpoints={{
-              0: { slidesPerView: 2 },
-              480: { slidesPerView: 3 },
-              768: { slidesPerView: 4 },
+              0: { slidesPerView: 3 },
+              480: { slidesPerView: 4 },
               1024: { slidesPerView: 5 },
-              1280: { slidesPerView: 6 },
+              1230: { slidesPerView: 6 },
             }}
             navigation={{
               prevEl: prevRef.current,
@@ -67,14 +66,14 @@ export default function AwardsSection() {
             className="pb-4 md:pb-8"
           >
             {awards.map((src, idx) => (
-              <SwiperSlide key={src} className="flex items-center justify-center p-3 sm:p-4 md:p-8">
-                <div className="bg-white rounded-xl shadow-md flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer">
+              <SwiperSlide key={src} className="flex items-center justify-center py-2">
+                <div className="bg-white rounded-xl shadow-award-card mr-6 p-7 border border-divider flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image
                     src={src}
                     alt={`Award ${idx + 1}`}
-                    width={110}
-                    height={110}
-                    className="object-contain w-auto h-auto"
+                    width={100}
+                    height={100}
+                    className="object-contain w-auto h-auto max-h-[100px]"
                   />
                 </div>
               </SwiperSlide>
@@ -82,14 +81,14 @@ export default function AwardsSection() {
             {/* Custom Navigation Buttons - hidden on mobile */}
             <button
               ref={prevRef}
-              className="hidden cursor-pointer sm:flex absolute left-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
+              className="hidden cursor-pointer sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
               aria-label="Previous"
             >
               <FiArrowLeft />
             </button>
             <button
               ref={nextRef}
-              className="hidden cursor-pointer sm:flex absolute right-8 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
+              className="hidden cursor-pointer sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
               aria-label="Next"
             >
               <FiArrowRight />
