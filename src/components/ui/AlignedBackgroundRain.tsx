@@ -9,34 +9,42 @@ export const HeroSectionBackground = ({
   className?: string;
   children?: React.ReactNode;
 }) => {
-  const LINE_COUNT = 5;
-  const MIN_DROP_HEIGHT = 20;
-  const MAX_DROP_HEIGHT = 50;
-  const MIN_DURATION = 1.5;
-  const MAX_DURATION = 3.5;
+  const MIN_DROP_HEIGHT = 40;
+  const MAX_DROP_HEIGHT = 90;
+  const MIN_DURATION = 2.5;
+  const MAX_DURATION = 5.5;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = useState(0);
   const [containerHeight, setContainerHeight] = useState(0);
+  const [lineCount, setLineCount] = useState(5); // default 5 lines
 
+  // Update container size & adjust line count based on screen width
   useEffect(() => {
-    if (containerRef.current) {
-      setContainerWidth(containerRef.current.offsetWidth);
-      setContainerHeight(containerRef.current.offsetHeight);
-    }
+    const updateSize = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
+        setContainerHeight(containerRef.current.offsetHeight);
+        // Set 3 lines for mobile (<640px), 5 for larger
+        setLineCount(window.innerWidth < 640 ? 3 : 5);
+      }
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  const positions = Array.from({ length: LINE_COUNT }, (_, i) =>
-    ((i + 1) * containerWidth) / (LINE_COUNT + 1)
+  // Positions in percentage
+  const positions = Array.from({ length: lineCount }, (_, i) =>
+    ((i + 1) * 100) / (lineCount + 1)
   );
 
-  // Random helpers
   const randomHeight = () =>
-    Math.floor(Math.random() * (MAX_DROP_HEIGHT - MIN_DROP_HEIGHT + 10)) +
+    Math.floor(Math.random() * (MAX_DROP_HEIGHT - MIN_DROP_HEIGHT + 1)) +
     MIN_DROP_HEIGHT;
   const randomDuration = () =>
     Math.random() * (MAX_DURATION - MIN_DURATION) + MIN_DURATION;
-  const randomDelay = () => Math.random() * 2; // stagger drop start times
+  const randomDelay = () => Math.random() * 2;
 
   return (
     <div
@@ -48,22 +56,24 @@ export const HeroSectionBackground = ({
         <div
           key={`line-${i}`}
           className="absolute top-0 bottom-0 w-px bg-[#B9B9B999]"
-          style={{ left: `${left}px` }}
+          style={{ left: `${left}%` }}
         />
       ))}
 
-      {/* One drop per line with random start, random duration */}
+      {/* One drop per line */}
       {positions.map((left, i) => {
         const dropHeight = randomHeight();
         return (
           <motion.div
             key={`drop-${i}`}
-            className="absolute bg-[linear-gradient(90deg,rgba(185,185,185,0.2)_30.78%,#535353_100%)] border-b-2 rounded-b-full"
+            className="absolute border-b-2 rounded-b-full"
             style={{
-              left: `${left}px`,
+              left: `${left}%`,
               width: "2px",
               height: `${dropHeight}px`,
               top: -dropHeight,
+              background:
+                "linear-gradient(90deg, rgba(185,185,185,0.2) 30.78%, #535353 100%)",
             }}
             animate={{ translateY: [0, containerHeight + dropHeight] }}
             transition={{
@@ -77,7 +87,7 @@ export const HeroSectionBackground = ({
         );
       })}
 
-      {/* Optional overlay */}
+      {/* Overlay content */}
       <div className="absolute inset-0 flex justify-center items-center z-10">
         {children}
       </div>
