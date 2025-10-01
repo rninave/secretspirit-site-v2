@@ -80,7 +80,7 @@ export default function SolutionSection() {
   };
 
   return (
-    <section className="bg-[#F6F8FE] py-14 md:py-16 px-4">
+    <section className="bg-[#F6F8FE] py-12 md:py-15 px-4">
       <div className="max-w-7xl mx-auto">
         <Reveal>
           <SectionHeader

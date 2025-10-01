@@ -16,7 +16,7 @@ export default function PerformanceHighlightsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="bg-primary-dark py-16 md:py-20 font-display px-4" ref={sectionRef}>
+    <section className="bg-primary-dark py-12 md:py-15 px-4" ref={sectionRef}>
       <div className="max-w-7xl mx-auto">
         <Reveal>
           <SectionHeader

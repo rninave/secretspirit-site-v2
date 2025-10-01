@@ -1,8 +1,8 @@
 'use client'
-import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision"
 import Typewriter from 'typewriter-effect'
 import SectionHeader from '@/components/common/SectionHeader';
 import Reveal from '@/components/common/Reveal';
+import { HeroSectionBackground } from '@/components/ui/AlignedBackgroundRain';
 
 
 export default function HeroSection() {
@@ -13,7 +13,7 @@ export default function HeroSection() {
     "Development"
   ];
   return (
-    <BackgroundBeamsWithCollision className="bg-white h-[90vh] md:h-[85vh] flex items-center">
+    <HeroSectionBackground className="bg-white h-[90vh] md:h-[85vh] flex items-center">
       <div className="relative z-10 text-center max-w-lg md:max-w-4xl lg:max-w-6xl mx-auto px-4 w-full flex flex-col gap-4 sm:gap-6">
         {/* Top Header Text */}
         <Reveal>
@@ -26,7 +26,7 @@ export default function HeroSection() {
 
         {/* Main Headline */}
         <Reveal>
-        <h1 className="font-bold font-display mb-2">
+        <h1 className="font-bold mb-2">
           <span className="text-dark-blue block text-[26px] font-heading sm:text-[32px] md:text-[42px] leading-tight break-words">
             Top-notch digital firm for web & mobile apps in
           </span>
@@ -106,6 +106,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-    </BackgroundBeamsWithCollision>
+    </HeroSectionBackground>
   );
 }

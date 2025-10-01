@@ -4,6 +4,8 @@ import "@/styles/globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Banner from "@/components/layout/banner";
+import TooltipInit from "@/components/common/tooltip";
+
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -35,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plusJakartaSans.variable} antialiased flex flex-col min-h-screen overflow-x-hidden bg-white`}>
+        <TooltipInit />
         <Banner />
         <Header />
         <main className="flex-1 flex flex-col">{children}</main>

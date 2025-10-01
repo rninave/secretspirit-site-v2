@@ -34,7 +34,7 @@ const caseStudies = [
 
 export default function OurWorkSection() {
   return (
-    <section className="bg-white py-14 md:py-16 px-4 md:px-8">
+    <section className="bg-white py-12 md:py-15 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <Reveal>
@@ -72,7 +72,7 @@ export default function OurWorkSection() {
                   {item.tags.map((tag, i) => (
                     <span
                       key={i}
-                      className={`bg-white border border-divider ${i === 0 ? 'text-primary' : 'text-body'} text-[8px] text-xs font-heading font-bold px-3 py-2 rounded-full shadow-md`}
+                      className={`bg-white border border-divider ${i === 0 ? 'text-primary' : 'text-body'} text-[8px] md:text-xs font-heading font-bold px-3 py-2 rounded-full shadow-md`}
                     >
                       {tag}
                     </span>

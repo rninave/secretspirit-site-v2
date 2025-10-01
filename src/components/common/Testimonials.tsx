@@ -82,10 +82,9 @@ export default function TestimonialsSection() {
                             swiper.navigation.init();
                             swiper.navigation.update();
                         }}
-                        className="pb-4 md:pb-8"
                     >
                         {caseStudies.map((item, idx) => (
-                            <SwiperSlide key={idx} className="flex items-center justify-center pr-2">
+                            <SwiperSlide key={idx} className="flex items-center justify-center pb-4 pr-2">
                                 <CaseStudyCard item={item} />
                             </SwiperSlide>
                         ))}

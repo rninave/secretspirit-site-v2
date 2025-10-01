@@ -62,7 +62,7 @@ const brands = [
 
 export default function TrustedBrandsSection() {
   return (
-    <section className="py-6 md:py-10  bg-[#F6F8FE]">
+    <section className="py-12 md:py-15  bg-[#F6F8FE]">
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Title with lines */}
         <Reveal>

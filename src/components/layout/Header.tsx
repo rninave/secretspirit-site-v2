@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
-import { FiPhoneCall, FiChevronDown, FiMenu, FiX } from "react-icons/fi";
+import { FiPhoneCall, FiChevronDown, FiX } from "react-icons/fi";
 import { useState, useRef, useEffect } from "react";
 import { MenuItem, MenuItemDropdown } from "@/interface/header.interface";
+import { usePathname } from "next/navigation";
 
 const menuItems: MenuItem[] = [
   {
@@ -54,6 +55,7 @@ export default function Header() {
     setOpenDropdown(openDropdown === label ? null : label);
   };
 
+  const pathname = usePathname();
   return (
     <header className="sticky top-0 z-[9999] bg-white w-full h-[76px] py-4 px-4 md:px-6 border-b border-gray-200">
       <div className="max-w-lg mx-auto w-full flex items-center justify-between">
@@ -67,53 +69,61 @@ export default function Header() {
         </a>
         {/* Desktop Menu */}
         <nav className="hidden lg:flex items-center gap-8">
-          {menuItems.map((item) => (
-            <div key={item.label} className="relative">
-              {item.dropdown ? (
-                <div
-                  ref={(el) => {
-                    dropdownRefs.current[item.label] = el;
-                  }}
-                >
-                  <button
-                    className="text-body text-[14px] hover:text-primary hover:cursor-pointer font-display font-medium flex items-center gap-1"
-                    onClick={() => handleDropdownClick(item.label)}
+          {menuItems.map((item) => {
+            // Determine if this link is active
+            const isActive = item.href === pathname || (item.dropdown && item.dropdown.some((d) => d.href === pathname));
+            return (
+              <div key={item.label} className="relative flex flex-col items-center">
+                {item.dropdown ? (
+                  <div
+                    ref={(el) => {
+                      dropdownRefs.current[item.label] = el;
+                    }}
+                  >
+                    <button
+                      className={`text-body text-[14px] hover:text-primary hover:cursor-pointer font-body font-medium flex items-center gap-1 ${isActive ? 'text-primary font-bold' : ''}`}
+                      onClick={() => handleDropdownClick(item.label)}
+                    >
+                      {item.label}
+                      <FiChevronDown
+                        className={`text-xs transition-transform duration-300 ${openDropdown === item.label ? "rotate-180" : ""
+                          }`}
+                      />
+                    </button>
+                    {isActive && (
+                      <span className="block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full"></span>
+                    )}
+                    <div
+                      className={`absolute top-full left-0 bg-white rounded-lg mt-2 shadow-lg border border-gray-100 min-w-[200px] z-50 transition-all duration-300 ease-in-out transform origin-top ${openDropdown === item.label
+                          ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
+                          : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
+                        }`}
+                    >
+                      {item.dropdown.map((dropdownItem: MenuItemDropdown) => (
+                        <a
+                          key={dropdownItem.label}
+                          href={dropdownItem.href}
+                          className="block px-4 py-2 text-body hover:bg-primary-light hover:text-primary font-body text-sm transition-colors duration-200"
+                        >
+                          {dropdownItem.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    href={item.href}
+                    className={`text-body text-[14px] hover:text-primary font-body font-medium flex flex-col items-center ${isActive ? 'text-primary font-bold' : ''}`}
                   >
                     {item.label}
-                    <FiChevronDown
-                      className={`text-xs transition-transform duration-300 ${
-                        openDropdown === item.label ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  <div
-                    className={`absolute top-full left-0 bg-white rounded-lg mt-2 shadow-lg border border-gray-100 min-w-[200px] z-50 transition-all duration-300 ease-in-out transform origin-top ${
-                      openDropdown === item.label
-                        ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
-                        : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
-                    }`}
-                  >
-                    {item.dropdown.map((dropdownItem: MenuItemDropdown) => (
-                      <a
-                        key={dropdownItem.label}
-                        href={dropdownItem.href}
-                        className="block px-4 py-2 text-body hover:bg-primary-light hover:text-primary font-display text-sm transition-colors duration-200"
-                      >
-                        {dropdownItem.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              ) : (
-                <a
-                  href={item.href}
-                  className="text-body text-[14px] hover:text-primary font-display font-medium"
-                >
-                  {item.label}
-                </a>
-              )}
-            </div>
-          ))}
+                    {isActive && (
+                      <span className="block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full"></span>
+                    )}
+                  </a>
+                )}
+              </div>
+            );
+          })}
         </nav>
         {/* Mobile Burger Icon */}
         <button
@@ -124,14 +134,14 @@ export default function Header() {
           {isMobileMenuOpen ? '' : <img src="/icons/menu-icon.svg" alt="Menu" width={24} height={24} />}
         </button>
         {/* Desktop CTA Button */}
-        <button className="hidden lg:flex bg-primary text-white px-4 py-3 rounded-full font-display shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors items-center gap-2">
+        <button className="hidden cursor-pointer lg:flex bg-primary text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2">
           <span>Let's Talk</span>
           <FiPhoneCall className="text-white" />
         </button>
       </div>
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`mdhidden fixed inset-0 z-50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         style={{ transitionProperty: 'opacity' }}
         onClick={() => {
           setIsMobileMenuOpen(false);
@@ -154,56 +164,61 @@ export default function Header() {
           >
             <FiX />
           </button>
-          <nav className="flex flex-col gap-4 mt-8">
-            {menuItems.map((item) => (
-              <div key={item.label} className="relative">
-                {item.dropdown ? (
-                  <div>
-                    <button
-                      className="w-full flex justify-between items-center text-body text-[16px] font-display font-medium gap-1 py-2"
-                      onClick={() => setOpenMobileDropdown(openMobileDropdown === item.label ? null : item.label)}
+          <nav className="flex flex-col gap-4 ">
+            {menuItems.map((item) => {
+              // Determine if this link is active
+              const isActive = item.href === pathname || (item.dropdown && item.dropdown.some((d) => d.href === pathname));
+              return (
+                <div key={item.label} className="relative">
+                  {item.dropdown ? (
+                    <div>
+                      <button
+                        className="w-full flex justify-between items-center text-body text-[16px] font-body font-medium gap-1 py-2"
+                        onClick={() => setOpenMobileDropdown(openMobileDropdown === item.label ? null : item.label)}
+                      >
+                        <span className={isActive ? "text-primary" : ""}>{item.label}</span>
+                        <FiChevronDown
+                          className={`text-xs transition-transform duration-300 ${openMobileDropdown === item.label ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                      {openMobileDropdown === item.label && (
+                        <div className="pl-4 flex flex-col gap-1">
+                          {item.dropdown.map((dropdownItem: MenuItemDropdown) => {
+                            const isDropdownActive = dropdownItem.href === pathname;
+                            return (
+                              <a
+                                key={dropdownItem.label}
+                                href={dropdownItem.href}
+                                className={`block px-2 py-1 text-body font-body text-sm transition-colors duration-200 ${isDropdownActive ? "text-primary" : "hover:bg-primary-light hover:text-primary"}`}
+                                onClick={() => {
+                                  setIsMobileMenuOpen(false);
+                                  setOpenMobileDropdown(null);
+                                }}
+                              >
+                                {dropdownItem.label}
+                              </a>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className={`block text-body text-[16px] font-body font-medium py-2 ${isActive ? "text-primary" : ""}`}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setOpenMobileDropdown(null);
+                      }}
                     >
-                      <span>{item.label}</span>
-                      <FiChevronDown
-                        className={`text-xs transition-transform duration-300 ${
-                          openMobileDropdown === item.label ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                    {openMobileDropdown === item.label && (
-                      <div className="pl-4 flex flex-col gap-1">
-                        {item.dropdown.map((dropdownItem: MenuItemDropdown) => (
-                          <a
-                            key={dropdownItem.label}
-                            href={dropdownItem.href}
-                            className="block px-2 py-1 text-body hover:bg-primary-light hover:text-primary font-display text-sm transition-colors duration-200"
-                            onClick={() => {
-                              setIsMobileMenuOpen(false);
-                              setOpenMobileDropdown(null);
-                            }}
-                          >
-                            {dropdownItem.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <a
-                    href={item.href}
-                    className="block text-body text-[16px] font-display font-medium py-2"
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      setOpenMobileDropdown(null);
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                )}
-              </div>
-            ))}
+                      {item.label}
+                    </a>
+                  )}
+                </div>
+              );
+            })}
           </nav>
-          <button className="bg-primary  text-white px-4 py-3 rounded-full font-display shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors flex flex-row-reverse items-center gap-2 mt-4 w-full justify-between">
+          <button className="bg-primary cursor-pointer  text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors flex flex-row-reverse items-center gap-2 mt-4 w-full justify-between">
             <FiPhoneCall className="text-white ml-2" />
             <span>Let's Talk</span>
           </button>

@@ -28,7 +28,7 @@ export default function AwardsSection() {
   const nextRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <section className="bg-white py-14 md:py-16 px-4">
+    <section className="bg-white py-12 md:py-15 px-4">
       <div className="max-w-7xl mx-auto">
         <Reveal>
           <SectionHeader
@@ -66,8 +66,8 @@ export default function AwardsSection() {
             className="pb-4 md:pb-8"
           >
             {awards.map((src, idx) => (
-              <SwiperSlide key={src} className="flex items-center justify-center py-2">
-                <div className="bg-white rounded-xl shadow-award-card mr-6 p-7 border border-divider flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 hover:scale-105 cursor-pointer">
+              <SwiperSlide key={src} className="flex items-center justify-center pt-2 pb-5">
+                <div className="bg-white rounded-xl shadow-award-card hover:shadow-lg mr-6 p-7 border border-divider flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 hover:scale-105 cursor-pointer">
                   <Image
                     src={src}
                     alt={`Award ${idx + 1}`}

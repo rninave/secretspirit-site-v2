@@ -22,7 +22,7 @@ const industries = [
 
 export default function IndustriesSection() {
   return (
-    <section className="bg-primary-dark py-16 md:py-20 px-4">
+    <section className="bg-primary-dark py-12 md:py-15 px-4">
       <div className="max-w-7xl mx-auto">
         <Reveal>
           <SectionHeader
@@ -38,7 +38,7 @@ export default function IndustriesSection() {
           {industries.map((item) => (
             <span
               key={item}
-              className="text-white/90 border border-white/15 rounded-full px-5 md:px-8 py-2.5 md:py-4 bg-primary-dark hover:bg-white/[0.08] transition-colors text-xs md:text-base font-medium"
+              className="text-white/90 border border-white/15 rounded-full px-9 py-4 bg-primary-dark hover:bg-white/[0.08] transition-colors text-sm md:text-base font-medium"
             >
               {item}
             </span>

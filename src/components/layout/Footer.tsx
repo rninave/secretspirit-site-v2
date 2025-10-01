@@ -17,11 +17,11 @@ const navLinks = [
 ];
 
 const socialLinks = [
-  { icon: FaFacebookF, href: '#' },
-  { icon: AiFillInstagram, href: '#' },
-  { icon: FaLinkedinIn, href: '#' },
-  { icon: FaBehance, href: '#' },
-  { icon: FiDribbble, href: '#' },
+  { icon: FaFacebookF, href: '#', name: 'Facebook' },
+  { icon: AiFillInstagram, href: '#', name: 'Instagram' },
+  { icon: FaLinkedinIn, href: '#', name: 'LinkedIn' },
+  { icon: FaBehance, href: '#', name: 'Behance' },
+  { icon: FiDribbble, href: '#', name: 'Dribbble' },
 ];
 
 export default function Footer() {
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
       </div>
       {/* Divider */}
-      <div className="border-t border-[#23235F] my-4 md:my-10" />
+      <div className="border-t max-w-7xl mx-auto border-[#FFFFFF29] my-4 md:my-10" />
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row md:items-start gap-10">
         {/* Social Icons */}
         <div className="flex items-center justify-start gap-2 md:gap-6 mb-4 md:mb-0 w-full md:w-[70%]">
@@ -61,12 +61,15 @@ export default function Footer() {
               href={s.href}
               className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
               target="_blank"
+              data-tooltip-id="dark-tooltip"
+              data-tooltip-content={s.name}
               rel="noopener noreferrer"
             >
               <s.icon className="w-[18px] h-[18px] lg:w-[24px] lg:h-[24px]" />
             </a>
           ))}
-          <a href="#" className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg">
+          <a href="#" data-tooltip-id="dark-tooltip"
+              data-tooltip-content="Clutch" className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg">
             <Image src="/icons/clutch-icon.svg" alt="Send" width={18} height={18} className="lg:w-[24px] lg:h-[24px] w-[18px] h-[18px]" />
           </a>
         </div>

@@ -4,38 +4,39 @@
 @import "tailwindcss";
 
 @theme {
-    /* custom container for different screen sizes */
-    --container-hd: 1440px;
-    --container-xl: 1320px;
-    --container-lg: 1200px;
-    --container-md: 992px;
-    --container-sm: 768px;
-    --container-xs: 576px;
-    --container-xxs: 480px;
+  --breakpoint-c-lg: 1240px;
 
-    --breakpoint-c-lg: 1020px;
+  /* custom container for different screen sizes */
+  --container-hd: 1440px;
+  --container-xl: 1320px;
+  --container-lg: 1200px;
+  --container-md: 992px;
+  --container-sm: 768px;
+  --container-xs: 576px;
+  --container-xxs: 480px;
 
-    /* custom colors */
-    --color-primary: #FF3D00;
-    --color-body: #545B75;
-    --color-primary-dark: #0B0A1D;
-    --color-body-dark: #131131;
-    --color-primary-light: #FF3D0014;
-    --color-border-light: #E5E5E5;
-    --color-heading: #131131;
-    --color-divider: #E5E5E5;
-    --color-gray-light: #F6F8FE;
-    --color-primary-gradiant: linear-gradient(60deg,#FF8C21 13.4%,#FF3D00 86.6%);
 
-    /* custom shadows */
-    --shadow-btn: 2px 2px 0px 0px #545B75;
-    --shadow-btn-reverse: -2px -2px 0px 0px #545B75;
-    --shadow-award-card: 0px 4px 12px 0px #FFEAE41F;
+  /* custom colors */
+  --color-primary: #FF3D00;
+  --color-body: #545B75;
+  --color-primary-dark: #0B0A1D;
+  --color-body-dark: #131131;
+  --color-primary-light: #FF3D0014;
+  --color-border-light: #E5E5E5;
+  --color-heading: #131131;
+  --color-divider: #E5E5E5;
+  --color-gray-light: #F6F8FE;
+  --color-primary-gradiant: linear-gradient(60deg, #FF8C21 13.4%, #FF3D00 86.6%);
 
-    /* custom fonts */
-    --font-body: 'Space Grotesk', sans-serif;
-    --font-heading: 'Bricolage Grotesque', sans-serif;
-    --font-display: 'Plus Jakarta Sans', sans-serif;
+  /* custom shadows */
+  --shadow-btn: 2px 2px 0px 0px #545B75;
+  --shadow-btn-reverse: -2px -2px 0px 0px #545B75;
+  --shadow-award-card: 0px 4px 12px 0px #FFEAE41F;
+
+  /* custom fonts */
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-heading: 'Bricolage Grotesque', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
 
 }
 
@@ -44,6 +45,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -78,6 +80,8 @@
 }
 
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
