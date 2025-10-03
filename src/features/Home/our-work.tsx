@@ -60,15 +60,15 @@ export default function OurWorkSection() {
                   priority={idx < 2}
                 />
               </div>
-              <div className="py-4 flex-1 flex flex-col justify-between">
+              <div className="pt-4 gap-4 flex-1 flex flex-col justify-between">
                 {/* Title and Arrow Row */}
-                <div className="flex items-start justify-between mb-1 gap-2">
+                <div className="flex items-start justify-between">
                   <h3 className="text-lg md:text-2xl font-bold text-heading font-heading group-hover:text-primary transition-colors mb-0">{item.title}</h3>
                   <button className="w-10 h-10 cursor-pointer hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-heading hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px]">
                     <FiArrowUpRight size={22} />
                   </button>
                 </div>
-                <div className="flex flex-wrap gap-2 mb-2">
+                <div className="flex flex-wrap gap-2">
                   {item.tags.map((tag, i) => (
                     <span
                       key={i}
@@ -78,7 +78,7 @@ export default function OurWorkSection() {
                     </span>
                   ))}
                 </div>
-                <p className="text-body font-body font-normal text-xs md:text-sm mb-4 line-clamp-2">{item.description}</p>
+                <p className="text-body font-body leading-6 font-normal text-xs md:text-sm mb-4 line-clamp-2">{item.description}</p>
               </div>
             </div>
             </Reveal>
@@ -86,7 +86,7 @@ export default function OurWorkSection() {
         </div>
         {/* View More Button */}
         <div className="flex justify-center">
-          <button className="bg-transparent cursor-pointer border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-display font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors">
+          <button className="bg-transparent cursor-pointer font-heading border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors">
             View More <FiArrowUpRight size={16} fontWeight={700} />
           </button>
         </div>

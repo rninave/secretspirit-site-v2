@@ -9,8 +9,8 @@ const industries = [
   'Retail',
   'Real Estate',
   'Logistics',
-  'Travel',
   'Media & News',
+  'Travel',
   'SaaS Products',
   'Manufacturing',
   'Government',
@@ -23,7 +23,7 @@ const industries = [
 export default function IndustriesSection() {
   return (
     <section className="bg-primary-dark py-12 md:py-15 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <Reveal>
           <SectionHeader
             subtitle="Domain Expertise"
@@ -34,11 +34,11 @@ export default function IndustriesSection() {
           />
         </Reveal>
         <Reveal delayMs={80}>
-        <div className="font-display flex flex-wrap justify-center gap-3 md:gap-6">
+        <div className="font-body flex flex-wrap justify-center gap-3 md:gap-6">
           {industries.map((item) => (
             <span
               key={item}
-              className="text-white/90 border border-white/15 rounded-full px-9 py-4 bg-primary-dark hover:bg-white/[0.08] transition-colors text-sm md:text-base font-medium"
+              className="text-white/90 max-sm:w-[47%] text-nowrap text-center border border-white/15 rounded-full px-9 py-4 bg-primary-dark hover:bg-white/[0.08] transition-colors text-sm md:text-base font-medium"
             >
               {item}
             </span>

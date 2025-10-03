@@ -26,7 +26,7 @@ export default function PerformanceHighlightsSection() {
             variant="dark"
           />
         </Reveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-10 lg:gap-16 mt-10 md:mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-10 lg:gap-16 mt-8 md:mt-10">
           {highlights.map((item, idx) => (
             <Reveal key={item.label} delayMs={idx * 80}>
             <div

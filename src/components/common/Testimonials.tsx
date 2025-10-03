@@ -66,7 +66,11 @@ export default function TestimonialsSection() {
                         spaceBetween={16}
                         slidesPerView={1}
                         loop={true}
-                        autoplay={{ delay: 3500, disableOnInteraction: false }}
+                        autoplay={{
+                            delay: 2000,
+                            disableOnInteraction: false, // keep autoplay alive even if user interacts
+                            pauseOnMouseEnter: true,     // 👈 this pauses autoplay on hover
+                        }}
                         breakpoints={{
                             940: { slidesPerView: 2 },
                         }}
@@ -91,14 +95,14 @@ export default function TestimonialsSection() {
                         {/* Custom Navigation Buttons - hidden on mobile */}
                         <button
                             ref={prevRef}
-                            className="hidden cursor-pointer sm:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
+                            className=" cursor-pointer flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
                             aria-label="Previous"
                         >
-                            <FiArrowLeft />
+                            <FiArrowLeft className="text-center" />
                         </button>
                         <button
                             ref={nextRef}
-                            className="hidden cursor-pointer sm:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
+                            className=" cursor-pointer flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
                             aria-label="Next"
                         >
                             <FiArrowRight />

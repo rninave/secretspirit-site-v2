@@ -58,7 +58,7 @@ export default function Header() {
   const pathname = usePathname();
   return (
     <header className="sticky top-0 z-[9999] bg-white w-full h-[76px] py-4 px-4 md:px-6 border-b border-gray-200">
-      <div className="max-w-lg mx-auto w-full flex items-center justify-between">
+      <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
         <a href="/">
           <Image
             src="/main-logo.png"
@@ -73,7 +73,7 @@ export default function Header() {
             // Determine if this link is active
             const isActive = item.href === pathname || (item.dropdown && item.dropdown.some((d) => d.href === pathname));
             return (
-              <div key={item.label} className="relative flex flex-col items-center">
+              <div key={item.label} className="relative flex flex-col items-center group">
                 {item.dropdown ? (
                   <div
                     ref={(el) => {
@@ -86,17 +86,16 @@ export default function Header() {
                     >
                       {item.label}
                       <FiChevronDown
-                        className={`text-xs transition-transform duration-300 ${openDropdown === item.label ? "rotate-180" : ""
-                          }`}
+                        className={`text-xs transition-transform duration-300 ${openDropdown === item.label ? "rotate-180" : ""}`}
                       />
                     </button>
-                    {isActive && (
-                      <span className="block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full"></span>
-                    )}
+                    <span
+                      className={`block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                    ></span>
                     <div
                       className={`absolute top-full left-0 bg-white rounded-lg mt-2 shadow-lg border border-gray-100 min-w-[200px] z-50 transition-all duration-300 ease-in-out transform origin-top ${openDropdown === item.label
-                          ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
-                          : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
+                        ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
                         }`}
                     >
                       {item.dropdown.map((dropdownItem: MenuItemDropdown) => (
@@ -116,9 +115,9 @@ export default function Header() {
                     className={`text-body text-[14px] hover:text-primary font-body font-medium flex flex-col items-center ${isActive ? 'text-primary font-bold' : ''}`}
                   >
                     {item.label}
-                    {isActive && (
-                      <span className="block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full"></span>
-                    )}
+                    <span
+                      className={`block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                    ></span>
                   </a>
                 )}
               </div>
@@ -127,7 +126,7 @@ export default function Header() {
         </nav>
         {/* Mobile Burger Icon */}
         <button
-          className={`lg:hidden flex items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 ${isMobileMenuOpen ? "rotate-90" : "rotate-0"}`}
+          className={`lg:hidden flex cursor-pointer hover:bg-primary/30 items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 ${isMobileMenuOpen ? "rotate-90" : "rotate-0"}`}
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
@@ -155,7 +154,7 @@ export default function Header() {
         >
           {/* Close icon inside sidebar */}
           <button
-            className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-800 focus:outline-none md:hidden"
+            className="absolute cursor-pointer top-4 right-4 text-2xl text-gray-500 hover:text-gray-800 focus:outline-none md:hidden"
             onClick={() => {
               setIsMobileMenuOpen(false);
               setOpenMobileDropdown(null);
@@ -164,39 +163,45 @@ export default function Header() {
           >
             <FiX />
           </button>
-          <nav className="flex flex-col gap-4 ">
+          <nav className="flex flex-col gap-2 ">
             {menuItems.map((item) => {
-              // Determine if this link is active
               const isActive = item.href === pathname || (item.dropdown && item.dropdown.some((d) => d.href === pathname));
               return (
-                <div key={item.label} className="relative">
+                <div key={item.label} className="relative flex flex-col items-start group">
                   {item.dropdown ? (
-                    <div>
+                    <div className="w-full" >
                       <button
-                        className="w-full flex justify-between items-center text-body text-[16px] font-body font-medium gap-1 py-2"
+                        className="w-full flex cursor-pointer justify-between items-center text-body text-[16px] font-body font-medium gap-1 py-2 group"
                         onClick={() => setOpenMobileDropdown(openMobileDropdown === item.label ? null : item.label)}
                       >
-                        <span className={isActive ? "text-primary" : ""}>{item.label}</span>
+                        <span className={`${isActive ? "text-primary" : ""} group-hover:text-primary`}>{item.label}</span>
                         <FiChevronDown
-                          className={`text-xs transition-transform duration-300 ${openMobileDropdown === item.label ? "rotate-180" : ""}`}
+                          className={`text-xs ${isActive ? "text-primary" : ""} group-hover:text-primary transition-transform duration-300 ${openMobileDropdown === item.label ? "rotate-180" : ""}`}
                         />
                       </button>
+                      <span
+                        className={`block w-6 h-[2px] bg-primary absolute -top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                      ></span>
                       {openMobileDropdown === item.label && (
                         <div className="pl-4 flex flex-col gap-1">
                           {item.dropdown.map((dropdownItem: MenuItemDropdown) => {
                             const isDropdownActive = dropdownItem.href === pathname;
                             return (
-                              <a
-                                key={dropdownItem.label}
-                                href={dropdownItem.href}
-                                className={`block px-2 py-1 text-body font-body text-sm transition-colors duration-200 ${isDropdownActive ? "text-primary" : "hover:bg-primary-light hover:text-primary"}`}
-                                onClick={() => {
-                                  setIsMobileMenuOpen(false);
-                                  setOpenMobileDropdown(null);
-                                }}
-                              >
-                                {dropdownItem.label}
-                              </a>
+                              <div key={dropdownItem.label} className="relative">
+                                <a
+                                  href={dropdownItem.href}
+                                  className={`block px-2 py-1 text-body font-body text-sm transition-colors duration-200 ${isDropdownActive ? "text-primary" : "hover:text-primary hover:bg-primary-light"}`}
+                                  onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    setOpenMobileDropdown(null);
+                                  }}
+                                >
+                                  {dropdownItem.label}
+                                </a>
+                                <span
+                                  className={`block w-6 h-[2px] bg-primary absolute -top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isDropdownActive ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}
+                                ></span>
+                              </div>
                             );
                           })}
                         </div>
@@ -205,13 +210,16 @@ export default function Header() {
                   ) : (
                     <a
                       href={item.href}
-                      className={`block text-body text-[16px] font-body font-medium py-2 ${isActive ? "text-primary" : ""}`}
+                      className={`block text-body text-[16px] font-body font-medium py-2 group ${isActive ? "text-primary" : ""} group-hover:text-primary`}
                       onClick={() => {
                         setIsMobileMenuOpen(false);
                         setOpenMobileDropdown(null);
                       }}
                     >
                       {item.label}
+                      <span
+                        className={`block w-6 h-[2px] bg-primary absolute -top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                      ></span>
                     </a>
                   )}
                 </div>

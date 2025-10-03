@@ -6,17 +6,17 @@ export default function CaseStudyCard({ item }: any) {
             {/* Quote icon */}
             <div className="absolute top-0 left-6">
                 <div className="px-2 py-4 rounded-b-full bg-gray-light shadow-btn">
-                    <Image src="/icons/quotes-icon.svg" alt="Quote icon" width={24} height={24} />
+                    <Image src="/icons/quotes-icon.svg" alt="Quote icon" className="w-auto h-auto" width={24} height={24} style={{ width: 'auto', height: 'auto' }} />
                 </div>
             </div>
             {/* Testimonial text */}
-            <p className="text-lg text-body font-medium mt-10 leading-relaxed font-body">
+            <p className="text-lg text-body font-normal mt-10 leading-7 font-body">
                 {item.description}
             </p>
             {/* Client name and logo */}
             <div className="flex items-center justify-between mt-auto pt-4">
                 <span className="font-bold text-lg text-heading font-heading">{item.clientName}</span>
-                <Image src={item.clientLogo} alt={item.clientName + ' logo'} className="object-cover" width={90} height={90} />
+                <Image src={item.clientLogo} alt={item.clientName + ' logo'} className="object-cover w-auto h-auto" width={90} height={90} style={{ width: 'auto', height: 'auto' }} />
             </div>
         </div>
     );

@@ -15,12 +15,12 @@ const brands = [
   },
   {
     name: 'Kanso Cloud',
-    logo: '/brands/kansocloud-logo.png',
+    logo: '/brands/kanso-cloud.png',
     alt: 'Kanso Cloud Logo'
   },
   {
     name: 'Eats Fresh',
-    logo: '/brands/eats-fresh-logo.png',
+    logo: '/brands/eats-fresh.png',
     alt: 'Eats Fresh Logo'
   },
   {
@@ -30,7 +30,7 @@ const brands = [
   },
   {
     name: 'Sphurit',
-    logo: '/brands/sphurit-logo.png',
+    logo: '/brands/sphurit.png',
     alt: 'Sphurit Logo'
   },
   {
@@ -50,12 +50,12 @@ const brands = [
   },
   {
     name: 'Fre8wise',
-    logo: '/brands/fre-wise-logo.png',
+    logo: '/brands/fre-wise.png',
     alt: 'Fre8wise Logo'
   },
   {
     name: 'Alchelyst',
-    logo: '/brands/alchelyst-logo.png',
+    logo: '/brands/alchelyst.png',
     alt: 'Alchelyst Logo'
   }
 ]
@@ -78,9 +78,13 @@ export default function TrustedBrandsSection() {
           modules={[Autoplay]}
           spaceBetween={24}
           loop={true}
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false, // keep autoplay alive even if user interacts
+            pauseOnMouseEnter: true,     // 👈 this pauses autoplay on hover
+          }}
           breakpoints={{
-            0: { slidesPerView: 3 },
+            0: { slidesPerView: 2 },
             640: { slidesPerView: 4 },
             1024: { slidesPerView: 5 },
             1280: { slidesPerView: 6 },

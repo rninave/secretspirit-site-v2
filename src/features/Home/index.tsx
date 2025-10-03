@@ -4,7 +4,7 @@ import SolutionSection from "./solutions";
 import AwardsSection from "./awards";
 import IndustriesSection from "./industries";
 import OurWorkSection from "./our-work";
-import PerformanceHighlightsSection from "./performance-highlights";
+import PerformanceHighlightsSection from "../../components/common/performance-highlights";
 import TrustedBrandsSection from "./trusted-brands";
 import HeroSection from "./hero";
 

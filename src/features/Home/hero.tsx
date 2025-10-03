@@ -13,7 +13,7 @@ export default function HeroSection() {
     "Development"
   ];
   return (
-    <HeroSectionBackground className="bg-white h-[90vh] md:h-[85vh] flex items-center">
+    <HeroSectionBackground className="bg-white max-w-7xl mx-auto flex items-center relative">
       <div className="relative z-10 text-center max-w-lg md:max-w-4xl lg:max-w-6xl mx-auto px-4 w-full flex flex-col gap-4 sm:gap-6">
         {/* Top Header Text */}
         <Reveal>
@@ -44,7 +44,7 @@ export default function HeroSection() {
 
         {/* Description */}
         <Reveal>
-        <p className="text-[#545B75] text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-3xl mx-auto leading-relaxed font-body mb-4 sm:mb-8 md:mb-12">
+        <p className="text-[#545B75] text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-3xl mx-auto font-medium leading-[30px] font-body mb-4 sm:mb-8 md:mb-12">
           We're a creative digital agency specializing in intuitive and visually compelling user interfaces for web and mobile apps. From concept to execution, we help you stand out, engage users, and leave a lasting impression.
         </p>
         </Reveal>
@@ -53,7 +53,7 @@ export default function HeroSection() {
       <div className="tp-scroll-down absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center w-full">
         <a
           href="#next-section"
-          className="scroll-wrap border-1 w-10 sm:w-[40px] gap-2 sm:gap-3 border-dashed border-border-light py-2 sm:py-4 rounded-[50px] flex flex-col items-center group focus:outline-none bg-white/80 backdrop-blur-sm transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-lg hover:bg-white/90"
+          className="scroll-wrap border-1 w-10 sm:w-[40px] max-sm:pt-[18px] gap-2 sm:gap-3 border-dashed border-border-light py-2 sm:py-4 rounded-[50px] flex flex-col items-center group focus:outline-none bg-white/80 backdrop-blur-sm transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-lg hover:bg-white/90"
           aria-label="Scroll to next section"
           onClick={e => {
             e.preventDefault();

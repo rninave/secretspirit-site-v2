@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Space_Grotesk, Bricolage_Grotesque  } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -7,9 +7,15 @@ import Banner from "@/components/layout/banner";
 import TooltipInit from "@/components/common/tooltip";
 
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+  const spaceGrotesk = Space_Grotesk({
+    subsets: ["latin"],
+    variable: "--font-space-grotesk ",
+    weight: ["300", "400", "500", "600", "700"],
+  });
+
+const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-plus-jakarta-sans",
+  variable: "--font-bricolage-grotesque",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
@@ -36,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusJakartaSans.variable} antialiased flex flex-col min-h-screen overflow-x-hidden bg-white`}>
+      <body className={`${spaceGrotesk.variable} ${bricolageGrotesque.variable} antialiased flex flex-col min-h-screen overflow-x-hidden bg-white`}>
         <TooltipInit />
         <Banner />
         <Header />

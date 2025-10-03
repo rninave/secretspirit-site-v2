@@ -18,6 +18,7 @@ export const HeroSectionBackground = ({
   const [containerWidth, setContainerWidth] = useState(0);
   const [containerHeight, setContainerHeight] = useState(0);
   const [lineCount, setLineCount] = useState(5); // default 5 lines
+  const [mounted, setMounted] = useState(false);
 
   // Update container size & adjust line count based on screen width
   useEffect(() => {
@@ -34,44 +35,53 @@ export const HeroSectionBackground = ({
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  // Positions in percentage
+  // mark as mounted so we only render the animated/randomized drops on the client
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Positions in percentage (keep as numbers, but format when used to avoid float formatting differences)
   const positions = Array.from({ length: lineCount }, (_, i) =>
     ((i + 1) * 100) / (lineCount + 1)
   );
 
-  const randomHeight = () =>
-    Math.floor(Math.random() * (MAX_DROP_HEIGHT - MIN_DROP_HEIGHT + 1)) +
-    MIN_DROP_HEIGHT;
-  const randomDuration = () =>
-    Math.random() * (MAX_DURATION - MIN_DURATION) + MIN_DURATION;
-  const randomDelay = () => Math.random() * 2;
+  // Deterministic pseudo-random based on index so server and client produce identical values
+  const deterministic = (seed: number) => Math.abs(Math.sin(seed) * 10000) % 1;
 
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-screen overflow-hidden bg-neutral-900 ${className}`}
+      className={`relative w-full h-[90dvh] overflow-hidden bg-neutral-900 ${className}`}
     >
       {/* Static vertical lines */}
       {positions.map((left, i) => (
         <div
           key={`line-${i}`}
           className="absolute top-0 bottom-0 w-px bg-[#B9B9B999]"
-          style={{ left: `${left}%` }}
+          style={{ left: `${left.toFixed(6)}%` }}
         />
       ))}
 
-      {/* One drop per line */}
-      {positions.map((left, i) => {
-        const dropHeight = randomHeight();
+      {/* One drop per line (only render animated/randomized drops on the client) */}
+      {mounted && positions.map((left, i) => {
+        const seedBase = i + 1 + lineCount * 13;
+        const hRand = deterministic(seedBase);
+        const dRand = deterministic(seedBase + 37);
+        const delayRand = deterministic(seedBase + 71);
+
+        const dropHeight = Math.floor(hRand * (MAX_DROP_HEIGHT - MIN_DROP_HEIGHT + 1)) + MIN_DROP_HEIGHT;
+        const duration = dRand * (MAX_DURATION - MIN_DURATION) + MIN_DURATION;
+        const delay = delayRand * 2;
+
         return (
           <motion.div
             key={`drop-${i}`}
             className="absolute border-b-2 rounded-b-full"
             style={{
-              left: `${left}%`,
+              left: `${left.toFixed(6)}%`,
               width: "2px",
               height: `${dropHeight}px`,
-              top: -dropHeight,
+              top: `-${dropHeight}px`,
               background:
                 "linear-gradient(90deg, rgba(185,185,185,0.2) 30.78%, #535353 100%)",
             }}
@@ -79,8 +89,8 @@ export const HeroSectionBackground = ({
             transition={{
               repeat: Infinity,
               repeatType: "loop",
-              duration: randomDuration(),
-              delay: randomDelay(),
+              duration,
+              delay,
               ease: "linear",
             }}
           />
