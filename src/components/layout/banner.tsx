@@ -5,7 +5,7 @@ import { MdEmail } from "react-icons/md";
 export default function Banner() {
     return (
         <div className="hidden md:block w-full bg-primary-light  px-8 py-2 rounded-b-2xl text-[12px] font-normal" style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }}>
-            <div className="max-w-lg mx-auto w-full flex items-center justify-between">
+            <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
                 <div className="flex items-center gap-2 text-primary">
                     <BsFillTelephoneInboundFill className="inline-block text-[12px]" />
                     <a href="tel:+91-786-383-7895" className="font-medium hover:cursor-pointer outline-0 hover:text-primary font-body
