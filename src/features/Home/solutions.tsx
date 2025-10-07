@@ -5,6 +5,7 @@ import Image from 'next/image';
 import SectionHeader from '@/components/common/SectionHeader';
 import Reveal from '@/components/common/Reveal';
 import { FiArrowUpRight } from 'react-icons/fi';
+import AnimatedButton from '@/components/common/AnimatedButton';
 
 const tabs = [
   {
@@ -133,10 +134,15 @@ export default function SolutionSection() {
                   })}
 
                 </div>
+                <div className='mt-6 w-fit'>
                 {/* View More Button */}
-                <button className="bg-transparent mt-6 cursor-pointer border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-heading font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors">
-                  View More <FiArrowUpRight size={16} fontWeight={700} />
-                </button>
+                <AnimatedButton
+                  text="View More"
+                  hoverText="View More"
+                  icon={<FiArrowUpRight size={16} fontWeight={700} />}
+                  className="bg-transparent cursor-pointer font-heading border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors"
+                />
+                </div>
               </div>
 
               {/* Right: GIF */}

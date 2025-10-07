@@ -27,7 +27,7 @@ export default function AwardsSection() {
 
   return (
     <section className="bg-white py-12 md:py-15 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl relative mx-auto">
         <Reveal>
           <SectionHeader
             subtitle="Accolades"
@@ -36,7 +36,7 @@ export default function AwardsSection() {
             className="mb-8 md:mb-10"
           />
         </Reveal>
-        <div className="relative">
+        <div className="">
           <Swiper
             modules={[Navigation, Autoplay]}
             spaceBetween={8}

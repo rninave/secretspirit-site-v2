@@ -85,7 +85,7 @@ export default function HeroSection() {
             </defs>
             <text className="text-black text-xs sm:text-sm tracking-widest font-normal fill-black">
               <textPath href="#circle-path" startOffset="0%" textAnchor="middle">
-                Contact Our Contact Our Expert Contact Our Contact Our Expert
+                GET IN TOUCH . GET IN TOUCH  GET IN TOUCH . CONTACT US .
               </textPath>
             </text>
           </svg>

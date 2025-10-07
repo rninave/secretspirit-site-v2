@@ -4,6 +4,7 @@ import { FiPhoneCall, FiChevronDown, FiX } from "react-icons/fi";
 import { useState, useRef, useEffect } from "react";
 import { MenuItem, MenuItemDropdown } from "@/interface/header.interface";
 import { usePathname } from "next/navigation";
+import AnimatedButton from "../common/AnimatedButton";
 
 const menuItems: MenuItem[] = [
   {
@@ -126,21 +127,26 @@ export default function Header() {
         </nav>
         {/* Mobile Burger Icon */}
         <button
-          className={`lg:hidden flex cursor-pointer hover:bg-primary/30 items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 ${isMobileMenuOpen ? "rotate-90" : "rotate-0"}`}
+          className={`lg:hidden flex cursor-pointer hover:bg-primary/30 items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 `}
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? '' : <img src="/icons/menu-icon.svg" alt="Menu" width={24} height={24} />}
+          <img src="/icons/menu-icon.svg" alt="Menu" width={24} height={24} />
         </button>
         {/* Desktop CTA Button */}
-        <button className="hidden cursor-pointer lg:flex bg-primary text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2">
-          <span>Let's Talk</span>
-          <FiPhoneCall className="text-white" />
-        </button>
+        <div className="hidden lg:flex">
+        <AnimatedButton
+          text="Let's Talk"
+          hoverText="Let's Talk"
+          icon={<FiPhoneCall className="text-white text-lg" />}
+          className="hidden cursor-pointer lg:flex bg-primary text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2"
+        />
+        </div>
       </div>
+
       {/* Mobile Menu */}
       <div
-        className={`mdhidden fixed inset-0 z-50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         style={{ transitionProperty: 'opacity' }}
         onClick={() => {
           setIsMobileMenuOpen(false);
@@ -163,7 +169,7 @@ export default function Header() {
           >
             <FiX />
           </button>
-          <nav className="flex flex-col gap-2 ">
+          <nav className="flex flex-col gap-2 mt-8">
             {menuItems.map((item) => {
               const isActive = item.href === pathname || (item.dropdown && item.dropdown.some((d) => d.href === pathname));
               return (
