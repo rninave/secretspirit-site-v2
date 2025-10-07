@@ -1,33 +1,43 @@
 'use client';
 
+import * as React from 'react';
 import Image from 'next/image';
-import SectionHeader from '@/components/common/SectionHeader';
-import Reveal from '@/components/common/Reveal';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import Autoplay from 'embla-carousel-autoplay';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
-import { useRef } from 'react';
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
+import Reveal from '@/components/common/Reveal';
+import SectionHeader from '@/components/common/SectionHeader';
 
 const awards = [
-  {name: 'Award 1', imageLink: '/awards/award-2.png', hrefLink: 'https://techreviewer.co/companies/secretspirit-solutions'},
-  {name: 'Award 2', imageLink: '/awards/award-1.png', hrefLink: 'https://www.goodfirms.co/company/secretspirit-solutions'},
-  {name: 'Award 3', imageLink: '/awards/award-3.png', hrefLink: 'https://www.designrush.com/agency/naming-agencies'},
-  {name: 'Award 4', imageLink: '/awards/award-4.png', hrefLink: 'https://www.appfutura.com/companies/secretspirit-solutions'},
-  {name: 'Award 5', imageLink: '/awards/award-5.png', hrefLink: 'https://www.topdevelopers.co/profile/secretspirits'},
-  {name: 'Award 6', imageLink: '/awards/award-6.png', hrefLink: 'https://www.designrush.com/agency/profile/secretspirit-solutions'},
-  {name: 'Award 7', imageLink: '/awards/award-7.png', hrefLink: 'https://www.webguruawards.com/sites/secretspirit-solutions'},
-  {name: 'Award 8', imageLink: '/awards/award-8.svg', hrefLink: 'https://www.goodfirms.co/company/secretspirit-solutions'},
+  { name: 'Award 1', imageLink: '/awards/award-2.png', hrefLink: 'https://techreviewer.co/companies/secretspirit-solutions' },
+  { name: 'Award 2', imageLink: '/awards/award-1.png', hrefLink: 'https://www.goodfirms.co/company/secretspirit-solutions' },
+  { name: 'Award 3', imageLink: '/awards/award-3.png', hrefLink: 'https://www.designrush.com/agency/naming-agencies' },
+  { name: 'Award 4', imageLink: '/awards/award-4.png', hrefLink: 'https://www.appfutura.com/companies/secretspirit-solutions' },
+  { name: 'Award 5', imageLink: '/awards/award-5.png', hrefLink: 'https://www.topdevelopers.co/profile/secretspirits' },
+  { name: 'Award 6', imageLink: '/awards/award-6.png', hrefLink: 'https://www.designrush.com/agency/profile/secretspirit-solutions' },
+  { name: 'Award 7', imageLink: '/awards/award-7.png', hrefLink: 'https://www.webguruawards.com/sites/secretspirit-solutions' },
+  { name: 'Award 8', imageLink: '/awards/award-8.svg', hrefLink: 'https://www.goodfirms.co/company/secretspirit-solutions' },
 ];
 
 export default function AwardsSection() {
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
+  const plugin = React.useRef(
+    Autoplay({
+      delay: 2000,
+      stopOnInteraction: true,
+      stopOnMouseEnter: true, // pauses on hover
+    })
+  );
 
   return (
     <section className="bg-white py-12 md:py-15 px-4">
-      <div className="max-w-7xl relative mx-auto">
+      <div className="max-w-7xl mx-auto relative">
         <Reveal>
           <SectionHeader
             subtitle="Accolades"
@@ -36,69 +46,49 @@ export default function AwardsSection() {
             className="mb-8 md:mb-10"
           />
         </Reveal>
-        <div className="">
-          <Swiper
-            modules={[Navigation, Autoplay]}
-            spaceBetween={8}
-            slidesPerView={3}
-            loop={true}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false, // keep autoplay alive even if user interacts
-              pauseOnMouseEnter: true,     // 👈 this pauses autoplay on hover
-            }}
-            breakpoints={{
-              0: { slidesPerView: 3 },
-              480: { slidesPerView: 4 },
-              1024: { slidesPerView: 5 },
-              1230: { slidesPerView: 6 },
-            }}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            onInit={(swiper) => {
-              // @ts-ignore
-              swiper.params.navigation.prevEl = prevRef.current;
-              // @ts-ignore
-              swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }}
-            className="pb-4 md:pb-8"
-          >
-            {awards.map((src, idx) => (
-              <SwiperSlide key={idx} className="flex items-center justify-center pt-2 pb-5">
-                <a href={src?.hrefLink} target='_blank' className="bg-white rounded-xl shadow-award-card hover:shadow-lg mr-6 p-7 border border-divider flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 hover:scale-105 cursor-pointer">
+
+        <Carousel
+          plugins={[plugin.current]}
+          opts={{
+            loop: true,
+            align: 'start',
+          }}
+          className="relative w-full"
+        >
+          <CarouselContent className="flex items-center justify-center">
+            {awards.map((award, idx) => (
+              <CarouselItem
+                key={idx}
+                className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 flex items-center justify-center"
+              >
+                <a
+                  href={award.hrefLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-xl shadow-award-card hover:shadow-lg mr-6 p-7 border border-divider flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                >
                   <Image
-                    src={src?.imageLink}
-                    alt={`Award ${idx + 1}`}
+                    src={award.imageLink}
+                    alt={award.name}
                     width={100}
-                    priority
                     height={100}
-                    className="object-cover w-auto h-auto max-h-[100px]"
-                    style={{ width: 'auto', height: 'auto' }}
+                    loading="eager"
+                    priority
+                    className="object-contain w-auto h-auto max-h-[100px]"
                   />
                 </a>
-              </SwiperSlide>
+              </CarouselItem>
             ))}
-            {/* Custom Navigation Buttons - hidden on mobile */}
-            <button
-              ref={prevRef}
-              className="cursor-pointer flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
-              aria-label="Previous"
-            >
-              <FiArrowLeft />
-            </button>
-            <button
-              ref={nextRef}
-              className="cursor-pointer flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary items-center justify-center text-white text-xl shadow-lg hover:bg-primary/90 transition-colors"
-              aria-label="Next"
-            >
-              <FiArrowRight />
-            </button>
-          </Swiper>
-        </div>
+          </CarouselContent>
+
+          {/* Navigation buttons */}
+          <CarouselPrevious className="absolute -left-5 top-1/2 -translate-y-1/2 z-10 !bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors">
+            <FiArrowLeft />
+          </CarouselPrevious>
+          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-10 !bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors">
+            <FiArrowRight />
+          </CarouselNext>
+        </Carousel>
       </div>
     </section>
   );
