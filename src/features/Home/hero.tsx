@@ -83,9 +83,9 @@ export default function HeroSection() {
             <defs>
               <path id="circle-path" d="M 60,60 m -50,0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" />
             </defs>
-            <text className="text-black text-xs sm:text-sm tracking-widest font-normal fill-black">
+            <text className="text-black text-xs sm:text-xs tracking-widest font-normal fill-black">
               <textPath href="#circle-path" startOffset="0%" textAnchor="middle">
-                GET IN TOUCH . GET IN TOUCH  GET IN TOUCH . CONTACT US .
+                tttttttttttttttttttttttttttttttttttttttttttttttttttttttttCONTACT US . RESEARCH . DESIGN . DEVELOP .
               </textPath>
             </text>
           </svg>

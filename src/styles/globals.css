@@ -32,6 +32,7 @@
   --shadow-btn: 2px 2px 0px 0px #545B75;
   --shadow-btn-reverse: -2px -2px 0px 0px #545B75;
   --shadow-award-card: 0px 4px 12px 0px #FFEAE41F;
+  --shadow-about-card: 5px 0px 3px 0px #FF3D0099;
 
   /* custom fonts */
   --font-body: "Space Grotesk", sans-serif;

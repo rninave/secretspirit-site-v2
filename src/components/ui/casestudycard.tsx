@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function CaseStudyCard({ item }: any) {
     return (
-        <div className="relative bg-white rounded-2xl border border-divider shadow-lg p-6 flex flex-col min-h-[260px] max-w-full">
+        <div className="relative bg-white rounded-2xl border border-divider shadow-lg p-6 flex flex-col min-h-[260px] max-h-[260px] max-w-full">
             {/* Quote icon */}
             <div className="absolute top-0 left-6">
                 <div className="px-2 py-4 rounded-b-full bg-gray-light shadow-btn">

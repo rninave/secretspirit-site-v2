@@ -28,7 +28,7 @@ const caseStudies = [
   {
     title: 'SarvM .AI',
     image: '/our-work/sarvm-ai-2.png',
-    description: 'SarvM empowers businesses and individuals to achieve self-reliance with easy-to-use tools for managing sales, purchases, inventory, and credit...',
+    description: 'SarvM unites the entire nano business chain — from farmers and producers to delivery partners and customers — creating a seamless, value-driven ecosystem.',
     tags: ['MARKETING', 'UI/UX DESIGN', 'DEVELOPMENT'],
   },
 ];

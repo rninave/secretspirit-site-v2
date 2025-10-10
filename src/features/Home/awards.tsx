@@ -1,19 +1,9 @@
-'use client';
-
-import * as React from 'react';
-import Image from 'next/image';
-import Autoplay from 'embla-carousel-autoplay';
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import Reveal from '@/components/common/Reveal';
-import SectionHeader from '@/components/common/SectionHeader';
+'use client'
+import React, { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+import Reveal from '@/components/common/Reveal'
+import SectionHeader from '@/components/common/SectionHeader'
 
 const awards = [
   { name: 'Award 1', imageLink: '/awards/award-2.png', hrefLink: 'https://techreviewer.co/companies/secretspirit-solutions' },
@@ -24,19 +14,84 @@ const awards = [
   { name: 'Award 6', imageLink: '/awards/award-6.png', hrefLink: 'https://www.designrush.com/agency/profile/secretspirit-solutions' },
   { name: 'Award 7', imageLink: '/awards/award-7.png', hrefLink: 'https://www.webguruawards.com/sites/secretspirit-solutions' },
   { name: 'Award 8', imageLink: '/awards/award-8.svg', hrefLink: 'https://www.goodfirms.co/company/secretspirit-solutions' },
-];
+]
 
 export default function AwardsSection() {
-  const plugin = React.useRef(
-    Autoplay({
-      delay: 2000,
-      stopOnInteraction: true,
-      stopOnMouseEnter: true, // pauses on hover
-    })
-  );
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [progress, setProgress] = useState(0)
+  const [hovered, setHovered] = useState(false)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const progressRef = useRef<NodeJS.Timeout | null>(null)
+  const slideDuration = 4000
+  const tickRate = 50
+  const [slidesPerView, setSlidesPerView] = useState(6) // default desktop
+
+  // Update slidesPerView based on window width
+  const updateSlidesPerView = () => {
+    const width = window.innerWidth
+    if (width >= 1280) setSlidesPerView(6) // desktop
+    else if (width >= 1024) setSlidesPerView(5) // laptop
+    else if (width >= 768) setSlidesPerView(4) // tablet
+    else setSlidesPerView(3) // mobile
+  }
+
+  useEffect(() => {
+    updateSlidesPerView()
+    window.addEventListener('resize', updateSlidesPerView)
+    return () => window.removeEventListener('resize', updateSlidesPerView)
+  }, [])
+
+  const totalPages = Math.ceil(awards.length / slidesPerView)
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalPages)
+    setProgress(0)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalPages) % totalPages)
+    setProgress(0)
+  }
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index)
+    setProgress(0)
+  }
+
+  // Autoplay & progress
+  useEffect(() => {
+    if (!hovered) {
+      intervalRef.current = setInterval(nextSlide, slideDuration)
+      progressRef.current = setInterval(() => {
+        setProgress((prev) => {
+          const next = prev + (tickRate / slideDuration) * 100
+          return next >= 100 ? 100 : next
+        })
+      }, tickRate)
+    }
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+      if (progressRef.current) clearInterval(progressRef.current)
+    }
+  }, [hovered, currentSlide, slidesPerView])
+
+  // Scroll to current "page"
+  useEffect(() => {
+    if (containerRef.current) {
+      const container = containerRef.current
+      const cardWidth = container.scrollWidth / awards.length
+      container.scrollTo({
+        left: currentSlide * cardWidth * slidesPerView,
+        behavior: 'smooth',
+      })
+    }
+  }, [currentSlide, slidesPerView])
 
   return (
-    <section className="bg-white py-12 md:py-15 px-4">
+    <section
+      className="bg-white py-12 md:py-16 px-10 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto relative">
         <Reveal>
           <SectionHeader
@@ -47,49 +102,68 @@ export default function AwardsSection() {
           />
         </Reveal>
 
-        <Carousel
-          plugins={[plugin.current]}
-          opts={{
-            loop: true,
-            align: 'start',
-          }}
-          className="relative w-full"
-        >
-          <CarouselContent className="flex items-center justify-center">
-            {awards.map((award, idx) => (
-              <CarouselItem
-                key={idx}
-                className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 flex items-center justify-center"
+        <div className="relative">
+          {/* Cards */}
+          <div
+            ref={containerRef}
+            className="flex gap-4 py-4 overflow-x-auto no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing"
+          >
+            {awards.map((award, index) => (
+              <a
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+                key={index}
+                href={award.hrefLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex-shrink-0 bg-white border border-gray-200 shadow-award-card hover:shadow-lg rounded-xl transition-transform duration-300 hover:scale-105 flex items-center justify-center p-6 sm:p-8  h-24 sm:h-36 md:h-44`}
+                style={{
+                  width: `calc(100% / ${slidesPerView} - 1rem)`
+                }}
               >
-                <a
-                  href={award.hrefLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white rounded-xl shadow-award-card hover:shadow-lg mr-6 p-7 border border-divider flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 transition-transform duration-300 hover:scale-105 cursor-pointer"
-                >
-                  <Image
-                    src={award.imageLink}
-                    alt={award.name}
-                    width={100}
-                    height={100}
-                    loading="eager"
-                    priority
-                    className="object-contain w-auto h-auto max-h-[100px]"
-                  />
-                </a>
-              </CarouselItem>
+                <Image
+                  src={award.imageLink}
+                  alt={award.name}
+                  width={100}
+                  height={100}
+                  className="object-contain w-auto h-auto max-h-24"
+                  loading="lazy"
+                />
+              </a>
             ))}
-          </CarouselContent>
+          </div>
 
-          {/* Navigation buttons */}
-          <CarouselPrevious className="absolute -left-5 top-1/2 -translate-y-1/2 z-10 !bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors">
-            <FiArrowLeft />
-          </CarouselPrevious>
-          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-10 !bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors">
-            <FiArrowRight />
-          </CarouselNext>
-        </Carousel>
+          {/* Navigation */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-10"
+          >
+            <FiArrowLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-10"
+          >
+            <FiArrowRight className="w-5 h-5" />
+          </button>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className="w-6 sm:w-8 h-1.5 bg-gray-300 rounded overflow-hidden relative cursor-pointer"
+              >
+                <div
+                  className="absolute left-0 top-0 h-full bg-primary transition-[width] duration-[50ms] linear"
+                  style={{ width: currentSlide === index ? `${progress}%` : '0%' }}
+                />
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
-  );
+  )
 }
