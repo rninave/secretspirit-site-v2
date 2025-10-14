@@ -6,6 +6,8 @@
 
 @theme {
   --breakpoint-c-lg: 1240px;
+  --breakpoint-xs:420px;
+  --breakpoint-xxs:320px;
 
   /* custom container for different screen sizes */
   --container-hd: 1440px;

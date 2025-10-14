@@ -127,7 +127,7 @@ export default function AwardsSection() {
                   width={100}
                   height={100}
                   className="object-contain w-auto h-auto max-h-24"
-                  loading="lazy"
+                  loading="eager"
                 />
               </a>
             ))}

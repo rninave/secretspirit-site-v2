@@ -1,7 +1,10 @@
 import PageHero from "@/components/common/PageHero";
+import PerformanceHighlightsSection from "@/components/common/performance-highlights";
 import LifeAtSecretspirit from "./life-at";
 import Timeline, { TimelineProps } from "./mission-value";
 import OurApproach from "./our-approach";
+import Evolution from "./evolution";
+import PartOfTeam from "./part-of-team";
 
 const LifeAtTopCards = [
   { title: 'Daily Sync-ups', body: 'Our daily meetings are designed to do more than just discuss tasks. They are a cornerstone of our culture, fostering open communication and strengthening the bonds within our team.' },
@@ -58,8 +61,9 @@ export default function AboutPage() {
       <LifeAtSecretspirit topCards={LifeAtTopCards} bottomCards={LifeAtBottomCards} />
       <Timeline items={timelineItems} />
       <OurApproach topCards={ourApproachTopCards} bottomCards={ourApproachBottomCards} />
-
-
+      <PerformanceHighlightsSection />
+      <Evolution />
+      <PartOfTeam />
 
     </>
   );
