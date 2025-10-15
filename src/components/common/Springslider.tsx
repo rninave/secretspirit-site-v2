@@ -6,6 +6,7 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface SpringSliderProps {
     items: { src: string; link?: string; alt?: string }[];
@@ -47,7 +48,7 @@ export default function SpringSlider({ items, className }: SpringSliderProps) {
                 {items.map((item, idx) => (
                     <SwiperSlide key={idx} className=''>
                         {item.link ? (
-                            <a href={item.link} className='border border-gray-200 p-4 flex items-center justify-center bg-white rounded-lg shadow-sm'
+                            <Link href={item.link} className='border border-gray-200 p-4 flex items-center justify-center bg-white rounded-lg shadow-sm'
                              target="_blank" rel="noopener noreferrer">
                                 <Image
                                     src={item.src}
@@ -59,7 +60,7 @@ export default function SpringSlider({ items, className }: SpringSliderProps) {
                                     style={{ width: 'auto', height: 'auto' }}
 
                                 />
-                            </a>
+                            </Link>
                         ) : (
                             <Image
                                 src={item.src}

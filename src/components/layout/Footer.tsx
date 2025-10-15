@@ -2,6 +2,7 @@ import { FiDribbble } from 'react-icons/fi';
 import { FaBehance, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const navLinks = [
   [
@@ -41,9 +42,9 @@ export default function Footer() {
             <ul key={i} className="flex flex-col gap-4">
               {col.map(link => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-divider font-body hover:text-primary text-lg md:text-[20px] transition-colors font-medium">
+                  <Link href={link.href} className="text-divider font-body hover:text-primary text-lg md:text-[20px] transition-colors font-medium">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -56,7 +57,7 @@ export default function Footer() {
         {/* Social Icons */}
         <div className="flex items-center justify-start gap-2 md:gap-6 mb-4 md:mb-0 w-full md:w-[70%]">
           {socialLinks.map((s, i) => (
-            <a
+            <Link
               key={i}
               href={s.href}
               className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
@@ -66,12 +67,12 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               <s.icon className="w-[18px] h-[18px] lg:w-[24px] lg:h-[24px]" />
-            </a>
+            </Link>
           ))}
-          <a href="https://clutch.co/profile/secretspirit-solutions#summary" target='_blank' data-tooltip-id="dark-tooltip"
+          <Link href="https://clutch.co/profile/secretspirit-solutions#summary" target='_blank' data-tooltip-id="dark-tooltip"
               data-tooltip-content="Clutch" className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg">
             <Image src="/icons/clutch-icon.svg" alt="Send" width={18} height={18} className="lg:w-[24px] lg:h-[24px] w-[18px] h-[18px]" style={{ width: 'auto', height: 'auto' }} />
-          </a>
+          </Link>
         </div>
         {/* Email Subscribe with Heading */}
         <div className="flex flex-col items-start md:items-center w-full md:w-[40%] lg:w-[30%]">

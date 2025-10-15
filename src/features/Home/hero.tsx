@@ -3,6 +3,7 @@ import Typewriter from 'typewriter-effect'
 import SectionHeader from '@/components/common/SectionHeader';
 import Reveal from '@/components/common/Reveal';
 import { HeroSectionBackground } from '@/components/ui/AlignedBackgroundRain';
+import Link from 'next/link';
 
 
 export default function HeroSection() {
@@ -51,7 +52,7 @@ export default function HeroSection() {
       </div>
       {/* Scroll Indicator (closer to provided HTML structure) */}
       <div className="tp-scroll-down absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center w-full">
-        <a
+        <Link
           href="#next-section"
           className="scroll-wrap border-1 w-10 sm:w-[40px] max-sm:pt-[18px] gap-2 sm:gap-3 border-dashed border-border-light py-2 sm:py-4 rounded-[50px] flex flex-col items-center group focus:outline-none bg-white/80 backdrop-blur-sm transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-lg hover:bg-white/90"
           aria-label="Scroll to next section"
@@ -73,7 +74,7 @@ export default function HeroSection() {
               <path d="M8 12l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
-        </a>
+        </Link>
       </div>
       {/* Circular Contact Element - Bottom Right */}
       <div className="absolute bottom-4 sm:bottom-8 right-2 sm:right-6 z-20 group cursor-pointer">

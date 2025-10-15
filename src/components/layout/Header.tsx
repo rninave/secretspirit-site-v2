@@ -5,14 +5,15 @@ import { useState, useRef, useEffect } from "react";
 import { MenuItem, MenuItemDropdown } from "@/interface/header.interface";
 import { usePathname } from "next/navigation";
 import AnimatedButton from "../common/AnimatedButton";
+import Link from "next/link";
 
 const menuItems: MenuItem[] = [
   {
     label: "About Us",
     dropdown: [
       { label: "About Secretspirit", href: "/about" },
-      { label: "Careers", href: "/careers" },
-      { label: "Events", href: "/events" },
+      { label: "Careers", href: "/about/careers" },
+      { label: "Events", href: "/about/events" },
     ],
   },
   {
@@ -60,87 +61,107 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-[9999] bg-white w-full h-[76px] py-4 px-4 md:px-6 border-b border-gray-200">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
-        <a href="/">
+        <Link href="/">
           <Image
             src="/main-logo.png"
             alt="Secret Spirit"
             width={192}
             height={32}
           />
-        </a>
+        </Link>
         {/* Desktop Menu */}
         <nav className="hidden lg:flex items-center gap-8">
           {menuItems.map((item) => {
-            // Determine if this link is active
-            const isActive = item.href === pathname || (item.dropdown && item.dropdown.some((d) => d.href === pathname));
+            // Top-level active state
+            const isActive =
+              item.href === pathname ||
+              (item.dropdown && item.dropdown.some((d) => d.href === pathname))
+
             return (
               <div key={item.label} className="relative flex flex-col items-center group">
                 {item.dropdown ? (
                   <div
                     ref={(el) => {
-                      dropdownRefs.current[item.label] = el;
+                      dropdownRefs.current[item.label] = el
                     }}
                   >
+                    {/* Dropdown button */}
                     <button
-                      className={`text-body text-[14px] hover:text-primary hover:cursor-pointer font-body font-medium flex items-center gap-1 ${isActive ? 'text-primary font-bold' : ''}`}
+                      className={`text-body text-[14px] hover:text-primary hover:cursor-pointer font-body font-medium flex items-center gap-1 ${isActive ? 'text-primary font-bold' : ''
+                        }`}
                       onClick={() => handleDropdownClick(item.label)}
                     >
                       {item.label}
                       <FiChevronDown
-                        className={`text-xs transition-transform duration-300 ${openDropdown === item.label ? "rotate-180" : ""}`}
+                        className={`text-xs transition-transform duration-300 ${openDropdown === item.label ? 'rotate-180' : ''
+                          }`}
                       />
                     </button>
+
+                    {/* Underline highlight */}
                     <span
-                      className={`block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                      className={`block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                        }`}
                     ></span>
+
+                    {/* Dropdown menu */}
                     <div
                       className={`absolute top-full left-0 bg-white rounded-lg mt-2 shadow-lg border border-gray-100 min-w-[200px] z-50 transition-all duration-300 ease-in-out transform origin-top ${openDropdown === item.label
-                        ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
-                        : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
+                          ? 'opacity-100 scale-y-100 translate-y-0 pointer-events-auto'
+                          : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'
                         }`}
                     >
-                      {item.dropdown.map((dropdownItem: MenuItemDropdown) => (
-                        <a
-                          key={dropdownItem.label}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-body hover:bg-primary-light hover:text-primary font-body text-sm transition-colors duration-200"
-                        >
-                          {dropdownItem.label}
-                        </a>
-                      ))}
+                      {item.dropdown.map((dropdownItem: MenuItemDropdown) => {
+                        const isDropdownActive = dropdownItem.href === pathname
+                        return (
+                          <Link
+                            key={dropdownItem.label}
+                            href={dropdownItem.href}
+                            onClick={() => handleDropdownClick(item.label)}
+                            className={`block px-4 py-2 text-body hover:bg-primary-light hover:text-primary font-body text-sm transition-colors duration-200 ${isDropdownActive ? 'text-primary font-semibold' : ''
+                              }`}
+                          >
+                            {dropdownItem.label}
+                          </Link>
+                        )
+                      })}
                     </div>
                   </div>
                 ) : (
-                  <a
-                    href={item.href}
-                    className={`text-body text-[14px] hover:text-primary font-body font-medium flex flex-col items-center ${isActive ? 'text-primary font-bold' : ''}`}
+                  // Non-dropdown link
+                  <Link
+                    href={item.href || ''}
+                    className={`text-body text-[14px] hover:text-primary font-body font-medium flex flex-col items-center ${isActive ? 'text-primary font-bold' : ''
+                      }`}
                   >
                     {item.label}
                     <span
-                      className={`block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                      className={`block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                        }`}
                     ></span>
-                  </a>
+                  </Link>
                 )}
               </div>
-            );
+            )
           })}
         </nav>
+
         {/* Mobile Burger Icon */}
         <button
           className={`lg:hidden flex cursor-pointer hover:bg-primary/30 items-center justify-center p-2 rounded focus:outline-none transition-transform duration-300 `}
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          <img src="/icons/menu-icon.svg" alt="Menu" width={24} height={24} />
+          <Image src="/icons/menu-icon.svg" alt="Menu" width={24} height={24} />
         </button>
         {/* Desktop CTA Button */}
         <div className="hidden lg:flex">
-        <AnimatedButton
-          text="Let's Talk"
-          hoverText="Let's Talk"
-          icon={<FiPhoneCall className="text-white text-lg" />}
-          className="hidden cursor-pointer lg:flex bg-primary text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2"
-        />
+          <AnimatedButton
+            text="Let's Talk"
+            hoverText="Let's Talk"
+            icon={<FiPhoneCall className="text-white text-lg" />}
+            className="hidden cursor-pointer lg:flex bg-primary text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2"
+          />
         </div>
       </div>
 
@@ -194,7 +215,7 @@ export default function Header() {
                             const isDropdownActive = dropdownItem.href === pathname;
                             return (
                               <div key={dropdownItem.label} className="relative">
-                                <a
+                                <Link
                                   href={dropdownItem.href}
                                   className={`block px-2 py-1 text-body font-body text-sm transition-colors duration-200 ${isDropdownActive ? "text-primary" : "hover:text-primary hover:bg-primary-light"}`}
                                   onClick={() => {
@@ -203,7 +224,7 @@ export default function Header() {
                                   }}
                                 >
                                   {dropdownItem.label}
-                                </a>
+                                </Link>
                                 <span
                                   className={`block w-6 h-[2px] bg-primary absolute -top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isDropdownActive ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}
                                 ></span>
@@ -214,8 +235,8 @@ export default function Header() {
                       )}
                     </div>
                   ) : (
-                    <a
-                      href={item.href}
+                    <Link
+                      href={item.href || ''}
                       className={`block text-body text-[16px] font-body font-medium py-2 group ${isActive ? "text-primary" : ""} group-hover:text-primary`}
                       onClick={() => {
                         setIsMobileMenuOpen(false);
@@ -226,7 +247,7 @@ export default function Header() {
                       <span
                         className={`block w-6 h-[2px] bg-primary absolute -top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                       ></span>
-                    </a>
+                    </Link>
                   )}
                 </div>
               );

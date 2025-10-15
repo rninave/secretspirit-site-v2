@@ -131,13 +131,13 @@ export default function Evolution() {
                                 animate={{ opacity: 1, y: 0, scale: 1 }}
                                 exit={{ opacity: 0, y: -20, scale: 0.98 }}
                                 transition={{ duration: 0.5, ease: 'easeInOut' }}
-                                className="flex flex-col md:flex-row items-center gap-6 w-full"
+                                className="flex flex-col lg:flex-row items-center gap-6 w-full"
                             >
                                 <motion.div
                                     initial={{ opacity: 0, x: -30, rotate: -2 }}
                                     animate={{ opacity: 1, x: 0, rotate: 0 }}
                                     transition={{ duration: 0.45 }}
-                                    className="w-full md:w-1/2"
+                                    className="w-full md:w-[75%] lg:w-1/2"
                                 >
                                     <Image
                                         src={timelineData[active].image}
@@ -152,7 +152,7 @@ export default function Evolution() {
                                     initial={{ opacity: 0, x: 30, rotate: 2 }}
                                     animate={{ opacity: 1, x: 0, rotate: 0 }}
                                     transition={{ duration: 0.45, delay: 0.08 }}
-                                    className="w-full md:w-1/2 py-4"
+                                    className="w-full lg:w-1/2 py-4"
                                 >
                                     <h3 className="text-2xl font-bold font-heading mb-4 leading-[100%] text-orange-500">
                                         {timelineData[active].title}

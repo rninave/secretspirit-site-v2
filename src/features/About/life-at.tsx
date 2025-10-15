@@ -41,11 +41,11 @@ const LifeAtSecretspirit: React.FC<LifeAtSecretspiritProps> = ({
       <div className={`grid grid-cols-1 ${colClass} gap-6 ${maxWidthClass} mb-6`}>
         {cards.map((card) => (
           <Reveal key={card.title}>
-            <div className="bg-[#FFF6F4] rounded-xl p-6 shadow-md border min-h-[240px] border-divider hover:shadow-lg transition-all duration-200">
-              <h4 className="text-[16px] md:text-lg font-bold text-heading font-heading leading-[100%] mb-3">
+            <div className="bg-primary-hover h-full  rounded-xl p-6 shadow-md border border-divider hover:shadow-lg transition-all duration-200">
+              <h4 className="text-[16px] md:text-lg font-bold text-heading font-heading leading-[100%] mb-6">
                 {card.title}
               </h4>
-              <div className="w-12 h-0.5 bg-primary mb-4" />
+              <div className="w-12 h-0.5 bg-primary mb-6 shadow-about-card" />
               <p className="text-sm text-body font-body font-normal leading-6">
                 {card.body}
               </p>

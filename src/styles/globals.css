@@ -22,10 +22,12 @@
   --color-primary: #FF3D00;
   --color-body: #545B75;
   --color-primary-dark: #0B0A1D;
+  --color-primary-hover: #FFC5B33D;
   --color-body-dark: #131131;
   --color-primary-light: #FF3D0014;
   --color-border-light: #E5E5E5;
   --color-heading: #131131;
+  --color-heading-light: #2B2946;
   --color-divider: #E5E5E5;
   --color-gray-light: #F6F8FE;
   --color-primary-gradiant: linear-gradient(60deg, #FF8C21 13.4%, #FF3D00 86.6%);
@@ -35,6 +37,7 @@
   --shadow-btn-reverse: -2px -2px 0px 0px #545B75;
   --shadow-award-card: 0px 4px 12px 0px #FFEAE41F;
   --shadow-about-card: 5px 0px 3px 0px #FF3D0099;
+  --shadow-careers-job-card: 0px 2px 8px 0px #0000001F;
 
   /* custom fonts */
   --font-body: "Space Grotesk", sans-serif;

@@ -27,13 +27,13 @@ const Timeline = ({ items }: TimelineProps) => {
                                 {isLeft && (
                                     <div className="md:w-[46%]">
                                         <Reveal>
-                                            <div className="bg-[#2B2946] rounded-r-full rounded-l-md relative p-8 pr-16 pb-6">
+                                            <div className="bg-heading-light rounded-r-full rounded-l-md relative p-8 pr-16 pb-6">
                                                 <div className="flex flex-col items-end text-end  text-white">
                                                     <div className="mb-4 bg-transparent">
                                                         <Image src={item.icon} alt={`${item.title} Icon`} width={40} height={40} className='w-auto h-auto' />
                                                     </div>
-                                                    <h3 className="text-lg font-bold mb-4">{item.title}</h3>
-                                                    <p className="text-sm text-white/80 max-w-[341px] mb-4 leading-6">{item.body}</p>
+                                                    <h3 className="text-base sm:text-lg font-bold mb-4">{item.title}</h3>
+                                                    <p className="text-xs sm:text-sm text-white max-w-[341px] mb-4 leading-5 sm:leading-6">{item.body}</p>
                                                 </div>
                                             </div>
                                         </Reveal>
@@ -42,9 +42,9 @@ const Timeline = ({ items }: TimelineProps) => {
 
                                 <div className="flex-1">
                                     <Reveal>
-                                        <div className="h-px bg-[#FF5A1F] relative">
+                                        <div className="h-px bg-primary relative">
                                             <span
-                                                className={`absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-[#FF5A1F] rounded-full ${isLeft ? '-left-3' : '-right-3'
+                                                className={`absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full ${isLeft ? '-left-3' : '-right-3'
                                                     }`}
                                             />
                                         </div>
@@ -54,13 +54,13 @@ const Timeline = ({ items }: TimelineProps) => {
                                 {!isLeft && (
                                     <div className="md:w-[46%]">
                                         <Reveal>
-                                            <div className="bg-[#2B2946] rounded-l-full rounded-r-md p-8 pl-16 pb-6 relative">
+                                            <div className="bg-heading-light rounded-l-full rounded-r-md p-8 pl-16 pb-6 relative">
                                                 <div className="flex flex-col items-start text-start text-white">
                                                     <div className="mb-4 bg-transparent">
                                                         <Image src={item.icon} alt={`${item.title} Icon`} width={40} height={40} className='w-auto h-auto' />
                                                     </div>
-                                                    <h3 className="text-lg mb-4 font-bold font-heading leading-[100%]">{item.title}</h3>
-                                                    <p className="text-sm mb-4 font-body font-normal text-white/80 max-w-[341px] leading-6">{item.body}</p>
+                                                    <h3 className="text-base m:text-lg mb-4 font-bold font-heading leading-[100%]">{item.title}</h3>
+                                                    <p className="text-xs sm:text-sm mb-4 font-body font-normal text-white max-w-[341px] leading-5 sm:leading-6">{item.body}</p>
                                                 </div>
                                             </div>
                                         </Reveal>

@@ -51,7 +51,7 @@ const caseStudies = [
   },
 ];
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({classname = ''}) {
   const plugin = React.useRef(
     Autoplay({
       delay: 2500,
@@ -61,7 +61,7 @@ export default function TestimonialsSection() {
   );
 
   return (
-    <section className="bg-white py-14 md:py-16 px-4 md:px-8">
+    <section className={`bg-white py-14 md:py-16 px-4 md:px-8 ${classname}`}>
       <div className="max-w-7xl mx-auto relative">
         <Reveal>
           <SectionHeader

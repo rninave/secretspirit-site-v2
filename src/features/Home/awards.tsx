@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import Reveal from '@/components/common/Reveal'
 import SectionHeader from '@/components/common/SectionHeader'
+import Link from 'next/link'
 
 const awards = [
   { name: 'Award 1', imageLink: '/awards/award-2.png', hrefLink: 'https://techreviewer.co/companies/secretspirit-solutions' },
@@ -109,7 +110,7 @@ export default function AwardsSection() {
             className="flex gap-4 py-4 overflow-x-auto no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing"
           >
             {awards.map((award, index) => (
-              <a
+              <Link
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 key={index}
@@ -129,7 +130,7 @@ export default function AwardsSection() {
                   className="object-contain w-auto h-auto max-h-24"
                   loading="eager"
                 />
-              </a>
+              </Link>
             ))}
           </div>
 
