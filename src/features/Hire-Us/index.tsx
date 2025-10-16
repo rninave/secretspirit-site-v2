@@ -1,6 +1,7 @@
 import PageHero from "@/components/common/PageHero";
 import TestimonialsSection from "@/components/common/Testimonials";
 import WhyHireSS from "./why-hire";
+import  HireUsCards from "./hire-us-cards";
 
 export default function HireUsPage() {
     return (
@@ -14,6 +15,7 @@ export default function HireUsPage() {
                 btn={{ label: 'Get In Touch' }}
             />
             <WhyHireSS />
+            <HireUsCards />
             <TestimonialsSection />
 
         </>

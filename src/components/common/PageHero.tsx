@@ -11,6 +11,7 @@ interface PageHeroProps {
   subtitle?: string
   bgImage?: string
   overlayColor?: string
+  bgstyle?: string
   breadcrumbItems?: { label: string; href?: string }[]
   className?: string,
   btn?: {label: string, href?:string}
@@ -29,6 +30,7 @@ export default function PageHero({
   bgImage = '/images/hero-bg.jpg', // fallback image
   overlayColor = 'bg-black/60', // overlay tone
   breadcrumbItems,
+  bgstyle,
   className,
   btn
 }: PageHeroProps) {
@@ -48,7 +50,9 @@ export default function PageHero({
           priority
           className="object-cover object-center"
         />
-        <div className={cn('absolute inset-0', overlayColor)} />
+        <div className={cn('absolute inset-0', overlayColor)} style={{
+    background: bgstyle
+  }} />
       </div>
 
       {/* Content */}

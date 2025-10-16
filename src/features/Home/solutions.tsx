@@ -6,6 +6,7 @@ import SectionHeader from '@/components/common/SectionHeader';
 import Reveal from '@/components/common/Reveal';
 import { FiArrowUpRight } from 'react-icons/fi';
 import AnimatedButton from '@/components/common/AnimatedButton';
+import { WobbleCard } from '@/components/ui/wobble-card';
 
 const tabs = [
   {
@@ -95,16 +96,18 @@ export default function SolutionSection() {
         <Reveal delayMs={50}>
           <div className="flex justify-center gap-2 md:gap-4 mb-8 md:mb-10 flex-wrap">
             {tabs.map((t) => (
-              <button
-                key={t.value}
-                className={`px-5 md:px-8 py-2.5 md:py-3 cursor-pointer rounded-full font-medium font-body text-xs md:text-sm border transition-all duration-200 hover:shadow-btn focus:outline-none ${activeTab === t.value
-                  ? 'bg-primary/10 text-primary border-divider shadow-btn translate-y-0.5'
-                  : 'bg-white text-body hover:text-primary border-divider hover:bg-primary/10'
-                  }`}
-                onClick={() => handleTabChange(t.value)}
-              >
-                {t.label}
-              </button>
+              <WobbleCard key={t.value}>
+                <button
+                  key={t.value}
+                  className={`px-5 md:px-8 py-2.5 md:py-3 cursor-pointer rounded-full font-medium font-body text-xs md:text-sm border transition-all duration-200 hover:shadow-btn focus:outline-none ${activeTab === t.value
+                    ? 'bg-primary/10 text-primary border-divider shadow-btn translate-y-0.5'
+                    : 'bg-white text-body hover:text-primary border-divider hover:bg-primary/10'
+                    }`}
+                  onClick={() => handleTabChange(t.value)}
+                >
+                  {t.label}
+                </button>
+              </WobbleCard>
             ))}
           </div>
         </Reveal>
@@ -135,13 +138,13 @@ export default function SolutionSection() {
 
                 </div>
                 <div className='mt-6 w-fit'>
-                {/* View More Button */}
-                <AnimatedButton
-                  text="View More"
-                  hoverText="View More"
-                  icon={<FiArrowUpRight size={16} fontWeight={700} />}
-                  className="bg-transparent cursor-pointer font-heading border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors"
-                />
+                  {/* View More Button */}
+                  <AnimatedButton
+                    text="View More"
+                    hoverText="View More"
+                    icon={<FiArrowUpRight size={16} fontWeight={700} />}
+                    className="bg-transparent cursor-pointer font-heading border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors"
+                  />
                 </div>
               </div>
 

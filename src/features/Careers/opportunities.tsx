@@ -125,22 +125,23 @@ export default function Opportunities() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full cursor-pointer hover:bg-primary-hover p-4 md:p-6 "
+                  className="w-full flex cursor-pointer justify-between hover:bg-primary-hover items-center p-4 md:p-6 text-left"
                 >
-                  <div className="flex items-center justify-between gap-4 text-body font-body ">
-                    <div className='flex items-start sm:w-full  justify-start sm:justify-between sm:items-center flex-row-reverse sm:flex-row  gap-2 sm:gap-4 '>
-                      <h3 className="text-sm md:text-lg max-sm:max-w-[200px] text-left font-bold font-heading text-black">
-                        {job.title}
-                      </h3>
-                      <div className='flex items-start  sm:items-center flex-col text-nowrap sm:flex-row text-left gap-2 sm:gap-4'>
-                        <div className="flex items-center gap-1 text-xs md:text-sm">
-                          <MapPin size={16} />
-                          {job.location}
-                        </div>
-                        <div className="flex items-center gap-1 text-xs md:text-sm mr-2 md:mr-4">
-                          <Clock size={16} />
-                          {job.type}
-                        </div>
+                  <div>
+                    <h3 className="text-sm md:text-lg font-bold font-heading text-black">
+                      {job.title}
+                    </h3>
+                  </div>
+
+                  <div className="flex items-center gap-2 md:gap-4 text-body font-body">
+                    <div className='flex gap-2 text-nowrap md:gap-4'>
+                      <div className="flex items-center gap-1 text-xs md:text-sm">
+                        <MapPin size={16} />
+                        {job.location}
+                      </div>
+                      <div className="flex items-center gap-1 text-xs md:text-sm mr-2 md:mr-4">
+                        <Clock size={16} />
+                        {job.type}
                       </div>
                     </div>
                     {isOpen ? <Minus size={20} /> : <Plus size={20} />}
@@ -198,7 +199,7 @@ export default function Opportunities() {
                           consideration.
                         </p>
                         <div className='flex justify-center'>
-                          <AnimatedButton text='Apply Now' hoverText='Apply Now' className='cursor-pointer flex bg-primary text-white px-4 py-3 rounded-full text-sm font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2' />
+                          <AnimatedButton href='mailto:info@secret-spirit.com' text='Apply Now' hoverText='Apply Now' className='cursor-pointer flex bg-primary text-white px-4 py-3 rounded-full text-sm font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2' />
                         </div>
                       </div>
                     </motion.div>

@@ -25,7 +25,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   { label: "Hire Us", href: "/hire-us" },
-  { label: "Work", href: "/work" },
+  { label: "Work", href: "/works" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -226,7 +226,7 @@ export default function Header() {
                                   {dropdownItem.label}
                                 </Link>
                                 <span
-                                  className={`block w-6 h-[2px] bg-primary absolute -top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isDropdownActive ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}
+                                  className={`block w-6 h-[2px] bg-primary absolute -top-0 left-5 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isDropdownActive ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}
                                 ></span>
                               </div>
                             );
