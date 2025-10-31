@@ -1,0 +1,163 @@
+[
+    {
+        "slug": "unite-matchmaking",
+        "title": "Unite Matchmaking",
+        "description": "A platform that blends the trusted wisdom of parental support with cutting-edge technology, highlighting unique approach to meaningful matchmaking.",
+        "tags": [
+            "MATCHMAKING",
+            "UI/UX DESIGN",
+            "DEVELOPMENT"
+        ],
+        "mainImage": "/our-work/unite-matchmaking.png",
+        "images": [],
+        "details": {}
+    },
+    {
+        "slug": "yliway",
+        "title": "Yliway",
+        "description": "Yliway connects students, professionals, trainers, and companies to create dynamic professional and business growth opportunities.",
+        "tags": [
+            "E-LEARNING",
+            "UI/UX DESIGN",
+            "DEVELOPMENT"
+        ],
+        "mainImage": "/our-work/yaliway.png",
+        "details": {
+            "subtitle": "Yliway is a cloud technology services consulting firm.",
+            "text": "Bloomsbury is a cloud technology services consulting firm, focused on accelerating the “Cloud-Native Transformation Journey” of businesses. Our primary goal is to simplify our customers’ cloud journey by eliminating clutter while untapping the 'Cloud-Native Potential' of their applications. Specialize in accelerated delivery of DevSecOps automation using 'No-Code / Low-Code' platforms.",
+            "type": "Website Design & Development",
+            "segment": "Information & Technology",
+            "industry": "Information & Technology",
+            "year": "2021",
+            "problem": "Kansocloud's current site looks outdated. It's not a responsive site and does not provide a seamless across all devices. It has very far from user-friendly because of bad navigation and lack of information with accurate place.",
+            "solution": "We have tried to understand about company vision, goals, and services. We have followed a design thinking process, And created a wireframe design to order to define the right user interface which users find easy to use and pleasurable. We have worked in close collaboration with the client to match expectations and launch the marketing site.",
+            "typography": {
+                "fontName": "Inter",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Color 1",
+                    "base": "#6750A4"
+                },
+                {
+                    "name": "Color 2",
+                    "base": "#0DDC0D"
+                },
+                {
+                    "name": "Color 3",
+                    "base": "#363B39"
+                }
+            ]
+        }
+    },
+    {
+        "slug": "zoop-up",
+        "title": "Zoop Up",
+        "description": "ZoopUp is the world's Learn & Earn marketplace, connecting millions of independent talents, independent teachers with businesses around...",
+        "tags": [
+            "MARKETPLACE",
+            "UX RESEARCH",
+            "UI/UX DESIGN",
+            "BRANDING"
+        ],
+        "mainImage": "/our-work/zoopup.png",
+        "images": [],
+        "details": {}
+    },
+    {
+        "slug": "sarvm-ai",
+        "title": "Sarvm.AI",
+        "description": "SarvM empowers businesses and individuals to achieve self-reliance with easy-to-use tools for managing sales, purchases, inventory, and credit...",
+        "tags": [
+            "E-COMMERCE",
+            "UI/UX DESIGN",
+            "DEVELOPMENT"
+        ],
+        "mainImage": "/our-work/sarvm-ai-2.png",
+        "images": [],
+        "details": {}
+    },
+    {
+        "slug": "emkay-consulting",
+        "title": "Emkay Consulting",
+        "description": "Emkay Consulting revolutionizes learning and earning, bridging independent talents and teachers with global...",
+        "tags": [
+            "E-COMMERCE",
+            "UI DESIGN",
+            "UX DESIGN"
+        ],
+        "mainImage": "/our-work/emkay-consulting.png",
+        "images": [],
+        "details": {}
+    },
+    {
+        "slug": "vn-casting",
+        "title": "VN Casting",
+        "description": "VN Casting web Application is intended for travel planning and travel diary keeping for...",
+        "tags": [
+            "E-COMMERCE",
+            "UI DESIGN",
+            "UX DESIGN"
+        ],
+        "mainImage": "/our-work/vncasting.png",
+        "images": [],
+        "details": {}
+    },
+    {
+        "slug": "make-my-marry",
+        "title": "Make My Marry",
+        "description": "MakeMyMarry site is an online platform designed to help people find a perfect partner.",
+        "tags": [
+            "E-COMMERCE",
+            "UI DESIGN",
+            "UX DESIGN"
+        ],
+        "mainImage": "/our-work/make-my-marry.png",
+        "images": [],
+        "details": {}
+    },
+    {
+        "slug": "chemtrix",
+        "title": "Chemtrix",
+        "description": "Chemtrix CRM is a Customer Relationship Management (CRM) application built for Asia crystal Commodities Pvt. Ltd. It can be accessed through Web applicat...",
+        "tags": [
+            "E-COMMERCE",
+            "UI DESIGN",
+            "UX DESIGN"
+        ],
+        "mainImage": "/our-work/chemtrix.png",
+        "images": [],
+        "details": {}
+    },
+    {
+        "slug": "financial-app",
+        "title": "Financial App",
+        "description": "Financial app is a comprehensive financial management application designed to empower users with a holistic approach to their financial well-being...",
+        "tags": [
+            "E-COMMERCE",
+            "UI DESIGN",
+            "UX DESIGN"
+        ],
+        "mainImage": "/our-work/financial-app.png",
+        "images": [],
+        "details": {}
+    },
+    {
+        "slug": "flying-chital",
+        "title": "Flying Chital",
+        "description": "Flying Chital App  revolutionizes learning and earning, bridging independent talents and teachers with global...",
+        "tags": [
+            "E-COMMERCE",
+            "UI DESIGN",
+            "UX DESIGN"
+        ],
+        "mainImage": "/our-work/flying-chital.png",
+        "images": [],
+        "details": {}
+    }
+]

@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import projects from '@/data/projects.json';
 import { FiArrowUpRight } from 'react-icons/fi';
 import Reveal from '@/components/common/Reveal';
 import {
@@ -10,69 +11,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import Link from 'next/link';
 
-const caseStudies = [
-  {
-    title: 'Unite Matchmaking',
-    image: '/our-work/unite-matchmaking.png',
-    description: 'A platform that blends the trusted wisdom of parental support with cutting-edge technology, highlighting unique approach to meaningful matchmaking.',
-    tags: ['MATCHMAKING', 'UI DESIGN', 'DEVELOPMENT'],
-  },
-  {
-    title: 'Yliway',
-    image: '/our-work/yaliway.png',
-    description: 'Yliway connects students, professionals, trainers, and companies to create dynamic professional and business growth opportunities.',
-    tags: ['E-LEARNING', 'UI DESIGN', 'DEVELOPMENT'],
-  },
-  {
-    title: 'ZoopUp',
-    image: '/our-work/zoopup.png',
-    description: 'ZoopUp is the world\'s Learn & Earn marketplace, connecting millions of independent talents, independent teachers with businesses around the globe.',
-    tags: ['MARKETPLACE', 'USER RESEARCH', 'UI/UX DESIGN', 'BRANDING'],
-  },
-  {
-    title: 'SarvM .AI',
-    image: '/our-work/sarvm-ai-2.png',
-    description: 'SarvM unites the entire nano business chain — from farmers and producers to delivery partners and customers — creating a seamless, value-driven ecosystem.',
-    tags: ['MARKETING', 'UI/UX DESIGN', 'DEVELOPMENT'],
-  },
-  {
-    title: 'Emkay Consulting',
-    image: '/our-work/emkay-consulting.png',
-    description: 'Emkay Consulting revolutionizes learning and earning, bridging independent talents and teachers with global...',
-    tags: ['MARKETING', 'UI/UX DESIGN', 'DEVELOPMENT'],
-  },
-  {
-    title: 'VN Casting',
-    image: '/our-work/vncasting.png',
-    description: 'VN Casting web Application is intended for travel planning and travel diary keeping for...',
-    tags: ['MARKETING', 'UI/UX DESIGN', 'DEVELOPMENT'],
-  },
-  {
-    title: 'Make My Marry',
-    image: '/our-work/make-my-marry.png',
-    description: 'Make My Marry site is an online platform designed to help people find a perfect partner.',
-    tags: ['MARKETING', 'UI/UX DESIGN', 'DEVELOPMENT'],
-  },
-  {
-    title: 'Chemtrix',
-    image: '/our-work/chemtrix.png',
-    description: 'Chemtrix CRM is a Customer Relationship Management (CRM) application built for Asia crystal Commodities Pvt. Ltd. It can be accessed through Web applicat...',
-    tags: ['MARKETING', 'UI/UX DESIGN', 'DEVELOPMENT'],
-  },
-  {
-    title: 'Financial App',
-    image: '/our-work/financial-app.png',
-    description: 'Financial app is a comprehensive financial management application designed to empower users with a holistic approach to their financial well-being...',
-    tags: ['MARKETING', 'UI/UX DESIGN', 'DEVELOPMENT'],
-  },
-  {
-    title: 'Flying Chital',
-    image: '/our-work/flying-chital.png',
-    description: 'Flying Chital App  revolutionizes learning and earning, bridging independent talents and teachers with global...',
-    tags: ['MARKETING', 'UI/UX DESIGN', 'DEVELOPMENT'],
-  },
-];
+const caseStudies = projects;
 
 const industryItems = [
   { name: 'Education', value: 'education' },
@@ -127,7 +68,7 @@ export function WorksFilter() {
           </SelectTrigger>
           <SelectContent className='bg-white border-0 max-h-[200px]'>
             {industryItems.map((item, i) => (
-              <SelectItem key={i} className='!m-0 hover:bg-primary-hover cursor-pointer font-body' value={item.value}>{item.name}</SelectItem>
+              <SelectItem key={i} className='!m-0 hover:bg-primary-hover cursor-pointer font-body' value={item?.value}>{item?.name}</SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -158,8 +99,8 @@ export default function WorksSection() {
               <div className="bg-swhite  overflow-hidden  flex flex-col group transition-transform duration-300 hover:-translate-y-1">
                 <div className="relative w-full aspect-[4/3]">
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={item?.mainImage}
+                    alt={item?.title}
                     fill
                     className="object-cover rounded-2xl"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -169,13 +110,13 @@ export default function WorksSection() {
                 <div className="pt-4 gap-4 flex-1 flex flex-col justify-between">
                   {/* Title and Arrow Row */}
                   <div className="flex items-start justify-between">
-                    <h3 className="text-lg md:text-2xl font-bold text-heading font-heading transition-colors mb-0">{item.title}</h3>
-                    <button className="w-10 h-10 cursor-pointer hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-body hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px]">
+                    <h3 className="text-lg md:text-2xl font-bold text-heading font-heading transition-colors mb-0">{item?.title || '-'}</h3>
+                    <Link href={`/works/${item?.slug}`} className="w-10 h-10 cursor-pointer hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-body hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px]">
                       <FiArrowUpRight size={22} />
-                    </button>
+                    </Link>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {item.tags.map((tag, i) => (
+                    {item?.tags.map((tag, i) => (
                       <span
                         key={i}
                         className={`bg-white border border-divider ${i === 0 ? 'text-primary' : 'text-body'} text-[8px] md:text-xs font-heading font-bold px-3 py-2 rounded-full shadow-md`}
@@ -184,7 +125,7 @@ export default function WorksSection() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-body font-body leading-6 font-normal text-xs md:text-sm mb-4 line-clamp-2">{item.description}</p>
+                  <p className="text-body font-body leading-6 font-normal text-xs md:text-sm mb-4 line-clamp-2">{item?.description || '-'}</p>
                 </div>
               </div>
             </Reveal>

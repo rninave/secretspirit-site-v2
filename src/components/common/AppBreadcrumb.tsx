@@ -17,6 +17,7 @@ import { SlashIcon } from "lucide-react"
 interface AppBreadcrumbProps {
   items?: { label: string; href?: string }[]
   className?: string
+  textClassName?: string
 }
 
 /**
@@ -24,7 +25,7 @@ interface AppBreadcrumbProps {
  * - Uses passed `items` or dynamically generates from current path.
  * - Auto-applies primary color and responsive styling.
  */
-export default function AppBreadcrumb({ items, className }: AppBreadcrumbProps) {
+export default function AppBreadcrumb({ items, className, textClassName }: AppBreadcrumbProps) {
   const pathname = usePathname()
   const segments = pathname.split('/').filter(Boolean)
 
@@ -48,13 +49,13 @@ export default function AppBreadcrumb({ items, className }: AppBreadcrumbProps) 
             <React.Fragment key={index}>
               <BreadcrumbItem>
                 {isLast ? (
-                  <BreadcrumbPage className="text-primary font-semibold">
+                  <BreadcrumbPage className="text-primary font-bold">
                     {item.label}
                   </BreadcrumbPage>
                 ) : (
                   <BreadcrumbLink
                     asChild
-                    className="text-white font-bold hover:underline transition-colors"
+                    className={`text-white font-bold hover:underline transition-colors ${textClassName}`}
                   >
                     <Link href={item.href || '#'}>{item.label}</Link>
                   </BreadcrumbLink>
