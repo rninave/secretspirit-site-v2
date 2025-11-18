@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Bricolage_Grotesque  } from "next/font/google";
+import { Space_Grotesk, Bricolage_Grotesque } from "next/font/google";
 import "@/styles/globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Banner from "@/components/layout/banner";
 import TooltipInit from "@/components/common/tooltip";
+import { PrimeReactProvider } from "primereact/api";
 
 
-  const spaceGrotesk = Space_Grotesk({
-    subsets: ["latin"],
-    variable: "--font-space-grotesk ",
-    weight: ["300", "400", "500", "600", "700"],
-  });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk ",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -46,7 +47,9 @@ export default function RootLayout({
         <TooltipInit />
         <Banner />
         <Header />
-        <main className="flex-1 flex flex-col">{children}</main>
+        <PrimeReactProvider value={{ hideOverlaysOnDocumentScrolling: true }}>
+          <main className="flex-1 flex flex-col">{children}</main>
+        </PrimeReactProvider>
         <Footer />
       </body>
     </html>
