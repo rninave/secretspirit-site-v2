@@ -15,7 +15,7 @@ const caseStudies = [
   },
   {
     title: 'Yliway',
-    image: '/our-work/yaliway.png',
+    image: '/our-work/yliway-img.png',
     description: 'Yliway connects students, professionals, trainers, and companies to create dynamic professional and business growth opportunities.',
     tags: ['E-LEARNING', 'UI DESIGN', 'DEVELOPMENT'],
   },

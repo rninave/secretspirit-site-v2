@@ -7,10 +7,12 @@ import OurWorkSection from "./our-work";
 import PerformanceHighlightsSection from "../../components/common/performance-highlights";
 import TrustedBrandsSection from "./trusted-brands";
 import HeroSection from "./hero";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 export default function HomePage() {
   return (
     <>
+      <ScrollProgress className="top-[76px]" />
       <HeroSection />
       <section id="next-section" className="p-0 m-0">
         <TrustedBrandsSection />

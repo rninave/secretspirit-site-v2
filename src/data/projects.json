@@ -21,7 +21,7 @@
             "UI/UX DESIGN",
             "DEVELOPMENT"
         ],
-        "mainImage": "/our-work/yaliway.png",
+        "mainImage": "/our-work/yliway-img.png",
         "details": {
             "subtitle": "Yliway is a cloud technology services consulting firm.",
             "text": "Bloomsbury is a cloud technology services consulting firm, focused on accelerating the “Cloud-Native Transformation Journey” of businesses. Our primary goal is to simplify our customers’ cloud journey by eliminating clutter while untapping the 'Cloud-Native Potential' of their applications. Specialize in accelerated delivery of DevSecOps automation using 'No-Code / Low-Code' platforms.",
@@ -33,6 +33,7 @@
             "solution": "We have tried to understand about company vision, goals, and services. We have followed a design thinking process, And created a wireframe design to order to define the right user interface which users find easy to use and pleasurable. We have worked in close collaboration with the client to match expectations and launch the marketing site.",
             "typography": {
                 "fontName": "Inter",
+                "tailwindFontClass": "font-inter",
                 "weights": [
                     "Bold",
                     "SemiBold",

@@ -5,6 +5,7 @@ import Timeline, { TimelineProps } from "./mission-value";
 import OurApproach from "./our-approach";
 import Evolution from "./evolution";
 import PartOfTeam from "./part-of-team";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 const LifeAtTopCards = [
   { title: 'Daily Sync-ups', body: 'Our daily meetings are designed to do more than just discuss tasks. They are a cornerstone of our culture, fostering open communication and strengthening the bonds within our team.' },
@@ -51,6 +52,7 @@ const ourApproachBottomCards = [
 export default function AboutPage() {
   return (
     <>
+    <ScrollProgress className="top-[76px]" />
       <PageHero
         title="A Team of Crafting Meaningful Experiences"
         bgImage="/heros/aboutus-hero.jpg"

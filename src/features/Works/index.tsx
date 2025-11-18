@@ -1,9 +1,11 @@
 import PageHero from "@/components/common/PageHero";
 import WorksSection, { WorksFilter } from "./works";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 export default function WorksPage() {
     return (
         <>
+            <ScrollProgress className="top-[76px]" />
             <PageHero
                 title="Featured case studies"
                 bgImage="/heros/works-hero.jpg"
@@ -11,7 +13,7 @@ export default function WorksPage() {
                 breadcrumbItems={[{ label: 'HOME', href: '/' }, { label: 'WORKS' }]}
                 subtitle="We help clients worldwide build trust and achieve sustainable outcomes. We firmly believe that continuous improvement is the key driver of both growth and innovation."
             />
-            <WorksFilter/>
+            <WorksFilter />
             <WorksSection />
 
         </>

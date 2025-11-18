@@ -2,10 +2,12 @@ import PageHero from "@/components/common/PageHero";
 import WhyJoinSS from "./why-join";
 import Opportunities from "./opportunities";
 import TestimonialsSection from "@/components/common/Testimonials";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 export default function CareersPage() {
   return (
     <>
+    <ScrollProgress className="top-[76px]" />
       <PageHero
         title="Work culture at Secretspirit"
         bgImage="/heros/careers-hero.jpg"

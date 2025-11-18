@@ -1,11 +1,9 @@
-import { notFound } from 'next/navigation'
-import  projects  from '@/data/projects.json'
 import WorkDetails from '@/features/Works/work-details'
 
-interface Params {
-  params: { slug: string }
-}
-
-export default function ProjectDetailsPage({ params }: Params) {
+export default async function ProjectDetailsPage({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}) {
   return <WorkDetails params={params} />;
 }
