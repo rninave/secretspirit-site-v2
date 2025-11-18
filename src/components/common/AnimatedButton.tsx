@@ -9,6 +9,7 @@ interface AnimatedButtonProps {
   text: string;
   hoverText?: string;
   icon?: React.ReactNode;
+  disabled?: boolean
   className?: string;
   href?: string;
   onClick?: () => void;
@@ -19,6 +20,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   hoverText,
   icon,
   className,
+  disabled,
   href,
   onClick
 }) => {
@@ -66,8 +68,9 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       <button
         ref={btnRef}
         onClick={handleClick}
+        disabled={disabled}
         className={cn(
-          "relative overflow-hidden group inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-blue-600 transition-colors duration-300",
+          "relative overflow-hidden disabled:cursor-not-allowed disabled:bg-primary/50  group inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-blue-600 transition-colors duration-300",
           "ripple-container",
           className
         )}

@@ -157,6 +157,7 @@ export default function Header() {
         {/* Desktop CTA Button */}
         <div className="hidden lg:flex">
           <AnimatedButton
+            href="/contact"
             text="Let's Talk"
             hoverText="Let's Talk"
             icon={<FiPhoneCall className="text-white text-lg" />}
