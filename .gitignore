@@ -8,6 +8,9 @@
 !.yarn/releases
 !.yarn/versions
 
+package-lock.json
+yarn.lock
+
 # testing
 /coverage
 
