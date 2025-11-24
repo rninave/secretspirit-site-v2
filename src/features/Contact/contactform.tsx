@@ -1,46 +1,95 @@
 "use client";
-import AnimatedButton from "@/components/common/AnimatedButton";
-import { WobbleCard } from "@/components/ui/wobble-card";
 import { useState } from "react";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { IoMail } from "react-icons/io5";
 import { IoLocationSharp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
+import { WobbleCard } from "@/components/ui/wobble-card";
 import BusinessForm from "./forms/BusinessForm";
 import CareerForm from "./forms/CareerForm";
 import OtherForm from "./forms/OtherForm";
-import Link from "next/link";
 
 const tabs = ["Business", "Career", "Other"];
 
+// Form submission handler for w3forms
+const submitFormToW3Forms = async (formData: FormData, formType: string) => {
+    try {
+        formData.append("form_type", formType);
+        formData.append("access_key", "30f67c85-131a-4ed2-9c36-6a766a3b535b");
+        
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData,
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+            return { success: true, message: "Form submitted successfully!" };
+        } else {
+            return { success: false, message: result.message || "Failed to submit form" };
+        }
+    } catch (error) {
+        console.error("Form submission error:", error);
+        return { success: false, message: "An error occurred while submitting the form" };
+    }
+};
+
 export default function ContactFormSection() {
     const [activeTab, setActiveTab] = useState("Business");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitMessage(null);
+
+        try {
+            const formElement = e.currentTarget;
+            const formData = new FormData(formElement);
+            
+            const result = await submitFormToW3Forms(formData, activeTab);
+            
+            if (result.success) {
+                setSubmitMessage({ type: "success", text: result.message });
+                formElement.reset();
+                setTimeout(() => setSubmitMessage(null), 5000);
+            } else {
+                setSubmitMessage({ type: "error", text: result.message });
+            }
+        } catch (error) {
+            setSubmitMessage({ type: "error", text: "An unexpected error occurred" });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
-        <section className="bg-white py-15">
-            <div className="max-w-6xl mx-auto px-4">
+        <section className="bg-white py-12 md:py-16 lg:py-20">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Container */}
-                <div className="relative shadow-careers-job-card rounded-2xl flex flex-col lg:flex-row gap-10">
+                <div className="relative shadow-careers-job-card rounded-2xl flex flex-col lg:flex-row gap-6 md:gap-10">
 
                     {/* LEFT — FORM */}
-                    <div className="flex-1 p-10">
+                    <div className="flex-1 p-6 md:p-10">
                         <div className="max-w-2xl">
                             {/* Tabs */}
-                            <div className="flex gap-3 mb-8">
+                            <div className="flex flex-wrap gap-2 md:gap-3 mb-8">
                                 {tabs.map((tab) => (
                                     <WobbleCard key={tab}>
                                         <button
-                                            key={tab}
-                                            className={`px-5 md:px-8 py-2.5 md:py-3 cursor-pointer rounded-full font-medium font-body text-xs md:text-sm border transition-all duration-200 hover:shadow-btn focus:outline-none ${activeTab === tab
-                                                ? 'bg-primary/10 text-primary border-divider shadow-btn hover:shadow-btn-reverse translate-y-0.5'
-                                                : 'bg-white text-body hover:text-primary border-divider hover:bg-primary/10 hover:shadow-btn-reverse'
+                                            type="button"
+                                            className={`px-4 md:px-8 py-2 md:py-3 cursor-pointer rounded-full font-medium font-body text-xs sm:text-xs md:text-sm border transition-all duration-200 hover:shadow-btn focus:outline-none relative ${activeTab === tab
+                                                ? 'bg-primary/10 text-primary border-primary shadow-btn'
+                                                : 'bg-white text-body hover:text-primary border-divider hover:bg-primary/10'
                                                 }`}
                                             onClick={() => setActiveTab(tab)}
                                         >
                                             {activeTab === tab && (
                                                 <motion.div
                                                     layoutId="activeTab"
-                                                    className="absolute inset-0 bg-primary/10 rounded-full"
+                                                    className="absolute inset-0 bg-primary/10 rounded-full -z-10"
                                                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                                 />
                                             )}
@@ -57,13 +106,31 @@ export default function ContactFormSection() {
                                 ))}
                             </div>
 
-                            <h2 className="text-[24px] font-heading text-black font-bold mb-1">Let’s Connect</h2>
-                            <p className="text-body font-normal font-body mb-10 text-base">
-                                Have questions or want to collaborate? Reach out to us and let’s make things happen!
+                            <h2 className="text-2xl sm:text-2xl md:text-3xl font-heading text-black font-bold mb-2 md:mb-3">Let's Connect</h2>
+                            <p className="text-body font-normal font-body mb-8 md:mb-10 text-sm md:text-base leading-relaxed">
+                                Have questions or want to collaborate? Reach out to us and let's make things happen!
                             </p>
 
-                            {/* FORM (all inputs must be inside form) */}
-                            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                            {/* Success/Error Message */}
+                            <AnimatePresence>
+                                {submitMessage && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -10 }}
+                                        className={`mb-6 p-4 rounded-lg font-body text-sm ${
+                                            submitMessage.type === "success"
+                                                ? "bg-green-50 border border-green-200 text-green-800"
+                                                : "bg-red-50 border border-red-200 text-red-800"
+                                        }`}
+                                    >
+                                        {submitMessage.text}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+
+                            {/* FORM */}
+                            <form className="space-y-6" onSubmit={handleFormSubmit}>
                                 <AnimatePresence mode="wait">
                                     {activeTab === "Business" && <BusinessForm />}
                                     {activeTab === "Career" && <CareerForm />}
@@ -71,47 +138,54 @@ export default function ContactFormSection() {
                                 </AnimatePresence>
 
                                 <motion.div
-                                    className="mt-6 w-fit"
+                                    className="pt-2 w-full sm:w-fit"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.2 }}
                                 >
-                                    <AnimatedButton
-                                        text="Submit"
-                                        hoverText="Submit"
-                                        disabled={true}
-                                        className="bg-primary text-white px-9 py-3 rounded-[50px] font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2 cursor-pointer"
-                                    />
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="w-full sm:w-auto bg-primary text-white px-6 md:px-9 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
+                                    >
+                                        {isSubmitting ? "Submitting..." : "Submit"}
+                                    </button>
                                 </motion.div>
                             </form>
                         </div>
                     </div>
 
                     {/* RIGHT — CONTACT CARD */}
-                    <div className="w-[205px] bg-light-primary rounded-r-2xl">
-                    </div>
+                    <div className="hidden lg:block w-[205px] bg-light-primary rounded-r-2xl"></div>
 
-                    <div className="absolute right-14 max-md:bottom-0 md:top-1/2 -translate-y-1/2 transform w-[324px] h-[472px] bg-heading text-white p-8 rounded-xl flex flex-col justify-between">
-                        <div className="">
-                            <h3 className="text-[28px] font-body text-white font-bold mb-6">Contact Us</h3>
+                    {/* CONTACT INFO CARD */}
+                    <div className="w-full sm:w-[90%] md:w-[324px] bg-heading text-white p-6 md:p-8 rounded-xl lg:rounded-2xl flex flex-col justify-between h-auto lg:h-[472px] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+                        <div className="space-y-6 md:space-y-8">
+                            <h3 className="text-xl md:text-2xl font-body text-white font-bold">Contact Us</h3>
 
-                            <div className="flex items-center gap-3 mb-4">
-                                <BiSolidPhoneCall className="text-[24px]" />
-                                <Link href="" className="text-sm font-medium font-body text-whites">07863837895</Link>
-                            </div>
+                            <div className="space-y-4 md:space-y-5">
+                                <div className="flex items-center gap-3">
+                                    <BiSolidPhoneCall className="text-lg md:text-xl flex-shrink-0" />
+                                    <a href="tel:07863837895" className="text-xs md:text-sm font-medium font-body text-white hover:opacity-80 transition-opacity duration-200 break-all">
+                                        07863837895
+                                    </a>
+                                </div>
 
-                            <div className="flex items-center gap-3 mb-4">
-                                <IoMail className="text-[24px]" />
-                                <Link href="mailto:info@secret-spirit.com" className="text-sm font-medium font-body text-white">info@secret-spirit.com</Link>
-                            </div>
+                                <div className="flex items-center gap-3">
+                                    <IoMail className="text-lg md:text-xl flex-shrink-0" />
+                                    <a href="mailto:info@secret-spirit.com" className="text-xs md:text-sm font-medium font-body text-white hover:opacity-80 transition-opacity duration-200 break-all">
+                                        info@secret-spirit.com
+                                    </a>
+                                </div>
 
-                            <div className="flex items-start gap-3 mb-4">
-                                <IoLocationSharp className="text-[24px] min-w-6" />
-                                <span className="text-sm font-medium font-body text-white leading-relaxed">
-                                    202, Kasturi Pride (Business Hub),
-                                    SP Ring Rd, Nikol, Ahmedabad,
-                                    Gujarat - 382350
-                                </span>
+                                <div className="flex items-start gap-3">
+                                    <IoLocationSharp className="text-lg md:text-xl flex-shrink-0 mt-0.5" />
+                                    <span className="text-xs md:text-sm font-medium font-body text-white leading-relaxed">
+                                        202, Kasturi Pride (Business Hub),
+                                        SP Ring Rd, Nikol, Ahmedabad,
+                                        Gujarat - 382350
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

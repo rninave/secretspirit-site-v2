@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FiPhoneCall, FiChevronDown, FiX } from "react-icons/fi";
 import { useState, useRef, useEffect } from "react";
 import { MenuItem, MenuItemDropdown } from "@/interface/header.interface";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import AnimatedButton from "../common/AnimatedButton";
 import Link from "next/link";
 
@@ -34,6 +34,8 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  const router = useRouter();
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -168,7 +170,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`lg:hidden fixed inset-0 z-50 transition-opacity duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         style={{ transitionProperty: 'opacity' }}
         onClick={() => {
           setIsMobileMenuOpen(false);
@@ -254,7 +256,7 @@ export default function Header() {
               );
             })}
           </nav>
-          <button className="bg-primary cursor-pointer  text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors flex flex-row-reverse items-center gap-2 mt-4 w-full justify-between">
+          <button onClick={() => {router.push("/contact"); setIsMobileMenuOpen(false)}} className="bg-primary cursor-pointer  text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors flex flex-row-reverse items-center gap-2 mt-4 w-full justify-between">
             <FiPhoneCall className="text-white ml-2" />
             <span>Let's Talk</span>
           </button>
