@@ -6,7 +6,7 @@ export const metadata = {
   openGraph: {
     title: "Works | Secretspirit | UX Research, UX/UI design, Custom Software Solutions",
     description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
-    url: "https://secretspirit.com/hire-us",
+    url: "https://secretspirit.com/works",
     siteName: "Secret Spirit",
     images: [
       {

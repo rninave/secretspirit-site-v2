@@ -1,4 +1,4 @@
-import CareersPage from "@/features/Careers";
+import CareersPage from "@/features/About/Careers";
 
 export const metadata = {
   title: "Careers | Secretspirit | Explore career in design and development at Secretspirit",

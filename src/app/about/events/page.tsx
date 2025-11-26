@@ -1,4 +1,4 @@
-import EventsPage from "@/features/Events";
+import EventsPage from "@/features/About/Events";
 
 export const metadata = {
   title: "Happy Vibes at Secretspirit | Team Spirit and Festive Celebration",
@@ -6,7 +6,7 @@ export const metadata = {
   openGraph: {
     title: "Happy Vibes at Secretspirit | Team Spirit and Festive Celebration",
     description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
-    url: "https://secretspirit.com/about/careers",
+    url: "https://secretspirit.com/about/events",
     siteName: "Secret Spirit",
     images: [
       {

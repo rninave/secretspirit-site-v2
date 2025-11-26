@@ -66,7 +66,6 @@ export default function AboutPage() {
       <PerformanceHighlightsSection />
       <Evolution />
       <PartOfTeam />
-
     </>
   );
 }

@@ -19,6 +19,7 @@ const menuItems: MenuItem[] = [
   {
     label: "Services",
     dropdown: [
+      { label: "Services", href: "/services" },
       { label: "Research", href: "/services/research" },
       { label: "Design", href: "/services/design" },
       { label: "Development", href: "/services/development" },
@@ -240,7 +241,7 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href || ''}
-                      className={`block text-body text-[16px] font-body font-medium py-2 group ${isActive ? "text-primary" : ""} group-hover:text-primary`}
+                      className={`block w-full text-body text-[16px] font-body font-medium py-2 group ${isActive ? "text-primary" : ""} group-hover:text-primary`}
                       onClick={() => {
                         setIsMobileMenuOpen(false);
                         setOpenMobileDropdown(null);
