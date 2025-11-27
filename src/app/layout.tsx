@@ -7,7 +7,6 @@ import Banner from "@/components/layout/banner";
 import TooltipInit from "@/components/common/tooltip";
 import { PrimeReactProvider } from "primereact/api";
 
-
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk ",

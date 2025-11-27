@@ -6,7 +6,7 @@ export default function CaseStudyCard({ item }: any) {
             {/* Quote icon */}
             <div className="absolute top-0 left-6">
                 <div className="px-2 py-4 rounded-b-full bg-gray-light shadow-btn">
-                    <Image src="/icons/quotes-icon.svg" alt="Quote icon" className="w-auto h-auto" width={24} height={24} style={{ width: 'auto', height: 'auto' }} />
+                    <Image src="/icons/quotes-icon.svg" alt="Quote icon" className="w-auto h-auto" loading="eager" width={24} height={24} style={{ width: 'auto', height: 'auto' }} />
                 </div>
             </div>
             {/* Testimonial text */}
@@ -16,7 +16,7 @@ export default function CaseStudyCard({ item }: any) {
             {/* Client name and logo */}
             <div className="flex items-center justify-between mt-auto ">
                 <span className="font-bold text-base sm:text-lg text-heading font-heading">{item.clientName}</span>
-                <Image src={item.clientLogo} alt={item.clientName + ' logo'} className="object-cover w-auto h-auto" width={90} height={90} style={{ width: 'auto', height: 'auto' }} />
+                <Image src={item.clientLogo} alt={item.clientName + ' logo'} loading="eager" className="object-cover w-auto h-auto" width={90} height={90} style={{ width: 'auto', height: 'auto' }} />
             </div>
         </div>
     );

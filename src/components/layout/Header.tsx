@@ -68,6 +68,7 @@ export default function Header() {
           <Image
             src="/main-logo.png"
             alt="Secret Spirit"
+            loading="eager"
             width={192}
             height={32}
           />

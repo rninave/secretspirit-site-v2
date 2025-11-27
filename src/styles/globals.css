@@ -36,6 +36,7 @@
   --color-divider: #E5E5E5;
   --color-gray-light: #F6F8FE;
   --color-primary-light-text: #FFD4C7;
+  --color-development-icon-bg: #FFF2EE;
   --color-primary-gradiant: linear-gradient(60deg, #FF8C21 13.4%, #FF3D00 86.6%);
 
   /* custom shadows */
@@ -44,6 +45,8 @@
   --shadow-award-card: 0px 4px 12px 0px #FFEAE41F;
   --shadow-about-card: 5px 0px 3px 0px #FF3D0099;
   --shadow-careers-job-card: 0px 2px 8px 0px #0000001F;
+  --shadow-toolcard: 0px -10px 20px 0px #00000029;
+
 
   /* custom fonts */
   --font-body: "Space Grotesk", sans-serif;

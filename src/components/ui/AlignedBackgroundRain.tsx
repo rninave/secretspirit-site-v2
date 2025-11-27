@@ -51,7 +51,7 @@ export const HeroSectionBackground = ({
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-[90dvh] overflow-hidden bg-neutral-900 ${className}`}
+      className={`relative w-full h-[86dvh] overflow-hidden bg-neutral-900 ${className}`}
     >
       {/* Static vertical lines */}
       {positions.map((left, i) => (

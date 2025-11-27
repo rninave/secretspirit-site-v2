@@ -61,7 +61,7 @@ export default function TestimonialsSection({classname = ''}) {
   );
 
   return (
-    <section className={`bg-white py-14 md:py-16 px-4 md:px-8 ${classname}`}>
+    <section className={`bg-white py-14 md:py-16 px-4 sm:px-6 ${classname}`}>
       <div className="max-w-7xl mx-auto relative">
         <Reveal>
           <SectionHeader
