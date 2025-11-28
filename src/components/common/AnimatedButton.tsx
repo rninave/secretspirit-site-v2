@@ -57,7 +57,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     });
 
     if (href) {
-      router.push(href);
+      router.replace(href);
     } else if (onClick) {
       onClick();
     }

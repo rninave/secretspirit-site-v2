@@ -28,7 +28,7 @@ export default function DevelopmentPage() {
             <PageHero
                 title="Building Exceptional Digital Experiences"
                 bgImage="/heros/services-hero.jpg"
-                overlayColor="opacity-[0.96]"
+                overlayColor="opacity-[0.90]"
                 bgstyle="linear-gradient(123.99deg, #181616 5.78%, #131131 45.6%, #181616 81.77%)"
                 breadcrumbItems={[{ label: 'HOME', href: '/' }, { label: 'SERVICES', href: '/services' }, { label: 'DEVELOP'}]}
                 subtitle="Our visually engaging and intuitive interfaces enhance customer satisfaction, retention, and revenue. Leveraging deep UX research, the right tools, and innovative technologies, we help our clients achieve remarkable growth. Our skilled design team combines creativity with design principles to consistently deliver cutting-edge UI and UX solutions."

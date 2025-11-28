@@ -1,13 +1,13 @@
 import PageHero from "@/components/common/PageHero";
 import TestimonialsSection from "@/components/common/Testimonials";
 import WhyHireSS from "./why-hire";
-import  HireUsCards from "./hire-us-cards";
+import HireUsCards from "./hire-us-cards";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 export default function HireUsPage() {
     return (
         <>
-        <ScrollProgress className="top-[76px]" />
+            <ScrollProgress className="top-[76px]" />
             <PageHero
                 title="Looking to Launch a Startup? Hire Us"
                 bgImage="/heros/hire-us-hero.jpg"

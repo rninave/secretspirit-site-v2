@@ -1,0 +1,45 @@
+[
+  {
+    "id": "1",
+    "title": "Benefits of agile methodology: Accelerating software development and delivery",
+    "excerpt": "Agile methodology has revolutionized the software development landscape by offering a more flexible, iterative approach to project management...",
+    "date": "2024-08-12",
+    "image": "/blog/agile-methodology.jpg",
+    "slug": "benefits-of-agile-methodology",
+    "details": [
+        "hi"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Cybersecurity in the digital age: Why it should be your top priority",
+    "excerpt": "In today’s interconnected world, cybersecurity has become more than just a buzzword—it's a critical business imperative...",
+    "date": "2024-07-26",
+    "image": "/blog/cybersecurity.jpg",
+    "slug": "cybersecurity-in-the-digital-age"
+  },
+  {
+    "id": "3",
+    "title": "Guidelines to Start a Healthcare Startup: A Roadmap to Success",
+    "excerpt": "Starting a healthcare startup is a bold and impactful venture that can revolutionize the industry and improve countless lives...",
+    "date": "2024-07-04",
+    "image": "/blog/healthcare.jpg",
+    "slug": "guidelines-to-start-healthcare-startup"
+  },
+  {
+    "id": "4",
+    "title": "Designing the Future: Harnessing the Power of Design Systems and Design Thinking",
+    "excerpt": "In the ever-evolving landscape of technology, the synergy between creativity and functionality drives innovation...",
+    "date": "2024-07-02",
+    "image": "/blog/design-systems.jpg",
+    "slug": "designing-the-future"
+  },
+  {
+    "id": "5",
+    "title": "Revolutionizing UI/UX design and front-end development: The AI, figma plugins...",
+    "excerpt": "In the ever-evolving tech landscape, the convergence of AI, Figma plugins, and powerful front-end frameworks is reshaping how we approach UI...",
+    "date": "2024-06-27",
+    "image": "/blog/ai.jpg",
+    "slug": "revolutionizing-ui-ux"
+  }
+]

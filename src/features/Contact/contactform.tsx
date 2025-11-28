@@ -69,11 +69,11 @@ export default function ContactFormSection() {
         <section className="bg-white py-12 md:py-16 lg:py-20">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Container */}
-                <div className="relative shadow-careers-job-card rounded-2xl flex flex-col lg:flex-row gap-6 md:gap-10">
+                <div className="relative shadow-careers-job-card rounded-2xl flex flex-col lg:flex-row gap-6 lg:gap-10">
 
                     {/* LEFT — FORM */}
                     <div className="flex-1 p-6 md:p-10">
-                        <div className="max-w-2xl">
+                        <div className="lg:w-5/6 w-full">
                             {/* Tabs */}
                             <div className="flex flex-wrap gap-2 md:gap-3 mb-8">
                                 {tabs.map((tab) => (
@@ -159,7 +159,7 @@ export default function ContactFormSection() {
                     <div className="hidden lg:block w-[205px] bg-light-primary rounded-r-2xl"></div>
 
                     {/* CONTACT INFO CARD */}
-                    <div className="w-full sm:w-[90%] md:w-[324px] bg-heading text-white p-6 md:p-8 rounded-xl lg:rounded-2xl flex flex-col justify-between h-auto lg:h-[472px] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+                    <div className="w-full lg:w-[324px] bg-heading text-white p-6 md:p-8 rounded-xl lg:rounded-2xl flex flex-col justify-between h-auto lg:h-[472px] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
                         <div className="space-y-6 md:space-y-8">
                             <h3 className="text-xl md:text-2xl font-body text-white font-bold">Contact Us</h3>
 

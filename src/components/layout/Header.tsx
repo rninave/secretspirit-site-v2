@@ -69,6 +69,7 @@ export default function Header() {
             src="/main-logo.png"
             alt="Secret Spirit"
             loading="eager"
+            priority
             width={192}
             height={32}
           />
@@ -158,6 +159,7 @@ export default function Header() {
         >
           <Image src="/icons/menu-icon.svg" alt="Menu" width={24} height={24} />
         </button>
+        
         {/* Desktop CTA Button */}
         <div className="hidden lg:flex">
           <AnimatedButton
