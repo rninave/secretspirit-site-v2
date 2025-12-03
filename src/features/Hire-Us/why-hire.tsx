@@ -58,7 +58,7 @@ export default function WhyHireSS() {
                 </Reveal>
 
                 <Reveal>
-                    <p className="text-center font-body max-w-3xl mx-auto text-body text-sm md:text-base leading-7 mb-10">
+                    <p className="text-center font-body max-w-xs mx-auto text-body text-sm md:text-base leading-7 mb-10">
                         We believe in fostering a dynamic and supportive work environment where you can truly thrive. Joining us means becoming part of a team that values your growth, well-being, and innovative spirit.
                     </p>
                 </Reveal>

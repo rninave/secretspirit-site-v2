@@ -75,9 +75,9 @@ export default function Footer() {
           </Link>
         </div>
         {/* Email Subscribe with Heading */}
-        <div className="flex flex-col items-start md:items-center w-full md:w-[40%] lg:w-[30%]">
+        <div className="flex flex-col justify-start w-full md:w-[40%] lg:w-[30%]">
           <span className="text-xl text-start w-full md:text-2xl font-bold mb-2 font-heading text-divider">Let’s Connect!</span>
-          <form className="flex items-center gap-2 bg-[#FFFFFF0F] rounded-xl px-2 py-1 max-w-sm max-md:w-full  ml-auto md:ml-0">
+          <form className="flex items-start gap-2 bg-[#FFFFFF0F] rounded-xl px-2 py-1 max-w-sm max-md:w-full  md:ml-0">
             <input
               type="email"
               placeholder="Enter email address"

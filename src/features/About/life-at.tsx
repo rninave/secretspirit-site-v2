@@ -18,7 +18,7 @@ interface LifeAtSecretspiritProps {
 }
 
 const LifeAtSecretspirit: React.FC<LifeAtSecretspiritProps> = ({
-  subtitle = "Life at Secretspirit",
+  subtitle = "",
   title = "Life at Secretspirit",
   description = "At Secretspirit Solutions Pvt. Ltd., we believe in building more than a team—we foster a close-knit family of professionals. Here’s how we go the extra mile to support the overall well-being of our people.",
   topCards,
@@ -69,7 +69,7 @@ const LifeAtSecretspirit: React.FC<LifeAtSecretspiritProps> = ({
         </Reveal>
 
         <Reveal>
-          <p className="text-center font-body max-w-3xl mx-auto text-body text-sm md:text-base leading-7 mb-10">
+          <p className="text-center font-body max-w-xs mx-auto text-body text-sm md:text-base leading-7 mb-10">
             {description}
           </p>
         </Reveal>

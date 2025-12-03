@@ -37,7 +37,7 @@ export default function PageHero({
   return (
     <section
       className={cn(
-        'relative w-full  min-h-[300px] md:min-h-[400px] flex items-center justify-center text-center text-white overflow-hidden',
+        'relative w-full md:min-h-[316px] flex items-center justify-center text-center text-white overflow-hidden',
         className
       )}
     >
