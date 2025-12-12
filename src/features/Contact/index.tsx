@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import PageHero from "@/components/common/PageHero";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import GoogleMap from "./googlemap";
@@ -15,7 +16,9 @@ export default function ContactPage() {
                 breadcrumbItems={[{ label: 'HOME', href: '/' }, { label: 'CONTACT US' }]}
                 subtitle="If you need help or have question, our friendly team is here to help you."
             />
-            <ContactFormSection/>
+            <Suspense fallback={<div className="bg-white py-12 md:py-16 lg:py-20"><div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">Loading...</div></div>}>
+                <ContactFormSection/>
+            </Suspense>
             <GoogleMap />
         </>
     );

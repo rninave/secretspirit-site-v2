@@ -88,7 +88,7 @@ export default function Footer() {
         </div>
       </div>
       {/* Copyright */}
-      <div className="max-w-7xl mx-auto font-body text-body text-xs md:text-sm text-left">
+      <div className="max-w-7xl mx-auto font-body text-body text-xs md:text-sm text-center xs:text-left">
         &copy; {new Date().getFullYear()} Secretspirit Solutions Pvt. Ltd.
       </div>
     </footer>

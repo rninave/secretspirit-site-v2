@@ -199,7 +199,7 @@ export default function Opportunities() {
                           consideration.
                         </p>
                         <div className='flex justify-center'>
-                          <AnimatedButton href='mailto:info@secret-spirit.com' text='Apply Now' hoverText='Apply Now' className='cursor-pointer flex bg-primary text-white px-4 py-3 rounded-full text-sm font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2' />
+                          <AnimatedButton href='/contact?form=career' text='Apply Now' hoverText='Apply Now' className='cursor-pointer flex bg-primary text-white px-4 py-3 rounded-full text-sm font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2' />
                         </div>
                       </div>
                     </motion.div>

@@ -12,6 +12,7 @@ interface AnimatedButtonProps {
   disabled?: boolean
   className?: string;
   href?: string;
+  btnType?: "button" | "submit" | "reset";
   onClick?: () => void;
 }
 
@@ -22,6 +23,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   className,
   disabled,
   href,
+  btnType = 'button',
   onClick
 }) => {
   const router = useRouter();
@@ -69,6 +71,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
         ref={btnRef}
         onClick={handleClick}
         disabled={disabled}
+        type={btnType}
         className={cn(
           "relative overflow-hidden disabled:cursor-not-allowed disabled:bg-primary/50  group inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-blue-600 transition-colors duration-300",
           "ripple-container",

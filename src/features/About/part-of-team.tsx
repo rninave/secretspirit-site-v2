@@ -22,6 +22,7 @@ export default function PartOfTeam() {
                 <div className="flex justify-center">
                     <AnimatedButton
                     text="Join Our Team"
+                    href="/about/careers"
                     hoverText="Join Our Team"
                     icon={<FiArrowUpRight className="text-white text-lg" />}
                     className=" cursor-pointer lg:flex bg-primary text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2"

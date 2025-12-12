@@ -1,22 +1,47 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { IoMail } from "react-icons/io5";
 import { IoLocationSharp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { WobbleCard } from "@/components/ui/wobble-card";
+import AnimatedButton from "@/components/common/AnimatedButton";
 import BusinessForm from "./forms/BusinessForm";
 import CareerForm from "./forms/CareerForm";
 import OtherForm from "./forms/OtherForm";
 
 const tabs = ["Business", "Career", "Other"];
 
-import { submitToW3Forms } from '@/services/contact'
+import { submitCareerForm, submitBusinessForm, submitOtherForm } from '@/services/contact'
 
 export default function ContactFormSection() {
+    const searchParams = useSearchParams();
     const [activeTab, setActiveTab] = useState("Business");
+
+    // Check URL parameters on mount to set active tab
+    useEffect(() => {
+        const formParam = searchParams.get('form')?.toLowerCase();
+        const tabParam = searchParams.get('tab');
+        
+        if (formParam === 'career' || tabParam === 'Career') {
+            setActiveTab("Career");
+            // Scroll to form section smoothly
+            setTimeout(() => {
+                const formSection = document.querySelector('[data-contact-form]');
+                if (formSection) {
+                    formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        } else if (formParam === 'business' || tabParam === 'Business') {
+            setActiveTab("Business");
+        } else if (formParam === 'other' || tabParam === 'Other') {
+            setActiveTab("Other");
+        }
+    }, [searchParams]);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+    const [careerFormKey, setCareerFormKey] = useState(0); // Key to reset CareerForm state
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -27,24 +52,43 @@ export default function ContactFormSection() {
             const formElement = e.currentTarget;
             const formData = new FormData(formElement);
             
-            const result = await submitToW3Forms(formData, activeTab);
-
+            // Get fullName for subject line generation
+            const fullName = formData.get('fullName')?.toString() || '';
+            
+            let result;
+            
+            // Route to appropriate submission function based on form type
+            if (activeTab === "Career") {
+                // submitCareerForm handles Cloudinary upload for resume file
+                result = await submitCareerForm(formData, fullName);
+            } else if (activeTab === "Business") {
+                result = await submitBusinessForm(formData, fullName);
+            } else if (activeTab === "Other") {
+                result = await submitOtherForm(formData, fullName);
+            } else {
+                throw new Error('Unknown form type');
+            }
+            
             if (result?.success) {
                 setSubmitMessage({ type: "success", text: result.message || 'Form submitted successfully!' });
                 formElement.reset();
+                // Reset CareerForm state by changing key to force re-render
+                if (activeTab === "Career") {
+                    setCareerFormKey(prev => prev + 1);
+                }
                 setTimeout(() => setSubmitMessage(null), 5000);
             } else {
                 setSubmitMessage({ type: "error", text: result.message || 'Failed to submit form' });
             }
         } catch (error) {
-            setSubmitMessage({ type: "error", text: "An unexpected error occurred" });
+            setSubmitMessage({ type: "error", text: error instanceof Error ? error.message : "An unexpected error occurred" });
         } finally {
             setIsSubmitting(false);
         }
     };
 
     return (
-        <section className="bg-white py-12 md:py-16 lg:py-20">
+        <section className="bg-white py-12 md:py-16 lg:py-20" data-contact-form>
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Container */}
                 <div className="relative shadow-careers-job-card rounded-2xl flex flex-col lg:flex-row gap-6 lg:gap-10">
@@ -111,23 +155,22 @@ export default function ContactFormSection() {
                             <form className="space-y-6" onSubmit={handleFormSubmit}>
                                 <AnimatePresence mode="wait">
                                     {activeTab === "Business" && <BusinessForm />}
-                                    {activeTab === "Career" && <CareerForm />}
+                                    {activeTab === "Career" && <CareerForm key={careerFormKey} />}
                                     {activeTab === "Other" && <OtherForm />}
                                 </AnimatePresence>
 
                                 <motion.div
-                                    className="pt-2 w-full sm:w-fit"
+                                    className="pt-2 w-fit"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.2 }}
                                 >
-                                    <button
-                                        type="submit"
+                                    <AnimatedButton
+                                        btnType="submit"
+                                        text={isSubmitting ? "Submitting..." : "Submit"}
                                         disabled={isSubmitting}
-                                        className="w-full sm:w-auto bg-primary text-white px-6 md:px-9 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
-                                    >
-                                        {isSubmitting ? "Submitting..." : "Submit"}
-                                    </button>
+                                        className="w-full sm:w-auto bg-primary cursor-pointer text-white px-6 md:px-9 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
+                                    />
                                 </motion.div>
                             </form>
                         </div>
