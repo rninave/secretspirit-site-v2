@@ -24,7 +24,7 @@ export default function ResearchPage() {
       <CoreReasonsSection />
       <OurApproachSection />
       <OurStrategySection />
-      <TestimonialsSection classname="!bg-gray-light" />
+      <TestimonialsSection classname="bg-gray-light!" />
     </>
   );
 }

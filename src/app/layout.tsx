@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Bricolage_Grotesque } from "next/font/google";
 import "@/styles/globals.css";
-import 'react-phone-input-2/lib/style.css'
+import 'react-phone-input-2/lib/style.css';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Banner from "@/components/layout/banner";
@@ -12,12 +12,16 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk ",
   weight: ["300", "400", "500", "600", "700"],
+  display: 'swap', // Optimize font loading
+  preload: true,
 });
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-bricolage-grotesque",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
+  display: 'swap', // Optimize font loading
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -28,7 +32,12 @@ export const metadata: Metadata = {
   },
   description: "Secret Spirit is a platform for creating and sharing secret messages.",
   icons: {
-    icon: "/logo.svg",
+    icon: [
+      { url: "/logo.svg", type: "image/svg+xml" },
+      { url: "/logo.svg", sizes: "any" },
+    ],
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
   openGraph: {
     type: "website",

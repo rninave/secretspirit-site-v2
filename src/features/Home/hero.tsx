@@ -29,10 +29,10 @@ export default function HeroSection() {
         {/* Main Headline */}
         <Reveal>
           <h1 className="font-bold mb-2">
-            <span className="text-dark-blue block text-[26px] font-heading sm:text-[32px] md:text-[42px] leading-tight break-words">
+            <span className="text-dark-blue block text-[26px] font-heading sm:text-[32px] md:text-[42px] leading-tight wrap-break-word">
               Top-notch digital firm for web & mobile apps in
             </span>
-            <span className="text-primary block text-[32px] sm:text-[40px] md:text-[56px] font-heading lg:text-[64px] leading-tight break-words">
+            <span className="text-primary block text-[32px] sm:text-[40px] md:text-[56px] font-heading lg:text-[64px] leading-tight wrap-break-word">
               <Typewriter
                 options={{
                   strings: words,
@@ -46,7 +46,7 @@ export default function HeroSection() {
 
         {/* Description */}
         <Reveal>
-          <p className="text-[#545B75] text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-3xl mx-auto font-medium leading-[30px] font-body mb-4 sm:mb-8 md:mb-12">
+          <p className="text-body text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-3xl mx-auto font-medium leading-[30px] font-body mb-4 sm:mb-8 md:mb-12">
             We're a creative digital agency specializing in intuitive and visually compelling user interfaces for web and mobile apps. From concept to execution, we help you stand out, engage users, and leave a lasting impression.
           </p>
         </Reveal>
@@ -57,7 +57,7 @@ export default function HeroSection() {
 
           <Link
             href="#next-section"
-            className="scroll-wrap border-1 w-10 sm:w-[40px] max-sm:pt-[18px] gap-2 sm:gap-3 border-dashed border-border-light py-2 sm:py-4 rounded-[50px] flex flex-col items-center group focus:outline-none bg-white/80 backdrop-blur-sm transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-lg hover:bg-white/90"
+            className="scroll-wrap border w-10 sm:w-[40px] max-sm:pt-[18px] gap-2 sm:gap-3 border-dashed border-border-light py-2 sm:py-4 rounded-[50px] flex flex-col items-center group focus:outline-none bg-white/80 backdrop-blur-sm transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-lg hover:bg-white/90"
             aria-label="Scroll to next section"
             onClick={e => {
               e.preventDefault();
@@ -70,7 +70,7 @@ export default function HeroSection() {
               <circle cx="12" cy="12" r="10" />
             </svg>
             <span className="arrow flex items-center justify-center flex-col">
-              <span className="h-px w-4 sm:w-6 border-t-1 border-dashed border-body transition-all duration-300 group-hover:border-primary"></span>
+              <span className="h-px w-4 sm:w-6 border-t border-dashed border-body transition-all duration-300 group-hover:border-primary"></span>
               {/* Down arrow icon (FontAwesome alternative) */}
               <svg className="w-5 h-5 sm:w-6 sm:h-6 text-body transition-all duration-300 group-hover:text-primary group-hover:scale-110" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M12 16V8" strokeLinecap="round" strokeLinejoin="round" />

@@ -35,7 +35,7 @@ export default function OurWorkSection() {
           {caseStudies.map((item, idx) => (
             <Reveal key={item.slug || idx} delayMs={idx * 80}>
               <div className="bg-swhite  overflow-hidden  flex flex-col group transition-transform duration-300 hover:-translate-y-1">
-                <div className="relative w-full aspect-[4/3]">
+                <div className="relative w-full aspect-4/3">
                   <Image
                     src={item.image}
                     alt={item.title}

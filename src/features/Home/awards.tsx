@@ -118,7 +118,7 @@ export default function AwardsSection() {
                 href={award.hrefLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex-shrink-0 bg-white border border-gray-200 shadow-award-card hover:shadow-lg rounded-xl transition-transform duration-300 hover:scale-105 flex items-center justify-center p-6 sm:p-8  h-24 sm:h-36 md:h-44`}
+                className={`shrink-0 bg-white border border-gray-200 shadow-award-card hover:shadow-lg rounded-xl transition-transform duration-300 hover:scale-105 flex items-center justify-center p-6 sm:p-8  h-24 sm:h-36 md:h-44`}
                 style={{
                   width: `calc(100% / ${slidesPerView} - 1rem)`
                 }}
@@ -161,7 +161,7 @@ export default function AwardsSection() {
                 className="w-6 sm:w-8 h-1.5 bg-gray-300 rounded overflow-hidden relative cursor-pointer"
               >
                 <div
-                  className="absolute left-0 top-0 h-full bg-primary transition-[width] duration-[50ms] linear"
+                  className="absolute left-0 top-0 h-full bg-primary transition-[width] duration-50 linear"
                   style={{ width: currentSlide === index ? `${progress}%` : '0%' }}
                 />
               </button>

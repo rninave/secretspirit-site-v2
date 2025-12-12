@@ -40,7 +40,7 @@ export default function DesignCapabilities() {
           {capabilities.map((item) => (
             <span
               key={item}
-              className="text-white/90 max-sm:w-[47%] max-xs:w-full! break-after-column text-center border border-white/15 rounded-full px-9 py-4 bg-primary-dark hover:bg-white/[0.08] transition-colors text-sm md:text-base font-medium"
+              className="text-white/90 max-sm:w-[47%] max-xs:w-full! break-after-column text-center border border-white/15 rounded-full px-9 py-4 bg-primary-dark hover:bg-white-8 transition-colors text-sm md:text-base font-medium"
             >
               {item}
             </span>

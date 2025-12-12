@@ -186,21 +186,21 @@ export default function ContactFormSection() {
 
                             <div className="space-y-4 md:space-y-5">
                                 <div className="flex items-center gap-3">
-                                    <BiSolidPhoneCall className="text-lg md:text-xl flex-shrink-0" />
+                                    <BiSolidPhoneCall className="text-lg md:text-xl shrink-0" />
                                     <a href="tel:07863837895" className="text-xs md:text-sm font-medium font-body text-white hover:opacity-80 transition-opacity duration-200 break-all">
                                         07863837895
                                     </a>
                                 </div>
 
                                 <div className="flex items-center gap-3">
-                                    <IoMail className="text-lg md:text-xl flex-shrink-0" />
+                                    <IoMail className="text-lg md:text-xl shrink-0" />
                                     <a href="mailto:info@secret-spirit.com" className="text-xs md:text-sm font-medium font-body text-white hover:opacity-80 transition-opacity duration-200 break-all">
                                         info@secret-spirit.com
                                     </a>
                                 </div>
 
                                 <div className="flex items-start gap-3">
-                                    <IoLocationSharp className="text-lg md:text-xl flex-shrink-0 mt-0.5" />
+                                    <IoLocationSharp className="text-lg md:text-xl shrink-0 mt-0.5" />
                                     <span className="text-xs md:text-sm font-medium font-body text-white leading-relaxed">
                                         202, Kasturi Pride (Business Hub),
                                         SP Ring Rd, Nikol, Ahmedabad,
