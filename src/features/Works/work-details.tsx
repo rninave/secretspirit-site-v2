@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import projects from '@/data/projects.json'
 import AppBreadcrumb from '@/components/common/AppBreadcrumb'
 import Image from 'next/image'
+import UnderDevelopment from '@/components/common/UnderDevelopment'
 
 export function getFontWeight(weight: string) {
     const map: any = {
@@ -29,8 +30,44 @@ export default async function WorkDetails({
 
     const { details } = project
 
+    // if details object is missing or empty, show under-development page
+    if (!details || (typeof details === 'object' && Object.keys(details).length === 0)) {
+        return <UnderDevelopment returnUrl={{ name: 'Works', href: '/works' }} />
+    }
+
     return (
         <section className="bg-white">
+            {/* CreativeWork JSON-LD for project */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "CreativeWork",
+                        name: project.title,
+                        description: project.description || details?.subtitle || '',
+                        image: [(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + (project.mainImage || '/og-image.png')],
+                        url: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/works/' + project.slug,
+                        datePublished: details?.year ? String(details.year) : undefined,
+                        about: details?.type || undefined,
+                    }),
+                }}
+            />
+            {/* BreadcrumbList JSON-LD for project */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        itemListElement: [
+                            { "@type": "ListItem", position: 1, name: "Home", item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') },
+                            { "@type": "ListItem", position: 2, name: "Works", item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/works' },
+                            { "@type": "ListItem", position: 3, name: project.title, item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/works/' + project.slug }
+                        ]
+                    })
+                }}
+            />
             <div className="max-w-7xl mx-auto py-12 md:py-15 px-4 md:px-8">
                 <AppBreadcrumb
                     className="flex justify-start pb-20"

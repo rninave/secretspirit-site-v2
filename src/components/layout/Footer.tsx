@@ -1,8 +1,12 @@
+"use client"
+
+import { useState } from 'react'
 import { FiDribbble } from 'react-icons/fi';
 import { FaBehance, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
 import Image from 'next/image';
 import Link from 'next/link';
+import { submitInquiryEmail } from '@/services/contact'
 
 const navLinks = [
   [
@@ -11,8 +15,8 @@ const navLinks = [
     { label: 'Services', href: '/services' },
   ],
   [
-    { label: 'Careers', href: '/careers' },
-    { label: 'Blogs', href: '/blogs' },
+    { label: 'Careers', href: '/about/careers' },
+    { label: 'Blogs', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ],
 ];
@@ -37,7 +41,7 @@ export default function Footer() {
           </p>
         </div>
         {/* Right: Navigation Links */}
-        <div className="flex md:justify-center gap-8 md:gap-16 w-full md:w-[40%]">
+        <div className="flex justify-around md:justify-center gap-8 md:gap-16 w-full md:w-[40%]">
           {navLinks.map((col, i) => (
             <ul key={i} className="flex flex-col gap-4">
               {col.map(link => (
@@ -60,39 +64,92 @@ export default function Footer() {
             <Link
               key={i}
               href={s.href}
+              aria-label={s.name}
               className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
               target="_blank"
               data-tooltip-id="dark-tooltip"
               data-tooltip-content={s.name}
               rel="noopener noreferrer"
             >
-              <s.icon className="w-[18px] h-[18px] lg:w-[24px] lg:h-[24px]" />
+              <s.icon className="w-[18px] h-[18px] lg:w-[24px] lg:h-[24px]" aria-hidden="true" />
             </Link>
           ))}
-          <Link href="https://clutch.co/profile/secretspirit-solutions#summary" target='_blank' data-tooltip-id="dark-tooltip"
-            data-tooltip-content="Clutch" className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg">
-            <Image src="/icons/clutch-icon.svg" alt="Send" width={18} height={18} className="lg:w-[24px] lg:h-[24px] w-[18px] h-[18px]" style={{ width: 'auto', height: 'auto' }} />
+          <Link href="https://clutch.co/profile/secretspirit-solutions#summary" target="_blank" data-tooltip-id="dark-tooltip"
+            data-tooltip-content="Clutch" aria-label="Clutch" className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg">
+            <Image src="/icons/clutch-icon.svg" alt="Clutch" width={18} height={18} className="lg:w-[24px] lg:h-[24px] w-[18px] h-[18px]" style={{ width: 'auto', height: 'auto' }} />
           </Link>
         </div>
         {/* Email Subscribe with Heading */}
         <div className="flex flex-col justify-start w-full md:w-[40%] lg:w-[30%]">
           <span className="text-xl text-start w-full md:text-2xl font-bold mb-2 font-heading text-divider">Let’s Connect!</span>
-          <form className="flex items-start gap-2 bg-[#FFFFFF0F] rounded-xl px-2 py-1 max-w-sm max-md:w-full  md:ml-0">
-            <input
-              type="email"
-              placeholder="Enter email address"
-              className="bg-transparent outline-none w-full border-none text-gray-200 placeholder-gray-400 px-4 py-2 flex-1 text-base"
-            />
-            <button type="submit" className="bg-primary cursor-pointer min-w-10 w-10 h-10 rounded-full flex items-center justify-center text-white text-xl hover:bg-primary/90 transition-colors transform hover:scale-110">
-              <Image src="/icons/send-icon.svg" alt="Send" width={18} height={18} />
-            </button>
+          <form onSubmit={(e) => e.preventDefault()} className="flex items-start gap-2 bg-[#FFFFFF0F] rounded-xl px-2 py-1 max-w-sm max-md:w-full  md:ml-0">
+            <FooterSubscribe />
           </form>
         </div>
       </div>
       {/* Copyright */}
-      <div className="max-w-7xl mx-auto font-body text-gray-400 text-xs md:text-sm text-left">
+      <div className="max-w-7xl mx-auto font-body text-body text-xs md:text-sm text-left">
         &copy; {new Date().getFullYear()} Secretspirit Solutions Pvt. Ltd.
       </div>
     </footer>
-  );
+  )
+}
+
+function FooterSubscribe() {
+  const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [message, setMessage] = useState<{ type: 'success'|'error'; text: string } | null>(null)
+
+  const handleSubmit = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault()
+    if (!email || !/^[\w-+.]+@[\w-]+\.[a-z]{2,}$/i.test(email)) {
+      setMessage({ type: 'error', text: 'Please enter a valid email address' })
+      return
+    }
+
+    setIsSubmitting(true)
+    setMessage(null)
+    try {
+      const res = await submitInquiryEmail(email)
+      if (res?.success) {
+        setMessage({ type: 'success', text: 'You’re all set. We’ll be in touch soon.' })
+        setEmail('')
+      } else {
+        setMessage({ type: 'error', text: res?.message || 'Failed to send email' })
+      }
+    } catch (err) {
+      setMessage({ type: 'error', text: 'An error occurred' })
+    } finally {
+      setIsSubmitting(false)
+      setTimeout(() => setMessage(null), 5000)
+    }
+  }
+
+  return (
+    <div className="w-full">
+      <div className="flex items-center gap-2 w-full">
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="Enter email address"
+          aria-label="Email address"
+          className="bg-transparent outline-none w-full border-none text-white placeholder-white px-4 py-2 flex-1 text-base"
+        />
+        <button
+          onClick={handleSubmit}
+          disabled={isSubmitting}
+          aria-label="Subscribe"
+          className="bg-primary cursor-pointer min-w-10 w-10 h-10 rounded-full flex items-center justify-center text-white text-xl hover:bg-primary/90 transition-colors transform hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <Image src="/icons/send-icon.svg" alt="Send" width={18} height={18} />
+        </button>
+      </div>
+      {message && (
+        <div className={`mt-2 max-w-xs p-2 rounded text-sm ${message.type === 'success' ? 'bg-green-50 border border-green-200 text-green-800' : 'bg-red-50 border border-red-200 text-red-800'}`}>
+          {message.text}
+        </div>
+      )}
+    </div>
+  )
 }

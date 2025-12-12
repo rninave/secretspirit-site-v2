@@ -2,7 +2,6 @@ import AnimatedButton from "@/components/common/AnimatedButton";
 import Reveal from "@/components/common/Reveal";
 import blogs from "@/data/blogs.json";
 import Image from "next/image";
-import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 
 export default function BlogListSection() {
@@ -26,20 +25,21 @@ export default function BlogListSection() {
                                         {post.excerpt}
                                     </p>
 
-                                    <div className="flex flex-col justify-between md:justify-start gap-4">
+                                        <div className="flex flex-col justify-between md:justify-start gap-4">
                                         <div className="flex items-center gap-3 text-body text-sm">
-                                            <Image width={18} height={18} src='/blog/date-icon.svg' alt="date icon" />
+                                            <Image width={18} height={18} src='/blog/date-icon.svg' alt="Published date" />
                                             <span>{new Date(post.date).toLocaleDateString()}</span>
                                         </div>
 
-                                        <Link href={`/blog/${post.slug}`} className="flex">
+                                        <div className="flex">
                                             <AnimatedButton
+                                                href={`/blog/${post.slug}`}
                                                 text="View More"
                                                 hoverText="View More"
                                                 icon={<FiArrowUpRight size={16} fontWeight={700} />}
                                                 className="bg-transparent cursor-pointer font-heading border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors"
                                             />
-                                        </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </article>

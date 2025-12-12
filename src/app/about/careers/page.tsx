@@ -1,24 +1,27 @@
 import CareersPage from "@/features/About/Careers";
 
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
+
 export const metadata = {
-  title: "Careers | Secretspirit | Explore career in design and development at Secretspirit",
-  description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
+  title: "Careers | Secret Spirit",
+  description: "Join Secret Spirit — opportunities in UX, UI, and web development.",
   openGraph: {
-    title: "Careers | Secretspirit | Explore career in design and development at Secretspirit",
-    description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
-    url: "https://secretspirit.com/about/careers",
+    title: "Careers | Secret Spirit",
+    description: "Join Secret Spirit — opportunities in UX, UI, and web development.",
+    url: `${baseUrl}/about/careers`,
     siteName: "Secret Spirit",
     images: [
       {
-        url: "/logo.svg",
+        url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Secret Spirit Logo",
+        alt: "Secret Spirit Careers",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+  alternates: { canonical: `${baseUrl}/about/careers` },
 };
 
 export default function Careers() {

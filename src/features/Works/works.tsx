@@ -59,7 +59,7 @@ const technologyItems = [
 export function WorksFilter() {
   return (
     <section className='bg-gray-light px-4 md:px-8'>
-      <div className="max-w-7xl font-body my-4 mx-auto flex gap-4 items-center">
+      <div className="max-w-7xl font-body my-4 mx-auto flex gap-4 items-center flex-col xs:flex-row">
         <label className=' text-body text-sm font-normal leading-[100%]' >Filter By</label>
         <div className='flex flex-col sm:flex-row gap-2 sm:gap-4'>
         <Select>
@@ -111,8 +111,8 @@ export default function WorksSection() {
                   {/* Title and Arrow Row */}
                   <div className="flex items-start justify-between">
                     <h3 className="text-lg md:text-2xl font-bold text-heading font-heading transition-colors mb-0">{item?.title || '-'}</h3>
-                    <Link href={`/works/${item?.slug}`} className="w-10 h-10 cursor-pointer hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-body hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px]">
-                      <FiArrowUpRight size={22} />
+                    <Link href={`/works/${item?.slug}`} aria-label={`View ${item?.title}`} className="w-10 h-10 cursor-pointer hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-body hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px]">
+                      <FiArrowUpRight size={22} aria-hidden="true" />
                     </Link>
                   </div>
                   <div className="flex flex-wrap gap-2">

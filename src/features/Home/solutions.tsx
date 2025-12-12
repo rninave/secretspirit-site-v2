@@ -13,6 +13,7 @@ const tabs = [
     label: 'Research',
     value: 'research',
     title: 'Research',
+    href: '/services/research',
     description:
       'We perform a professional evaluation of the usability of your product. User feedback, product usage analytics, and heuristic evaluation all assist us in determining what needs to be fixed.',
     features: [
@@ -29,6 +30,7 @@ const tabs = [
     label: 'Design',
     value: 'design',
     title: 'Design',
+    href: '/services/design',
     description:
       'We create visually compelling and user-friendly interfaces that enhance the user experience and align with your brand identity.',
     features: [
@@ -45,6 +47,7 @@ const tabs = [
     label: 'Develop',
     value: 'develop',
     title: 'Develop',
+    href: '/services/development',
     description:
       'We build robust, scalable, and high-performance web and mobile applications tailored to your business needs.',
     features: [
@@ -142,6 +145,7 @@ export default function SolutionSection() {
                   <AnimatedButton
                     text="View More"
                     hoverText="View More"
+                    href={tab.href}
                     icon={<FiArrowUpRight size={16} fontWeight={700} />}
                     className="bg-transparent cursor-pointer font-heading border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors"
                   />

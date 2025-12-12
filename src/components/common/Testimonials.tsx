@@ -92,10 +92,10 @@ export default function TestimonialsSection({classname = ''}) {
           </CarouselContent>
 
           {/* Custom Navigation Buttons */}
-          <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-xl shadow-lg hover:bg-primary/90 transition-colors">
+          <CarouselPrevious aria-label="Previous slide" className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-xl shadow-lg hover:bg-primary/90 transition-colors cursor-pointer">
             <FiArrowLeft />
           </CarouselPrevious>
-          <CarouselNext className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-xl shadow-lg hover:bg-primary/90 transition-colors">
+          <CarouselNext aria-label="Next slide" className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center text-xl shadow-lg hover:bg-primary/90 transition-colors cursor-pointer">
             <FiArrowRight />
           </CarouselNext>
         </Carousel>

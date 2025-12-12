@@ -34,7 +34,7 @@ export default function AwardsSection() {
     if (width >= 1280) setSlidesPerView(6) // desktop
     else if (width >= 1024) setSlidesPerView(5) // laptop
     else if (width >= 768) setSlidesPerView(4) // tablet
-    else setSlidesPerView(3) // mobile
+    else setSlidesPerView(2) // mobile
   }
 
   useEffect(() => {
@@ -114,6 +114,7 @@ export default function AwardsSection() {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 key={index}
+                aria-label={`View details about ${award.name}`}
                 href={award.hrefLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -137,13 +138,15 @@ export default function AwardsSection() {
           {/* Navigation */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-10"
+            aria-label="Previous slide"
+            className="absolute left-0 top-[44%] -translate-y-[44%] -translate-x-1/2 bg-primary cursor-pointer text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-10"
           >
             <FiArrowLeft className="w-5 h-5" />
           </button>
           <button
+            aria-label="Next slide"
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-10"
+            className="absolute right-0 top-[44%] -translate-y-[44%] translate-x-1/2 bg-primary cursor-pointer text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-primary/90 transition-colors z-10"
           >
             <FiArrowRight className="w-5 h-5" />
           </button>
@@ -153,6 +156,7 @@ export default function AwardsSection() {
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
                 key={index}
+                aria-label={`Go to slide ${index + 1}`}
                 onClick={() => goToSlide(index)}
                 className="w-6 sm:w-8 h-1.5 bg-gray-300 rounded overflow-hidden relative cursor-pointer"
               >

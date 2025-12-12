@@ -69,7 +69,7 @@ export default function Header() {
             src="/main-logo.png"
             alt="Secret Spirit"
             loading="eager"
-            priority
+            priority={true}
             width={192}
             height={32}
           />
@@ -157,7 +157,7 @@ export default function Header() {
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          <Image src="/icons/menu-icon.svg" alt="Menu" width={24} height={24} />
+          <Image src="/icons/menu-icon.svg" priority={true} loading="eager" alt="Menu" width={24} height={24} />
         </button>
         
         {/* Desktop CTA Button */}

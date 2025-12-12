@@ -69,6 +69,10 @@
   animation: spin-slow 8s linear infinite;
 }
 
+.react-tel-input .flag-dropdown {
+  @apply !bg-gray-100 !border-divider !rounded-l-lg;
+}
+
 /* Performance highlights styling */
 .performance-number {
   -webkit-text-stroke: 2px #FF3D00;
@@ -117,7 +121,7 @@
 
 .custom-select .p-dropdown-label {
   padding: 12px 16px;
-  @apply text-sm font-body text-body
+  @apply text-sm font-body text-body max-md:py-2
 }
 
 .custom-select .p-dropdown-trigger {

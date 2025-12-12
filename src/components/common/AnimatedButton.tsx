@@ -76,10 +76,10 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
         )}
       >
         <span className="relative block h-[1.2em] leading-[1.2em] overflow-hidden">
-          <span className="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
+          <span aria-label="button-text" className="block transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
             {text}
           </span>
-          <span className="absolute left-0 top-full w-full transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
+          <span aria-label="button-hover-text" className="absolute left-0 top-full w-full transition-transform duration-300 ease-in-out group-hover:-translate-y-full">
             {secondText}
           </span>
         </span>

@@ -1,9 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import PhoneInput from 'react-phone-input-2';
 
 export default function OtherForm() {
     const [charCount, setCharCount] = useState(0);
+    const [phone, setPhone] = useState<string | undefined>('')
 
     return (
         <motion.div
@@ -54,6 +56,20 @@ export default function OtherForm() {
                         required
                         className="border border-divider px-3 md:px-4 py-2.5 md:py-3 font-body text-body rounded-lg text-xs md:text-sm focus:ring focus:ring-primary hover:ring hover:ring-primary outline-none w-full transition-all"
                     />
+                </div>
+
+                <div>
+                    <label className="block text-xs md:text-sm font-medium font-body text-body mb-2">Phone number <span className="text-red-500">*</span></label>
+                    <PhoneInput
+                        country={'in'}
+                        value={phone}
+                        onChange={(value: any) => setPhone(value)}
+                        dropdownClass="bg-development-icon-bg rounded-lg"
+                        autocompleteSearch={true}
+                        countryCodeEditable={false}
+                        inputClass="border !border-divider !w-full !h-9 md:!h-11 rounded-lg px-3 md:px-4 py-2.5 md:py-3 font-body text-body text-xs md:text-sm outline-none w-full transition-all bg-transparent  focus:ring focus:ring-primary hover:ring hover:ring-primary"
+                    />
+                    <input type="hidden" name="phone" required value={phone || ''} />
                 </div>
             </div>
 

@@ -2,11 +2,25 @@
 import { motion } from "framer-motion";
 import { Dropdown } from "primereact/dropdown";
 import { useState } from "react";
+import PhoneInput from 'react-phone-input-2';
 
 export default function CareerForm() {
     const [selectValue, setSelectValue] = useState(null);
     const [selectValue2, setSelectValue2] = useState(null);
     const [charCount, setCharCount] = useState(0);
+    const [phone, setPhone] = useState<string | undefined>('')
+
+    const roleList = [
+        { label: "Frontend Developer", value: "frontend developer" },
+        { label: "Backend Developer", value: "backend developer" },
+        { label: "Web Developer", value: "web developer" },
+        { label: "UI/UX Designer", value: "ui/ux designer" },
+        { label: "HR Manager", value: "hr manager" },
+        { label: "Project Manager", value: "project manager" },
+        { label: "Scrum Master", value: "scrum master" },
+        { label: "Product Owner", value: "product owner" },
+        { label: "Other", value: "other" },
+    ];
 
     return (
         <motion.div
@@ -40,25 +54,24 @@ export default function CareerForm() {
 
                 <div>
                     <label className="block text-xs md:text-sm font-medium font-body text-body mb-2">Phone number <span className="text-red-500">*</span></label>
-                    <input
-                        name="phone"
-                        type="tel"
-                        placeholder="Enter phone number"
-                        required
-                        className="border border-divider px-3 md:px-4 py-2.5 md:py-3 font-body text-body rounded-lg text-xs md:text-sm focus:ring focus:ring-primary hover:ring hover:ring-primary outline-none w-full transition-all"
+                        <PhoneInput
+                        country={'in'}
+                        value={phone}
+                        onChange={(value: any) => setPhone(value)}
+                        dropdownClass="bg-development-icon-bg rounded-lg"
+                        autocompleteSearch={true}
+                        countryCodeEditable={false}
+                        inputClass="border !border-divider !w-full !h-9 md:!h-11 rounded-lg px-3 md:px-4 py-2.5 md:py-3 font-body text-body text-xs md:text-sm outline-none w-full transition-all bg-transparent  focus:ring focus:ring-primary hover:ring hover:ring-primary"
                     />
+                    {/* hidden input so the form POST includes the phone value */}
+                    <input type="hidden" name="phone" value={phone || ''} />
                 </div>
 
                 <div>
                     <label className="block text-xs md:text-sm font-medium font-body text-body mb-2">Position applied for <span className="text-red-500">*</span></label>
                     <Dropdown
                         name="position"
-                        options={[
-                            { label: "Select position", value: "" },
-                            { label: "Frontend Developer", value: "frontend" },
-                            { label: "Backend Developer", value: "backend" },
-                            { label: "Designer", value: "designer" },
-                        ]}
+                        options={roleList}
                         placeholder="Select position"
                         onChange={(e) => setSelectValue(e.value)}
                         value={selectValue}

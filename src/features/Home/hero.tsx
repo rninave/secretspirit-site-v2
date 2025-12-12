@@ -4,6 +4,7 @@ import SectionHeader from '@/components/common/SectionHeader';
 import Reveal from '@/components/common/Reveal';
 import { HeroSectionBackground } from '@/components/ui/AlignedBackgroundRain';
 import Link from 'next/link';
+import { SpinningText } from '@/components/ui/spiningText'
 
 
 export default function HeroSection() {
@@ -85,31 +86,26 @@ export default function HeroSection() {
 
           <div className="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24">
             {/* Rotating Text Circle */}
-            <svg className="w-full h-full animate-spin-slow" viewBox="0 0 120 120">
-              <defs>
-                <path id="circle-path" d="M 60,60 m -50,0 a 50,50 0 1,1 100,0 a 50,50 0 1,1 -100,0" />
-              </defs>
-              <text className="text-black text-xs sm:text-xs tracking-widest font-normal fill-black">
-                <textPath href="#circle-path" startOffset="0%" textAnchor="middle">
-                  tttttttttttttttttttttttttttttttttttttttttttttttttttttttttCONTACT US . RESEARCH . DESIGN . DEVELOP .
-                </textPath>
-              </text>
-            </svg>
+              <Link href="/services" aria-label="Go to Services" className="relative inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24">
+                <SpinningText className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24" duration={8} radius={5}>
+                  RESEARCH · DESIGN · DEVELOP ·
+                </SpinningText>
 
-            {/* Center Circle with Arrow */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-body rounded-full border border-body flex items-center justify-center transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:shadow-lg">
-                <svg
-                  className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-white transform rotate-45 transition-all duration-300 ease-in-out group-hover:rotate-0 group-hover:scale-110"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-            </div>
+                {/* Center Circle with Arrow */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 bg-body rounded-full border border-body flex items-center justify-center transition-all duration-300 ease-in-out group-hover:scale-110 group-hover:shadow-lg pointer-events-auto">
+                    <svg
+                      className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-white transform rotate-45 transition-all duration-300 ease-in-out group-hover:rotate-0 group-hover:scale-110"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
           </div>
         </Reveal>
       </div>

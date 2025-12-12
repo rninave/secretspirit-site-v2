@@ -1,24 +1,27 @@
 import ResearchPage from "@/features/Services/Research";
 
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
+
 export const metadata = {
-  title: "Research | Secretspirit | UX Research, UX/UI design, Custom Software Solutions",
-  description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
+  title: "Research | Secret Spirit",
+  description: "Research services from Secret Spirit — UX research and product discovery.",
   openGraph: {
-    title: "Research | Secretspirit | UX Research, UX/UI design, Custom Software Solutions",
-    description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
-    url: "https://secretspirit.com/services/Research",
+    title: "Research | Secret Spirit",
+    description: "Research services from Secret Spirit — UX research and product discovery.",
+    url: `${baseUrl}/services/research`,
     siteName: "Secret Spirit",
     images: [
       {
-        url: "/logo.svg",
+        url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Secret Spirit Logo",
+        alt: "Secret Spirit Research",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+  alternates: { canonical: `${baseUrl}/services/research` },
 };
 
 export default function Research() {

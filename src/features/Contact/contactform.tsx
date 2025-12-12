@@ -11,29 +11,7 @@ import OtherForm from "./forms/OtherForm";
 
 const tabs = ["Business", "Career", "Other"];
 
-// Form submission handler for w3forms
-const submitFormToW3Forms = async (formData: FormData, formType: string) => {
-    try {
-        formData.append("form_type", formType);
-        formData.append("access_key", "30f67c85-131a-4ed2-9c36-6a766a3b535b");
-        
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData,
-        });
-
-        const result = await response.json();
-        
-        if (result.success) {
-            return { success: true, message: "Form submitted successfully!" };
-        } else {
-            return { success: false, message: result.message || "Failed to submit form" };
-        }
-    } catch (error) {
-        console.error("Form submission error:", error);
-        return { success: false, message: "An error occurred while submitting the form" };
-    }
-};
+import { submitToW3Forms } from '@/services/contact'
 
 export default function ContactFormSection() {
     const [activeTab, setActiveTab] = useState("Business");
@@ -49,14 +27,14 @@ export default function ContactFormSection() {
             const formElement = e.currentTarget;
             const formData = new FormData(formElement);
             
-            const result = await submitFormToW3Forms(formData, activeTab);
-            
-            if (result.success) {
-                setSubmitMessage({ type: "success", text: result.message });
+            const result = await submitToW3Forms(formData, activeTab);
+
+            if (result?.success) {
+                setSubmitMessage({ type: "success", text: result.message || 'Form submitted successfully!' });
                 formElement.reset();
                 setTimeout(() => setSubmitMessage(null), 5000);
             } else {
-                setSubmitMessage({ type: "error", text: result.message });
+                setSubmitMessage({ type: "error", text: result.message || 'Failed to submit form' });
             }
         } catch (error) {
             setSubmitMessage({ type: "error", text: "An unexpected error occurred" });

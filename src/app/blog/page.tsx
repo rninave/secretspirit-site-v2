@@ -1,24 +1,27 @@
 import BlogPage from "@/features/Blog";
 
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
+
 export const metadata = {
-  title: "Blog | UX Research, UX & UI Design, Web Development, Custom Websites & Software Services",
-  description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
+  title: "Blog | Secret Spirit",
+  description: "Insights on UX, UI design, development, and product strategy from Secret Spirit.",
   openGraph: {
-    title: "Blog | UX Research, UX & UI Design, Web Development, Custom Websites & Software Services",
-    description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
-    url: "https://secretspirit.com/blog",
+    title: "Blog | Secret Spirit",
+    description: "Insights on UX, UI design, development, and product strategy from Secret Spirit.",
+    url: `${baseUrl}/blog`,
     siteName: "Secret Spirit",
     images: [
       {
-        url: "/logo.svg",
+        url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Secret Spirit Logo",
+        alt: "Secret Spirit Blog",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+  alternates: { canonical: `${baseUrl}/blog` },
 };
 
 export default function Blog() {

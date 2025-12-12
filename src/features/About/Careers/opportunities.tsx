@@ -125,10 +125,10 @@ export default function Opportunities() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full flex cursor-pointer justify-between hover:bg-primary-hover items-center p-4 md:p-6 text-left"
+                  className="w-full flex cursor-pointer justify-between hover:bg-primary-hover items-center p-4 md:p-6 text-left gap-2"
                 >
                   <div>
-                    <h3 className="text-sm md:text-lg font-bold font-heading text-black">
+                    <h3 className="text-xs xs:text-sm md:text-lg font-bold font-heading text-black">
                       {job.title}
                     </h3>
                   </div>

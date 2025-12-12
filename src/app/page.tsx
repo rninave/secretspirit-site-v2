@@ -1,16 +1,16 @@
 import HomePage from "@/features/Home";
 
 export const metadata = {
-  title: "Secretspirit | UX Research, UX & UI Design, Web Development, Custom Websites & Software Services",
+  title: "Secret Spirit | UX Research, UX & UI Design, Web Development, Custom Websites & Software Services",
   description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
   openGraph: {
-    title: "Secretspirit | UX Research, UX & UI Design, Web Development, Custom Websites & Software Services",
+    title: "Secret Spirit | UX Research, UX & UI Design, Web Development, Custom Websites & Software Services",
     description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
-    url: "https://secretspirit.com/",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     siteName: "Secret Spirit",
     images: [
       {
-        url: "/logo.svg",
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Secret Spirit Logo",

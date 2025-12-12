@@ -20,11 +20,11 @@ export default function SectionHeader({
   return (
     <div className={`flex flex-col font-display ${alignClass} ${className}`}>
       {subtitle && (
-        <span className="text-primary text-[8px] md:text-xs font-heading font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
+        <p className="text-primary text-[8px] md:text-xs font-heading font-bold tracking-widest uppercase mb-2 flex items-center gap-2">
           <span className="inline-block w-10 h-0.5 bg-primary" />
           {subtitle}
           <span className="inline-block w-10 h-0.5 bg-primary" />
-        </span>
+        </p>
       )}
       {title && (
         <h2 className={`text-2xl md:text-[32px] font-bold font-heading ${titleColorClass} mt-2`} >{title}</h2>

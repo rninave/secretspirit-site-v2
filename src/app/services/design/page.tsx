@@ -1,24 +1,27 @@
 import DesignPage from "@/features/Services/Design";
 
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
+
 export const metadata = {
-  title: "Design | Secretspirit | UX Research, UX/UI design, Custom Software Solutions",
-  description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
+  title: "Design | Secret Spirit",
+  description: "Design services from Secret Spirit — product design, systems, and UI/UX.",
   openGraph: {
-    title: "Design | Secretspirit | UX Research, UX/UI design, Custom Software Solutions",
-    description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
-    url: "https://secretspirit.com/services/design",
+    title: "Design | Secret Spirit",
+    description: "Design services from Secret Spirit — product design, systems, and UI/UX.",
+    url: `${baseUrl}/services/design`,
     siteName: "Secret Spirit",
     images: [
       {
-        url: "/logo.svg",
+        url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Secret Spirit Logo",
+        alt: "Secret Spirit Design",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+  alternates: { canonical: `${baseUrl}/services/design` },
 };
 
 export default function Design() {

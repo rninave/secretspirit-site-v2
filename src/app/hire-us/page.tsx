@@ -1,24 +1,27 @@
 import HireUsPage from "@/features/Hire-Us";
 
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
+
 export const metadata = {
-  title: "Hire Us | Secretspirit | UX Research, UX/UI design, Custom Software Solutions",
-  description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
+  title: "Hire Us | Secret Spirit",
+  description: "Hire Secret Spirit for UX research, UX/UI design, and web development services.",
   openGraph: {
-    title: "Hire Us | Secretspirit | UX Research, UX/UI design, Custom Software Solutions",
-    description: "Welcome to Secret Spirit, a platform for creating and sharing secret messages.",
-    url: "https://secretspirit.com/hire-us",
+    title: "Hire Us | Secret Spirit",
+    description: "Hire Secret Spirit for UX research, UX/UI design, and web development services.",
+    url: `${baseUrl}/hire-us`,
     siteName: "Secret Spirit",
     images: [
       {
-        url: "/logo.svg",
+        url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Secret Spirit Logo",
+        alt: "Hire Secret Spirit",
       },
     ],
     locale: "en_US",
     type: "website",
   },
+  alternates: { canonical: `${baseUrl}/hire-us` },
 };
 
 export default function HireUs() {
