@@ -13,11 +13,13 @@ import {
 } from '@/components/ui/breadcrumb'
 import { ChevronRight } from 'lucide-react'
 import { SlashIcon } from "lucide-react"
+import { cn } from '@/lib/utils'
 
 interface AppBreadcrumbProps {
   items?: { label: string; href?: string }[]
   className?: string
   textClassName?: string
+  align?: 'left' | 'center' | 'right'
 }
 
 /**
@@ -25,7 +27,7 @@ interface AppBreadcrumbProps {
  * - Uses passed `items` or dynamically generates from current path.
  * - Auto-applies primary color and responsive styling.
  */
-export default function AppBreadcrumb({ items, className, textClassName }: AppBreadcrumbProps) {
+export default function AppBreadcrumb({ items, className, textClassName, align }: AppBreadcrumbProps) {
   const pathname = usePathname()
   const segments = pathname.split('/').filter(Boolean)
 
@@ -42,7 +44,11 @@ export default function AppBreadcrumb({ items, className, textClassName }: AppBr
 
   return (
     <Breadcrumb className={className}>
-      <BreadcrumbList className='flex align-center font-heading text-xs !gap-1 justify-center'>
+      <BreadcrumbList className={cn('flex align-center font-heading text-xs !gap-1', {
+        "justify-start": align === "left",
+        "justify-center": align === "center",
+        "justify-end": align === "right"
+      })}>
         {generatedItems.map((item, index) => {
           const isLast = index === generatedItems.length - 1
           return (

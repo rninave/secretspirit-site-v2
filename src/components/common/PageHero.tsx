@@ -5,6 +5,8 @@ import { cn } from '@/lib/utils'
 import AppBreadcrumb from './AppBreadcrumb'
 import Reveal from './Reveal'
 import AnimatedButton from './AnimatedButton'
+import { Calendar } from 'lucide-react'
+import { BsCalendarFill } from 'react-icons/bs'
 
 interface PageHeroProps {
   title: string
@@ -15,6 +17,8 @@ interface PageHeroProps {
   breadcrumbItems?: { label: string; href?: string }[]
   className?: string,
   btn?: {label: string, href?:string}
+  date?: string,
+  align?: 'left' | 'center' | 'right'
 }
 
 /**
@@ -32,12 +36,19 @@ export default function PageHero({
   breadcrumbItems,
   bgstyle,
   className,
-  btn
+  btn,
+  date,
+  align = 'center'
 }: PageHeroProps) {
   return (
     <section
       className={cn(
-        'relative w-full md:min-h-[316px] flex items-center justify-center text-center text-white overflow-hidden',
+        'relative w-full md:min-h-[316px] flex items-center justify-center text-white overflow-hidden',
+        {
+        "text-center": align === "center",
+        "text-left": align === "left",
+        "text-right": align === "right",
+        },
         className
       )}
     >
@@ -57,20 +68,29 @@ export default function PageHero({
 
       {/* Content */}
       <Reveal>
-      <div className="relative z-10 max-w-5xl mx-auto px-4 py-16">
+      <div className={cn("relative z-10 max-w-5xl mx-auto px-4 md:px-6 py-16", {
+        "text-left": align === "left",
+        "text-center": align === "center",
+        "text-right": align === "right"
+      })}>
         {breadcrumbItems && (
           <div className="mb-4">
-            <AppBreadcrumb items={breadcrumbItems} />
+            <AppBreadcrumb align={align} items={breadcrumbItems} />
           </div>
         )}
 
-        <h1 className="text-3xl mb-4 text-white md:text-[42px] font-bold tracking-normal leading-[50px] font-heading">
+        <h1 className="text-3xl mb-4 text-white md:text-[42px] font-bold tracking-normal leading-[50px] font-heading ">
           {title}
         </h1>
 
         {subtitle && (
           <p className="mt-4 text-base md:text-xl text-white mx-auto max-w-4xl leading-8 tracking-normal font-body mb-4">
             {subtitle}
+          </p>
+        )}
+        {date && (
+          <p className="mt-4 text-xs text-white  leading-8 tracking-normal flex items-center font-body mb-4">
+            <BsCalendarFill className='w-4 h-4 inline-block mr-2 ' /> {date}
           </p>
         )}
         {btn && (
