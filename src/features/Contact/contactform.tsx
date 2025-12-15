@@ -14,6 +14,8 @@ import OtherForm from "./forms/OtherForm";
 const tabs = ["Business", "Career", "Other"];
 
 import { submitCareerForm, submitBusinessForm, submitOtherForm } from '@/services/contact'
+import { UploadCloud, UploadIcon } from "lucide-react";
+import { u } from "motion/react-client";
 
 export default function ContactFormSection() {
     const searchParams = useSearchParams();

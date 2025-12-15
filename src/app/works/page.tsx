@@ -3,10 +3,10 @@ import WorksPage from "@/features/Works";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Works | Secret Spirit",
+  title: "Secretspirit Projects | 50+ Website and Web & Mobile Apps | Happy and Satisfied Clients",
   description: "Selected works and case studies from Secret Spirit — UX, UI, and product development.",
   openGraph: {
-    title: "Works | Secret Spirit",
+    title: "Secretspirit Projects | 50+ Website and Web & Mobile Apps | Happy and Satisfied Clients",
     description: "Selected works and case studies from Secret Spirit — UX, UI, and product development.",
     url: `${baseUrl}/works`,
     siteName: "Secret Spirit",

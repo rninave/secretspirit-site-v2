@@ -3,10 +3,10 @@ import ContactPage from "@/features/Contact";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Contact | Secret Spirit",
+  title: "Contact Secretspirit | Get in Touch for Web Development, UI & UX Design, and Custom Websites Services",
   description: "Get in touch with Secret Spirit for UX, design, and development inquiries.",
   openGraph: {
-    title: "Contact | Secret Spirit",
+    title: "Contact Secretspirit | Get in Touch for Web Development, UI & UX Design, and Custom Websites Services",
     description: "Get in touch with Secret Spirit for UX, design, and development inquiries.",
     url: `${baseUrl}/contact`,
     siteName: "Secret Spirit",

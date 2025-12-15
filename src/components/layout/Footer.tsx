@@ -41,12 +41,12 @@ export default function Footer() {
           </p>
         </div>
         {/* Right: Navigation Links */}
-        <div className="flex justify-around md:justify-center gap-8 md:gap-16 w-full md:w-[40%]">
+        <div className="flex  md:justify-center gap-8 md:gap-16 w-full md:w-[40%]">
           {navLinks.map((col, i) => (
-            <ul key={i} className="flex flex-col gap-4">
+            <ul key={i} className="flex flex-col gap-4 max-md:w-1/2">
               {col.map(link => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-divider font-body hover:text-primary text-lg md:text-[20px] transition-colors font-medium">
+                  <Link href={link.href} className="text-divider  font-body hover:text-primary text-lg md:text-[20px] transition-colors font-medium">
                     {link.label}
                   </Link>
                 </li>

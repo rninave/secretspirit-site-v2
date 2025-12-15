@@ -3,10 +3,10 @@ import HireUsPage from "@/features/Hire-Us";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Hire Us | Secret Spirit",
+  title: "Hire skilled and experienced developers | Secretspirit",
   description: "Hire Secret Spirit for UX research, UX/UI design, and web development services.",
   openGraph: {
-    title: "Hire Us | Secret Spirit",
+    title: "Hire skilled and experienced developers | Secretspirit",
     description: "Hire Secret Spirit for UX research, UX/UI design, and web development services.",
     url: `${baseUrl}/hire-us`,
     siteName: "Secret Spirit",

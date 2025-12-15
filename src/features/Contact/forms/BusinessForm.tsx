@@ -1,11 +1,20 @@
 "use client";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PhoneInput from 'react-phone-input-2';
 
 export default function BusinessForm() {
     const [charCount, setCharCount] = useState(0);
     const [phone, setPhone] = useState<string | undefined>('')
+    const rootRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        const form = rootRef.current?.closest('form') as HTMLFormElement | null;
+        if (!form) return;
+        const onReset = () => setPhone('');
+        form.addEventListener('reset', onReset);
+        return () => form.removeEventListener('reset', onReset);
+    }, []);
 
     
 
@@ -47,23 +56,26 @@ export default function BusinessForm() {
 
                 <div>
                     <label htmlFor="business-phone" className="block text-xs md:text-sm font-medium font-body text-body mb-2">Phone number <span className="text-red-500">*</span></label>
-                    <PhoneInput
-                        country={'in'}
-                        value={phone}
-                        onChange={(value: any) => setPhone(value)}
-                        dropdownClass="bg-development-icon-bg rounded-lg"
-                        autocompleteSearch={true}
-                        countryCodeEditable={false}
-                        inputProps={{
-                            id: 'business-phone',
-                            name: 'phone',
-                            required: true,
-                            'aria-required': 'true',
-                            autoComplete: 'tel',
-                        }}
-                        inputClass="border !border-divider !w-full !h-9 md:!h-11 rounded-lg px-3 md:px-4 py-2.5 md:py-3 font-body text-body text-xs md:text-sm outline-none w-full transition-all bg-transparent focus:ring focus:ring-primary hover:ring hover:ring-primary"
-                    />
-                    <input type="hidden" name="phone" value={phone || ''} />
+                    <div ref={rootRef}>
+                        <PhoneInput
+                            country={'in'}
+                            value={phone}
+                            onChange={(value: any) => setPhone(value)}
+                            placeholder="Enter phone number"
+                            // enableSearch={true}
+                            dropdownClass="bg-development-icon-bg rounded-lg"
+                            autocompleteSearch={true}
+                            countryCodeEditable={false}
+                            inputProps={{
+                                id: 'business-phone',
+                                name: 'phone',
+                                required: true,
+                                'aria-required': 'true',
+                                autoComplete: 'tel',
+                            }}
+                            inputClass="border !border-divider !w-full !h-9 md:!h-11 rounded-lg px-3 md:px-4 py-2.5 md:py-3 font-body text-body text-xs md:text-sm outline-none w-full transition-all bg-transparent focus:ring focus:ring-primary hover:ring hover:ring-primary"
+                        />
+                    </div>
                 </div>
                 <div>
                     <label htmlFor="business-company" className="block text-xs md:text-sm font-medium font-body text-body mb-2">Company name</label>

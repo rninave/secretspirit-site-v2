@@ -48,34 +48,9 @@ const API_KEY = process.env.NEXT_PUBLIC_W3FORMS_ACCESS_KEY || '30f67c85-131a-4ed
  * @param file - The file to upload
  * @returns The downloadable link URL based on asset_id
  */
-export async function uploadToCloudinary(file: File): Promise<string> {
-  const cloudName = 'drlfqcotp';
-  const uploadPreset = 'form_submission';
-  const url = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
-
-  const fd = new FormData();
-  fd.append('file', file);
-  fd.append('upload_preset', uploadPreset);
-
-  const res = await fetch(url, {
-    method: 'POST',
-    body: fd,
-  });
-
-  if (!res.ok) {
-    throw new Error('Failed to upload file to Cloudinary');
-  }
-
-  const data = await res.json();
-  
-  // Use asset_id to create downloadable link (matching Angular implementation)
-  const asset_id = data?.asset_id || '';
-  if (!asset_id) {
-    throw new Error('Asset ID is missing in the upload response');
-  }
-  
-  return `https://res-console.cloudinary.com/${cloudName}/media_explorer_thumbnails/${asset_id}/download`;
-}
+// NOTE: Resume uploads are handled as user-provided text URLs (e.g., Google Drive, Dropbox).
+// The previous Cloudinary upload flow was removed — forms should submit a URL string in
+// the `resume` field. This service will pass that URL through to Web3Forms.
 
 /**
  * Maps form field names to readable labels for Web3Forms email formatting
@@ -143,22 +118,11 @@ export async function submitToW3Forms(formData: FormData, formType: string = 'ge
  */
 export async function submitCareerForm(formData: FormData, fullName?: string) {
   try {
-    // Extract resume file from form data
-    const resumeFile = formData.get('resume') as File | null;
-    
-    // If resume file exists and is valid, upload to Cloudinary first
-    if (resumeFile && resumeFile instanceof File && resumeFile.size > 0) {
-      try {
-        const cloudUrl = await uploadToCloudinary(resumeFile);
-        // Replace file with Cloudinary URL
-        formData.set('resume', cloudUrl);
-      } catch (uploadError) {
-        console.error('Cloudinary upload error', uploadError);
-        return { 
-          success: false, 
-          message: uploadError instanceof Error ? uploadError.message : 'Failed to upload resume' 
-        };
-      }
+    // Resume is provided as a text URL (e.g., Google Drive / Dropbox) in the `resume` field.
+    // Ensure it's stored as a string value for Web3Forms submission.
+    const resumeVal = formData.get('resume')?.toString() || '';
+    if (resumeVal) {
+      formData.set('resume', resumeVal);
     }
 
     // Set form metadata for email formatting

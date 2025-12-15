@@ -69,7 +69,6 @@ export default function CareerForm() {
                         countryCodeEditable={false}
                         inputProps={{
                             id: 'career-phone',
-                            name: 'phone',
                             required: true,
                             'aria-required': 'true',
                             autoComplete: 'tel',
@@ -145,17 +144,19 @@ export default function CareerForm() {
                 </div>
 
                 <div>
-                    <label htmlFor="career-resume" className="block text-xs md:text-sm font-medium font-body text-body mb-2">Upload resume/CV</label>
+                    <label htmlFor="career-resume" className="block text-xs md:text-sm font-medium font-body text-body mb-2">Resume/CV URL<span className="text-red-500">*</span></label>
                     <div className="flex flex-col gap-1.5">
                         <input
                             id="career-resume"
                             name="resume"
-                            type="file"
-                            accept=".pdf,.doc,.docx"
+                            type="url"
+                            required
+                            aria-required="true"
+                            placeholder="Paste Google Drive or Dropbox URL"
                             aria-describedby="career-resume-help"
                             className="border border-divider px-3 md:px-4 py-2.5 md:py-3 font-body text-body rounded-lg text-xs md:text-sm focus:ring focus:ring-primary hover:ring hover:ring-primary outline-none w-full transition-all"
                         />
-                        <span id="career-resume-help" className="text-[10px] md:text-xs text-body/60 font-body">PDF, DOC, or DOCX (up to 10MB)</span>
+                        <span id="career-resume-help" className="text-[10px] md:text-xs text-body/60 font-body">Add a Google Drive or Dropbox URL. Ensure sharing access is set to “Anyone can view.”</span>
                     </div>
                 </div>
             </div>

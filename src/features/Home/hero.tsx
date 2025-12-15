@@ -81,7 +81,7 @@ export default function HeroSection() {
         </Reveal>
       </div>
       {/* Circular Contact Element - Bottom Right */}
-      <div className="absolute bottom-4 sm:bottom-8 right-2 sm:right-6 z-20 group cursor-pointer">
+      <div className="absolute bottom-4 sm:bottom-8 right-2 sm:right-6 z-20 group cursor-pointer max-sm:hidden">
         <Reveal>
 
           <div className="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24">

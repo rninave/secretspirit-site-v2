@@ -3,10 +3,10 @@ import DevelopmentPage from "@/features/Services/Development";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Development | Secret Spirit",
+  title: "Secretspirit: Develop | Web Development and Custom Websites Services Provider",
   description: "Development services from Secret Spirit — web and software engineering.",
   openGraph: {
-    title: "Development | Secret Spirit",
+    title: "Secretspirit: Develop | Web Development and Custom Websites Services Provider",
     description: "Development services from Secret Spirit — web and software engineering.",
     url: `${baseUrl}/services/development`,
     siteName: "Secret Spirit",

@@ -3,10 +3,10 @@ import ServicesPage from "@/features/Services";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Services | Secret Spirit",
+  title: "Services | Secretspirit | Web Development, UI & UX Design, and Custom Websites Services Company",
   description: "Services: UX research, UX/UI design, and web development from Secret Spirit.",
   openGraph: {
-    title: "Services | Secret Spirit",
+    title: "Services | Secretspirit | Web Development, UI & UX Design, and Custom Websites Services Company",
     description: "Services: UX research, UX/UI design, and web development from Secret Spirit.",
     url: `${baseUrl}/services`,
     siteName: "Secret Spirit",

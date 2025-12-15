@@ -3,10 +3,10 @@ import BlogPage from "@/features/Blog";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Blog | Secret Spirit",
+  title: "Secretspirit Blogs | Blogs, Articles, and Many more...",
   description: "Insights on UX, UI design, development, and product strategy from Secret Spirit.",
   openGraph: {
-    title: "Blog | Secret Spirit",
+    title: "Secretspirit Blogs | Blogs, Articles, and Many more...",
     description: "Insights on UX, UI design, development, and product strategy from Secret Spirit.",
     url: `${baseUrl}/blog`,
     siteName: "Secret Spirit",
