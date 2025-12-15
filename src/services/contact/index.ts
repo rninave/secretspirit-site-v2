@@ -25,7 +25,7 @@ const fieldMappings: Record<FormName, Record<string, string>> = {
     experience: 'Experience',
     linkedin: 'LinkedIn Profile', // Maps linkedin -> LinkedIn Profile
     portfolio: 'Portfolio URL', // Maps portfolio -> Portfolio URL
-    resume: 'Resume Download Link',
+    resume: 'Resume/CV URL',
     coverLetter: 'Cover Letter',
   },
   other: {
