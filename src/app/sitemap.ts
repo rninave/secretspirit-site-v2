@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'blog',
     'contact',
     'services',
-    'works',
+    'work',
     'hire-us',
   ].map((p) => ({ url: `${baseUrl}/${p}`.replace(/\/+$/, '') }));
 
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   const projectPages = (projects || []).map((p: any) => {
-    const url = `${baseUrl}/works/${p.slug}`;
+    const url = `${baseUrl}/work/${p.slug}`;
     const lastModified = parseDateToISO(p.details?.year || p.date || p.updated);
     return lastModified ? { url, lastModified } : { url };
   });

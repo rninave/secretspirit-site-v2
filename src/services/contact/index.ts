@@ -40,8 +40,8 @@ const fieldMappings: Record<FormName, Record<string, string>> = {
 };
 
 // Access keys - Business uses different key
-const API_BUSINESS_KEY = '30f67c85-131a-4ed2-9c36-6a766a3b535b';
-const API_KEY = process.env.NEXT_PUBLIC_W3FORMS_ACCESS_KEY || '30f67c85-131a-4ed2-9c36-6a766a3b535b';
+const API_BUSINESS_KEY = 'e0f2354d-ba2b-42f7-af92-2002857dbb63';
+const API_KEY = process.env.NEXT_PUBLIC_W3FORMS_ACCESS_KEY || 'cd1a1e40-e06c-4341-9a0c-e07df8a7cfd6';
 
 /**
  * Uploads a file to Cloudinary and returns a downloadable link

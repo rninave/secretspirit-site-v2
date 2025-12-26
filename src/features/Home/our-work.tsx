@@ -49,7 +49,7 @@ export default function OurWorkSection() {
                   {/* Title and Arrow Row */}
                   <div className="flex items-start justify-between">
                     <h3 className="text-lg md:text-2xl font-bold text-heading font-heading transition-colors mb-0">{item.title}</h3>
-                    <Link href={item.slug ? `/works/${item.slug}` : '/works'} aria-label={`View details about ${item.title}`} className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-white border border-divider text-body hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px] hover:rotate-45">
+                    <Link href={item.slug ? `/work/${item.slug}` : '/work'} aria-label={`View details about ${item.title}`} className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-white border border-divider text-body hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px] hover:rotate-45">
                       <FiArrowUpRight size={22} />
                     </Link>
                   </div>
@@ -74,7 +74,7 @@ export default function OurWorkSection() {
           <AnimatedButton
             text="View More"
             hoverText="View More"
-            href='/works'
+            href='/work'
             icon={<FiArrowUpRight size={16} fontWeight={700} />}
             className="bg-transparent cursor-pointer font-heading border-2 border-primary text-primary px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:shadow-btn hover:bg-primary hover:text-white transition-colors"
           />

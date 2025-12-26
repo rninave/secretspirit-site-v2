@@ -32,7 +32,7 @@ export default async function WorkDetails({
 
     // if details object is missing or empty, show under-development page
     if (!details || (typeof details === 'object' && Object.keys(details).length === 0)) {
-        return <UnderDevelopment returnUrl={{ name: 'Works', href: '/works' }} />
+        return <UnderDevelopment returnUrl={{ name: 'Work', href: '/work' }} />
     }
 
     return (
@@ -47,7 +47,7 @@ export default async function WorkDetails({
                         name: project.title,
                         description: project.description || details?.subtitle || '',
                         image: [(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + (project.mainImage || '/og-image.png')],
-                        url: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/works/' + project.slug,
+                        url: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/work/' + project.slug,
                         datePublished: details?.year ? String(details.year) : undefined,
                         about: details?.type || undefined,
                     }),
@@ -62,32 +62,32 @@ export default async function WorkDetails({
                         "@type": "BreadcrumbList",
                         itemListElement: [
                             { "@type": "ListItem", position: 1, name: "Home", item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') },
-                            { "@type": "ListItem", position: 2, name: "Works", item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/works' },
-                            { "@type": "ListItem", position: 3, name: project.title, item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/works/' + project.slug }
+                            { "@type": "ListItem", position: 2, name: "Work", item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/work' },
+                            { "@type": "ListItem", position: 3, name: project.title, item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/work/' + project.slug }
                         ]
                     })
                 }}
             />
             <div className="max-w-7xl mx-auto py-12 md:py-15 px-4 md:px-8">
                 <AppBreadcrumb
-                    className="flex justify-start pb-20"
+                    className="flex justify-start mb-10 md:mb-20"
                     textClassName="text-body"
                     items={[
                         { label: 'HOME', href: '/' },
-                        { label: 'WORKS', href: '/works' },
+                        { label: 'WORK', href: '/work' },
                         { label: 'WORK DETAIL' },
                     ]}
                 />
-                <h1 className="text-[42px] text-heading font-bold mb-10 font-heading">
+                <h1 className="text-3xl md:text-[42px] text-heading font-bold mb-6 md:mb-10 font-heading">
                     {project.title || '-'}
                 </h1>
-                <h2 className="text-[32px] font-bold text-heading mb-4 font-heading">
+                <h2 className="text-lg md:text-[32px] font-bold text-heading mb-4 font-heading">
                     {details.subtitle || '-'}
                 </h2>
-                <p className="text-body text-lg mb-4 leading-8 max-w-4xl font-body">
+                <p className="text-body text-sm md:text-lg mb-4 leading-8 max-w-4xl font-body">
                     {details.text || '-'}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-20">
+                <div className="flex flex-wrap gap-2 mb-10 md:mb-20">
                     {project?.tags.map((tag, i) => (
                         <span
                             key={i}
@@ -155,8 +155,8 @@ export default async function WorkDetails({
                 <div className='max-lg:hidden md:w-1/3 space-y-6'></div>
 
                 <div className='w-full lg:w-2/3 space-y-10'>
-                    <h3 className="text-xl text-[32px] font-bold text-heading font-heading mb-8">
-                        Typography - <span className="text-primary text-2xl">{details?.typography?.fontName}</span>
+                    <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-8">
+                        Typography - <span className="text-primary text-xl md:text-2xl">{details?.typography?.fontName}</span>
                     </h3>
 
                     <div className="flex items-center justify-end sm:flex-row flex-col">
@@ -194,7 +194,7 @@ export default async function WorkDetails({
 
                 {/* Right side */}
                 <div className="w-full lg:w-2/3 space-y-10">
-                    <h3 className="text-[32px] font-bold text-heading font-heading mb-8">
+                    <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-8">
                         Colors Used
                     </h3>
 
@@ -242,14 +242,14 @@ export default async function WorkDetails({
 
                 {/* Right side */}
                 <div className="w-full lg:w-2/3 space-y-10">
-                    <h3 className="text-[32px] font-bold text-heading font-heading mb-8">
+                    <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-8">
                         Showing The UI Layouts
                     </h3>
 
                     <div className="flex items-center justify-center overflow-hidden relative">
-                        <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -left-28 max-h-[177px] z-10'/>
-                        <Image src={project.mainImage} alt={project.title} width={400} height={257} className='object-cover rounded-lg max-h-[257px] z-20'/>
-                        <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -right-28 max-h-[177px] z-10'/>
+                        <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -left-28 max-h-64.25 z-10'/>
+                        <Image src={project.mainImage} alt={project.title} width={400} height={257} className='object-cover rounded-lg max-h-64.25 z-20'/>
+                        <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -right-28 max-h-64.25 z-10'/>
                     </div>
                 </div>
             </div>

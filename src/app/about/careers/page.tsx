@@ -9,13 +9,13 @@ export const metadata = {
     title: "Careers | Secretspirit | Explore career in design and development at Secretspirit",
     description: "Join Secretspirit — opportunities in UX, UI, and web development.",
     url: `${baseUrl}/about/careers`,
-    siteName: "Secret Spirit",
+    siteName: "Secretspirit",
     images: [
       {
         url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Secret Spirit Careers",
+        alt: "Secretspirit Careers",
       },
     ],
     locale: "en_US",

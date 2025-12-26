@@ -11,10 +11,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const url = `${baseUrl}/blog/${blog.slug}`;
 
   return {
-    title: blog.title,
+    title: `${blog.title} | Secretspirit Blog`,
     description: blog.excerpt || undefined,
     openGraph: {
-      title: blog.title,
+      title: `${blog.title} | Secretspirit Blog`,
       description: blog.excerpt,
       url,
       images: [

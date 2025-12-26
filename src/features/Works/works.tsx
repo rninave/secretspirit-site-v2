@@ -63,20 +63,20 @@ export function WorksFilter() {
         <label className=' text-body text-sm font-normal leading-[100%]' >Filter By</label>
         <div className='flex flex-col sm:flex-row gap-2 sm:gap-4'>
         <Select>
-          <SelectTrigger className="w-[240px] bg-white border-divider cursor-pointer text-secondry focus-visible:ring-0">
+          <SelectTrigger className="w-60 bg-white border-divider cursor-pointer text-secondry focus-visible:ring-0">
             <SelectValue placeholder="Select industry" />
           </SelectTrigger>
-          <SelectContent className='bg-white border-0 max-h-[200px]'>
+          <SelectContent className='bg-white border-0 max-h-50'>
             {industryItems.map((item, i) => (
-              <SelectItem key={i} className='!m-0 hover:bg-primary-hover cursor-pointer font-body' value={item?.value}>{item?.name}</SelectItem>
+              <SelectItem key={i} className='m-0! hover:bg-primary-hover cursor-pointer font-body' value={item?.value}>{item?.name}</SelectItem>
             ))}
           </SelectContent>
         </Select>
         <Select>
-          <SelectTrigger className="w-[240px]  bg-white border-divider cursor-pointer text-secondry focus-visible:ring-0">
+          <SelectTrigger className="w-60  bg-white border-divider cursor-pointer text-secondry focus-visible:ring-0">
             <SelectValue placeholder="Select technology" />
           </SelectTrigger>
-          <SelectContent className='bg-white border-0 max-h-[200px]'>
+          <SelectContent className='bg-white border-0 max-h-50'>
             {technologyItems.map((item, i) => (
               <SelectItem key={i} className='hover:bg-primary-hover cursor-pointer font-body' value={item.value}>{item.name}</SelectItem>
             ))}
@@ -97,7 +97,7 @@ export default function WorksSection() {
           {caseStudies.map((item, idx) => (
             <Reveal key={idx} delayMs={idx * 80}>
               <div className="bg-swhite  overflow-hidden  flex flex-col group transition-transform duration-300 hover:-translate-y-1">
-                <div className="relative w-full aspect-[4/3]">
+                <div className="relative w-full aspect-4/3">
                   <Image
                     src={item?.mainImage}
                     alt={item?.title}
@@ -111,7 +111,7 @@ export default function WorksSection() {
                   {/* Title and Arrow Row */}
                   <div className="flex items-start justify-between">
                     <h3 className="text-lg md:text-2xl font-bold text-heading font-heading transition-colors mb-0">{item?.title || '-'}</h3>
-                    <Link href={`/works/${item?.slug}`} aria-label={`View ${item?.title}`} className="w-10 h-10 cursor-pointer hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-body hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 mt-[-6px]">
+                    <Link href={`/work/${item?.slug}`} aria-label={`View ${item?.title}`} className="w-10 h-10 cursor-pointer hover:rotate-45 flex items-center justify-center rounded-full bg-white border border-divider text-body hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 shadow-sm ml-2 -mt-1.5">
                       <FiArrowUpRight size={22} aria-hidden="true" />
                     </Link>
                   </div>

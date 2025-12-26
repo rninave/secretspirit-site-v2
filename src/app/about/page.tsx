@@ -4,18 +4,18 @@ const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').re
 
 export const metadata = {
   title: "About | Secretspirit | Web Development, UI & UX Design, and Custom Websites Services Company",
-  description: "About Secret Spirit — UX research, product design, and web development services.",
+  description: "About Secretspirit — UX research, product design, and web development services.",
   openGraph: {
     title: "About | Secretspirit | Web Development, UI & UX Design, and Custom Websites Services Company",
-    description: "About Secret Spirit — UX research, product design, and web development services.",
+    description: "About Secretspirit — UX research, product design, and web development services.",
     url: `${baseUrl}/about`,
-    siteName: "Secret Spirit",
+    siteName: "Secretspirit",
     images: [
       {
         url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Secret Spirit",
+        alt: "Secretspirit About",
       },
     ],
     locale: "en_US",

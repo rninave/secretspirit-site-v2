@@ -11,7 +11,7 @@ import { submitInquiryEmail } from '@/services/contact'
 const navLinks = [
   [
     { label: 'About', href: '/about' },
-    { label: 'Work', href: '/works' },
+    { label: 'Work', href: '/work' },
     { label: 'Services', href: '/services' },
   ],
   [
@@ -36,7 +36,7 @@ export default function Footer() {
         {/* Left: Heading & Description */}
         <div className="flex-1 w-full md:w-[60%]">
           <h2 className="text-xl md:text-2xl font-bold mb-4 text-divider font-heading">Curious Minds. Meaningful Outcomes.</h2>
-          <p className="text-divider text-sm leading-[34px] md:text-lg  font-normal max-w-sm font-body">
+          <p className="text-divider text-sm leading-8.5 md:text-lg  font-normal max-w-sm font-body">
             We are a team of experts who turn ideas into impact. With empathy and insight, we craft meaningful experiences because real solutions begin with the right mindset.
           </p>
         </div>
@@ -65,18 +65,18 @@ export default function Footer() {
               key={i}
               href={s.href}
               aria-label={s.name}
-              className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
+              className="p-2 sm:p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
               target="_blank"
               data-tooltip-id="dark-tooltip"
               data-tooltip-content={s.name}
               rel="noopener noreferrer"
             >
-              <s.icon className="w-[18px] h-[18px] lg:w-[24px] lg:h-[24px]" aria-hidden="true" />
+              <s.icon className="w-4.5 h-4.5 lg:w-6 lg:h-6" aria-hidden="true" />
             </Link>
           ))}
           <Link href="https://clutch.co/profile/secretspirit-solutions#summary" target="_blank" data-tooltip-id="dark-tooltip"
-            data-tooltip-content="Clutch" aria-label="Clutch" className="p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg">
-            <Image src="/icons/clutch-icon.svg" alt="Clutch" width={18} height={18} className="lg:w-[24px] lg:h-[24px] w-[18px] h-[18px]" style={{ width: 'auto', height: 'auto' }} />
+            data-tooltip-content="Clutch" aria-label="Clutch" className="p-2 sm:p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg">
+            <Image src="/icons/clutch-icon.svg" alt="Clutch" width={18} height={18} className="w-4 h-4 lg:w-6 lg:h-6" style={{ width: 'auto', height: 'auto' }} />
           </Link>
         </div>
         {/* Email Subscribe with Heading */}

@@ -26,7 +26,7 @@ const menuItems: MenuItem[] = [
     ],
   },
   { label: "Hire Us", href: "/hire-us" },
-  { label: "Work", href: "/works" },
+  { label: "Work", href: "/work" },
   { label: "Blog", href: "/blog" },
 ];
 

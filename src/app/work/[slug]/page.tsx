@@ -8,13 +8,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const project = (projects as any[]).find((p) => p.slug === slug);
   if (!project) return {};
 
-  const url = `${baseUrl}/works/${project.slug}`;
+  const url = `${baseUrl}/work/${project.slug}`;
 
   return {
-    title: project.title,
+    title: `${project.title} | Secretspirit Projects | 50+ Website and Web & Mobile Apps | Happy and Satisfied Clients`,
     description: project.description || undefined,
     openGraph: {
-      title: project.title,
+      title: `${project.title} | Secretspirit Projects | 50+ Website and Web & Mobile Apps | Happy and Satisfied Clients`,
       description: project.description,
       url,
       images: [
