@@ -43,7 +43,7 @@ export default function PageHero({
   return (
     <section
       className={cn(
-        'relative w-full md:min-h-[316px] flex items-center justify-center text-white overflow-hidden',
+        'relative w-full md:min-h-79 flex items-center justify-center text-white overflow-hidden',
         {
         "text-center": align === "center",
         "text-left": align === "left",
@@ -79,7 +79,7 @@ export default function PageHero({
           </div>
         )}
 
-        <h1 className="text-3xl mb-4 text-white md:text-[42px] font-bold tracking-normal leading-[50px] font-heading ">
+        <h1 className="text-3xl mb-4 text-white md:text-[42px] font-bold tracking-normal leading-12.5 font-heading ">
           {title}
         </h1>
 

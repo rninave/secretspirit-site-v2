@@ -47,7 +47,7 @@ export default function HomePage() {
 
   return (
     <>
-      <ScrollProgress className="top-[76px]" />
+      <ScrollProgress className="top-19" />
       <HeroSection />
       <section id="next-section" className="p-0 m-0">
         <TrustedBrandsSection />

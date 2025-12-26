@@ -62,7 +62,7 @@ export default function Header() {
 
   const pathname = usePathname();
   return (
-    <header className="sticky top-0 z-[9999] bg-white w-full h-[76px] py-4 px-4 md:px-6 border-b border-gray-200">
+    <header className="sticky top-0 z-9999 bg-white w-full h-19 py-4 px-4 md:px-6 border-b border-gray-200">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
         <Link href="/">
           <Image
@@ -105,13 +105,13 @@ export default function Header() {
 
                     {/* Underline highlight */}
                     <span
-                      className={`block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                      className={`block w-6 h-0.5 bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                         }`}
                     ></span>
 
                     {/* Dropdown menu */}
                     <div
-                      className={`absolute top-full left-0 bg-white rounded-lg mt-2 shadow-lg border border-gray-100 min-w-[200px] z-50 transition-all duration-300 ease-in-out transform origin-top ${openDropdown === item.label
+                      className={`absolute top-full left-0 bg-white rounded-lg mt-2 shadow-lg border border-gray-100 min-w-50 z-50 transition-all duration-300 ease-in-out transform origin-top ${openDropdown === item.label
                           ? 'opacity-100 scale-y-100 translate-y-0 pointer-events-auto'
                           : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'
                         }`}
@@ -141,7 +141,7 @@ export default function Header() {
                   >
                     {item.label}
                     <span
-                      className={`block w-6 h-[2px] bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                      className={`block w-6 h-0.5 bg-primary absolute -top-2 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
                         }`}
                     ></span>
                   </Link>
@@ -214,7 +214,7 @@ export default function Header() {
                         />
                       </button>
                       <span
-                        className={`block w-6 h-[2px] bg-primary absolute -top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                        className={`block w-6 h-0.5 bg-primary absolute top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                       ></span>
                       {openMobileDropdown === item.label && (
                         <div className="pl-4 flex flex-col gap-1">
@@ -233,7 +233,7 @@ export default function Header() {
                                   {dropdownItem.label}
                                 </Link>
                                 <span
-                                  className={`block w-6 h-[2px] bg-primary absolute -top-0 left-5 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isDropdownActive ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}
+                                  className={`block w-6 h-0.5 bg-primary absolute top-0 left-5 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isDropdownActive ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}
                                 ></span>
                               </div>
                             );
@@ -252,7 +252,7 @@ export default function Header() {
                     >
                       {item.label}
                       <span
-                        className={`block w-6 h-[2px] bg-primary absolute -top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                        className={`block w-6 h-0.5 bg-primary absolute top-0 left-3 -translate-x-1/2 rounded-full transition-opacity duration-200 ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                       ></span>
                     </Link>
                   )}

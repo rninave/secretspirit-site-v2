@@ -162,7 +162,7 @@ export default function ContactFormSection() {
                                 </AnimatePresence>
 
                                 <motion.div
-                                    className="pt-2 w-fit"
+                                    className="md:pt-2 w-fit"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.2 }}
@@ -179,10 +179,10 @@ export default function ContactFormSection() {
                     </div>
 
                     {/* RIGHT — CONTACT CARD */}
-                    <div className="hidden lg:block w-[205px] bg-light-primary rounded-r-2xl"></div>
+                    <div className="hidden lg:block w-51.25 bg-light-primary rounded-r-2xl"></div>
 
                     {/* CONTACT INFO CARD */}
-                    <div className="w-full lg:w-[324px] bg-heading text-white p-6 md:p-8 rounded-xl lg:rounded-2xl flex flex-col justify-between h-auto lg:h-[472px] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+                    <div className="w-full lg:w-81 bg-heading text-white p-6 md:p-8 rounded-xl lg:rounded-2xl flex flex-col justify-between h-auto lg:h-118 lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
                         <div className="space-y-6 md:space-y-8">
                             <h3 className="text-xl md:text-2xl font-body text-white font-bold">Contact Us</h3>
 
@@ -204,7 +204,7 @@ export default function ContactFormSection() {
                                 <div className="flex items-start gap-3">
                                     <IoLocationSharp className="text-lg md:text-xl shrink-0 mt-0.5" />
                                     <span className="text-xs md:text-sm font-medium font-body text-white leading-relaxed">
-                                        202, Kasturi Pride (Business Hub),
+                                        316, Kasturi Pride (Business Hub),
                                         SP Ring Rd, Nikol, Ahmedabad,
                                         Gujarat - 382350
                                     </span>

@@ -59,7 +59,7 @@ export default function Footer() {
       <div className="border-t max-w-7xl mx-auto border-[#FFFFFF29] my-4 md:my-15" />
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row md:items-start gap-10">
         {/* Social Icons */}
-        <div className="flex items-center justify-start max-xs:flex-wrap gap-2 md:gap-6 mb-4 md:mb-0 w-full md:w-[70%]">
+        <div className="flex items-center justify-between sm:justify-start max-xs:flex-wrap gap-2 md:gap-6 mb-4 md:mb-0 w-full md:w-[70%]">
           {socialLinks.map((s, i) => (
             <Link
               key={i}

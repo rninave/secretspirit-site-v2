@@ -32,7 +32,7 @@ export default async function WorkDetails({
 
     // if details object is missing or empty, show under-development page
     if (!details || (typeof details === 'object' && Object.keys(details).length === 0)) {
-        return <UnderDevelopment returnUrl={{ name: 'Work', href: '/work' }} />
+        return <UnderDevelopment returnUrl={{ name: 'Home', href: '/' }} />
     }
 
     return (

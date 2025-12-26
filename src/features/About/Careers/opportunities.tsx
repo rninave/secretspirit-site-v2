@@ -163,7 +163,7 @@ export default function Opportunities() {
                           <h4 className="font-bold text-sm leading-[100%] md:text-lg text-black font-heading mb-2">
                             Job Description
                           </h4>
-                          <p className="text-body font-normal text-xs md:text-base leading-[26px]">{job.description}</p>
+                          <p className="text-body font-normal text-xs md:text-base leading-6.5">{job.description}</p>
                         </div>
 
                         {/* Responsibilities */}
@@ -172,7 +172,7 @@ export default function Opportunities() {
                             <h4 className="font-bold text-sm leading-[100%] md:text-lg text-black font-heading mb-2">
                               Responsibilities
                             </h4>
-                            <ul className="list-disc list-inside text-body font-normal text-xs md:text-base leading-[26px] space-y-1">
+                            <ul className="list-disc list-outside text-body font-normal text-xs md:text-base leading-6.5 space-y-1">
                               {job.responsibilities.map((item, i) => (
                                 <li key={i}>{item}</li>
                               ))}
@@ -186,7 +186,7 @@ export default function Opportunities() {
                             <h4 className="font-bold text-sm leading-[100%] md:text-lg text-black font-heading mb-2">
                               Requirements
                             </h4>
-                            <ul className="list-disc list-inside text-body font-normal text-xs md:text-base leading-[26px] space-y-1">
+                            <ul className="list-disc list-inside text-body font-normal text-xs md:text-base leading-6.5 space-y-1">
                               {job.requirements.map((item, i) => (
                                 <li key={i}>{item}</li>
                               ))}

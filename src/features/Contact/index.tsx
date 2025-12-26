@@ -8,7 +8,7 @@ import ContactFormSection from "./contactform";
 export default function ContactPage() {
     return (
         <>
-            <ScrollProgress className="top-[76px]" />
+            <ScrollProgress className="top-19" />
             <PageHero
                 title="Get in touch with us"
                 bgImage="/heros/contact-us-bg.jpg"
