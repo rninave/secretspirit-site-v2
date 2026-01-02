@@ -58,7 +58,7 @@ const technologyItems = [
 
 export function WorksFilter() {
   return (
-    <section className='bg-gray-light px-4 md:px-8'>
+    <section className='bg-gray-light px-4 md:px-8 hidden'>
       <div className="max-w-7xl font-body my-4 mx-auto flex gap-4 items-center flex-col xs:flex-row">
         <label className=' text-body text-sm font-normal leading-[100%]' >Filter By</label>
         <div className='flex flex-col sm:flex-row gap-2 sm:gap-4'>
