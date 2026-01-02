@@ -6,6 +6,7 @@ import { MenuItem, MenuItemDropdown } from "@/interface/header.interface";
 import { usePathname, useRouter } from "next/navigation";
 import AnimatedButton from "../common/AnimatedButton";
 import Link from "next/link";
+import { getImageUrl } from "@/utils/image-utils";
 
 const menuItems: MenuItem[] = [
   {
@@ -66,7 +67,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
         <Link href="/">
           <Image
-            src="/main-logo.png"
+            src={getImageUrl("/main-logo.png")}
             alt="Secretspirit logo"
             loading="eager"
             priority={true}
@@ -112,8 +113,8 @@ export default function Header() {
                     {/* Dropdown menu */}
                     <div
                       className={`absolute top-full left-0 bg-white rounded-lg mt-2 shadow-lg border border-gray-100 min-w-50 z-50 transition-all duration-300 ease-in-out transform origin-top ${openDropdown === item.label
-                          ? 'opacity-100 scale-y-100 translate-y-0 pointer-events-auto'
-                          : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'
+                        ? 'opacity-100 scale-y-100 translate-y-0 pointer-events-auto'
+                        : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'
                         }`}
                     >
                       {item.dropdown.map((dropdownItem: MenuItemDropdown) => {
@@ -157,9 +158,9 @@ export default function Header() {
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          <Image src="/icons/menu-icon.svg" priority={true} loading="eager" alt="Menu" width={24} height={24} />
+          <Image src={getImageUrl("/icons/menu-icon.svg")} priority={true} loading="eager" alt="Menu" width={24} height={24} />
         </button>
-        
+
         {/* Desktop CTA Button */}
         <div className="hidden lg:flex">
           <AnimatedButton
@@ -260,7 +261,7 @@ export default function Header() {
               );
             })}
           </nav>
-          <button onClick={() => {router.push("/contact"); setIsMobileMenuOpen(false)}} className="bg-primary cursor-pointer  text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors flex flex-row-reverse items-center gap-2 mt-4 w-full justify-between">
+          <button onClick={() => { router.push("/contact"); setIsMobileMenuOpen(false) }} className="bg-primary cursor-pointer  text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium hover:bg-primary/90 transition-colors flex flex-row-reverse items-center gap-2 mt-4 w-full justify-between">
             <FiPhoneCall className="text-white ml-2" />
             <span>Let's Talk</span>
           </button>

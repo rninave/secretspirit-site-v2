@@ -7,6 +7,7 @@ import Reveal from './Reveal'
 import AnimatedButton from './AnimatedButton'
 import { Calendar } from 'lucide-react'
 import { BsCalendarFill } from 'react-icons/bs'
+import { getImageUrl } from "@/utils/image-utils"
 
 interface PageHeroProps {
   title: string
@@ -16,7 +17,7 @@ interface PageHeroProps {
   bgstyle?: string
   breadcrumbItems?: { label: string; href?: string }[]
   className?: string,
-  btn?: {label: string, href?:string}
+  btn?: { label: string, href?: string }
   date?: string,
   align?: 'left' | 'center' | 'right'
 }
@@ -45,9 +46,9 @@ export default function PageHero({
       className={cn(
         'relative w-full md:min-h-79 flex items-center justify-center text-white overflow-hidden',
         {
-        "text-center": align === "center",
-        "text-left": align === "left",
-        "text-right": align === "right",
+          "text-center": align === "center",
+          "text-left": align === "left",
+          "text-right": align === "right",
         },
         className
       )}
@@ -55,50 +56,50 @@ export default function PageHero({
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={bgImage}
+          src={getImageUrl(bgImage)}
           alt={title}
           fill
           priority
           className="object-cover object-center"
         />
         <div className={cn('absolute inset-0', overlayColor)} style={{
-    background: bgstyle
-  }} />
+          background: bgstyle
+        }} />
       </div>
 
       {/* Content */}
       <Reveal>
-      <div className={cn("relative z-10 max-w-5xl mx-auto px-4 md:px-6 py-16", {
-        "text-left": align === "left",
-        "text-center": align === "center",
-        "text-right": align === "right"
-      })}>
-        {breadcrumbItems && (
-          <div className="mb-4">
-            <AppBreadcrumb align={align} items={breadcrumbItems} />
-          </div>
-        )}
+        <div className={cn("relative z-10 max-w-5xl mx-auto px-4 md:px-6 py-16", {
+          "text-left": align === "left",
+          "text-center": align === "center",
+          "text-right": align === "right"
+        })}>
+          {breadcrumbItems && (
+            <div className="mb-4">
+              <AppBreadcrumb align={align} items={breadcrumbItems} />
+            </div>
+          )}
 
-        <h1 className="text-3xl mb-4 text-white md:text-[42px] font-bold tracking-normal leading-12.5 font-heading ">
-          {title}
-        </h1>
+          <h1 className="text-3xl mb-4 text-white md:text-[42px] font-bold tracking-normal leading-12.5 font-heading ">
+            {title}
+          </h1>
 
-        {subtitle && (
-          <p className="mt-4 text-base md:text-xl text-white mx-auto max-w-4xl leading-8 tracking-normal font-body mb-4">
-            {subtitle}
-          </p>
-        )}
-        {date && (
-          <p className="mt-4 text-xs text-white  leading-8 tracking-normal flex items-center font-body mb-4">
-            <BsCalendarFill className='w-4 h-4 inline-block mr-2 ' /> {date}
-          </p>
-        )}
-        {btn && (
-          <div className='flex justify-center'>
-            <AnimatedButton  text={btn.label} hoverText={btn.label} href={btn.href} className='cursor-pointer flex bg-primary text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2'/>
-          </div>
-        )}
-      </div>
+          {subtitle && (
+            <p className="mt-4 text-base md:text-xl text-white mx-auto max-w-4xl leading-8 tracking-normal font-body mb-4">
+              {subtitle}
+            </p>
+          )}
+          {date && (
+            <p className="mt-4 text-xs text-white  leading-8 tracking-normal flex items-center font-body mb-4">
+              <BsCalendarFill className='w-4 h-4 inline-block mr-2 ' /> {date}
+            </p>
+          )}
+          {btn && (
+            <div className='flex justify-center'>
+              <AnimatedButton text={btn.label} hoverText={btn.label} href={btn.href} className='cursor-pointer flex bg-primary text-white px-4 py-3 rounded-full font-body shadow-btn hover:shadow-btn-reverse font-medium  transition-colors items-center gap-2' />
+            </div>
+          )}
+        </div>
       </Reveal>
     </section>
   )

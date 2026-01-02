@@ -6,17 +6,26 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const nextConfig: NextConfig = {
+  // Static export
+  output: 'export',
+  distDir: 'ss-site',
+  basePath: '/ss-site',
+  env: {
+    NEXT_PUBLIC_BASE_PATH: '/ss-site',
+  },
+
   // Enable compression
   compress: true,
-  
+
   // Optimize images
   images: {
+    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
   },
-  
+
   // Experimental optimizations
   experimental: {
     optimizePackageImports: [
@@ -27,10 +36,10 @@ const nextConfig: NextConfig = {
       '@radix-ui/react-slot',
     ],
   },
-  
+
   // Turbopack configuration (Next.js 16+)
   turbopack: {},
-  
+
   // Webpack optimizations for tree-shaking (fallback for non-turbopack builds)
   webpack: (config, { isServer, dev }) => {
     if (!isServer && !dev) {
@@ -73,7 +82,7 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
-  
+
   // Headers for better caching
   async headers() {
     return [

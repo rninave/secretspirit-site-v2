@@ -7,6 +7,7 @@ import { AiFillInstagram } from 'react-icons/ai';
 import Image from 'next/image';
 import Link from 'next/link';
 import { submitInquiryEmail } from '@/services/contact'
+import { getImageUrl } from "@/utils/image-utils";
 
 const navLinks = [
   [
@@ -76,7 +77,7 @@ export default function Footer() {
           ))}
           <Link href="https://clutch.co/profile/secretspirit-solutions#summary" target="_blank" data-tooltip-id="dark-tooltip"
             data-tooltip-content="Clutch" aria-label="Clutch" className="p-2 sm:p-3 rounded-full border border-white/10 flex items-center justify-center text-divider hover:text-primary hover:border-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg">
-            <Image src="/icons/clutch-icon.svg" alt="Clutch" width={18} height={18} className="w-4 h-4 lg:w-6 lg:h-6" style={{ width: 'auto', height: 'auto' }} />
+            <Image src={getImageUrl("/icons/clutch-icon.svg")} alt="Clutch" width={18} height={18} className="w-4 h-4 lg:w-6 lg:h-6" style={{ width: 'auto', height: 'auto' }} />
           </Link>
         </div>
         {/* Email Subscribe with Heading */}
@@ -98,7 +99,7 @@ export default function Footer() {
 function FooterSubscribe() {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [message, setMessage] = useState<{ type: 'success'|'error'; text: string } | null>(null)
+  const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) e.preventDefault()
@@ -142,7 +143,7 @@ function FooterSubscribe() {
           aria-label="Subscribe"
           className="bg-primary cursor-pointer min-w-10 w-10 h-10 rounded-full flex items-center justify-center text-white text-xl hover:bg-primary/90 transition-colors transform hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          <Image src="/icons/send-icon.svg" alt="Send" width={18} height={18} />
+          <Image src={getImageUrl("/icons/send-icon.svg")} alt="Send" width={18} height={18} />
         </button>
       </div>
       {message && (

@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import Link from 'next/link';
+import { getImageUrl } from '@/utils/image-utils';
 
 const caseStudies = projects;
 
@@ -62,26 +63,26 @@ export function WorksFilter() {
       <div className="max-w-7xl font-body my-4 mx-auto flex gap-4 items-center flex-col xs:flex-row">
         <label className=' text-body text-sm font-normal leading-[100%]' >Filter By</label>
         <div className='flex flex-col sm:flex-row gap-2 sm:gap-4'>
-        <Select>
-          <SelectTrigger className="w-60 bg-white border-divider cursor-pointer text-secondry focus-visible:ring-0">
-            <SelectValue placeholder="Select industry" />
-          </SelectTrigger>
-          <SelectContent className='bg-white border-0 max-h-50'>
-            {industryItems.map((item, i) => (
-              <SelectItem key={i} className='m-0! hover:bg-primary-hover cursor-pointer font-body' value={item?.value}>{item?.name}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-        <Select>
-          <SelectTrigger className="w-60  bg-white border-divider cursor-pointer text-secondry focus-visible:ring-0">
-            <SelectValue placeholder="Select technology" />
-          </SelectTrigger>
-          <SelectContent className='bg-white border-0 max-h-50'>
-            {technologyItems.map((item, i) => (
-              <SelectItem key={i} className='hover:bg-primary-hover cursor-pointer font-body' value={item.value}>{item.name}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+          <Select>
+            <SelectTrigger className="w-60 bg-white border-divider cursor-pointer text-secondry focus-visible:ring-0">
+              <SelectValue placeholder="Select industry" />
+            </SelectTrigger>
+            <SelectContent className='bg-white border-0 max-h-50'>
+              {industryItems.map((item, i) => (
+                <SelectItem key={i} className='m-0! hover:bg-primary-hover cursor-pointer font-body' value={item?.value}>{item?.name}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <Select>
+            <SelectTrigger className="w-60  bg-white border-divider cursor-pointer text-secondry focus-visible:ring-0">
+              <SelectValue placeholder="Select technology" />
+            </SelectTrigger>
+            <SelectContent className='bg-white border-0 max-h-50'>
+              {technologyItems.map((item, i) => (
+                <SelectItem key={i} className='hover:bg-primary-hover cursor-pointer font-body' value={item.value}>{item.name}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </section>
@@ -99,7 +100,7 @@ export default function WorksSection() {
               <div className="bg-swhite  overflow-hidden  flex flex-col group transition-transform duration-300 hover:-translate-y-1">
                 <div className="relative w-full aspect-4/3">
                   <Image
-                    src={item?.mainImage}
+                    src={getImageUrl(item?.mainImage)}
                     alt={item?.title}
                     fill
                     className="object-cover rounded-2xl"

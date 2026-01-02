@@ -3,6 +3,7 @@ import Reveal from "@/components/common/Reveal";
 import blogs from "@/data/blogs.json";
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
+import { getImageUrl } from "@/utils/image-utils";
 
 export default function BlogListSection() {
     return (
@@ -13,7 +14,7 @@ export default function BlogListSection() {
                         <Reveal key={post.id} className="border-b-1 border-divider ">
                             <article className="flex flex-col md:flex-row items-stretch gap-4 md:gap-6 bg-white rounded-lg my-10">
                                 <div className="lg:w-1/3 flex-shrink-0 overflow-hidden rounded-lg">
-                                    <Image src={post.image} alt={post.title} width={520} height={320} className="object-cover w-full h-40 md:h-full" />
+                                    <Image src={getImageUrl(post.image)} alt={post.title} width={520} height={320} className="object-cover w-full h-40 md:h-full" />
                                 </div>
 
                                 <div className="flex-1 md:pl-6 py-4 md:py-0">
@@ -25,9 +26,9 @@ export default function BlogListSection() {
                                         {post.excerpt}
                                     </p>
 
-                                        <div className="flex flex-col justify-between md:justify-start gap-4">
+                                    <div className="flex flex-col justify-between md:justify-start gap-4">
                                         <div className="flex items-center gap-3 text-body text-sm">
-                                            <Image width={18} height={18} src='/blog/date-icon.svg' alt="Published date" />
+                                            <Image width={18} height={18} src={getImageUrl('/blog/date-icon.svg')} alt="Published date" />
                                             <span>{new Date(post.date).toLocaleDateString()}</span>
                                         </div>
 

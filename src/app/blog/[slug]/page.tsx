@@ -3,6 +3,12 @@ import blogs from '@/data/blogs.json'
 
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
+export async function generateStaticParams() {
+  return (blogs as any[]).map((blog) => ({
+    slug: blog.slug,
+  }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const blog = (blogs as any[]).find((b) => b.slug === slug);
@@ -36,7 +42,7 @@ export default async function BlogDetailsPage({
   params
 }: {
   params: Promise<{ slug: string }>
-  
+
 }) {
 
   return <BlogDetails params={params} />;

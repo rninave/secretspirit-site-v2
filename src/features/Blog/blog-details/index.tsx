@@ -4,6 +4,7 @@ import blogs from "@/data/blogs.json";
 import { notFound } from "next/navigation";
 import BlogDetailsSection from "./blog-details";
 import UnderDevelopment from '@/components/common/UnderDevelopment'
+import { getImageUrl } from "@/utils/image-utils";
 
 export default async function BlogDetails({
     params
@@ -34,7 +35,7 @@ export default async function BlogDetails({
                         "@context": "https://schema.org",
                         "@type": "Article",
                         headline: blogInfo.title,
-                        image: [(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + (blogInfo.image || '/og-image.png')],
+                        image: [(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + getImageUrl(blogInfo.image || '/og-image.png')],
                         datePublished: blogInfo.date ? new Date(blogInfo.date).toISOString() : undefined,
                         author: {
                             "@type": "Person",
@@ -45,7 +46,7 @@ export default async function BlogDetails({
                             name: "Secretspirit",
                             logo: {
                                 "@type": "ImageObject",
-                                url: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/logo.svg'
+                                url: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + getImageUrl('/logo.svg')
                             }
                         },
                         description: blogInfo.excerpt || ''
@@ -85,12 +86,12 @@ export default async function BlogDetails({
             <ScrollProgress className="top-[76px]" />
             <PageHero
                 title={blogInfo.title}
-                bgImage="/heros/blog-detail-hero.png"
+                bgImage={getImageUrl("/heros/blog-detail-hero.png")}
                 overlayColor="opacity-[0.90]"
                 date={blogInfo.date}
                 align="left"
                 bgstyle="linear-gradient(123.99deg, #181616 5.78%, #331C07 45.6%, #181616 81.77%)"
-                breadcrumbItems={[{ label: 'HOME', href: '/' }, { label: 'BLOG', href: 'blog' }, {label: 'BLOG DETAIL'}]}
+                breadcrumbItems={[{ label: 'HOME', href: '/' }, { label: 'BLOG', href: 'blog' }, { label: 'BLOG DETAIL' }]}
             />
             <BlogDetailsSection blog={blogInfo} />
         </>

@@ -3,6 +3,12 @@ import projects from '@/data/projects.json'
 
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
+export async function generateStaticParams() {
+  return (projects as any[]).map((project) => ({
+    slug: project.slug,
+  }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = (projects as any[]).find((p) => p.slug === slug);
@@ -32,10 +38,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ProjectDetailsPage({ 
-  params 
-}: { 
-  params: Promise<{ slug: string }> 
+export default async function ProjectDetailsPage({
+  params
+}: {
+  params: Promise<{ slug: string }>
 }) {
   return <WorkDetails params={params} />;
 }

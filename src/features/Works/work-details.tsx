@@ -3,6 +3,7 @@ import projects from '@/data/projects.json'
 import AppBreadcrumb from '@/components/common/AppBreadcrumb'
 import Image from 'next/image'
 import UnderDevelopment from '@/components/common/UnderDevelopment'
+import { getImageUrl } from '@/utils/image-utils'
 
 export function getFontWeight(weight: string) {
     const map: any = {
@@ -18,10 +19,10 @@ export function getFontWeight(weight: string) {
 }
 
 
-export default async function WorkDetails({ 
-    params 
-}: { 
-    params: Promise<{ slug: string }> 
+export default async function WorkDetails({
+    params
+}: {
+    params: Promise<{ slug: string }>
 }) {
     const { slug } = await params
     const project = projects.find((p) => p.slug === slug)
@@ -46,7 +47,7 @@ export default async function WorkDetails({
                         "@type": "CreativeWork",
                         name: project.title,
                         description: project.description || details?.subtitle || '',
-                        image: [(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + (project.mainImage || '/og-image.png')],
+                        image: [(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + getImageUrl(project.mainImage || '/og-image.png')],
                         url: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/work/' + project.slug,
                         datePublished: details?.year ? String(details.year) : undefined,
                         about: details?.type || undefined,
@@ -103,7 +104,7 @@ export default async function WorkDetails({
             {/* Project Main Image */}
             <div className='max-w-xl mx-auto'>
                 <Image
-                    src={project.mainImage}
+                    src={getImageUrl(project.mainImage)}
                     alt={project.title}
                     width={1400}
                     height={800}
@@ -247,9 +248,9 @@ export default async function WorkDetails({
                     </h3>
 
                     <div className="flex items-center justify-center overflow-hidden relative">
-                        <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -left-28 max-h-64.25 z-10'/>
-                        <Image src={project.mainImage} alt={project.title} width={400} height={257} className='object-cover rounded-lg max-h-64.25 z-20'/>
-                        <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -right-28 max-h-64.25 z-10'/>
+                        <Image src={getImageUrl(project.mainImage)} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -left-28 max-h-64.25 z-10' />
+                        <Image src={getImageUrl(project.mainImage)} alt={project.title} width={400} height={257} className='object-cover rounded-lg max-h-64.25 z-20' />
+                        <Image src={getImageUrl(project.mainImage)} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -right-28 max-h-64.25 z-10' />
                     </div>
                 </div>
             </div>

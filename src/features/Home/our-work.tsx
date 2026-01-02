@@ -7,13 +7,14 @@ import SectionHeader from '@/components/common/SectionHeader';
 import Reveal from '@/components/common/Reveal';
 import AnimatedButton from '@/components/common/AnimatedButton';
 import projects from '@/data/projects.json';
+import { getImageUrl } from '@/utils/image-utils';
 
 type CaseStudy = { title: string; image: string; description: string; tags: string[]; slug?: string }
 
 export default function OurWorkSection() {
   const caseStudies: CaseStudy[] = (projects as any[]).slice(0, 4).map((p) => ({
     title: p.title,
-    image: p.mainImage || '/our-work/unite-matchmaking.png',
+    image: getImageUrl(p.mainImage || '/our-work/unite-matchmaking.png'),
     description: p.description || '',
     tags: p.tags || [],
     slug: p.slug,
