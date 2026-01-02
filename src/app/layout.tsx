@@ -133,6 +133,17 @@ export default function RootLayout({
             __html: `if(typeof window !== 'undefined'){const c=document.querySelector('link[rel=canonical]');if(c) c.setAttribute('href',location.href); else {const l=document.createElement('link');l.setAttribute('rel','canonical');l.setAttribute('href',location.href);document.head.appendChild(l);}}`,
           }}
         />
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-59672380"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-59672380');
+          `}
+        </script>
+
       </head>
       <body className={`${spaceGrotesk.variable} ${bricolageGrotesque.variable} antialiased flex flex-col min-h-screen overflow-x-hidden bg-white`}>
         <TooltipInit />
