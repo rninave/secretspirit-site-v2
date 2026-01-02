@@ -38,11 +38,11 @@ export default async function BlogDetails({
                         datePublished: blogInfo.date ? new Date(blogInfo.date).toISOString() : undefined,
                         author: {
                             "@type": "Person",
-                            name: "Secret Spirit"
+                            name: "Secretspirit"
                         },
                         publisher: {
                             "@type": "Organization",
-                            name: "Secret Spirit",
+                            name: "Secretspirit",
                             logo: {
                                 "@type": "ImageObject",
                                 url: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/logo.svg'

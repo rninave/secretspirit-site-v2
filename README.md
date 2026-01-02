@@ -1,4 +1,4 @@
-This Project for Secret Spirit
+This Project for Secretspirit
 
 ## Getting Started
 

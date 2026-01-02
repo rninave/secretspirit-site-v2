@@ -27,10 +27,41 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
-    default: "Secret Spirit",
-    template: "%s | Secret Spirit",
+    default: "Secretspirit",
+    template: "%s | Secretspirit",
   },
-  description: "Secret Spirit is a platform for creating and sharing secret messages.",
+  description: "Elevate your brand with Secretspirit's expert UI/UX design and development services. Our team crafts captivating digital experiences to enhance your online presence and drive business growth. Transform your vision into reality and thrive in the digital landscape with Secretspirit.",
+  keywords: [
+  "Secretspirit",
+  "Secret Spirit",
+  "SecretUXD",
+  "UI UX design agency",
+  "UI UX design company India",
+  "UI UX design agency Ahmedabad",
+  "UI UX design agency Nikol",
+  "web development company India",
+  "web development company Canada",
+  "custom website development",
+  "Angular development company",
+  "ReactJS development company",
+  "NodeJS development company",
+  "front-end development services",
+  "PSD to HTML conversion",
+  "Figma to HTML conversion",
+  "Figma to Angular development",
+  "Figma to React development",
+  "UX UI solutions for startups",
+  "design thinking services",
+  "branding and digital design",
+  "hire UI UX designer India",
+  "hire front-end developer India",
+  "hire NodeJS developer India",
+  "IT company in Ahmedabad",
+  "IT company in Baroda",
+  "IT company in Surat",
+  "remote development team",
+  "digital product design agency"
+],
   icons: {
     icon: [
       { url: "/logo.svg", type: "image/svg+xml" },
@@ -41,8 +72,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Secret Spirit",
-    description: "Secret Spirit is a platform for creating and sharing secret messages.",
+    title: "Secretspirit",
+    description: "Elevate your brand with Secretspirit's expert UI/UX design and development services. Our team crafts captivating digital experiences to enhance your online presence and drive business growth. Transform your vision into reality and thrive in the digital landscape with Secretspirit.",
     url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     images: [
       {
@@ -52,8 +83,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Secret Spirit",
-    description: "Secret Spirit is a platform for creating and sharing secret messages.",
+    title: "Secretspirit",
+    description: "Secretspirit is a platform for creating and sharing secret messages.",
     images: [`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/og-image.png`],
   },
   robots: {
@@ -71,7 +102,7 @@ export default function RootLayout({
   const jsonLdOrganization = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Secret Spirit",
+    "name": "Secretspirit",
     "url": siteUrl,
     "logo": `${siteUrl.replace(/\/+$/, "")}/logo.svg`,
     "sameAs": []
@@ -81,7 +112,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "url": siteUrl,
-    "name": "Secret Spirit",
+    "name": "Secretspirit",
     "potentialAction": {
       "@type": "SearchAction",
       "target": `${siteUrl.replace(/\/+$/, "")}/search?q={search_term_string}`,

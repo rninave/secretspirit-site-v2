@@ -133,7 +133,7 @@ export default function SolutionSection() {
                     const iconKey = iconKeys[idx % iconKeys.length];
                     return (
                       <div key={feature + idx} className="flex items-center gap-2 mb-1.5">
-                        <Image src={iconsPath[iconKey]} width={16} height={16} alt="icons" style={{ width: 'auto', height: 'auto' }} />
+                        <Image src={iconsPath[iconKey]} width={16} height={16} alt="icon" style={{ width: 'auto', height: 'auto' }} />
                         <span className="font-bold text-black text-xs font-body md:text-sm">{feature}</span>
                       </div>
                     );

@@ -104,7 +104,7 @@ export async function submitToW3Forms(formData: FormData, formType: string = 'ge
     const json = await res.json();
     return json;
   } catch (err) {
-    console.error('submitToW3Forms error', err);
+    // console.error('submitToW3Forms error', err);
     return { success: false, message: err instanceof Error ? err.message : 'Network error' };
   }
 }
@@ -130,17 +130,17 @@ export async function submitCareerForm(formData: FormData, fullName?: string) {
     formData.set('form_name', 'Career');
     formData.set('subject', `New Job Application Received: ${userName}`);
     formData.set('from_name', 'Secretspirit Site');
-    
+
     // Map field names to readable labels
     const mappedFormData = makeReadableFormFields('career', formData);
-    
+
     // Submit to Web3Forms
     return await submitToW3Forms(mappedFormData, 'Career');
   } catch (err) {
-    console.error('submitCareerForm error', err);
-    return { 
-      success: false, 
-      message: err instanceof Error ? err.message : 'Failed to submit career form' 
+    // console.error('submitCareerForm error', err);
+    return {
+      success: false,
+      message: err instanceof Error ? err.message : 'Failed to submit career form'
     };
   }
 }
@@ -158,17 +158,17 @@ export async function submitBusinessForm(formData: FormData, fullName?: string) 
     formData.set('form_name', 'Business');
     formData.set('subject', `You've Received a New Business Inquiry from ${userName}`);
     formData.set('from_name', 'Secretspirit Site');
-    
+
     // Map field names to readable labels
     const mappedFormData = makeReadableFormFields('business', formData);
-    
+
     // Submit to Web3Forms
     return await submitToW3Forms(mappedFormData, 'Business');
   } catch (err) {
-    console.error('submitBusinessForm error', err);
-    return { 
-      success: false, 
-      message: err instanceof Error ? err.message : 'Failed to submit business form' 
+    // console.error('submitBusinessForm error', err);
+    return {
+      success: false,
+      message: err instanceof Error ? err.message : 'Failed to submit business form'
     };
   }
 }
@@ -183,28 +183,28 @@ export async function submitOtherForm(formData: FormData, fullName?: string) {
   try {
     // Set form metadata for email formatting
     const userName = fullName || formData.get('fullName')?.toString() || 'User';
-    
+
     // Rename user's subject input to subjectdetails to match mapping
     const userSubject = formData.get('subject')?.toString();
     if (userSubject) {
       formData.delete('subject');
       formData.set('subjectdetails', userSubject);
     }
-    
+
     formData.set('form_name', 'Other');
     formData.set('subject', `You've Received a New Other Inquiry from ${userName}`);
     formData.set('from_name', 'Secretspirit Site');
-    
+
     // Map field names to readable labels
     const mappedFormData = makeReadableFormFields('other', formData);
-    
+
     // Submit to Web3Forms
     return await submitToW3Forms(mappedFormData, 'Other');
   } catch (err) {
-    console.error('submitOtherForm error', err);
-    return { 
-      success: false, 
-      message: err instanceof Error ? err.message : 'Failed to submit other form' 
+    // console.error('submitOtherForm error', err);
+    return {
+      success: false,
+      message: err instanceof Error ? err.message : 'Failed to submit other form'
     };
   }
 }

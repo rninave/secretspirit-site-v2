@@ -67,7 +67,7 @@ export default function Header() {
         <Link href="/">
           <Image
             src="/main-logo.png"
-            alt="Secret Spirit"
+            alt="Secretspirit logo"
             loading="eager"
             priority={true}
             width={192}
