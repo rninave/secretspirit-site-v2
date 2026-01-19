@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 import blogs from '@/data/blogs.json'
 import projects from '@/data/projects.json'
 
+export const dynamic = 'force-static';
+
 function parseDateToISO(d?: any): string | undefined {
   if (!d) return undefined;
   // Accept numbers (timestamp) or parsable strings
