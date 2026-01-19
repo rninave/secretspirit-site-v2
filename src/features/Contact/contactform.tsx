@@ -182,7 +182,7 @@ export default function ContactFormSection() {
                     <div className="hidden lg:block w-51.25 bg-light-primary rounded-r-2xl"></div>
 
                     {/* CONTACT INFO CARD */}
-                    <div className="w-full lg:w-81 bg-heading text-white p-6 md:p-8 rounded-xl lg:rounded-2xl flex flex-col justify-between h-auto lg:h-118 lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+                    <div className="w-full lg:w-81 bg-heading text-white p-6 md:p-8 rounded-xl lg:rounded-2xl flex flex-col justify-between h-auto lg:h-118 lg:absolute [@media(max-width:1240px)]:-right-4 lg:-right-14 lg:top-1/2 lg:-translate-y-1/2">
                         <div className="space-y-6 md:space-y-8">
                             <h3 className="text-xl md:text-2xl font-body text-white font-bold">Contact Us</h3>
 
