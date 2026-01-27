@@ -62,10 +62,10 @@ const Sections = [
 ];
 
 const iconsPath = {
-  icon1: "solutions/solution-icon-1.svg",
-  icon2: "solutions/solution-icon-2.svg",
-  icon3: "solutions/solution-icon-3.svg",
-  icon4: "solutions/solution-icon-4.svg",
+  icon1: "/solutions/solution-icon-1.svg",
+  icon2: "/solutions/solution-icon-2.svg",
+  icon3: "/solutions/solution-icon-3.svg",
+  icon4: "/solutions/solution-icon-4.svg",
 }
 
 export default function ServicesSection() {

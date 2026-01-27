@@ -94,7 +94,7 @@ export default function TheProcess() {
                                                 className="w-28 h-28 flex items-center rotate-45 justify-center"
                                                 style={{ background: step.color }}
                                             >
-                                                <span style={{ transform: "rotate(-45deg)" }} className="text-white font-bold text-sm md:text-base">
+                                                <span style={{ transform: "rotate(-45deg)" }} className="text-white font-heading font-bold text-sm md:text-base">
                                                     {step.number}
                                                 </span>
                                             </div>
@@ -117,13 +117,13 @@ export default function TheProcess() {
                                         >
                                             <div className="md:grid md:grid-cols-3 md:gap-8 items-start">
                                                 <div className="md:col-span-1">
-                                                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-wrap mb-3" style={{ color: step.color }}>
+                                                    <h3 className="text-xl md:text-2xl font-heading lg:text-3xl font-bold text-wrap mb-3" style={{ color: step.color }}>
                                                         {step.title}
                                                     </h3>
                                                 </div>
 
                                                 <div className="md:col-span-2">
-                                                    <p className="text-sm md:text-base text-body leading-7">{step.description}</p>
+                                                    <p className="text-sm md:text-base font-body text-body leading-7">{step.description}</p>
                                                 </div>
                                             </div>
                                         </div>
