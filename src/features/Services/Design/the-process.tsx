@@ -87,7 +87,7 @@ export default function TheProcess() {
                                 <div className="flex items-center  max-lg:w-full">
                                     <div className="flex items-center flex-col lg:flex-row max-lg:w-full max-lg:justify-center">
                                         {/* Diamond */}
-                                        <div className="flex items-center justify-center lg:justify-end" style={{ width: 400 }}>
+                                        <div className="flex items-center justify-center lg:justify-end md:w-100" >
                                             <div
                                                 role="img"
                                                 aria-label={`Step ${step.number}`}

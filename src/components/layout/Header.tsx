@@ -61,6 +61,25 @@ export default function Header() {
   };
 
   const pathname = usePathname();
+
+  const normalizePath = (p?: string) => p ? p.replace(/\/$/, '') : '';
+  const isPathActive = (href?: string) => {
+    if (!href) return false;
+    const cleanHref = normalizePath(href);
+    const cleanPath = normalizePath(pathname);
+    return cleanPath === cleanHref || (cleanHref !== '' && cleanPath.startsWith(cleanHref + '/'));
+  };
+
+  // Exact-match helper for dropdown items so a submenu that equals the parent
+  // path only becomes active when the route exactly matches (avoid false positives
+  // on nested routes such as /about vs /about/events)
+  const isExactPath = (href?: string) => {
+    if (!href) return false;
+    const cleanHref = normalizePath(href);
+    const cleanPath = normalizePath(pathname);
+    return cleanPath === cleanHref;
+  }; 
+
   return (
     <header className="sticky top-0 z-9999 bg-white w-full h-19 py-4 px-4 md:px-6 border-b border-gray-200">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
@@ -79,8 +98,8 @@ export default function Header() {
           {menuItems.map((item) => {
             // Top-level active state
             const isActive =
-              item.href === pathname ||
-              (item.dropdown && item.dropdown.some((d) => d.href === pathname))
+              (item.href ? isPathActive(item.href) : false) ||
+              (item.dropdown && item.dropdown.some((d) => isPathActive(d.href)))
 
             return (
               <div key={item.label} className="relative flex flex-col items-center group">
@@ -92,8 +111,7 @@ export default function Header() {
                   >
                     {/* Dropdown button */}
                     <button
-                      className={`text-body text-[14px] hover:text-primary hover:cursor-pointer font-body font-medium flex items-center gap-1 ${isActive ? 'text-primary font-bold' : ''
-                        }`}
+                      className={`${isActive ? 'text-primary font-bold' : 'text-body'} text-[14px] hover:text-primary hover:cursor-pointer font-body font-medium flex items-center gap-1`}
                       onClick={() => handleDropdownClick(item.label)}
                     >
                       {item.label}
@@ -117,14 +135,14 @@ export default function Header() {
                         }`}
                     >
                       {item.dropdown.map((dropdownItem: MenuItemDropdown) => {
-                        const isDropdownActive = dropdownItem.href === pathname
+                        const isDropdownActive = isExactPath(dropdownItem.href)
                         return (
                           <Link
                             key={dropdownItem.label}
                             href={dropdownItem.href}
                             onClick={() => handleDropdownClick(item.label)}
-                            className={`block px-4 py-2 text-body hover:bg-primary-light hover:text-primary font-body text-sm transition-colors duration-200 ${isDropdownActive ? 'text-primary font-semibold' : ''
-                              }`}
+                            aria-current={isDropdownActive ? 'page' : undefined}
+                            className={`block px-4 py-2 ${isDropdownActive ? 'text-primary font-semibold' : 'text-body hover:bg-primary-light hover:text-primary'} font-body text-sm transition-colors duration-200`}
                           >
                             {dropdownItem.label}
                           </Link>
@@ -136,8 +154,8 @@ export default function Header() {
                   // Non-dropdown link
                   <Link
                     href={item.href || ''}
-                    className={`text-body text-[14px] hover:text-primary font-body font-medium flex flex-col items-center ${isActive ? 'text-primary font-bold' : ''
-                      }`}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={`${isActive ? 'text-primary font-bold' : 'text-body'} text-[14px] hover:text-primary font-body font-medium flex flex-col items-center`}
                   >
                     {item.label}
                     <span
@@ -199,7 +217,7 @@ export default function Header() {
           </button>
           <nav className="flex flex-col gap-2 mt-8">
             {menuItems.map((item) => {
-              const isActive = item.href === pathname || (item.dropdown && item.dropdown.some((d) => d.href === pathname));
+              const isActive = (item.href ? isPathActive(item.href) : false) || (item.dropdown && item.dropdown.some((d) => isPathActive(d.href)));
               return (
                 <div key={item.label} className="relative flex flex-col items-start group">
                   {item.dropdown ? (
@@ -219,12 +237,13 @@ export default function Header() {
                       {openMobileDropdown === item.label && (
                         <div className="pl-4 flex flex-col gap-1">
                           {item.dropdown.map((dropdownItem: MenuItemDropdown) => {
-                            const isDropdownActive = dropdownItem.href === pathname;
+                            const isDropdownActive = isExactPath(dropdownItem.href);
                             return (
                               <div key={dropdownItem.label} className="relative">
                                 <Link
                                   href={dropdownItem.href}
-                                  className={`block px-2 py-1 text-body font-body text-sm transition-colors duration-200 ${isDropdownActive ? "text-primary" : "hover:text-primary hover:bg-primary-light"}`}
+                                  aria-current={isDropdownActive ? 'page' : undefined}
+                                  className={`block px-2 py-1 font-body text-sm transition-colors duration-200 ${isDropdownActive ? "text-primary" : "text-body hover:text-primary hover:bg-primary-light"}`}
                                   onClick={() => {
                                     setIsMobileMenuOpen(false);
                                     setOpenMobileDropdown(null);
@@ -244,7 +263,8 @@ export default function Header() {
                   ) : (
                     <Link
                       href={item.href || ''}
-                      className={`block w-full text-body text-[16px] font-body font-medium py-2 group ${isActive ? "text-primary" : ""} group-hover:text-primary`}
+                      aria-current={isActive ? 'page' : undefined}
+                      className={`block w-full ${isActive ? 'text-primary' : 'text-body'} text-[16px] font-body font-medium py-2 group`}
                       onClick={() => {
                         setIsMobileMenuOpen(false);
                         setOpenMobileDropdown(null);

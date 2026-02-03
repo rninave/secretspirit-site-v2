@@ -28,7 +28,7 @@ export default function BlogListSection() {
                                         <div className="flex flex-col justify-between md:justify-start gap-4">
                                         <div className="flex items-center gap-3 text-body text-sm">
                                             <Image width={18} height={18} src='/blog/date-icon.svg' alt="Published date" />
-                                            <span>{new Date(post.date).toLocaleDateString()}</span>
+                                            <span>{post.date}</span>
                                         </div>
 
                                         <div className="flex">
