@@ -12,6 +12,18 @@ interface Event {
 }
 
 const events: Event[] = [
+    {
+    title: 'Christmas 2025',
+    description:
+      'This festive season, we celebrate more than just Christmas — we celebrate gratitude, teamwork, and the journey we’ve shared throughout the year. Christmas reminds us that the greatest gifts aren’t found under the tree, but in the relationships we build, the trust we earn, and the milestones we achieve together. As we wrap up another year of innovation and collaboration, we thank our amazing team and valued clients for being a part of our story.',
+    images: ['/events/christmas-2025-img1.jpeg', '/events/christmas-2025-img2.jpeg', '/events/christmas-2025-img3.jpeg', '/events/christmas-2025-img4.jpeg', '/events/christmas-2025-img5.jpeg', '/events/christmas-2025-img6.jpeg', '/events/christmas-2025-img7.jpeg', '/events/christmas-2025-img8.jpeg', '/events/christmas-2025-img9.jpeg', '/events/christmas-2025-img10.jpeg'],
+  },
+  {
+    title: 'Ctrl + Play + Win',
+    description:
+      "At our office, we believe great teams don’t just build projects together — they play together too! On Fun Friday, our team took a break from codes and deadlines to press Ctrl + Play + Win 🎉 From exciting mini-games to friendly competitions, the energy was high, the laughter was louder, and the team spirit was unbeatable.",
+    images: ['/events/fun-day-6.jpeg', '/events/fun-day-2.jpeg', '/events/fun-day-3.jpeg', '/events/fun-day-4.jpeg', '/events/fun-day-5.jpeg', '/events/fun-day-1.jpeg'],
+  },
   {
     title: 'Fun Alert 2024',
     description:
@@ -74,12 +86,6 @@ const events: Event[] = [
       'We experienced the thrill of our Carrom Tournament, where strategy and skill came alive. It was a day of competitive fun and camaraderie.',
     images: ['/events/carrom-img1.jpeg', '/events/carrom-img2.jpeg', '/events/carrom-img3.jpeg', '/events/carrom-img4.jpeg'],
   },
-  {
-    title: 'Ctrl + Play + Win',
-    description:
-      "At our office, we believe great teams don’t just build projects together — they play together too! On Fun Friday, our team took a break from codes and deadlines to press Ctrl + Play + Win 🎉 From exciting mini-games to friendly competitions, the energy was high, the laughter was louder, and the team spirit was unbeatable.",
-    images: ['/events/fun-day-6.jpeg', '/events/fun-day-2.jpeg', '/events/fun-day-3.jpeg', '/events/fun-day-4.jpeg', '/events/fun-day-5.jpeg', '/events/fun-day-1.jpeg'],
-  }
 ]
 
 export default function EventsCards() {
