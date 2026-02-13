@@ -74,6 +74,12 @@ const events: Event[] = [
       'We experienced the thrill of our Carrom Tournament, where strategy and skill came alive. It was a day of competitive fun and camaraderie.',
     images: ['/events/carrom-img1.jpeg', '/events/carrom-img2.jpeg', '/events/carrom-img3.jpeg', '/events/carrom-img4.jpeg'],
   },
+  {
+    title: 'Ctrl + Play + Win',
+    description:
+      "At our office, we believe great teams don’t just build projects together — they play together too! On Fun Friday, our team took a break from codes and deadlines to press Ctrl + Play + Win 🎉 From exciting mini-games to friendly competitions, the energy was high, the laughter was louder, and the team spirit was unbeatable.",
+    images: ['/events/fun-day-6.jpeg', '/events/fun-day-2.jpeg', '/events/fun-day-3.jpeg', '/events/fun-day-4.jpeg', '/events/fun-day-5.jpeg', '/events/fun-day-1.jpeg'],
+  }
 ]
 
 export default function EventsCards() {
@@ -155,13 +161,13 @@ export default function EventsCards() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100000] flex items-center justify-center"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-100000 flex items-center justify-center"
             onClick={closeModal}
           >
               {/* Close button */}
               <button
                 onClick={closeModal}
-                className="absolute top-16 right-2 z-[100] lg:right-1/6 cursor-pointer text-black bg-white rounded-full p-2 hover:bg-white/70"
+                className="absolute top-16 right-2 z-100 lg:right-1/6 cursor-pointer text-black bg-white rounded-full p-2 hover:bg-white/70"
               >
                 <X size={22} />
               </button>
