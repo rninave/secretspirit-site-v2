@@ -11,18 +11,38 @@ interface Event {
   images: string[]
 }
 
+const isVideo = (src: string) => src.toLowerCase().endsWith('.mp4') || src.toLowerCase().endsWith('.webm') || src.toLowerCase().endsWith('.ogg')
+
 const events: Event[] = [
+   {
+    title: 'A Sweet Break at Work',
+    description:
+      'More than just a treat, the Ice Cream Party was a small gesture to appreciate our hardworking team.',
+    images: ['/events/sweet-break-1.jpeg', '/events/sweet-break-2.jpeg', '/events/sweet-break-3.jpeg', '/events/sweet-break-4.jpeg', '/events/sweet-break-5.jpeg', '/events/sweet-break-6.mp4', '/events/sweet-break-7.mp4'],
+  },
+  {
+    title: 'CTRL + Play +Win',
+    description:
+      "From exciting mini-games to friendly competitions, the energy was high, the laughter was louder, and the team spirit was unbeatable.eded",
+    images: ['/events/fun-day-6.jpeg', '/events/fun-day-2.jpeg', '/events/fun-day-3.jpeg', '/events/fun-day-4.jpeg', '/events/fun-day-5.jpeg', '/events/fun-day-1.jpeg'],
+  },
+  {
+    title: 'Holi 2025',
+    description:
+      "This Holi, our office came alive with vibrant colors, cheerful laughter, and joyful moments as we celebrated the festival together.",
+    images: ['/events/holi-1.jpeg', '/events/holi-2.jpeg', '/events/holi-3.jpeg', '/events/holi-4.jpeg', '/events/holi-5.jpeg', '/events/holi-6.jpeg'],
+  },
     {
     title: 'Christmas 2025',
     description:
-      'This festive season, we celebrate more than just Christmas — we celebrate gratitude, teamwork, and the journey we’ve shared throughout the year. Christmas reminds us that the greatest gifts aren’t found under the tree, but in the relationships we build, the trust we earn, and the milestones we achieve together. As we wrap up another year of innovation and collaboration, we thank our amazing team and valued clients for being a part of our story.',
+      'we celebrate gratitude, teamwork, and the journey we’ve shared throughout the year. As we wrap up another year of innovation and collaboration.',
     images: ['/events/christmas-2025-img1.jpeg', '/events/christmas-2025-img2.jpeg', '/events/christmas-2025-img3.jpeg', '/events/christmas-2025-img4.jpeg', '/events/christmas-2025-img5.jpeg', '/events/christmas-2025-img6.jpeg', '/events/christmas-2025-img7.jpeg', '/events/christmas-2025-img8.jpeg', '/events/christmas-2025-img9.jpeg', '/events/christmas-2025-img10.jpeg'],
   },
-  {
-    title: 'Ctrl + Play + Win',
+    {
+    title: 'Brain Booster Sessions',
     description:
-      "At our office, we believe great teams don’t just build projects together — they play together too! On Fun Friday, our team took a break from codes and deadlines to press Ctrl + Play + Win 🎉 From exciting mini-games to friendly competitions, the energy was high, the laughter was louder, and the team spirit was unbeatable.",
-    images: ['/events/fun-day-6.jpeg', '/events/fun-day-2.jpeg', '/events/fun-day-3.jpeg', '/events/fun-day-4.jpeg', '/events/fun-day-5.jpeg', '/events/fun-day-1.jpeg'],
+      'We last year conducted a Brain Booster Sessions, led by our own team members, where knowledge was shared, ideas were exchanged.',
+    images: ['/events/sessions-2025-1.jpeg', '/events/sessions-2025-2.jpeg', '/events/sessions-2025-3.jpeg', '/events/sessions-2025-4.jpeg', '/events/sessions-2025-5.mp4', '/events/sessions-2025-6.jpeg', '/events/sessions-2025-7.jpeg', '/events/sessions-2025-8.jpeg', '/events/sessions-2025-9.jpeg', '/events/sessions-2025-10.jpeg', '/events/sessions-2025-11.jpeg', '/events/sessions-2025-12.jpeg', '/events/sessions-2025-13.jpeg', '/events/sessions-2025-14.jpeg', '/events/sessions-2025-15.jpeg', '/events/sessions-2025-16.jpeg', '/events/sessions-2025-17.jpeg', '/events/sessions-2025-18.jpeg'],
   },
   {
     title: 'Fun Alert 2024',
@@ -185,13 +205,22 @@ export default function EventsCards() {
               className="relative max-w-4xl w-full px-4"
               onClick={(e) => e.stopPropagation()}
             >
-              <Image
-                src={events[activeEventIndex].images[activeImageIndex]}
-                alt="Event image"
-                width={1200}
-                height={800}
-                className="w-full max-h-[80vh] object-contain  rounded-lg"
-              />
+              {isVideo(events[activeEventIndex].images[activeImageIndex]) ? (
+                <video
+                  src={events[activeEventIndex].images[activeImageIndex]}
+                  controls
+                  autoPlay
+                  className="w-full max-h-[80vh] object-contain rounded-lg"
+                />
+              ) : (
+                <Image
+                  src={events[activeEventIndex].images[activeImageIndex]}
+                  alt="Event media"
+                  width={1200}
+                  height={800}
+                  className="w-full max-h-[80vh] object-contain rounded-lg"
+                />
+              )}
 
 
               {/* Navigation Arrows */}
