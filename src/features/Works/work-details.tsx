@@ -139,13 +139,43 @@ export default async function WorkDetails({
                         <h3 className="font-bold text-xl md:text-[32px] text-heading font-heading mb-4">
                             Problem Statement
                         </h3>
-                        <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.problem}</p>
+                        {Array.isArray(details.problem) ? (
+                            details.problem.length === 1 ? (
+                                <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.problem[0]}</p>
+                            ) : (
+                                <ul className="list-none space-y-4">
+                                    {details.problem.map((item, idx) => (
+                                        <li key={idx} className="flex items-start gap-2">
+                                            <span className="w-2 h-2 rounded-full bg-primary mt-3 flex-shrink-0" />
+                                            <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{item}</p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )
+                        ) : (
+                            <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.problem}</p>
+                        )}
                     </div>
                     <div>
                         <h3 className="font-bold text-xl md:text-[32px] text-heading font-heading mb-4">
                             Possible Solutions
                         </h3>
-                        <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.solution}</p>
+                        {Array.isArray(details.solution) ? (
+                            details.solution.length === 1 ? (
+                                <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.solution[0]}</p>
+                            ) : (
+                                <ul className="list-none space-y-4">
+                                    {details.solution.map((item, idx) => (
+                                        <li key={idx} className="flex items-start gap-2">
+                                            <span className="w-2 h-2 rounded-full bg-primary mt-3 flex-shrink-0" />
+                                            <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{item}</p>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )
+                        ) : (
+                            <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.solution}</p>
+                        )}
                     </div>
                 </div>
             </div>

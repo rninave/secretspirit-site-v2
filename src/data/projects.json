@@ -133,7 +133,47 @@
         ],
         "mainImage": "/our-work/chemtrix.png",
         "images": [],
-        "details": {}
+        "details": {
+            "subtitle": "Chemtrix CRM",
+            "text": "Chemtrix CRM is a Customer Relationship Management (CRM) application built for Asia crystal Commodities Pvt. Ltd. It can be accessed through Web application. CRM is a structured method for creating, managing, and preserving a successful connection with customers from the industry’s point of view.",
+            "type": "Website Design & Development",
+            "segment": "Information & Technology",
+            "industry": "Information & Technology",
+            "year": "2021",
+            "problem": [
+                "Current CRM system in use is outdated and no longer meeting the needs of the organization.",
+                "It lacks necessary features, is difficult to navigate, and is not user-friendly.",
+                "As a result, sales and customer support teams struggle to manage and track customer interactions effectively, leading to a decrease in customer satisfaction and revenue."
+            ],
+            "solution": [
+                "Implemented a user-centric design approach to make the new CRM system more intuitive and easy to navigate for the end-users.",
+                "Developed a new design that is intuitive, easy to navigate, and aesthetically pleasing. Considered using modern design principles and minimalism.",
+                "Streamlined processes, and enhanced the customer experience."
+            ],
+            "typography": {
+                "fontName": "Plus Jakarta Sans",
+                "tailwindFontClass": "font-plus-jakarta-sans",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Color 1",
+                    "base": "#295583"
+                },
+                {
+                    "name": "Color 2",
+                    "base": "#76B468"
+                },
+                {
+                    "name": "Color 3",
+                    "base": "#131131"
+                }
+            ]
+        }
     },
     {
         "slug": "financial-app",
@@ -146,7 +186,39 @@
         ],
         "mainImage": "/our-work/financial-app.png",
         "images": [],
-        "details": {}
+        "details": {
+            "subtitle": "Financial Investment App for Smart Financial Management",
+            "text": "Financial app is a comprehensive financial management application designed to empower users with a holistic approach to their financial well-being. With an intuitive user interface and robust features, Financial app aims to simplify financial management, promote financial literacy, and provide users with the tools they need to achieve their financial goals.",
+            "type": "Website Design & Development",
+            "segment": "Information & Technology",
+            "industry": "Information & Technology",
+            "year": "2021",
+            "problem": "RoundIt wanted to have a mobile app that efficiently communicates its product offerings and technology to its target audience, emphasizing features related to investment, cashback, and roundup transactions.",
+            "solution": "Review recent transactions, check for pending transactions, and contact customer support if you notice discrepancies.",
+            "typography": {
+                "fontName": "Nunito Sans",
+                "tailwindFontClass": "font-nunito-sans",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Color 1",
+                    "base": "#304BCC"
+                },
+                {
+                    "name": "Color 2",
+                    "base": "#E50102"
+                },
+                {
+                    "name": "Color 3",
+                    "base": "#00643C"
+                }
+            ]
+        }
     },
     {
         "slug": "flying-chital",
@@ -157,8 +229,155 @@
             "UI DESIGN",
             "UX DESIGN"
         ],
-        "mainImage": "/our-work/flying-chital.png",
+        "mainImage": "/our-work/flying-chital-3.png",
         "images": [],
-        "details": {}
+        "details": {
+            "subtitle": "Smart Agile Logistics at Fingertips",
+            "text": "The \"Smart Agile Logistics at Fingertips\" project aims to revolutionize the logistics industry by integrating advanced technology and agile methodologies. This project focuses on optimizing supply chain processes, enhancing real-time visibility, and improving operational efficiency. Through the implementation of smart tracking systems, predictive analytics, and a user-friendly digital interface.",
+            "type": "Website Design & Development",
+            "segment": "Information & Technology",
+            "industry": "Information & Technology",
+            "year": "2021",
+            "problem": [
+                "Inefficient Processes: Many logistics operations are bogged down by manual processes and outdated technologies, leading to delays, errors, and increased operational costs.",
+                "Lack of Real-time Visibility: There is often a lack of real-time tracking and visibility of shipments and inventory, making it difficult for stakeholders to make informed decisions and respond quickly to disruptions.",
+                "Inadequate Communication: Poor communication and coordination between various parties in the supply chain result in misaligned objectives, duplication of efforts, and a lack of synchronization.",
+                "Scalability Issues: As businesses grow, their logistics systems must adapt to handle increased volumes and complexity, which is challenging without a flexible and scalable infrastructure."
+            ],
+            "solution": [
+                "Real-Time Tracking: Our solution provides precise and up-to-date tracking of shipments and inventory, ensuring transparency and allowing stakeholders to monitor their logistics operations from anywhere.",
+                "Predictive Analytics: By analyzing historical data and current trends, the platform predicts potential delays or disruptions and suggests proactive measures to mitigate risks.",
+                "Agile Response Mechanisms: The system is designed to respond quickly to changing circumstances, enabling swift adjustments to logistics plans and minimizing downtime.",
+                "User-Friendly Interface: Our intuitive and accessible interface allows users of all technical backgrounds to manage their logistics with ease, making the system readily available at their fingertips."
+            ],
+            "typography": {
+                "fontName": "Fira Sans",
+                "tailwindFontClass": "font-fira",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Primary Color",
+                    "base": "#632B6C"
+                },
+                {
+                    "name": "Heading Color",
+                    "base": "#2F2D2E"
+                },
+                {
+                    "name": "Body Color",
+                    "base": "#615D5F"
+                }
+            ]
+        }
+    },
+    {
+        "slug": "wingstair",
+        "title": "Wingstair",
+        "description": "The Lifting Parts Manufacturing Project aims to design, produce, and deliver high-quality lifting components for various industries, including construction, shipping, and heavy machinery.",
+        "tags": [
+            "E-COMMERCE",
+            "UI DESIGN",
+            "UX DESIGN"
+        ],
+        "mainImage": "/our-work/wingstair.png",
+        "images": [],
+        "details": {
+            "subtitle": "Wingstair: Elevating Industries with Precision Lifting Components",
+            "text": "The Lifting Parts Manufacturing Project aims to design, produce, and deliver high-quality lifting components for various industries, including construction, shipping, and heavy machinery. The project involves several key phases: initial market research to identify demand and industry standards, design and prototyping of components, rigorous testing to ensure safety and durability, and full-scale production. Utilizing state-of-the-art manufacturing technologies and adhering to strict quality control measures, the project seeks to produce parts that meet or exceed industry regulations.",
+            "type": "Website Design & Development",
+            "segment": "Information & Technology",
+            "industry": "Information & Technology",
+            "year": "2021",
+            "problem": [
+                "The primary problem is the difficulty in producing high-quality lifting components that meet stringent industry standards while maintaining cost-effectiveness.",
+                "This challenge is compounded by the need for advanced manufacturing technologies and materials that can withstand heavy loads and harsh environments.",
+                "Additionally, there is a lack of skilled labor capable of operating these advanced systems, leading to potential delays and increased production costs."
+            ],
+            "solution": [
+                "The Lifting Parts Manufacturing Solution addresses the critical need for reliable and high-performance lifting components in various industrial sectors.",
+                "By leveraging advanced manufacturing techniques and stringent quality control processes, this solution ensures the production of durable and safe lifting parts that meet stringent industry standards.",
+                "Furthermore, it includes the development of a robust supply chain for timely and cost-effective delivery, along with exceptional customer support services to enhance user satisfaction."
+            ],
+            "typography": {
+                "fontName": "Konnect",
+                "tailwindFontClass": "font-konnect",
+                "weights": [
+                    "Bold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Primary Color",
+                    "base": "#E11837"
+                },
+                {
+                    "name": "Secondary Color",
+                    "base": "#030303"
+                },
+                {
+                    "name": "Body Color",
+                    "base": "#333333"
+                }
+            ]
+        }
+    },
+    {
+        "slug": "h2o",
+        "title": "Ultra H2O",
+        "description": "Water purification involves providing comprehensive and accessible information to help users understand the importance of clean water and the various methods available for purifying it. The website should feature a user-friendly interface with sections dedicated to different purification techniques such as filtration, distillation, reverse osmosis, and UV treatment. Each method should be explained in detail, including its benefits, limitations, and suitability for different scenarios.",
+        "tags": [
+            "E-COMMERCE",
+            "UI DESIGN",
+            "UX DESIGN"
+        ],
+        "mainImage": "/our-work/h2o.png",
+        "images": [],
+        "details": {
+            "subtitle": "Ultra H2O: Revolutionizing Water Purification for a Healthier Future",
+            "text": "Water purification involves providing comprehensive and accessible information to help users understand the importance of clean water and the various methods available for purifying it. The website should feature a user-friendly interface with sections dedicated to different purification techniques such as filtration, distillation, reverse osmosis, and UV treatment. Each method should be explained in detail, including its benefits, limitations, and suitability for different scenarios.",
+            "type": "Website Design & Development",
+            "segment": "Information & Technology",
+            "industry": "Information & Technology",
+            "year": "2021",
+            "problem": [
+                "Access to clean and safe drinking water remains a critical global challenge, with millions of people lacking reliable sources of purified water.",
+                "Contaminants such as bacteria, viruses, heavy metals, and chemicals pose significant health risks, leading to diseases and long-term health issues.",
+                "Despite the availability of various water purification technologies, many individuals and communities struggle to identify and implement the most effective solutions for their specific needs.",
+                "Additionally, there is often a lack of clear, trustworthy information about the advantages and limitations of different purification methods."
+            ],
+            "solution": [
+                "To address the critical issue of access to clean and safe drinking water, our water purification website offers a comprehensive, user-friendly platform designed to educate, inform, and empower users.",
+                " It features product reviews, comparisons, and recommendations to help users choose the most suitable purification systems for their needs.",
+                "By offering clear, trustworthy information and practical advice, our platform aims to bridge the knowledge gap and make effective water purification solutions accessible to individuals and communities worldwide, ultimately ensuring safe drinking water for all."
+            ],
+            "typography": {
+                "fontName": "Cerebri Sans",
+                "tailwindFontClass": "font-cerebri-sans",
+                "weights": [
+                    "Bold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Primary Color",
+                    "base": "#0909B7"
+                },
+                {
+                    "name": "Secondary Color",
+                    "base": "#015A8E"
+                },
+                {
+                    "name": "Heading Color",
+                    "base": "#0D0D0D"
+                }
+            ]
+        }
     }
 ]
