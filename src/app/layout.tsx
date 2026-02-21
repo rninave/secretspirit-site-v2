@@ -88,6 +88,9 @@ export const metadata: Metadata = {
     description: "Secretspirit is a platform for creating and sharing secret messages.",
     images: [`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/og-image.png`],
   },
+  alternates: {
+    canonical: '/',
+  },
   robots: {
     index: true,
     follow: true,

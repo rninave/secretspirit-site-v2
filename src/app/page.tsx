@@ -50,7 +50,10 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-   other: {
+  alternates: {
+    canonical: "/",
+  },
+  other: {
     "article:tag": [
       "UI UX Design",
       "Web Development",
