@@ -85,12 +85,12 @@ export default async function BlogDetails({
             <ScrollProgress className="top-[76px]" />
             <PageHero
                 title={blogInfo.title}
-                bgImage="/heros/blog-detail-hero.png"
+                bgImage={blogInfo.image}
                 overlayColor="opacity-[0.90]"
                 date={blogInfo.date}
                 align="left"
                 bgstyle="linear-gradient(123.99deg, #181616 5.78%, #331C07 45.6%, #181616 81.77%)"
-                breadcrumbItems={[{ label: 'HOME', href: '/' }, { label: 'BLOG', href: 'blog' }, {label: 'BLOG DETAIL'}]}
+                breadcrumbItems={[{ label: 'HOME', href: '/' }, { label: 'BLOG', href: '/blog' }, {label: 'BLOG DETAIL'}]}
             />
             <BlogDetailsSection blog={blogInfo} />
         </>

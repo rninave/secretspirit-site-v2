@@ -14,7 +14,7 @@ export default function BlogDetailsSection({ blog }: { blog: any }) {
             {details.map((block: any, idx: number) => {
               if (block.type === "intro") {
                 return (
-                  <p key={idx} className="text-xs md:text-sm font-body leading-7 text-body font-normal">
+                  <p key={idx} className="text-xs md:text-sm font-body leading-7 text-body font-normal whitespace-pre-line">
                     {block.text}
                   </p>
                 );
@@ -34,7 +34,7 @@ export default function BlogDetailsSection({ blog }: { blog: any }) {
                           {Array.isArray(block.items) &&
                             block.items.map((it: any, i: number) => (
                               <li key={i} className="text-xs md:text-sm font-body text-body leading-6">
-                                <strong className="font-semibold text-sm md:text-base text-black">{it.term} -</strong> <span className="text-body">{it.desc}</span>
+                                <strong className="font-semibold text-sm md:text-base text-black">{it.term && `${it.term} -`}</strong> <span className="text-body">{it.desc}</span>
                               </li>
                             ))}
                         </ul>
