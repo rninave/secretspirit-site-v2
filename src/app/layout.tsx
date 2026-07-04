@@ -8,6 +8,8 @@ import Footer from "@/components/layout/Footer";
 import Banner from "@/components/layout/banner";
 import TooltipInit from "@/components/common/tooltip";
 import { PrimeReactProvider } from "primereact/api";
+import { Analytics } from "@vercel/analytics/next";
+
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -178,6 +180,7 @@ export default function RootLayout({
           <main className="flex-1 flex flex-col">{children}</main>
         </PrimeReactProvider>
         <Footer />
+        <Analytics />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2YQGE986PG"
