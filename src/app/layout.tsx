@@ -105,20 +105,26 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    locale: "en_US",
+    siteName: "Secretspirit",
     title: "Secretspirit",
     description: "Elevate your brand with Secretspirit's expert UI/UX design and development services. Our team crafts captivating digital experiences to enhance your online presence and drive business growth. Transform your vision into reality and thrive in the digital landscape with Secretspirit.",
     url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/og-image.png`,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Secretspirit - Expert UI/UX Design & Development Services",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Secretspirit",
-    description: "Secretspirit is a platform for creating and sharing secret messages.",
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/og-image.png`],
+    description: "Elevate your brand with Secretspirit's expert UI/UX design and development services. Our team crafts captivating digital experiences to enhance your online presence and drive business growth. Transform your vision into reality and thrive in the digital landscape with Secretspirit.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: '/',
