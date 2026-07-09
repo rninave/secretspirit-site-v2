@@ -1,6 +1,6 @@
 # Secretspirit - Web Development & UI/UX Design Services
 
-A modern, high-performance Next.js website for Secretspirit, a UI/UX design and web development agency operating in India and Canada.
+A modern, high-performance Next.js website for Secretspirit, a UI/UX design and web development agency
 
 ## 🎯 Project Overview
 
@@ -10,8 +10,6 @@ Secretspirit is a digital agency offering:
 - Custom Website Development
 - Design Thinking & Strategy
 - Branding & Digital Design Services
-
-**Locations:** India (Ahmedabad) & Canada
 
 ---
 
