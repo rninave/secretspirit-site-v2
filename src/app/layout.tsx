@@ -94,6 +94,12 @@ export const metadata: Metadata = {
     "web accessibility compliance",
     "wcag accessibility audit",
     "usability testing services",
+    "Top design agency in Nikol",
+    "Top design agency in Ahmedabad",
+    "Top UI/UX agency in Ahmedabad",
+    "Best UI/UX agency in Ahmedabad",
+    "#1 UI/UX agency in Ahmedabad",
+    "#1 software company in Ahmedabad",
   ],
   icons: {
     icon: [
