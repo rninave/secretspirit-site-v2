@@ -1,11 +1,11 @@
 import WorksPage from "@/features/Works";
 
 export const metadata = {
-  title: "Works | Secretspirit | UX Research, UX/UI design, Custom Software Solutions",
-  description: "Elevate your brand with Secretspirit's expert UI/UX design and development services. Our team crafts captivating digital experiences to enhance your online presence and drive business growth. Transform your vision into reality and thrive in the digital landscape with Secretspirit.",
+  title: "Our Portfolio | 50+ Projects in UI/UX Design, Development & AI",
+  description: "Explore Secretspirit's successful projects. From stunning UI/UX transformations to complex custom web development and smart AI solutions, see how our design-first approach delivers results.",
   openGraph: {
-    title: "Works | Secretspirit | UX Research, UX/UI design, Custom Software Solutions",
-    description: "Elevate your brand with Secretspirit's expert UI/UX design and development services. Our team crafts captivating digital experiences to enhance your online presence and drive business growth. Transform your vision into reality and thrive in the digital landscape with Secretspirit.",
+    title: "Our Portfolio | 50+ Projects in UI/UX Design, Development & AI",
+    description: "Explore Secretspirit's successful projects. From stunning UI/UX transformations to complex custom web development and smart AI solutions, see how our design-first approach delivers results.",
     url: "https://secretspirit.com/hire-us",
     siteName: "Secretspirit",
     images: [

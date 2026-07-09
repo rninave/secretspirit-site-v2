@@ -3,11 +3,11 @@ import BlogPage from "@/features/Blog";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Secretspirit Blogs | Blogs, Articles, and Many more...",
-  description: "Insights on UX, UI design, development, and product strategy from Secretspirit.",
+  title: "Secretspirit Insights | Blog on UI/UX Trends, AI & Web Development",
+  description: "Stay ahead of the curve with the Secretspirit blog. Read expert articles, insights, and tutorials heavily focused on innovative UI/UX design, software development, and AI automation.",
   openGraph: {
-    title: "Secretspirit Blogs | Blogs, Articles, and Many more...",
-    description: "Insights on UX, UI design, development, and product strategy from Secretspirit.",
+    title: "Secretspirit Insights | Blog on UI/UX Trends, AI & Web Development",
+    description: "Stay ahead of the curve with the Secretspirit blog. Read expert articles, insights, and tutorials heavily focused on innovative UI/UX design, software development, and AI automation.",
     url: `${baseUrl}/blog`,
     siteName: "Secretspirit",
     images: [

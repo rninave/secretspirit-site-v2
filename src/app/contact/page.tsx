@@ -3,11 +3,11 @@ import ContactPage from "@/features/Contact";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Contact Secretspirit | Get in Touch for Web Development, UI & UX Design, and Custom Websites Services",
-  description: "Get in touch with Secretspirit for UX, design, and development inquiries.",
+  title: "Contact Secretspirit | Start Your UI/UX Design & Tech Project",
+  description: "Get in touch with Secretspirit today. Whether you need stunning UI/UX design, custom web development, or advanced AI agents, our experts are ready to bring your vision to life.",
   openGraph: {
-    title: "Contact Secretspirit | Get in Touch for Web Development, UI & UX Design, and Custom Websites Services",
-    description: "Get in touch with Secretspirit for UX, design, and development inquiries.",
+    title: "Contact Secretspirit | Start Your UI/UX Design & Tech Project",
+    description: "Get in touch with Secretspirit today. Whether you need stunning UI/UX design, custom web development, or advanced AI agents, our experts are ready to bring your vision to life.",
     url: `${baseUrl}/contact`,
     siteName: "Secretspirit",
     images: [

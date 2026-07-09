@@ -29,7 +29,7 @@ export default function DesignCapabilities() {
         <Reveal>
           <SectionHeader
             subtitle=""
-            title="Our Development Capabilities"
+            title="Our Capabilities"
             align="center"
             className="mb-8 md:mb-10"
             variant="dark"

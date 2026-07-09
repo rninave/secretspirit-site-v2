@@ -3,11 +3,11 @@ import HireUsPage from "@/features/Hire-Us";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Hire skilled and experienced developers | Secretspirit",
-  description: "Hire Secretspirit for UX research, UX/UI design, and web development services.",
+  title: "Hire Expert UI/UX Designers & Developers",
+  description: "Augment your team with Secretspirit’s top-tier talent. Hire dedicated UI/UX design experts, custom developers, and AI integrators for your next big project.",
   openGraph: {
-    title: "Hire skilled and experienced developers | Secretspirit",
-    description: "Hire Secretspirit for UX research, UX/UI design, and web development services.",
+    title: "Hire Expert UI/UX Designers & Developers",
+    description: "Augment your team with Secretspirit’s top-tier talent. Hire dedicated UI/UX design experts, custom developers, and AI integrators for your next big project.",
     url: `${baseUrl}/hire-us`,
     siteName: "Secretspirit",
     images: [

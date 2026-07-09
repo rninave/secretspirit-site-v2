@@ -3,11 +3,11 @@ import DesignPage from "@/features/Services/Design";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Secretspirit: Design | UI& UX Design Services Provider Company",
-  description: "Design services from Secretspirit — product design, systems, and UI/UX.",
+  title: "Top UI/UX Design Agency | Expert Digital Experiences",
+  description: "Engage users with Secretspirit’s core expertise: premium UI/UX design. We craft captivating, user-centric interfaces and seamless digital experiences that drive engagement and conversions.",
   openGraph: {
-    title: "Secretspirit: Design | UI& UX Design Services Provider Company",
-    description: "Design services from Secretspirit — product design, systems, and UI/UX.",
+    title: "Top UI/UX Design Agency | Expert Digital Experiences",
+    description: "Engage users with Secretspirit’s core expertise: premium UI/UX design. We craft captivating, user-centric interfaces and seamless digital experiences that drive engagement and conversions.",
     url: `${baseUrl}/services/design`,
     siteName: "Secretspirit",
     images: [

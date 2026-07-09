@@ -1,8 +1,8 @@
 import HomePage from "@/features/Home";
 
 export const metadata = {
-  title: "Secretspirit | Web Development, UI & UX Design, Custom Websites Services | India & Canada",
-  description: "Elevate your brand with Secretspirit's expert UI/UX design and development services. Our team crafts captivating digital experiences to enhance your online presence and drive business growth. Transform your vision into reality and thrive in the digital landscape with Secretspirit.",
+  title: "Secretspirit | Premium UI/UX Design, Web Development & AI Agents",
+  description: "Elevate your brand with Secretspirit. As a specialized UI/UX design agency, we craft captivating digital experiences, backed by custom web development and intelligent AI Agents to drive business growth.",
   keywords: [
   "Secretspirit",
   "Secret Spirit",
@@ -35,8 +35,8 @@ export const metadata = {
   "digital product design agency"
 ],
   openGraph: {
-    title: "Secretspirit | Web Development, UI & UX Design, Custom Websites Services | India & Canada",
-    description: "Elevate your brand with Secretspirit's expert UI/UX design and development services. Our team crafts captivating digital experiences to enhance your online presence and drive business growth. Transform your vision into reality and thrive in the digital landscape with Secretspirit.",
+    title: "Secretspirit | Premium UI/UX Design, Web Development & AI Agents",
+    description: "Elevate your brand with Secretspirit. As a specialized UI/UX design agency, we craft captivating digital experiences, backed by custom web development and intelligent AI Agents to drive business growth.",
     url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     siteName: "Secretspirit",
     images: [

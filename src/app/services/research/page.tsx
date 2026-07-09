@@ -3,11 +3,11 @@ import ResearchPage from "@/features/Services/Research";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Secretspirit: Research  | UX Research, Heuristic analysis, and Usability Test Services Provider",
-  description: "Research services from Secretspirit — UX research and product discovery.",
+  title: "UX Research & Usability Testing | Design-Driven Insights",
+  description: "Make informed decisions with our in-depth UX research and heuristic analysis. Secretspirit uncovers user behaviors to optimize your digital products, setting the foundation for great UI/UX.",
   openGraph: {
-    title: "Secretspirit: Research  | UX Research, Heuristic analysis, and Usability Test Services Provider",
-    description: "Research services from Secretspirit — UX research and product discovery.",
+    title: "UX Research & Usability Testing | Design-Driven Insights",
+    description: "Make informed decisions with our in-depth UX research and heuristic analysis. Secretspirit uncovers user behaviors to optimize your digital products, setting the foundation for great UI/UX.",
     url: `${baseUrl}/services/research`,
     siteName: "Secretspirit",
     images: [

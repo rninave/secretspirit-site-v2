@@ -3,11 +3,11 @@ import AboutPage from "@/features/About";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "About | Secretspirit | Web Development, UI & UX Design, and Custom Websites Services Company",
-  description: "About Secretspirit — UX research, product design, and web development services.",
+  title: "About Secretspirit | Leading UI/UX Design & IT Services Agency",
+  description: "Discover the team behind Secretspirit. We are a design-first IT service company passionate about delivering exceptional UI/UX, software development, and innovative AI solutions.",
   openGraph: {
-    title: "About | Secretspirit | Web Development, UI & UX Design, and Custom Websites Services Company",
-    description: "About Secretspirit — UX research, product design, and web development services.",
+    title: "About Secretspirit | Leading UI/UX Design & IT Services Agency",
+    description: "Discover the team behind Secretspirit. We are a design-first IT service company passionate about delivering exceptional UI/UX, software development, and innovative AI solutions.",
     url: `${baseUrl}/about`,
     siteName: "Secretspirit",
     images: [

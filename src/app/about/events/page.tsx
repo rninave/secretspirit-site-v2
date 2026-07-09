@@ -3,11 +3,11 @@ import EventsPage from "@/features/About/Events";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Happy Vibes at Secretspirit | Team Spirit and Festive Celebration",
-  description: "Events and team moments at Secretspirit — culture, meetups, and celebrations.",
+  title: "Life at Secretspirit | Design Culture, Tech Events & Celebrations",
+  description: "Explore the vibrant culture at Secretspirit. See how our core team of passionate UI/UX designers, developers, and tech enthusiasts celebrate success and build the future together.",
   openGraph: {
-    title: "Happy Vibes at Secretspirit | Team Spirit and Festive Celebration",
-    description: "Events and team moments at Secretspirit — culture, meetups, and celebrations.",
+    title: "Life at Secretspirit | Design Culture, Tech Events & Celebrations",
+    description: "Explore the vibrant culture at Secretspirit. See how our core team of passionate UI/UX designers, developers, and tech enthusiasts celebrate success and build the future together.",
     url: `${baseUrl}/about/events`,
     siteName: "Secretspirit",
     images: [

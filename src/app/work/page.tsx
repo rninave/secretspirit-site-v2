@@ -3,11 +3,11 @@ import WorksPage from "@/features/Works";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Secretspirit Projects | 50+ Website and Web & Mobile Apps | Happy and Satisfied Clients",
-  description: "Selected work and case studies from Secretspirit — UX, UI, and product development.",
+  title: "Our Portfolio | 50+ Projects in UI/UX Design, Development & AI",
+  description: "Explore Secretspirit's successful projects. From stunning UI/UX transformations to complex custom web development and smart AI solutions, see how our design-first approach delivers results.",
   openGraph: {
-    title: "Secretspirit Projects | 50+ Website and Web & Mobile Apps | Happy and Satisfied Clients",
-    description: "Selected work and case studies from Secretspirit — UX, UI, and product development.",
+    title: "Our Portfolio | 50+ Projects in UI/UX Design, Development & AI",
+    description: "Explore Secretspirit's successful projects. From stunning UI/UX transformations to complex custom web development and smart AI solutions, see how our design-first approach delivers results.",
     url: `${baseUrl}/work`,
     siteName: "Secretspirit",
     images: [

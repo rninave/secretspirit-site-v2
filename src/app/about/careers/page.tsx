@@ -3,11 +3,11 @@ import CareersPage from "@/features/About/Careers";
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 export const metadata = {
-  title: "Careers | Secretspirit | Explore career in design and development at Secretspirit",
-  description: "Join Secretspirit — opportunities in UX, UI, and web development.",
+  title: "Careers at Secretspirit | Join Our UI/UX Design & Tech Team",
+  description: "Looking for your next big opportunity? Join Secretspirit and work on exciting projects focusing on cutting-edge UI/UX design, modern web development, and AI integration.",
   openGraph: {
-    title: "Careers | Secretspirit | Explore career in design and development at Secretspirit",
-    description: "Join Secretspirit — opportunities in UX, UI, and web development.",
+    title: "Careers at Secretspirit | Join Our UI/UX Design & Tech Team",
+    description: "Looking for your next big opportunity? Join Secretspirit and work on exciting projects focusing on cutting-edge UI/UX design, modern web development, and AI integration.",
     url: `${baseUrl}/about/careers`,
     siteName: "Secretspirit",
     images: [
