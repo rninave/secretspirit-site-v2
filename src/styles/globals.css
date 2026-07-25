@@ -93,6 +93,13 @@
   animation: marquee 40s linear infinite reverse;
 }
 
+.animate-marquee:hover,
+.animate-marquee-reverse:hover,
+.group:hover .animate-marquee,
+.group:hover .animate-marquee-reverse {
+  animation-play-state: paused !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-marquee-reverse {

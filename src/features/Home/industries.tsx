@@ -1,3 +1,5 @@
+'use client';
+import { useState } from 'react';
 import { IconType } from 'react-icons';
 import {
   FiActivity,
@@ -83,13 +85,23 @@ function MarqueeRow({
   reverse?: boolean;
   durationSec: number;
 }) {
+  const [isHovered, setIsHovered] = useState(false);
   const loopItems = [...items, ...items];
 
   return (
-    <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+    <div
+      className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
+    >
       <div
-        className={`flex w-max gap-3 md:gap-4 ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'} group-hover:[animation-play-state:paused]`}
-        style={{ animationDuration: `${durationSec}s` }}
+        className={`flex w-max gap-3 md:gap-4 ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}
+        style={{
+          animationDuration: `${durationSec}s`,
+          animationPlayState: isHovered ? 'paused' : 'running',
+        }}
       >
         {loopItems.map((industry, index) => {
           const Icon = industry.icon;
