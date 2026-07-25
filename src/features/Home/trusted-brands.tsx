@@ -7,9 +7,49 @@ import Reveal from '@/components/common/Reveal'
 
 const brands = [
   {
+    name: 'SecretUXD',
+    logo: '/brands/secretuxd-logo.svg',
+    alt: 'SecretUXD Logo'
+  },
+  {
+    name: 'Brainfire Coworking',
+    logo: '/brands/brainfire-logo.svg',
+    alt: 'Brainfire Coworking Logo'
+  },
+  {
+    name: 'Sustystep',
+    logo: '/brands/sustystep-logo.svg',
+    alt: 'Sustystep Logo'
+  },
+  {
+    name: '8Bucks Digital',
+    logo: '/brands/8bucks-digital-logo.png',
+    alt: '8Bucks Digital Logo'
+  },
+  {
+    name: 'Benchkart',
+    logo: '/brands/benchkart-logo.png',
+    alt: 'Benchkart Logo'
+  },
+  {
+    name: 'Provab',
+    logo: '/brands/provab-logo.png',
+    alt: 'Provab Logo'
+  },
+   {
+    name: 'eZest',
+    logo: '/brands/ezest-logo.svg',
+    alt: 'eZest Logo'
+  },
+  {
     name: 'SarvM.AI',
     logo: '/brands/sarvm-logo.png',
     alt: 'SarvM.AI Logo'
+  },
+  {
+    name: 'VitaminD',
+    logo: '/brands/vitamind-logo.svg',
+    alt: 'VitaminD Logo'
   },
   {
     name: 'Kanso Cloud',
@@ -87,6 +127,13 @@ export default function TrustedBrandsSection() {
       // Move to next item, loop back to 0 when reaching the end
       return prev >= brands.length - 1 ? 0 : prev + 1
     })
+  }
+
+  const totalPages = Math.ceil(brands.length / slidesPerView)
+  const activePage = totalPages > 0 ? Math.floor(currentSlide / slidesPerView) % totalPages : 0
+
+  const goToPage = (pageIndex: number) => {
+    setCurrentSlide(Math.min(pageIndex * slidesPerView, brands.length - 1))
   }
 
   // Autoplay
@@ -181,33 +228,52 @@ export default function TrustedBrandsSection() {
         </Reveal>
 
         <div
-          ref={containerRef}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
-          className="flex gap-6 overflow-x-hidden no-scrollbar"
-          style={{ scrollBehavior: 'auto' }}
         >
-          {brands.map((brand, index) => (
-            <div
-              key={index}
-              className="shrink-0 flex items-center justify-center"
-              style={{
-                width: `calc(100% / ${slidesPerView} - 1.5rem)`
-              }}
-            >
-              <div className="relative w-28 h-10 md:w-32 md:h-10 lg:w-36 lg:h-12">
-                <Image
-                  src={brand.logo}
-                  alt={brand.alt}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 112px, (max-width: 1024px) 128px, 144px"
-                  priority={index < 3}
-                />
+          <div
+            ref={containerRef}
+            className="flex gap-6 overflow-x-hidden no-scrollbar px-1 pt-2 pb-6 -mb-4"
+            style={{ scrollBehavior: 'auto' }}
+          >
+            {brands.map((brand, index) => (
+              <div
+                key={index}
+                className="group shrink-0 flex items-center justify-center h-20 md:h-24 bg-white border border-divider rounded-xl transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_10px_24px_-10px_rgba(255,61,0,0.35)]"
+                style={{
+                  width: `calc(100% / ${slidesPerView} - 1.5rem)`
+                }}
+              >
+                <div className="relative w-24 h-8 md:w-28 md:h-9 lg:w-32 lg:h-10 grayscale opacity-60 transition-all duration-300 ease-out group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105">
+                  <Image
+                    src={brand.logo}
+                    alt={brand.alt}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 112px, (max-width: 1024px) 128px, 144px"
+                    priority={index < 3}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        {/* Pagination dots */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-2 mt-4">
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <button
+                key={index}
+                aria-label={`Go to brands page ${index + 1}`}
+                onClick={() => goToPage(index)}
+                className={`h-1.5 rounded-full cursor-pointer transition-all duration-300 ease-out ${
+                  activePage === index ? 'w-6 bg-primary' : 'w-1.5 bg-divider hover:bg-primary/40'
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
