@@ -1,5 +1,60 @@
 [
     {
+        "slug": "habit-tracking-app",
+        "title": "Habit Tracking App",
+        "description": "A gamified habit tracking mobile app that helps people build daily routines, keep streaks alive, and grow virtual plants as a reward for consistency.",
+        "tags": [
+            "MOBILE APP",
+            "UI/UX DESIGN",
+            "PRODUCT DESIGN"
+        ],
+        "mainImage": "/our-work/habit-tracking-app.png",
+        "images": [],
+        "details": {
+            "showUiLayouts": false,
+            "subtitle": "A gamified habit tracker that turns daily routines into a rewarding self-care journey",
+            "text": "Habit Tracking is a mobile app designed to help people build and maintain daily routines such as reading, sleeping on time, exercising, and meditating. Instead of treating habit-building as a plain checklist, the app layers in streak flames, achievement badges, and a \"grow your plants\" reward system, turning consistency into something genuinely satisfying to watch grow. We led the complete UI/UX design of the app, from the daily task screen and weekly/monthly/yearly progress views to the add-habit flow, individual habit analytics, activity heatmaps, and the achievements screen.",
+            "type": "Mobile App UI/UX Design",
+            "segment": "Health, Wellness & Productivity",
+            "industry": "Lifestyle & Productivity Apps",
+            "year": "2026",
+            "problem": [
+                "Most habit trackers feel like sterile checklists, so users lose motivation and abandon the app within the first few days.",
+                "Users needed a single home screen that could switch between Today, Weekly, Monthly, and Yearly views without losing context or requiring deep navigation.",
+                "Long-term consistency data such as streaks, completion rate, and historical activity needed to feel rewarding to look at, not just accurate."
+            ],
+            "solution": [
+                "Designed color-coded habit cards, each with its own icon, color, and live streak counter, so the daily list is instantly scannable and every check-in feels like a small visual win.",
+                "Built a unified Today / Weekly / Monthly / Yearly switcher anchored by a circular progress ring and a per-day streak grid, letting users zoom into today's tasks or zoom out across weeks in a single tap.",
+                "Introduced a \"grow your plants\" gamification layer with streak flames, milestone badges (10, 50, 100, 300 completions), perfect-day achievements, and an activity heatmap, turning habit tracking into an ongoing, game-like progress journey.",
+                "Simplified habit creation into one clean bottom-sheet flow covering name, description, tracking type (task, amount, or time), color, and frequency, so setting up a new habit takes seconds."
+            ],
+            "typography": {
+                "fontName": "Sequel Sans",
+                "tailwindFontClass": "font-plus-jakarta-sans",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Primary Purple",
+                    "base": "#7C5CFC"
+                },
+                {
+                    "name": "Streak Flame Orange",
+                    "base": "#FF7A00"
+                },
+                {
+                    "name": "Success Green",
+                    "base": "#1FA24A"
+                }
+            ]
+        }
+    },
+    {
         "slug": "syntor-cropscience",
         "title": "Syntor Cropscience Limited",
         "description": "Syntor Cropscience is a prominent player in the agrochemical industry, manufacturing high-quality pesticide products and corporate identity solutions for modern farming needs.",
