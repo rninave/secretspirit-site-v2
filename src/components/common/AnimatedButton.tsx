@@ -11,6 +11,7 @@ interface AnimatedButtonProps {
   icon?: React.ReactNode;
   disabled?: boolean
   className?: string;
+  containerClassName?: string;
   href?: string;
   btnType?: "button" | "submit" | "reset";
   onClick?: () => void;
@@ -21,6 +22,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   hoverText,
   icon,
   className,
+  containerClassName,
   disabled,
   href,
   btnType = 'button',
@@ -66,7 +68,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   };
 
   return (
-    <WobbleCard>
+    <WobbleCard containerClassName={cn("w-fit", containerClassName)}>
       <button
         ref={btnRef}
         onClick={handleClick}

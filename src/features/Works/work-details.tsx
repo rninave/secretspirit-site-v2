@@ -265,24 +265,26 @@ export default async function WorkDetails({
                 </div>
             </div>
 
-            {/* Colors Used Section */}
-            <div className="max-w-7xl mx-auto py-10 lg:py-20 px-8 flex gap-8">
-                {/* Left side empty for structure consistency */}
-                <div className="max-lg:hidden md:w-1/3 space-y-6"></div>
+            {/* Showing The UI Layouts Section */}
+            {details?.showUiLayouts !== false && (
+                <div className="max-w-7xl mx-auto py-10 lg:py-20 px-8 flex gap-8">
+                    {/* Left side empty for structure consistency */}
+                    <div className="max-lg:hidden md:w-1/3 space-y-6"></div>
 
-                {/* Right side */}
-                <div className="w-full lg:w-2/3 space-y-10">
-                    <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-8">
-                        Showing The UI Layouts
-                    </h3>
+                    {/* Right side */}
+                    <div className="w-full lg:w-2/3 space-y-10">
+                        <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-8">
+                            Showing The UI Layouts
+                        </h3>
 
-                    <div className="flex items-center justify-center overflow-hidden relative">
-                        <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -left-28 max-h-64.25 z-10'/>
-                        <Image src={project.mainImage} alt={project.title} width={400} height={257} className='object-cover rounded-lg max-h-64.25 z-20'/>
-                        <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -right-28 max-h-64.25 z-10'/>
+                        <div className="flex items-center justify-center overflow-hidden relative">
+                            <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -left-28 max-h-64.25 z-10'/>
+                            <Image src={project.mainImage} alt={project.title} width={400} height={257} className='object-cover rounded-lg max-h-64.25 z-20'/>
+                            <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -right-28 max-h-64.25 z-10'/>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
 
 
         </section>

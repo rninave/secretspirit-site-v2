@@ -1,5 +1,59 @@
 [
     {
+        "slug": "syntor-cropscience",
+        "title": "Syntor Cropscience Limited",
+        "description": "Syntor Cropscience is a prominent player in the agrochemical industry, manufacturing high-quality pesticide products and corporate identity solutions for modern farming needs.",
+        "tags": [
+            "BRANDING",
+            "CORPORATE IDENTITY",
+            "GRAPHIC DESIGN"
+        ],
+        "mainImage": "/our-work/syntor-cropscience-2.png",
+        "images": [],
+        "details": {
+            "showUiLayouts": false,
+            "subtitle": "Pesticide Manufacturing Company - Corporate Identity & Branding",
+            "text": "Syntor Cropscience is a prominent player in the agrochemical industry, manufacturing high-quality pesticide products for modern farming needs. With a strong commitment to quality and safety, the company offers a comprehensive range of solutions including insecticides, herbicides, fungicides, and plant growth regulators to protect crops and ensure maximum yield. The brand identity was crafted to reflect trust, scientific innovation, and environmental responsibility while maintaining a professional corporate presence.",
+            "type": "Corporate Branding & Identity",
+            "segment": "Agriculture & Agrochemicals",
+            "industry": "Agrochemicals & Pesticides",
+            "year": "2026",
+            "problem": [
+                "Syntor Cropscience required a modern, cohesive brand identity to reflect its position as a trusted, high-tech pesticide manufacturer.",
+                "The brand needed a standardized visual system across stationery items, corporate letterpads, envelopes, and B2B collateral.",
+                "The logo and corporate assets needed to balance scientific reliability with environmental responsibility and sustainable growth."
+            ],
+            "solution": [
+                "Created a stylized leaf-inspired logo mark ('S' emblem) representing crop protection, biological vitality, and scientific precision.",
+                "Established a brand color system featuring vibrant leaf green (#2DAE47) for growth and dark corporate tones (#131131) for industrial trust.",
+                "Designed a full set of corporate stationery collaterals including business cards, letterheads, brand envelopes, identity cards, and promotional merchandise."
+            ],
+            "typography": {
+                "fontName": "Plus Jakarta Sans",
+                "tailwindFontClass": "font-plus-jakarta-sans",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Leaf Green",
+                    "base": "#2DAE47"
+                },
+                {
+                    "name": "Forest Green",
+                    "base": "#1B4D2E"
+                },
+                {
+                    "name": "Corporate Dark",
+                    "base": "#131131"
+                }
+            ]
+        }
+    },
+    {
         "slug": "unite-matchmaking",
         "title": "Unite Matchmaking",
         "description": "A platform that blends the trusted wisdom of parental support with cutting-edge technology, highlighting unique approach to meaningful matchmaking.",
