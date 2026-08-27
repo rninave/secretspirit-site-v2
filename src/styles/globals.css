@@ -103,7 +103,7 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee,
   .animate-marquee-reverse {
-    animation: none;
+    animation: 38s linear infinite reverse marquee;
   }
 }
 
