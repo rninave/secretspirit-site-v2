@@ -3,6 +3,7 @@ import projects from '@/data/projects.json'
 import AppBreadcrumb from '@/components/common/AppBreadcrumb'
 import Image from 'next/image'
 import UnderDevelopment from '@/components/common/UnderDevelopment'
+import { Layers, Boxes, Building2, CalendarDays, Link2, ArrowUpRight } from 'lucide-react'
 
 export function getFontWeight(weight: string) {
     const map: any = {
@@ -17,11 +18,32 @@ export function getFontWeight(weight: string) {
     return map[weight] ?? 400; // fallback Regular
 }
 
+function ListOrText({ value }: { value: string | string[] | undefined }) {
+    if (!value) return <p className="text-body text-sm md:text-lg leading-8 font-body">-</p>
 
-export default async function WorkDetails({ 
-    params 
-}: { 
-    params: Promise<{ slug: string }> 
+    if (Array.isArray(value)) {
+        if (value.length === 1) {
+            return <p className="text-body text-sm md:text-lg leading-8 font-body">{value[0]}</p>
+        }
+        return (
+            <ul className="list-none space-y-4">
+                {value.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0" />
+                        <p className="text-body text-sm md:text-lg leading-8 font-body">{item}</p>
+                    </li>
+                ))}
+            </ul>
+        )
+    }
+
+    return <p className="text-body text-sm md:text-lg leading-8 font-body">{value}</p>
+}
+
+export default async function WorkDetails({
+    params
+}: {
+    params: Promise<{ slug: string }>
 }) {
     const { slug } = await params
     const project = projects.find((p) => p.slug === slug)
@@ -34,6 +56,13 @@ export default async function WorkDetails({
     if (!details || (typeof details === 'object' && Object.keys(details).length === 0)) {
         return <UnderDevelopment returnUrl={{ name: 'Home', href: '/' }} />
     }
+
+    const metaRows = [
+        { label: 'Type', value: details.type, icon: Layers },
+        { label: 'Segment', value: details.segment, icon: Boxes },
+        { label: 'Industry', value: details.industry, icon: Building2 },
+        { label: 'Year', value: details.year, icon: CalendarDays },
+    ].filter((row) => row.value)
 
     return (
         <section className="bg-white">
@@ -68,9 +97,11 @@ export default async function WorkDetails({
                     })
                 }}
             />
-            <div className="max-w-7xl mx-auto py-12 md:py-15 px-4 md:px-8">
+
+            {/* Hero */}
+            <div className="max-w-7xl mx-auto pt-10 md:pt-16 pb-10 md:pb-16 px-4 md:px-8">
                 <AppBreadcrumb
-                    className="flex justify-start mb-10 md:mb-20"
+                    className="flex justify-start mb-10 md:mb-16"
                     textClassName="text-body"
                     items={[
                         { label: 'HOME', href: '/' },
@@ -78,21 +109,24 @@ export default async function WorkDetails({
                         { label: 'WORK DETAIL' },
                     ]}
                 />
-                <h1 className="text-3xl md:text-[42px] text-heading font-bold mb-6 md:mb-10 font-heading">
+                <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-4 font-heading">
+                    Case Study
+                </span>
+                <h1 className="text-3xl md:text-[42px] text-heading font-bold mb-6 md:mb-8 font-heading">
                     {project.title || '-'}
                 </h1>
-                <h2 className="text-lg md:text-[32px] font-bold text-heading mb-4 font-heading">
+                <h2 className="text-lg md:text-[28px] font-bold text-heading mb-4 font-heading max-w-4xl">
                     {details.subtitle || '-'}
                 </h2>
-                <p className="text-body text-sm md:text-lg mb-4 leading-8 max-w-4xl font-body">
+                <p className="text-body text-sm md:text-lg mb-8 leading-8 max-w-4xl font-body">
                     {details.text || '-'}
                 </p>
-                <div className="flex flex-wrap gap-2 mb-10 md:mb-20">
+                <div className="flex flex-wrap gap-2">
                     {project?.tags.map((tag, i) => (
                         <span
                             key={i}
                             className={`bg-white border border-divider ${i === 0 ? 'text-primary' : 'text-body'
-                                } text-[8px] md:text-xs font-heading font-bold px-3 py-2 rounded-full shadow-md`}
+                                } text-[8px] md:text-xs font-heading font-bold px-3 py-2 rounded-full shadow-sm`}
                         >
                             {tag}
                         </span>
@@ -101,192 +135,233 @@ export default async function WorkDetails({
             </div>
 
             {/* Project Main Image */}
-            <div className='max-w-xl mx-auto'>
-                <Image
-                    src={project.mainImage}
-                    alt={project.title}
-                    width={1400}
-                    height={800}
-                    className="w-full h-auto "
-                />
+            <div className="max-w-7xl mx-auto px-4 md:px-8 mb-4">
+                <div className="rounded-2xl md:rounded-[32px] overflow-hidden border border-divider bg-gray-light shadow-[0px_25px_60px_-20px_rgba(19,17,49,0.18)]">
+                    <Image
+                        src={project.mainImage}
+                        alt={project.title}
+                        width={1400}
+                        height={800}
+                        className="w-full h-auto"
+                    />
+                </div>
             </div>
 
             {/* Dynamic Detail Section (below image) */}
-            <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 lg:py-20 flex md:flex-row flex-col gap-8 md:gap-15">
-                {/* Left Side */}
-                <div className="w-full md:w-1/3 space-y-9 text-sm md:text-lg">
-                    <div>
-                        <h4 className="font-bold text-black font-heading mb-3">Type</h4>
-                        <p className="font-normal text-body font-body">{details.type}</p>
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-black font-heading mb-3">Segment</h4>
-                        <p className="font-normal text-body font-body">{details.segment}</p>
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-black font-heading mb-3">Industry</h4>
-                        <p className="font-normal text-body font-body">{details.industry}</p>
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-black font-heading mb-3">Year</h4>
-                        <p className="font-normal text-body font-body">{details.year}</p>
+            <div className="max-w-7xl mx-auto px-4 md:px-8 py-10 lg:py-8 flex md:flex-row flex-col gap-8 md:gap-15">
+                {/* Left Side - Meta Panel */}
+                <div className="w-full md:w-1/3">
+                    <div className="md:sticky md:top-24 bg-gray-light border border-divider rounded-2xl md:rounded-3xl p-6 md:p-8 space-y-6 divide-y divide-divider/60">
+                        {metaRows.map(({ label, value, icon: Icon }, i) => (
+                            <div key={label} className={i === 0 ? '' : 'pt-6'}>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Icon className="w-4 h-4 text-primary" strokeWidth={2.5} />
+                                    <h4 className="text-xs md:text-sm font-bold text-body uppercase tracking-wider font-heading">
+                                        {label}
+                                    </h4>
+                                </div>
+                                <p className="font-semibold text-heading text-sm md:text-lg font-body">{value}</p>
+                            </div>
+                        ))}
+                        {details.website && (
+                            <div className="pt-6">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Link2 className="w-4 h-4 text-primary" strokeWidth={2.5} />
+                                    <h4 className="text-xs md:text-sm font-bold text-body uppercase tracking-wider font-heading">
+                                        Website
+                                    </h4>
+                                </div>
+                                <a
+                                    href={details.website}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 font-semibold text-primary text-sm md:text-lg font-body break-all hover:underline"
+                                >
+                                    {details.website.replace(/^https?:\/\//, '')}
+                                    <ArrowUpRight className="w-4 h-4 flex-shrink-0" strokeWidth={2.5} />
+                                </a>
+                            </div>
+                        )}
+                        {details.appLink && (
+                            <div className="pt-6">
+                                <div className="flex items-center gap-2 mb-2">
+                                    <Link2 className="w-4 h-4 text-primary" strokeWidth={2.5} />
+                                    <h4 className="text-xs md:text-sm font-bold text-body uppercase tracking-wider font-heading">
+                                        App Store
+                                    </h4>
+                                </div>
+                                <a
+                                    href={details.appLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 font-semibold text-primary text-sm md:text-lg font-body break-all hover:underline"
+                                >
+                                    Play Store App
+                                    <ArrowUpRight className="w-4 h-4 flex-shrink-0" strokeWidth={2.5} />
+                                </a>
+                            </div>
+                        )}
                     </div>
                 </div>
 
                 {/* Right Side */}
-                <div className="w-full md:w-2/3 space-y-9">
-                    <div>
-                        <h3 className="font-bold text-xl md:text-[32px] text-heading font-heading mb-4">
+                <div className="w-full md:w-2/3 space-y-6">
+                    <div className="bg-white border border-divider rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-sm">
+                        <h3 className="font-bold text-xl md:text-[28px] text-heading font-heading mb-4">
                             Problem Statement
                         </h3>
-                        {Array.isArray(details.problem) ? (
-                            details.problem.length === 1 ? (
-                                <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.problem[0]}</p>
-                            ) : (
-                                <ul className="list-none space-y-4">
-                                    {details.problem.map((item, idx) => (
-                                        <li key={idx} className="flex items-start gap-2">
-                                            <span className="w-2 h-2 rounded-full bg-primary mt-3 flex-shrink-0" />
-                                            <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{item}</p>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )
-                        ) : (
-                            <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.problem}</p>
-                        )}
+                        <ListOrText value={details.problem} />
                     </div>
-                    <div>
-                        <h3 className="font-bold text-xl md:text-[32px] text-heading font-heading mb-4">
+                    <div className="bg-white border border-divider rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-sm">
+                        <h3 className="font-bold text-xl md:text-[28px] text-heading font-heading mb-4">
                             Possible Solutions
                         </h3>
-                        {Array.isArray(details.solution) ? (
-                            details.solution.length === 1 ? (
-                                <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.solution[0]}</p>
-                            ) : (
-                                <ul className="list-none space-y-4">
-                                    {details.solution.map((item, idx) => (
-                                        <li key={idx} className="flex items-start gap-2">
-                                            <span className="w-2 h-2 rounded-full bg-primary mt-3 flex-shrink-0" />
-                                            <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{item}</p>
-                                        </li>
-                                    ))}
-                                </ul>
-                            )
-                        ) : (
-                            <p className="text-body text-normal font-body text-sm md:text-lg leading-8">{details.solution}</p>
-                        )}
+                        <ListOrText value={details.solution} />
                     </div>
                 </div>
             </div>
 
             {/* Typography Section */}
-            <div className="max-w-7xl mx-auto py-10 lg:py-20 px-8 flex gap-8 text-sm md:text-base">
-                <div className='max-lg:hidden md:w-1/3 space-y-6'></div>
-
-                <div className='w-full lg:w-2/3 space-y-10'>
-                    <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-8">
-                        Typography - <span className="text-primary text-xl md:text-2xl">{details?.typography?.fontName}</span>
-                    </h3>
-
-                    <div className="flex items-center justify-end sm:flex-row flex-col">
-                        {details?.typography?.weights.map((weight, i) => (
-                            <div
-                                key={i}
-                                className="py-8 px-10 relative overflow-hidden border border-divider"
-                                style={{
-                                    background: 'linear-gradient(71.28deg, #FFF9F8 -0.25%, #FFEEE9 92.6%)'
-                                }}
-                            >
-                                <h4 className={`font-bold text-lg text-body mb-4 ${details.typography.tailwindFontClass}`}>{weight}</h4>
-                                <p
-                                    className={`text-body mb-24 leading-[100%] tracking-[6px] text-sm break-all ${details.typography.tailwindFontClass}`}
-                                    style={{ fontWeight: getFontWeight(weight) }}
-                                >
-                                    ABCDEFGHIJKLMNOPQRSTUVWXYZ
-                                </p>
-                                <p
-                                    className={`text-[130px] absolute -bottom-4 -right-4 text-orange-200 font-bold leading-[100%] ${details.typography.tailwindFontClass}`}
-                                    style={{ fontWeight: getFontWeight(weight) }}
-                                >
-                                    Aa
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* Colors Used Section */}
-            <div className="max-w-7xl mx-auto py-10 lg:py-20 px-8 flex gap-8">
-                {/* Left side empty for structure consistency */}
-                <div className="max-lg:hidden md:w-1/3 space-y-6"></div>
-
-                {/* Right side */}
-                <div className="w-full lg:w-2/3 space-y-10">
-                    <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-8">
-                        Colors Used
-                    </h3>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        {details?.colors?.map((color, i) => (
-                            <div
-                                key={i}
-                                className="rounded-xl p-4 border border-divider shadow-sm bg-white"
-                            >
-                                <h4 className="font-semibold text-sm text-black mb-4">{color.name}</h4>
-
-                                {/* Main Color Box */}
-                                <div
-                                    className="w-full h-12 rounded-lg mb-4 flex items-center justify-center text-white text-sm font-semibold"
-                                    style={{ backgroundColor: color.base }}
-                                >
-                                    {color.base}
-                                </div>
-
-                                {/* Gradient Shades */}
-                                <div className="flex flex-col">
-                                    {[0.9, 0.7, 0.5, 0.3, 0.1].map((opacity, j) => (
-                                        <div
-                                            key={j}
-                                            className={`
-                                                w-full h-8
-                                                ${j === 0 ? "rounded-t-lg" : ""}
-                                                ${j === 4 ? "rounded-b-lg" : ""}
-                                            `}
-                                            style={{ backgroundColor: color.base, opacity }}
-                                        ></div>
-                                    ))}
-                                </div>
-
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            {/* Showing The UI Layouts Section */}
-            {details?.showUiLayouts !== false && (
-                <div className="max-w-7xl mx-auto py-10 lg:py-20 px-8 flex gap-8">
-                    {/* Left side empty for structure consistency */}
-                    <div className="max-lg:hidden md:w-1/3 space-y-6"></div>
-
-                    {/* Right side */}
-                    <div className="w-full lg:w-2/3 space-y-10">
+            {details?.typography && (
+                <div className="max-w-7xl mx-auto py-4 lg:py-8 px-4 md:px-8">
+                    <div className="bg-gray-light border border-divider rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12">
+                        <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-3 font-heading">
+                            Typefaces
+                        </span>
                         <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-8">
-                            Showing The UI Layouts
+                            Typography - <span className="text-primary">{details.typography.fontName}</span>
                         </h3>
 
-                        <div className="flex items-center justify-center overflow-hidden relative">
-                            <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -left-28 max-h-64.25 z-10'/>
-                            <Image src={project.mainImage} alt={project.title} width={400} height={257} className='object-cover rounded-lg max-h-64.25 z-20'/>
-                            <Image src={project.mainImage} alt={project.title} width={275} height={177} className='object-cover rounded-lg absolute -right-28 max-h-64.25 z-10'/>
+                        <div className="flex flex-wrap gap-6">
+                            {details.typography.weights.map((weight, i) => (
+                                <div
+                                    key={i}
+                                    className="py-8 px-10 relative overflow-hidden border border-divider rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow flex-1 min-w-[240px]"
+                                >
+                                    <h4 className={`font-bold text-lg text-body mb-4 ${details.typography.tailwindFontClass}`}>{weight}</h4>
+                                    <p
+                                        className={`text-body mb-24 leading-[100%] tracking-[6px] text-sm break-all ${details.typography.tailwindFontClass}`}
+                                        style={{ fontWeight: getFontWeight(weight) }}
+                                    >
+                                        ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                                    </p>
+                                    <p
+                                        className={`text-[130px] absolute -bottom-4 -right-4 text-light-primary font-bold leading-[100%] ${details.typography.tailwindFontClass}`}
+                                        style={{ fontWeight: getFontWeight(weight) }}
+                                    >
+                                        Aa
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+
+                        {details?.secondaryTypography && (
+                            <div className="mt-10">
+                                <span className="inline-block bg-white border border-divider text-body text-[10px] md:text-xs font-heading font-bold px-3 py-1.5 rounded-full mb-4">
+                                    {details.secondaryTypography.role || 'Secondary Typeface'}
+                                </span>
+                                <div className="flex flex-wrap gap-4">
+                                    {details.secondaryTypography.weights.map((weight, i) => (
+                                        <div
+                                            key={i}
+                                            className="flex items-center gap-4 rounded-2xl border border-divider bg-white px-6 py-4 shadow-sm"
+                                        >
+                                            <span className={`text-3xl text-primary font-bold ${details.secondaryTypography.tailwindFontClass}`}>
+                                                Aa
+                                            </span>
+                                            <div>
+                                                <p className="text-sm font-bold text-heading font-heading">{details.secondaryTypography.fontName}</p>
+                                                <p className="text-xs text-body font-body">{weight}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            {/* Colors Used Section */}
+            {details?.colors && details.colors.length > 0 && (
+                <div className="max-w-7xl mx-auto py-4 lg:py-8 px-4 md:px-8">
+                    <div className="bg-white border border-divider rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12 shadow-sm">
+                        <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-3 font-heading">
+                            Palette
+                        </span>
+                        <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-8">
+                            Colors Used
+                        </h3>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                            {details.colors.map((color, i) => (
+                                <div
+                                    key={i}
+                                    className="rounded-2xl p-4 border border-divider shadow-sm bg-white hover:shadow-md transition-shadow"
+                                >
+                                    <h4 className="font-semibold text-sm text-black mb-4">{color.name}</h4>
+
+                                    {/* Main Color Box */}
+                                    <div
+                                        className="w-full h-12 rounded-lg mb-4 flex items-center justify-center text-white text-sm font-semibold"
+                                        style={{ backgroundColor: color.base }}
+                                    >
+                                        {color.base}
+                                    </div>
+
+                                    {/* Gradient Shades */}
+                                    <div className="flex flex-col overflow-hidden rounded-lg">
+                                        {[0.9, 0.7, 0.5, 0.3, 0.1].map((opacity, j) => (
+                                            <div
+                                                key={j}
+                                                className="w-full h-8"
+                                                style={{ backgroundColor: color.base, opacity }}
+                                            ></div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             )}
 
+            {/* Showing The UI Layouts Section */}
+            {details?.showUiLayouts !== false && (
+                <div className="max-w-7xl mx-auto py-4 lg:py-8 px-4 md:px-8">
+                    <div className="bg-gray-light border border-divider rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-12">
+                        <span className="inline-block text-primary text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-3 font-heading">
+                            Gallery
+                        </span>
+                        <h3 className="text-xl md:text-[32px] font-bold text-heading font-heading mb-10">
+                            Showing The UI Layouts
+                        </h3>
 
+                        {(() => {
+                            const layoutImages = project.images?.length ? project.images : [project.mainImage]
+
+                            return (
+                                <div className="flex flex-col items-center gap-8 max-w-3xl mx-auto">
+                                    {layoutImages.map((img, i) => (
+                                        <div
+                                            key={i}
+                                            className="w-full rounded-2xl overflow-hidden border border-divider bg-white shadow-[0px_20px_45px_-20px_rgba(19,17,49,0.15)]"
+                                        >
+                                            <Image
+                                                src={img}
+                                                alt={project.title}
+                                                width={800}
+                                                height={514}
+                                                className="object-cover w-full h-auto"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            )
+                        })()}
+                    </div>
+                </div>
+            )}
         </section>
     )
 }

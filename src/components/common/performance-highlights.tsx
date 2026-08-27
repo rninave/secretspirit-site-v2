@@ -6,10 +6,10 @@ import { WobbleCard } from "@/components/ui/wobble-card";
 import Reveal from "@/components/common/Reveal";
 
 const highlights = [
-  { value: 6, label: "Trusted experience over the years" },
+  { value: 7, label: "Trusted experience over the years" },
   { value: 20, label: "Innovative Thinkers & Doers" },
-  { value: 80, label: "Delighted clients worldwide" },
-  { value: 10, label: "Countries we proudly serve" },
+  { value: 85, label: "Delighted clients worldwide" },
+  { value: 12, label: "Countries we proudly serve" },
 ];
 
 export default function PerformanceHighlightsSection() {

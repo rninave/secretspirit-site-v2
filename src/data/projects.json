@@ -109,6 +109,63 @@
         }
     },
     {
+        "slug": "autopal",
+        "title": "Autopal",
+        "description": "Autopal was born from a simple frustration: managing vehicle maintenance shouldn't be complicated. We noticed that vehicle owners struggled to keep track of service records, find reliable mechanics, and get help when they needed it most.",
+        "tags": [
+            "AUTOMOTIVE",
+            "MOBILE APP",
+            "WEBSITE",
+            "UI/UX DESIGN"
+        ],
+        "mainImage": "/our-work/autopal-mockup.png",
+         "images": [
+            "/our-work/autopal-visual-1.png",
+            "/our-work/autopal-visual-2.png"
+        ],
+        "details": {
+            "subtitle": "Smart Vehicle Maintenance & Service Management Platform",
+            "text": "Autopal was born from a simple frustration: managing vehicle maintenance shouldn't be complicated. We noticed that vehicle owners struggled to keep track of service records, find reliable mechanics, and get help when they needed it most.",
+            "type": "Mobile App & Web Application",
+            "segment": "Automotive & Mobility",
+            "industry": "Automotive Services",
+            "year": "2025",
+            "website": "https://www.autopaltech.sg/",
+            "appLink": "https://play.google.com/store/apps/details?id=com.autopal",
+            "problem": [
+                "Vehicle owners struggle to maintain organized service logs, track upcoming maintenance schedules, and locate trusted local mechanics.",
+                "Emergency roadside assistance and breakdown support are often fragmented, leading to long wait times and uncertainty."
+            ],
+            "solution": [
+                "Created a centralized digital platform to track service records, receive timely maintenance reminders, and book trusted service providers.",
+                "Streamlined emergency assistance and vehicle management into an intuitive mobile and web experience."
+            ],
+            "typography": {
+                "fontName": "Open Sans",
+                "tailwindFontClass": "font-plus-jakarta-sans",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Color 1",
+                    "base": "#0D99FF"
+                },
+                {
+                    "name": "Color 2",
+                    "base": "#C7AA85"
+                },
+                {
+                    "name": "Color 3",
+                    "base": "#344490"
+                }
+            ]
+        }
+    },
+    {
         "slug": "unite-matchmaking",
         "title": "Unite Matchmaking",
         "description": "A platform that blends the trusted wisdom of parental support with cutting-edge technology, highlighting unique approach to meaningful matchmaking.",
@@ -118,28 +175,98 @@
             "DEVELOPMENT"
         ],
         "mainImage": "/our-work/unite-matchmaking.png",
-        "images": [],
-        "details": {}
+        "images": [
+            "/our-work/unite-visual-1.png",
+            "/our-work/unite-visual-2.png",
+            "/our-work/unite-visual-3.png"
+        ],
+        "details": {
+            "subtitle": "A modern matchmaking platform where parental trust meets technology",
+            "text": "Uniite is a matchmaking platform built around a simple belief: the wisdom and involvement of parents shouldn't be lost just because matchmaking has gone digital. We designed and developed uniite.co end-to-end, crafting an experience where parents and their children can shortlist, discuss, and connect with potential matches together, backed by a visual identity that feels warm, trustworthy, and refined rather than transactional or app-like.",
+            "type": "Website Design & Development",
+            "segment": "Matrimony & Matchmaking",
+            "industry": "Matchmaking & Matrimonial Services",
+            "year": "2025",
+            "website": "https://www.uniite.co",
+            "problem": [
+                "Traditional matchmaking platforms feel transactional and impersonal, disconnecting families from a process that has always been rooted in trust and parental guidance.",
+                "Most matrimonial sites rely on dated, form-heavy UI patterns that feel closer to classifieds than a curated, premium matchmaking experience.",
+                "Parents and children needed a shared space to participate in the matchmaking journey together, without either generation feeling sidelined or excluded from key decisions."
+            ],
+            "solution": [
+                "Designed a warm, editorial visual identity built on a deep maroon (#6B0606) and soft ivory (#FDF3EC) palette, paired with the elegant serif pairing of Albra Trial for headlines and Canela for body copy, to evoke heritage, trust, and premium curation.",
+                "Created dual-perspective browsing and shortlisting flows that let parents and their children collaborate on matches together, keeping the process transparent while respecting each generation's comfort level.",
+                "Simplified onboarding and profile-building into a guided, story-like flow instead of a long static form, reducing drop-off and making the platform feel personal rather than bureaucratic.",
+                "Established a clear content hierarchy with deep charcoal headings (#181514) over softer supporting copy (#6A6A6A), so every profile stays easy to scan and comfortable to read on a warm, low-glare background."
+            ],
+            "typography": {
+                "fontName": "Albra Trial",
+                "tailwindFontClass": "font-albra-trial",
+                "weights": [
+                    "Bold",
+                    "Regular"
+                ]
+            },
+            "secondaryTypography": {
+                "fontName": "Canela",
+                "tailwindFontClass": "font-canela",
+                "weights": [
+                    "Regular"
+                ],
+                "role": "Body"
+            },
+            "colors": [
+                {
+                    "name": "Primary Maroon",
+                    "base": "#6B0606"
+                },
+                {
+                    "name": "Ivory Background",
+                    "base": "#FDF3EC"
+                },
+                {
+                    "name": "Heading",
+                    "base": "#181514"
+                },
+                {
+                    "name": "Description Text",
+                    "base": "#6A6A6A"
+                }
+            ]
+        }
     },
     {
         "slug": "yliway",
         "title": "Yliway",
-        "description": "Yliway connects students, professionals, trainers, and companies to create dynamic professional and business growth opportunities.",
+        "description": "Yliway is the all-in-one platform that supports your professional growth and business growth, connecting students, job seekers, professionals, companies, and educators.",
         "tags": [
             "E-LEARNING",
             "UI/UX DESIGN",
             "DEVELOPMENT"
         ],
-        "mainImage": "/our-work/yliway-img.png",
+        "mainImage": "/our-work/yliway-cover-img.png",
+        "images": [
+            "/our-work/yliway-visual-1.png",
+            "/our-work/yliway-visual-2.png"
+        ],
         "details": {
-            "subtitle": "Yliway is a cloud technology services consulting firm.",
-            "text": "Bloomsbury is a cloud technology services consulting firm, focused on accelerating the “Cloud-Native Transformation Journey” of businesses. Our primary goal is to simplify our customers’ cloud journey by eliminating clutter while untapping the 'Cloud-Native Potential' of their applications. Specialize in accelerated delivery of DevSecOps automation using 'No-Code / Low-Code' platforms.",
+            "subtitle": "Yliway is the all-in-one platform that supports your professional growth and business growth.",
+            "text": "Yliway connects people, job seekers, professionals, companies, and the education system across all sectors, including students, job seekers, professionals, companies, and educators.",
             "type": "Website Design & Development",
             "segment": "Information & Technology",
             "industry": "Information & Technology",
-            "year": "2021",
-            "problem": "Kansocloud's current site looks outdated. It's not a responsive site and does not provide a seamless across all devices. It has very far from user-friendly because of bad navigation and lack of information with accurate place.",
-            "solution": "We have tried to understand about company vision, goals, and services. We have followed a design thinking process, And created a wireframe design to order to define the right user interface which users find easy to use and pleasurable. We have worked in close collaboration with the client to match expectations and launch the marketing site.",
+            "year": "2025",
+            "website": "https://www.yliway.com/",
+            "problem": [
+                "Students, job seekers, professionals, companies, and educators each relied on separate, disconnected tools to manage learning, hiring, and career growth, with no single platform tying those journeys together.",
+                "The platform needed a website that could speak to five distinct audiences at once without diluting the core message of professional and business growth.",
+                "There was no clear, unified way to communicate how the platform's e-learning, networking, and hiring features connect people across the entire professional ecosystem."
+            ],
+            "solution": [
+                "Designed and developed a marketing site that clearly frames Yliway as an all-in-one growth platform, with messaging and navigation tailored to each audience: students, job seekers, professionals, companies, and educators.",
+                "Followed a design thinking process, building wireframes and a clean, responsive UI/UX that works seamlessly across devices.",
+                "Worked closely with the Yliway team to translate the platform's e-learning and career-growth capabilities into a clear, easy-to-navigate site structure."
+            ],
             "typography": {
                 "fontName": "Inter",
                 "tailwindFontClass": "font-inter",
@@ -176,8 +303,52 @@
             "BRANDING"
         ],
         "mainImage": "/our-work/zoopup.png",
-        "images": [],
-        "details": {}
+        "images": [
+            "/our-work/zoopup-visual-1.png",
+            "/our-work/zoopup-visual-2.png"
+        ],
+        "details": {
+            "subtitle": "The world's Learn & Earn marketplace connecting global talent, teachers, and businesses",
+            "text": "ZoopUp is the world's Learn & Earn marketplace, connecting millions of independent talents, independent teachers with businesses around the globe. By seamlessly combining skill building, freelance services, and business collaboration into a single ecosystem, ZoopUp empowers creators, educators, and organizations to work, learn, and grow together.",
+            "type": "Marketplace UI/UX Design & Branding",
+            "segment": "EdTech & Talent Marketplace",
+            "industry": "E-Learning & Freelance Platform",
+            "year": "2023",
+            "website": "https://zoopup.com/",
+            "problem": [
+                "Independent talents and teachers often lack a unified platform to monetize their expertise while continuously learning new skills.",
+                "Businesses face high search costs and fragmented experiences when trying to source skilled talents and specialized educators worldwide.",
+                "Traditional platforms separate learning from earning, resulting in low completion rates and delayed monetization for learners."
+            ],
+            "solution": [
+                "Designed an integrated Learn & Earn platform architecture that connects talent acquisition, online education, and freelance project workflows.",
+                "Created an intuitive digital marketplace interface for seamless skill discovery, course enrollment, gig browsing, and secure business collaborations.",
+                "Developed a cohesive visual brand identity and design system to build trust between independent freelancers, educators, and enterprise clients."
+            ],
+            "typography": {
+                "fontName": "Inter",
+                "tailwindFontClass": "font-inter",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Primary",
+                    "base": "#1eb3fc"
+                },
+                {
+                    "name": "Secondary",
+                    "base": "#a0cc3c"
+                },
+                {
+                    "name": "Dark Slate",
+                    "base": "#0f172a"
+                }
+            ]
+        }
     },
     {
         "slug": "sarvm-ai",
@@ -189,59 +360,240 @@
             "DEVELOPMENT"
         ],
         "mainImage": "/our-work/sarvm-ai-2.png",
-        "images": [],
-        "details": {}
+        "images": [
+            "/our-work/sarvm-visual-1.png",
+            "/our-work/sarvm-visual-2.png"
+        ],
+        "details": {
+            "subtitle": "AI-based VoiceERP SaaS platform organizing unorganized nano businesses",
+            "text": "SarvM is set-out to accomplish providing an AI-based VoiceERP for nano businesses – Retailers, Distributors, and Producers. It is a first-ever SaaS platform that aims to 'organize the unorganized nano businesses'. It is a digitally enabled Business Place that intends to revolutionize both online and offline markets. Thus, it's a one-stop shop for all business requirements for common users and nano businesses.",
+            "type": "SaaS Platform UI/UX Design & Development",
+            "segment": "Artificial Intelligence & Enterprise SaaS",
+            "industry": "Supply Chain & Nano Business ERP",
+            "year": "2024",
+            "website": "https://www.sarvm.ai/home.html",
+            "problem": [
+                "Millions of unorganized nano businesses (retailers, distributors, producers) struggle with traditional, complex ERP software and manual bookkeeping.",
+                "Language and digital literacy barriers make standard desktop or complex mobile business applications difficult to adopt for common merchants.",
+                "Offline and online market channels remain fragmented, making inventory management, sales tracking, and procurement inefficient."
+            ],
+            "solution": [
+                "Architected a voice-first AI VoiceERP interface enabling micro-merchants to log sales, purchases, inventory, and credit using natural spoken commands.",
+                "Built an all-in-one digitally enabled marketplace bridging online e-commerce with offline local trade networks.",
+                "Designed an inclusive, highly accessible visual interface tailored for diverse user groups across retailers, distributors, and everyday consumers."
+            ],
+            "typography": {
+                "fontName": "Poppins",
+                "tailwindFontClass": "font-poppins",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Primary Green",
+                    "base": "#00853f"
+                },
+                {
+                    "name": "Green Light",
+                    "base": "#def4de"
+                },
+                {
+                    "name": "Deep Charcoal",
+                    "base": "#212529"
+                }
+            ]
+        }
     },
     {
         "slug": "emkay-consulting",
         "title": "Emkay Consulting",
-        "description": "Emkay Consulting revolutionizes learning and earning, bridging independent talents and teachers with global...",
+        "description": "Emkaay Consulting specializes in partnering with Small & Medium enterprises and Early-stage Start-ups to design comprehensive solutions and drive sustainable growth...",
         "tags": [
-            "E-COMMERCE",
-            "UI DESIGN",
-            "UX DESIGN"
+            "CONSULTING",
+            "UI/UX DESIGN",
+            "DEVELOPMENT"
         ],
         "mainImage": "/our-work/emkay-consulting.png",
-        "images": [],
-        "details": {}
+        "images": [
+            "/our-work/emkay-visual-1.png",
+            "/our-work/emkay-visual-2.png"
+        ],
+        "details": {
+            "subtitle": "Comprehensive business transformation and strategy solutions for SMEs and early-stage startups",
+            "text": "Emkaay Consulting specializes in partnering with Small & Medium enterprises and Early-stage Start-ups to design comprehensive solutions and drive successful implementation for sustainable growth. We work collaboratively with client teams to diagnose challenges, design tailored solutions, and most importantly—execute them to completion. Our areas of expertise range across areas like Growth Strategy, Turnaround Strategy, Business Transformation, and Change Management.",
+            "type": "Website Design & Development",
+            "segment": "Management Consulting & Advisory",
+            "industry": "Business Strategy & Transformation",
+            "year": "2025",
+            "website": "https://www.emkaayconsulting.com/",
+            "problem": [
+                "SMEs and early-stage startups often struggle to bridge the gap between high-level growth strategy and on-the-ground operational execution.",
+                "Businesses facing market shifts lack structured turnaround strategies and change management frameworks to adapt quickly.",
+                "Existing consulting firms offer generic advice without partnering with client teams to execute solutions through to full completion."
+            ],
+            "solution": [
+                "Designed and developed a sleek, professional digital presence that clearly communicates Emkaay Consulting's core offerings across Growth, Turnaround, and Business Transformation.",
+                "Structured a clean, transparent navigation hierarchy showcasing methodology, diagnostic approaches, and case study outcomes for prospective corporate clients.",
+                "Established an authoritative visual identity with modern typography and structured content layouts to build instant trust with enterprise stakeholders."
+            ],
+            "typography": {
+                "fontName": "Manrope",
+                "tailwindFontClass": "font-manrope",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Primary",
+                    "base": "#4883FF"
+                },
+                {
+                    "name": "Light Blue",
+                    "base": "#edf3ff"
+                },
+                {
+                    "name": "Slate Gray",
+                    "base": "#475569"
+                }
+            ]
+        }
     },
     {
         "slug": "vn-casting",
         "title": "VN Casting",
-        "description": "VN Casting web Application is intended for travel planning and travel diary keeping for...",
+        "description": "VN Casting is a prominent, Mumbai-based casting agency that connects actors, models, and artists with major brands, advertising agencies, and production houses.",
         "tags": [
-            "E-COMMERCE",
-            "UI DESIGN",
-            "UX DESIGN"
+            "CASTING AGENCY",
+            "UI/UX DESIGN",
+            "DEVELOPMENT"
         ],
         "mainImage": "/our-work/vncasting.png",
-        "images": [],
-        "details": {}
+        "images": [
+            "/our-work/vncasting-visual-1.png",
+            "/our-work/vncasting-visual-2.png",
+            "/our-work/vncasting-visual-3.png"
+        ],
+        "details": {
+            "subtitle": "Mumbai's premier casting agency connecting talents with major brands, agencies, and production houses",
+            "text": "VN Casting is a prominent, Mumbai-based casting agency that connects actors, models, and artists with major brands, advertising agencies, and production houses. The platform provides a seamless digital space for talent discovery, portfolio presentation, and casting management across film, commercial, and print media.",
+            "type": "Website Design & Development",
+            "segment": "Entertainment & Media",
+            "industry": "Casting Agency & Talent Management",
+            "year": "2024",
+            "website": "https://www.vncasting.com/",
+            "problem": [
+                "Actors, models, and artists lacked a streamlined digital portal to showcase their portfolios directly to leading production houses and casting directors.",
+                "Casting agencies traditionally managed talent databases through disjointed manual spreadsheets and fragmented media files.",
+                "Advertising agencies and directors required a fast, searchable web platform to discover and shortlist talent by attributes, experience, and visual style."
+            ],
+            "solution": [
+                "Designed a high-impact, visual-first web application featuring curated talent galleries, categorized model profiles, and intuitive search filters.",
+                "Streamlined the submission and casting workflow for artists, allowing easy portfolio updates and direct agency communication.",
+                "Crafted a modern aesthetic reflecting the vibrancy of Mumbai's media, film, and commercial advertising industry."
+            ],
+            "typography": {
+                "fontName": "Unbounded",
+                "tailwindFontClass": "font-unbounded",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Primary",
+                    "base": "#7e15f7"
+                },
+                {
+                    "name": "Black",
+                    "base": "#000"
+                },
+                {
+                    "name": "Cool Gray",
+                    "base": "#788293"
+                }
+            ]
+        }
     },
     {
         "slug": "make-my-marry",
         "title": "Make My Marry",
         "description": "MakeMyMarry site is an online platform designed to help people find a perfect partner.",
         "tags": [
-            "E-COMMERCE",
+            "MATRIMONY",
             "UI DESIGN",
             "UX DESIGN"
         ],
-        "mainImage": "/our-work/make-my-marry.png",
-        "images": [],
-        "details": {}
+        "mainImage": "/our-work/make-my-marry-mockup.png",
+        "images": [
+            "/our-work/make-my-marry-visual-1.png",
+            "/our-work/make-my-marry-visual-2.png"
+        ],
+        "details": {
+            "subtitle": "find your perfect partner",
+            "text": "MakeMyMarry site is an online platform designed to help people find a perfect partner.",
+            "type": "Website Design & Development",
+            "segment": "Matrimony & Matchmaking",
+            "industry": "Matrimonial Services",
+            "year": "2021",
+            "problem": [
+                "Finding a compatible life partner online requires a trustworthy, private, and intuitive experience.",
+                "Users needed a simple interface with search filtering and profile management to connect with suitable matches."
+            ],
+            "solution": [
+                "Designed a user-friendly matrimonial platform focused on effortless search, security, and clean profile navigation.",
+                "Created an engaging user experience with intuitive filtering options to help users find their perfect partner."
+            ],
+            "typography": {
+                "fontName": "Poppins",
+                "tailwindFontClass": "font-poppins",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Color 1",
+                    "base": "#C9184A"
+                },
+                {
+                    "name": "Color 2",
+                    "base": "#EB5B84"
+                },
+                {
+                    "name": "Color 3",
+                    "base": "#2B8CFF"
+                },
+                {
+                    "name": "Color 4",
+                    "base": "#121619"
+                }
+            ]
+        }
     },
     {
         "slug": "chemtrix",
         "title": "Chemtrix",
-        "description": "Chemtrix CRM is a Customer Relationship Management (CRM) application built for Asia crystal Commodities Pvt. Ltd. It can be accessed through Web applicat...",
+        "description": "Chemtrix CRM is a Customer Relationship Management (CRM) application built for Asia crystal Commodities Pvt. Ltd. It can be accessed through Web application. CRM is a structured method for creating, managing, and preserving a successful connection with customers from the industry’s point of view.",
         "tags": [
-            "E-COMMERCE",
+            "CRM",
             "UI DESIGN",
             "UX DESIGN"
         ],
         "mainImage": "/our-work/chemtrix.png",
-        "images": [],
+        "images": [
+            "/our-work/chemtrix-visual-1.png",
+            "/our-work/chemtrix-visual-2.png"
+        ],
         "details": {
             "subtitle": "Chemtrix CRM",
             "text": "Chemtrix CRM is a Customer Relationship Management (CRM) application built for Asia crystal Commodities Pvt. Ltd. It can be accessed through Web application. CRM is a structured method for creating, managing, and preserving a successful connection with customers from the industry’s point of view.",
@@ -260,8 +612,8 @@
                 "Streamlined processes, and enhanced the customer experience."
             ],
             "typography": {
-                "fontName": "Plus Jakarta Sans",
-                "tailwindFontClass": "font-plus-jakarta-sans",
+                "fontName": "Heebo",
+                "tailwindFontClass": "font-heebo",
                 "weights": [
                     "Bold",
                     "SemiBold",
@@ -271,15 +623,15 @@
             "colors": [
                 {
                     "name": "Color 1",
-                    "base": "#295583"
+                    "base": "#173E6B"
                 },
                 {
                     "name": "Color 2",
-                    "base": "#76B468"
+                    "base": "#138808"
                 },
                 {
                     "name": "Color 3",
-                    "base": "#131131"
+                    "base": "#111D13"
                 }
             ]
         }
@@ -287,23 +639,32 @@
     {
         "slug": "financial-app",
         "title": "Financial App",
-        "description": "Financial app is a comprehensive financial management application designed to empower users with a holistic approach to their financial well-being...",
+        "description": "Financial app is a comprehensive financial management application designed to empower users with a holistic approach to their financial well-being. With an intuitive user interface and robust features, Financial app aims to simplify financial management, promote financial literacy, and provide users with the tools they need to achieve their financial goals.",
         "tags": [
-            "E-COMMERCE",
+            "FINANCE",
             "UI DESIGN",
             "UX DESIGN"
         ],
         "mainImage": "/our-work/financial-app.png",
-        "images": [],
+        "images": [
+            "/our-work/financeapp-visual-1.png",
+            "/our-work/financeapp-visual-2.png"
+        ],
         "details": {
-            "subtitle": "Financial Investment App for Smart Financial Management",
+            "subtitle": "Holistic Financial Management & Literacy Application",
             "text": "Financial app is a comprehensive financial management application designed to empower users with a holistic approach to their financial well-being. With an intuitive user interface and robust features, Financial app aims to simplify financial management, promote financial literacy, and provide users with the tools they need to achieve their financial goals.",
-            "type": "Website Design & Development",
-            "segment": "Information & Technology",
-            "industry": "Information & Technology",
-            "year": "2021",
-            "problem": "RoundIt wanted to have a mobile app that efficiently communicates its product offerings and technology to its target audience, emphasizing features related to investment, cashback, and roundup transactions.",
-            "solution": "Review recent transactions, check for pending transactions, and contact customer support if you notice discrepancies.",
+            "type": "Mobile App UI/UX Design",
+            "segment": "Finance & Banking",
+            "industry": "Finance & Banking",
+            "year": "2023",
+            "problem": [
+                "Users struggle with managing personal finances, tracking investments, and gaining financial literacy across fragmented tools.",
+                "Navigating complex financial data often creates confusion and leads to sub-optimal financial decision making."
+            ],
+            "solution": [
+                "Designed an intuitive, holistic financial management platform with clear visual analytics and goal tracking features.",
+                "Promoted financial literacy through simple UI controls, category breakdowns, and real-time financial health summaries."
+            ],
             "typography": {
                 "fontName": "Nunito Sans",
                 "tailwindFontClass": "font-nunito-sans",
@@ -332,21 +693,26 @@
     {
         "slug": "flying-chital",
         "title": "Flying Chital",
-        "description": "Flying Chital App  revolutionizes learning and earning, bridging independent talents and teachers with global...",
+        "description": "Flying Chital stands as a trailblazing, multi-modal integrated logistics management platform, revolutionizing the logistics landscape with its comprehensive suite of services.",
         "tags": [
-            "E-COMMERCE",
+            "Logistics",
             "UI DESIGN",
             "UX DESIGN"
         ],
         "mainImage": "/our-work/flying-chital-3.png",
-        "images": [],
+        "images": [
+            "/our-work/flying-chital-visual-1.png",
+            "/our-work/flying-chital-visual-2.png"
+        ],
         "details": {
-            "subtitle": "Smart Agile Logistics at Fingertips",
-            "text": "The \"Smart Agile Logistics at Fingertips\" project aims to revolutionize the logistics industry by integrating advanced technology and agile methodologies. This project focuses on optimizing supply chain processes, enhancing real-time visibility, and improving operational efficiency. Through the implementation of smart tracking systems, predictive analytics, and a user-friendly digital interface.",
+            "subtitle": "Multi-Modal Integrated Logistics Management Platform",
+            "text": "Flying Chital stands as a trailblazing, multi-modal integrated logistics management platform, revolutionizing the logistics landscape with its comprehensive suite of services. By combining advanced analytics, customized reporting capabilities and infographics it seamlessly streamlines and optimizes logistics operations, providing invaluable logistics intelligence, connectivity, and real-time virtualization.",
             "type": "Website Design & Development",
-            "segment": "Information & Technology",
-            "industry": "Information & Technology",
-            "year": "2021",
+            "segment": "Logistics & Supply Chain",
+            "industry": "Logistics & Technology",
+            "year": "2023",
+            "website": "https://flyingchital.com/",
+            "appLink": "https://play.google.com/store/apps/details?id=com.flyingchittal.app&hl=en_IN",
             "problem": [
                 "Inefficient Processes: Many logistics operations are bogged down by manual processes and outdated technologies, leading to delays, errors, and increased operational costs.",
                 "Lack of Real-time Visibility: There is often a lack of real-time tracking and visibility of shipments and inventory, making it difficult for stakeholders to make informed decisions and respond quickly to disruptions.",
@@ -387,21 +753,25 @@
     {
         "slug": "wingstair",
         "title": "Wingstair",
-        "description": "The Lifting Parts Manufacturing Project aims to design, produce, and deliver high-quality lifting components for various industries, including construction, shipping, and heavy machinery.",
+        "description": "Wingstair Elevators Pvt. Ltd. Utilizes cutting-edge technology and a dedicated team of experts to design, manufacture, and deliver a wide range of elevator parts.",
         "tags": [
-            "E-COMMERCE",
+            "Elevator",
             "UI DESIGN",
             "UX DESIGN"
         ],
         "mainImage": "/our-work/wingstair.png",
-        "images": [],
+        "images": [
+            "/our-work/wingstair-visual-1.png",
+            "/our-work/wingstair-visual-2.png"
+        ],
         "details": {
-            "subtitle": "Wingstair: Elevating Industries with Precision Lifting Components",
-            "text": "The Lifting Parts Manufacturing Project aims to design, produce, and deliver high-quality lifting components for various industries, including construction, shipping, and heavy machinery. The project involves several key phases: initial market research to identify demand and industry standards, design and prototyping of components, rigorous testing to ensure safety and durability, and full-scale production. Utilizing state-of-the-art manufacturing technologies and adhering to strict quality control measures, the project seeks to produce parts that meet or exceed industry regulations.",
+            "subtitle": "Wingstair Elevators: Delivering Top-Tier Elevator Parts",
+            "text": "Wingstair Elevators Pvt. Ltd. Utilizes cutting-edge technology and a dedicated team of experts to design, manufacture, and deliver a wide range of elevator parts. These components not only meet stringent quality standards but also contribute to the reliability and safety of elevators across various sectors, including residential, commercial, and industrial. As the demand for vertical transportation continues to grow, Wingstair Elevators Pvt. Ltd. Remains at the forefront, consistently delivering top-tier elevator parts that keep the world moving safely and efficiently",
             "type": "Website Design & Development",
-            "segment": "Information & Technology",
-            "industry": "Information & Technology",
-            "year": "2021",
+            "segment": "Manufacturing & Industrial",
+            "industry": "Elevator & Vertical Transportation",
+            "year": "2024",
+            "website": "https://wingstairelevators.com/",
             "problem": [
                 "The primary problem is the difficulty in producing high-quality lifting components that meet stringent industry standards while maintaining cost-effectiveness.",
                 "This challenge is compounded by the need for advanced manufacturing technologies and materials that can withstand heavy loads and harsh environments.",
@@ -441,13 +811,14 @@
         "title": "Ultra H2O",
         "description": "Water purification involves providing comprehensive and accessible information to help users understand the importance of clean water and the various methods available for purifying it. The website should feature a user-friendly interface with sections dedicated to different purification techniques such as filtration, distillation, reverse osmosis, and UV treatment. Each method should be explained in detail, including its benefits, limitations, and suitability for different scenarios.",
         "tags": [
-            "E-COMMERCE",
+            "STORE",
             "UI DESIGN",
             "UX DESIGN"
         ],
         "mainImage": "/our-work/h2o.png",
         "images": [],
         "details": {
+             "showUiLayouts": false,
             "subtitle": "Ultra H2O: Revolutionizing Water Purification for a Healthier Future",
             "text": "Water purification involves providing comprehensive and accessible information to help users understand the importance of clean water and the various methods available for purifying it. The website should feature a user-friendly interface with sections dedicated to different purification techniques such as filtration, distillation, reverse osmosis, and UV treatment. Each method should be explained in detail, including its benefits, limitations, and suitability for different scenarios.",
             "type": "Website Design & Development",
