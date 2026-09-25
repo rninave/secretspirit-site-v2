@@ -7,6 +7,7 @@ import { AiFillInstagram } from 'react-icons/ai';
 import Image from 'next/image';
 import Link from 'next/link';
 import { submitInquiryEmail } from '@/services/contact'
+import GunCursorArea from '@/components/common/GunCursorArea'
 
 const navLinks = [
   [
@@ -31,7 +32,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t-3 border-t-primary bg-heading text-divider pt-15 pb-15 px-4 sm:px-6">
+    <GunCursorArea as="footer" className="w-full border-t-3 border-t-primary bg-heading text-divider pt-15 pb-15 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-4 md:gap-0">
         {/* Left: Heading & Description */}
         <div className="flex-1 w-full md:w-[60%]">
@@ -91,7 +92,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto font-body text-body text-xs md:text-sm text-center xs:text-left">
         &copy; {new Date().getFullYear()} Secretspirit Solutions Pvt. Ltd.
       </div>
-    </footer>
+    </GunCursorArea>
   )
 }
 
