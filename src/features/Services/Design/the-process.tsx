@@ -15,15 +15,15 @@ const steps: Step[] = [
         number: "01",
         title: "Considering the big picture",
         description:
-            "We bring an open mind, follow the design thinking process methodically, and present our findings in a polished manner. The specifics of the method are always adjusted to meet the end product's requirements.",
+            "We bring an open mind, follow the design thinking process methodically, and present our findings in a polished manner. The specifics of the method — and the AI tools we lean on — are always adjusted to meet the end product's requirements.",
         color: "#f15a4a",
     },
     {
         id: 2,
         number: "02",
-        title: "Extensive research",
+        title: "AI-augmented UX research",
         description:
-            "When we take on a new product, we bring extensive experience across a wide range of products, industries, and end-user profiles. We take the time to learn about all the factors that affect the foundational ideas of the product so that we can effectively address the issues at hand.",
+            "When we take on a new product, we bring extensive experience across a wide range of products, industries, and end-user profiles — paired with AI-powered research tools that synthesize interviews, surveys, and behavioral data faster. We take the time to learn about every factor shaping the product so we can address the real issues at hand.",
         color: "#f39c3d",
     },
     {
@@ -31,7 +31,7 @@ const steps: Step[] = [
         number: "03",
         title: "Defining the architecture",
         description:
-            "A functional product cannot exist if the architecture is not well-defined. This stage ensures that the final product meets the users' expectations by creating a solid foundation.",
+            "A functional product cannot exist if the architecture is not well-defined. This stage ensures that the final product meets the users' expectations by creating a solid, scalable foundation and a design system that grows with your product.",
         color: "#cddc39",
     },
     {
@@ -39,23 +39,23 @@ const steps: Step[] = [
         number: "04",
         title: "Presenting the Solution",
         description:
-            "Building a solution entails paying close attention to the details and meticulously planning each process step. This stage is based on a lot of testing and iteration.",
+            "Building a solution entails paying close attention to the details and meticulously planning each process step. This stage is based on a lot of testing and iteration, using generative design tools to explore more directions in less time.",
         color: "#7cc24b",
     },
     {
         id: 5,
         number: "05",
-        title: "Wireframes & Prototypes",
+        title: "Wireframes & AI-Assisted Prototypes",
         description:
-            "Organizing content and controls on web pages and screens by assigning them different levels of prominence. Rapid prototyping is functional when multiple parties need to understand the big picture of the process flow.",
+            "Organizing content and controls on web pages and screens by assigning them different levels of prominence. AI-assisted rapid prototyping helps multiple stakeholders understand the big picture of the process flow faster, without sacrificing craft.",
         color: "#3fb0e6",
     },
     {
         id: 6,
         number: "06",
-        title: "Evaluations of Usability",
+        title: "Usability Testing & Evaluation",
         description:
-            "Evaluating time and money involved in the product, early concept testing can help improve it. In addition, we conduct usability tests to determine where we can improve the design process.",
+            "Weighing the time and cost involved in the product, early concept testing helps improve it before it ships. We combine AI-powered usability testing platforms with moderated user sessions to pinpoint exactly where to refine the design.",
         color: "#f3d23d",
     },
 ];

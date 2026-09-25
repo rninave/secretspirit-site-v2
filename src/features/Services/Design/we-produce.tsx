@@ -9,7 +9,7 @@ export default function WeProduceSection() {
                         {/* Left heading column */}
                         <div className="lg:col-span-6">
                             <h2 className="text-lg text-[32px] font-bold font-heading text-heading leading-tight md:leading-tight">
-                                We Produce The Best Products Out Of Scratch
+                                We Design Products Backed By AI-Driven UX Research
                             </h2>
                         </div>
 
@@ -17,11 +17,11 @@ export default function WeProduceSection() {
                         <div className="lg:col-span-6">
                             <div className="space-y-6 text-body text-sm md:text-base font-body font-normal leading-7 md:leading-8">
                                 <p>
-                                    Following a usability audit, or UX Audit is an expert report on your product's usability. User feedback, product usage analytics, and heuristic evaluation all assist us in determining what needs to be fixed.
+                                    Every engagement starts with a UX audit — an expert, data-backed report on your product's usability. We combine AI-powered analytics, real user feedback, and heuristic evaluation to pinpoint exactly what's holding your experience back.
                                 </p>
 
                                 <p>
-                                    As usability experts, we assess how well your current product conforms to industry usability benchmarks. This is useful in determining which design principles and areas for improvement to emphasise in the product redesign.
+                                    As UX research and design specialists, we benchmark your current product against modern usability and accessibility standards, then use AI-assisted tools alongside human judgment to prioritize the design principles and improvements that move the needle most in your redesign.
                                 </p>
                             </div>
                         </div>

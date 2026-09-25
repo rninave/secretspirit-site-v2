@@ -34,7 +34,7 @@ export default function DesignPage() {
           { label: "SERVICES", href: "/services" },
           { label: "DESIGN" },
         ]}
-        subtitle="Our expert team designs intuitive and engaging experiences that prioritize usability. By deeply understanding users through interviews and real-world observations, we connect with customer needs to deliver tailored, exceptional solutions."
+        subtitle="Our expert team blends AI-augmented workflows with hands-on UX research to design intuitive, engaging experiences that prioritize usability. From user interviews to generative prototyping, we connect deeply with customer needs to deliver tailored, exceptional UI/UX solutions."
       />
       <Reveal delayMs={100}>
         <ToolUseCard tools={toolList} />
