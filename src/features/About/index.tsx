@@ -6,16 +6,17 @@ import OurApproach from "./our-approach";
 import Evolution from "./evolution";
 import PartOfTeam from "./part-of-team";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
+import { HeartHandshake, MessagesSquare, Rocket, Scale, Sprout } from "lucide-react";
 
 const LifeAtTopCards = [
-  { title: 'Daily Sync-ups', body: 'Our daily meetings are designed to do more than just discuss tasks. They are a cornerstone of our culture, fostering open communication and strengthening the bonds within our team.' },
-  { title: 'A Culture of Growth', body: 'We believe mentorship isn\'t a program; it\'s our way of life. We\'re committed to lifting each other up, motivating one another, and inspiring every team member to reach new heights.' },
-  { title: 'Focused on Balance', body: 'Our goal is to promote a healthy work-life integration. We actively encourage a balanced approach to responsibilities and personal pursuits, because a refreshed mind leads to our best work.' },
+  { title: 'Daily Sync-ups', body: 'Our daily meetings are designed to do more than just discuss tasks. They are a cornerstone of our culture, fostering open communication and strengthening the bonds within our team.', icon: MessagesSquare },
+  { title: 'A Culture of Growth', body: 'We believe mentorship isn\'t a program; it\'s our way of life. We\'re committed to lifting each other up, motivating one another, and inspiring every team member to reach new heights.', icon: Sprout },
+  { title: 'Focused on Balance', body: 'Our goal is to promote a healthy work-life integration. We actively encourage a balanced approach to responsibilities and personal pursuits, because a refreshed mind leads to our best work.', icon: Scale },
 ]
 
 const LifeAtBottomCards = [
-  { title: 'Advocating for Mental Health', body: 'We\'re dedicated to a supportive and open environment where mental well-being is a top priority. We ensure everyone feels valued, heard, and respected.' },
-  { title: 'Endless Potential', body: 'We are a team committed to continuous professional and personal development. We believe that by investing in our people, we are creating a collective that is resilient, adaptable, and forward-thinking.' },
+  { title: 'Advocating for Mental Health', body: 'We\'re dedicated to a supportive and open environment where mental well-being is a top priority. We ensure everyone feels valued, heard, and respected.', icon: HeartHandshake },
+  { title: 'Endless Potential', body: 'We are a team committed to continuous professional and personal development. We believe that by investing in our people, we are creating a collective that is resilient, adaptable, and forward-thinking.', icon: Rocket },
 ]
 
 const timelineItems: TimelineProps['items'] = [
@@ -39,16 +40,6 @@ const timelineItems: TimelineProps['items'] = [
   },
 ]
 
-const ourApproachTopCards = [
-  { title: 'Outstanding Strategies & Solutions', body: 'We develop actionable, data-driven strategies and digital solutions that empower your brand to achieve better business results and unlock new opportunities.' },
-  { title: 'Creative Approach', body: 'Our approach to design centers on creating accessible and distinctive solutions that meet the specific needs of your target audience.' },
-  { title: 'Marketing & Collaboration', body: 'We work closely with you to create a human-centered marketing framework. Our model integrates strategy, data, design, and technology to deliver cutting-edge digital marketing solutions.' },
-]
-const ourApproachBottomCards = [
-  { title: 'Innovation & Development', body: 'By connecting the right resources, we foster a culture of innovation and growth that enhances both customer satisfaction and employee services.' },
-  { title: 'Agility & Management', body: 'Our custom solutions help your brand become more adaptable and flexible, so you\'re ready to tackle whatever the future holds.' },
-]
-
 export default function AboutPage() {
   return (
     <>
@@ -62,7 +53,7 @@ export default function AboutPage() {
       />
       <LifeAtSecretspirit topCards={LifeAtTopCards} bottomCards={LifeAtBottomCards} />
       <Timeline items={timelineItems} />
-      <OurApproach topCards={ourApproachTopCards} bottomCards={ourApproachBottomCards} />
+      <OurApproach />
       <PerformanceHighlightsSection />
       <Evolution />
       <PartOfTeam />

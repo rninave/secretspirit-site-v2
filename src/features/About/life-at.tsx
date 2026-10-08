@@ -1,12 +1,12 @@
-'use client'
-
 import React from 'react'
 import Reveal from '@/components/common/Reveal'
 import SectionHeader from '@/components/common/SectionHeader'
+import { LucideIcon } from 'lucide-react'
 
 interface LifeCard {
   title: string
   body: string
+  icon?: LucideIcon
 }
 
 interface LifeAtSecretspiritProps {
@@ -25,7 +25,7 @@ const LifeAtSecretspirit: React.FC<LifeAtSecretspiritProps> = ({
   bottomCards = [],
 }) => {
 
-  const renderCards = (cards: LifeCard[], cols: number, maxWidth?: string) => {
+  const renderCards = (cards: LifeCard[], cols: number, maxWidth?: string, startIndex = 0) => {
     const colClass =
       cols === 1 ? 'md:grid-cols-1' :
       cols === 2 ? 'md:grid-cols-2' :
@@ -39,19 +39,46 @@ const LifeAtSecretspirit: React.FC<LifeAtSecretspiritProps> = ({
 
     return (
       <div className={`grid grid-cols-1 ${colClass} gap-6 ${maxWidthClass} mb-6`}>
-        {cards.map((card) => (
-          <Reveal key={card.title}>
-            <div className="bg-primary-hover h-full  rounded-xl p-6 shadow-md border border-divider hover:shadow-lg transition-all duration-200">
-              <h4 className="text-[16px] md:text-lg font-bold text-heading font-heading leading-[100%] mb-6">
-                {card.title}
-              </h4>
-              <div className="w-12 h-0.5 bg-primary mb-6 shadow-about-card" />
-              <p className="text-sm text-body font-body font-normal leading-6">
-                {card.body}
-              </p>
-            </div>
-          </Reveal>
-        ))}
+        {cards.map((card, index) => {
+          const Icon = card.icon
+          return (
+            <Reveal key={card.title} delayMs={index * 80} className="h-full">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-border-light bg-white p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_24px_48px_-24px_rgba(255,61,0,0.35)]">
+                {/* Soft brand glow */}
+                <div
+                  className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-light-primary transition-transform duration-500 group-hover:scale-125"
+                  aria-hidden
+                />
+
+                <div className="relative flex items-start justify-between mb-8">
+                  {Icon ? (
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-[0_12px_24px_-10px_rgba(255,61,0,0.6)]">
+                      <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                    </div>
+                  ) : (
+                    <span />
+                  )}
+                  <span className="font-heading font-bold text-4xl leading-none text-primary/15" aria-hidden>
+                    {String(startIndex + index + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                <h3 className="relative text-lg md:text-xl font-bold text-heading font-heading leading-snug mb-3">
+                  {card.title}
+                </h3>
+                <p className="relative text-sm md:text-base text-body font-body leading-6 md:leading-7">
+                  {card.body}
+                </p>
+
+                {/* Accent bar: hidden by default, grows on hover */}
+                <span
+                  className="absolute bottom-0 left-0 h-1 w-0 bg-primary transition-all duration-500 group-hover:w-full"
+                  aria-hidden
+                />
+              </div>
+            </Reveal>
+          )
+        })}
       </div>
     )
   }
@@ -75,7 +102,7 @@ const LifeAtSecretspirit: React.FC<LifeAtSecretspiritProps> = ({
         </Reveal>
 
         {renderCards(topCards, 3)}
-        {bottomCards.length > 0 && renderCards(bottomCards, 2, '4xl')}
+        {bottomCards.length > 0 && renderCards(bottomCards, 2, '4xl', topCards.length)}
       </div>
     </section>
   )

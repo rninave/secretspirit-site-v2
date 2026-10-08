@@ -1,62 +1,98 @@
 import Reveal from "@/components/common/Reveal";
 import SectionHeader from "@/components/common/SectionHeader";
+import {
+    Compass,
+    FlaskConical,
+    LucideIcon,
+    Network,
+    Palette,
+    PenTool,
+    Rocket,
+    Target,
+    Users,
+} from "lucide-react";
 
 interface Step {
-    id: number;
     number: string;
+    phase: string;
     title: string;
     description: string;
-    color: string; // base color for diamond and border
+    deliverables: string[];
+    icon: LucideIcon;
 }
 
 const steps: Step[] = [
     {
-        id: 1,
         number: "01",
-        title: "Considering the big picture",
+        phase: "Discover",
+        title: "Discovery & Alignment",
         description:
-            "We bring an open mind, follow the design thinking process methodically, and present our findings in a polished manner. The specifics of the method — and the AI tools we lean on — are always adjusted to meet the end product's requirements.",
-        color: "#f15a4a",
+            "We start with stakeholder workshops to understand your business goals, target users, constraints, and what success looks like, so everyone agrees on the problem before any pixels are drawn.",
+        deliverables: ["Project brief", "Success metrics", "Scope & roadmap"],
+        icon: Compass,
     },
     {
-        id: 2,
         number: "02",
-        title: "AI-augmented UX research",
+        phase: "Discover",
+        title: "UX Research",
         description:
-            "When we take on a new product, we bring extensive experience across a wide range of products, industries, and end-user profiles — paired with AI-powered research tools that synthesize interviews, surveys, and behavioral data faster. We take the time to learn about every factor shaping the product so we can address the real issues at hand.",
-        color: "#f39c3d",
+            "User interviews, surveys, competitor analysis, and a review of existing data show how people actually behave, what frustrates them, and where the real opportunities are.",
+        deliverables: ["Research insights", "Competitor audit", "User pain points"],
+        icon: Users,
     },
     {
-        id: 3,
         number: "03",
-        title: "Defining the architecture",
+        phase: "Define",
+        title: "Define the Problem",
         description:
-            "A functional product cannot exist if the architecture is not well-defined. This stage ensures that the final product meets the users' expectations by creating a solid, scalable foundation and a design system that grows with your product.",
-        color: "#cddc39",
+            "We turn research into user personas, journey maps, and clear problem statements, then rank features by user value and business impact.",
+        deliverables: ["User personas", "Journey maps", "Feature priorities"],
+        icon: Target,
     },
     {
-        id: 4,
         number: "04",
-        title: "Presenting the Solution",
+        phase: "Define",
+        title: "Information Architecture & User Flows",
         description:
-            "Building a solution entails paying close attention to the details and meticulously planning each process step. This stage is based on a lot of testing and iteration, using generative design tools to explore more directions in less time.",
-        color: "#7cc24b",
+            "We organize content and map every key task step by step, so navigation feels intuitive and the product has a structure that can grow.",
+        deliverables: ["Sitemap / IA", "User flows", "Task scenarios"],
+        icon: Network,
     },
     {
-        id: 5,
         number: "05",
-        title: "Wireframes & AI-Assisted Prototypes",
+        phase: "Design",
+        title: "Wireframes & Prototypes",
         description:
-            "Organizing content and controls on web pages and screens by assigning them different levels of prominence. AI-assisted rapid prototyping helps multiple stakeholders understand the big picture of the process flow faster, without sacrificing craft.",
-        color: "#3fb0e6",
+            "Low-fidelity sketches and wireframes set the layout and hierarchy, then clickable prototypes let you experience the flow early and give feedback while changes are still cheap.",
+        deliverables: ["Wireframes", "Clickable prototype", "Content hierarchy"],
+        icon: PenTool,
     },
     {
-        id: 6,
         number: "06",
-        title: "Usability Testing & Evaluation",
+        phase: "Design",
+        title: "UI Design & Design System",
         description:
-            "Weighing the time and cost involved in the product, early concept testing helps improve it before it ships. We combine AI-powered usability testing platforms with moderated user sessions to pinpoint exactly where to refine the design.",
-        color: "#f3d23d",
+            "We create high-fidelity interfaces with a clear visual language: typography, color, iconography, and reusable components that keep every screen consistent, accessible, and on brand.",
+        deliverables: ["High-fidelity UI", "Design system", "Interaction states"],
+        icon: Palette,
+    },
+    {
+        number: "07",
+        phase: "Validate",
+        title: "Usability Testing & Iteration",
+        description:
+            "Real users test the prototype while we watch where they hesitate or get stuck. We refine the design based on evidence, not assumptions, and check accessibility against WCAG guidelines.",
+        deliverables: ["Usability report", "Design iterations", "Accessibility check"],
+        icon: FlaskConical,
+    },
+    {
+        number: "08",
+        phase: "Deliver",
+        title: "Developer Handoff & Support",
+        description:
+            "We hand over organized Figma files, specs, and assets, and stay with your developers through build and QA, so the shipped product matches the design down to the last detail.",
+        deliverables: ["Dev-ready Figma", "Specs & assets", "Design QA"],
+        icon: Rocket,
     },
 ];
 
@@ -66,73 +102,69 @@ export default function TheProcess() {
             <div className="max-w-7xl mx-auto">
                 <Reveal>
                     <SectionHeader
-                        subtitle=''
-                        title='The Process'
+                        subtitle="How We Work"
+                        title="Our UI/UX Design Process"
                         align="center"
                         className="mb-4"
                     />
                 </Reveal>
 
                 <Reveal>
-                    <p className="text-center font-body max-w-3xl mx-auto text-body text-sm md:text-base leading-7 mb-10 ">
-                        Fall in love with the process and results will follow.
+                    <p className="text-center font-body max-w-3xl mx-auto text-body text-sm md:text-base leading-7 mb-10 md:mb-14">
+                        A proven, research-led process that takes your product from idea to launch-ready design,
+                        with clear deliverables and your input at every stage.
                     </p>
                 </Reveal>
 
-                <div className="space-y-10">
-                    {steps.map((step) => (
-                        <Reveal key={step.id}>
-                            <div className="relative flex flex-col lg:flex-row items-start lg:items-center">
-                                {/* Left: diamond + horizontal connector */}
-                                <div className="flex items-center  max-lg:w-full">
-                                    <div className="flex items-center flex-col lg:flex-row max-lg:w-full max-lg:justify-center">
-                                        {/* Diamond */}
-                                        <div className="flex items-center justify-center lg:justify-end md:w-100" >
-                                            <div
-                                                role="img"
-                                                aria-label={`Step ${step.number}`}
-                                                className="w-28 h-28 flex items-center rotate-45 justify-center"
-                                                style={{ background: step.color }}
-                                            >
-                                                <span style={{ transform: "rotate(-45deg)" }} className="text-white font-heading font-bold text-sm md:text-base">
-                                                    {step.number}
-                                                </span>
-                                            </div>
+                <ol className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    {steps.map((step, index) => {
+                        const Icon = step.icon;
+                        return (
+                            <Reveal as="li" key={step.number} delayMs={(index % 4) * 80} className="h-full">
+                                <div className="group relative h-full flex flex-col rounded-2xl border border-border-light bg-white p-6 md:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_20px_40px_-20px_rgba(255,61,0,0.35)]">
+                                    <div className="flex items-start justify-between mb-6">
+                                        <div className="w-12 h-12 rounded-xl bg-light-primary text-primary flex items-center justify-center transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                                            <Icon className="w-6 h-6" strokeWidth={1.75} aria-hidden />
                                         </div>
-                                        {/* <div className="w-full bg-red h-2"></div> */}
-
-                                        {/* Connector line to box (hidden on small screens) */}
-                                        <div className="w-1.5 lg:w-full" aria-hidden>
-                                            <div className="h-20 w-1.5 lg:w-full lg:h-1.5" style={{ background: step.color }} />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Right: rounded box */}
-                                <div className="w-full md:flex-1">
-                                    <div className="relative">
-                                        <div
-                                            className="rounded-3xl border-2 p-4 md:p-6 lg:p-8 bg-transparent"
-                                            style={{ borderColor: step.color }}
+                                        <span
+                                            className="font-heading font-bold text-4xl leading-none text-heading/10 transition-colors duration-300 group-hover:text-primary/25"
+                                            aria-hidden
                                         >
-                                            <div className="md:grid md:grid-cols-3 md:gap-8 items-start">
-                                                <div className="md:col-span-1">
-                                                    <h3 className="text-xl md:text-2xl font-heading lg:text-3xl font-bold text-wrap mb-3" style={{ color: step.color }}>
-                                                        {step.title}
-                                                    </h3>
-                                                </div>
+                                            {step.number}
+                                        </span>
+                                    </div>
 
-                                                <div className="md:col-span-2">
-                                                    <p className="text-sm md:text-base font-body text-body leading-7">{step.description}</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <p className="text-primary text-xs font-heading font-bold tracking-widest uppercase mb-2">
+                                        <span className="sr-only">Step {step.number}: </span>
+                                        {step.phase}
+                                    </p>
+                                    <h3 className="text-lg md:text-xl font-heading font-bold text-heading mb-3">
+                                        {step.title}
+                                    </h3>
+                                    <p className="text-sm font-body text-body leading-6 mb-6">
+                                        {step.description}
+                                    </p>
+
+                                    <div className="mt-auto pt-5 border-t border-divider">
+                                        <p className="text-[11px] font-heading font-bold tracking-wider uppercase text-secondry mb-3">
+                                            Deliverables
+                                        </p>
+                                        <ul className="flex flex-wrap gap-2">
+                                            {step.deliverables.map((item) => (
+                                                <li
+                                                    key={item}
+                                                    className="text-xs font-body font-medium text-heading-light bg-gray-light rounded-full px-3 py-1.5"
+                                                >
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-                        </Reveal>
-                    ))}
-                </div>
+                            </Reveal>
+                        );
+                    })}
+                </ol>
             </div>
         </section>
     )

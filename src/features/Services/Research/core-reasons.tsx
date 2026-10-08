@@ -1,15 +1,17 @@
 import Reveal from "@/components/common/Reveal"
 import SectionHeader from "@/components/common/SectionHeader"
+import { LucideIcon, ShieldCheck, Sparkles, TrendingUp } from "lucide-react"
 
 interface LifeCard {
     title: string
     body: string
+    icon: LucideIcon
 }
 
-const TopCards = [
-    { title: 'Deliver Superior Experiences', body: 'Ensure fast, seamless, and delightful user interactions across every digital touchpoint.' },
-    { title: 'Validate Strategy & Design', body: 'Ground every design decision in real user insights, ensuring strategies align with user needs and expectations.' },
-    { title: 'Maximize Business Impact', body: 'Transform websites and applications into engaging, profitable products that help clients achieve their key goals.' },
+const TopCards: LifeCard[] = [
+    { title: 'Deliver Superior Experiences', body: 'Ensure fast, seamless, and delightful user interactions across every digital touchpoint.', icon: Sparkles },
+    { title: 'Validate Strategy & Design', body: 'Ground every design decision in real user insights, ensuring strategies align with user needs and expectations.', icon: ShieldCheck },
+    { title: 'Maximize Business Impact', body: 'Transform websites and applications into engaging, profitable products that help clients achieve their key goals.', icon: TrendingUp },
 ]
 
 export default function CoreReasonsSection() {
@@ -28,19 +30,42 @@ export default function CoreReasonsSection() {
 
         return (
             <div className={`grid grid-cols-1 ${colClass} gap-6 ${maxWidthClass} mb-6`}>
-                {cards.map((card) => (
-                    <Reveal key={card.title}>
-                        <div className="bg-[#FFF6F4] rounded-xl p-6 shadow-md border h-full border-divider hover:shadow-lg transition-all duration-200">
-                            <h4 className="text-[16px] md:text-lg font-bold text-heading font-heading leading-[100%] mb-6">
-                                {card.title}
-                            </h4>
-                            <div className="w-12 h-0.5 bg-primary mb-6 shadow-about-card" />
-                            <p className="text-sm text-body font-body font-normal leading-6">
-                                {card.body}
-                            </p>
-                        </div>
-                    </Reveal>
-                ))}
+                {cards.map((card, index) => {
+                    const Icon = card.icon
+                    return (
+                        <Reveal key={card.title} delayMs={index * 80} className="h-full">
+                            <div className="group relative h-full overflow-hidden rounded-2xl border border-border-light bg-white p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_24px_48px_-24px_rgba(255,61,0,0.35)]">
+                                {/* Soft brand glow */}
+                                <div
+                                    className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-light-primary transition-transform duration-500 group-hover:scale-125"
+                                    aria-hidden
+                                />
+
+                                <div className="relative flex items-start justify-between mb-8">
+                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white shadow-[0_12px_24px_-10px_rgba(255,61,0,0.6)]">
+                                        <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                                    </div>
+                                    <span className="font-heading font-bold text-4xl leading-none text-primary/15" aria-hidden>
+                                        {String(index + 1).padStart(2, '0')}
+                                    </span>
+                                </div>
+
+                                <h3 className="relative text-lg md:text-xl font-bold text-heading font-heading leading-snug mb-3">
+                                    {card.title}
+                                </h3>
+                                <p className="relative text-sm md:text-base text-body font-body leading-6 md:leading-7">
+                                    {card.body}
+                                </p>
+
+                                {/* Accent bar: hidden by default, grows on hover */}
+                                <span
+                                    className="absolute bottom-0 left-0 h-1 w-0 bg-primary transition-all duration-500 group-hover:w-full"
+                                    aria-hidden
+                                />
+                            </div>
+                        </Reveal>
+                    )
+                })}
             </div>
         )
     }

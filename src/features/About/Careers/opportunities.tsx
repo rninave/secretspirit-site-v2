@@ -4,7 +4,7 @@ import AnimatedButton from '@/components/common/AnimatedButton'
 
 export default function Opportunities() {
   return (
-    <section className="bg-gray-light py-15">
+    <section id="open-positions" className="bg-gray-light py-15 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-2xl md:text-[32px] leading-[100%] font-bold text-center text-heading font-heading mb-10">
           Explore Opportunities

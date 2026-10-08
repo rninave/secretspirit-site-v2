@@ -1,5 +1,137 @@
 [
     {
+        "slug": "ev-charging-station-app",
+        "title": "EV Charging Station App",
+        "description": "An EV charging station mobile app that helps electric vehicle drivers find nearby chargers, check real-time availability, book a slot, and pay for charging from one simple app.",
+        "tags": [
+            "MOBILE APP",
+            "UI/UX DESIGN",
+            "PRODUCT DESIGN"
+        ],
+        "mainImage": "/our-work/ev-app-work.png",
+        "images": [
+            "/our-work/ev-app-work-vd-1.png",
+            "/our-work/ev-app-work-vd-2.png"
+        ],
+        "details": {
+            "showUiLayouts": true,
+            "subtitle": "A driver-first EV charging app that makes finding, booking, and paying for a charger effortless",
+            "text": "EV Charging Station App is a mobile app for electric vehicle owners who need charging to be as simple as filling up with fuel. For many EV drivers, range anxiety starts with not knowing where the next working charger is, whether it fits their car, or whether someone else is already using it. We led the complete UI/UX design of the app. This covered the map-based station finder, station details with live charger availability, connector and power filters, slot booking, the live charging session screen, in-app payments and wallet, and charging history. The design keeps key information such as distance, price per kWh, charger speed and battery progress visible at a glance, so drivers can make quick decisions on the road with confidence.",
+            "type": "Mobile App UI/UX Design",
+            "segment": "Electric Mobility & Clean Energy",
+            "industry": "EV Charging & Automotive",
+            "year": "2026",
+            "problem": [
+                "EV drivers struggled to find nearby charging stations they could rely on, and often arrived to find chargers busy, out of order, or incompatible with their vehicle.",
+                "Important details such as connector type, charging speed, price per kWh and live availability were scattered or missing, which made it hard to compare stations quickly.",
+                "Charging sessions felt like a black box: drivers could not easily see battery progress, time remaining, or the cost building up while they waited.",
+                "Payments were fragmented across different operators, cards and apps, which added friction at the charger and made spending hard to track."
+            ],
+            "solution": [
+                "Designed a map-first station finder with clear availability pins, distance, and price, so drivers can spot the nearest free and compatible charger in seconds.",
+                "Built smart filters for connector type (CCS, Type 2, CHAdeMO), charging speed (AC or DC fast charging), price, and amenities, plus detailed station pages with photos, ratings, and live charger status.",
+                "Introduced slot booking and turn-by-turn navigation handoff, so drivers can reserve a charger before they arrive and avoid waiting in a queue.",
+                "Created a live charging session screen with a battery progress ring, kWh delivered, estimated time to full, and running cost, with notifications when charging is complete.",
+                "Simplified payments with a built-in wallet, saved cards, and itemized receipts, along with a charging history view that tracks energy used, money spent, and CO₂ saved over time."
+            ],
+            "typography": {
+                "fontName": "Outfit",
+                "tailwindFontClass": "font-outfit",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Medium",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Electric Lime",
+                    "base": "#d9f24a"
+                },
+                {
+                    "name": "Stone Gray",
+                    "base": "#a0a198"
+                },
+                {
+                    "name": "Carbon Black",
+                    "base": "#131412"
+                }
+            ]
+        }
+    },
+    {
+        "slug": "clause-ledger",
+        "title": "ClauseLedger",
+        "description": "An AI-powered contract analysis dashboard that turns lengthy signed contracts into structured, trustworthy financial data, so finance teams can see what they are owed, what they owe, and what needs attention at a glance.",
+        "tags": [
+            "UX RESEARCH",
+            "UI/UX DESIGN",
+            "PRODUCT DESIGN"
+        ],
+        "mainImage": "/our-work/content-analyzer-img.png",
+        "images": [
+            "/our-work/content-analyzer-vd-1.png",
+            "/our-work/content-analyzer-vd-persona.png",
+            "/our-work/content-analyzer-vd-3.png"
+        ],
+        "details": {
+            "subtitle": "Every signed promise, accounted for: an AI contract intelligence dashboard for finance teams",
+            "text": "ClauseLedger is a B2B web app that helps finance and revenue teams get the numbers out of signed customer contracts that often run to 150-200 pages. Finance analysts usually read every agreement by hand and retype billing terms, due dates and commitments into spreadsheets and CRM systems, which is slow and error-prone. We designed a tool that extracts, structures and verifies that information automatically. The work followed a full UX process. We started with problem framing and research notes, then built a user persona around Sarah, a finance analyst at a mid-size B2B SaaS company. From there we sketched the information architecture and user flows on paper, turned them into a digital IA in Figma, and finished with high-fidelity visual design for the login, dashboard, contracts portfolio, task and reporting screens. The result is a calm, data-dense interface. At a glance it shows money owed, money owed out, revenue at risk, and which contract clauses still need a human review.",
+            "type": "Web App UI/UX Design",
+            "segment": "Finance, Legal & Revenue Operations",
+            "industry": "FinTech & Contract Intelligence",
+            "year": "2026",
+            "problem": [
+                "Key financial terms were buried across 150-200 page contracts, so finding billing conditions, commitments and deadlines took finance teams hours of manual reading.",
+                "Analysts had to copy contract details into spreadsheets and CRM systems by hand, which led to repeated effort, inconsistent data and missed revenue.",
+                "Billing triggers, renewal notices, opt-out windows and payment terms were easy to overlook. Missed invoices and costly contractual deadlines followed.",
+                "Teams lacked confidence in manually extracted data and kept going back to the original contract to check it, which slowed down the whole workflow.",
+                "Even when the information was available, it was hard to tell what action was needed, who owned it and when it was due, especially across a large portfolio of contracts."
+            ],
+            "solution": [
+                "Designed a simple upload-and-extract flow where a contract is ingested and AI turns its key terms, billing information, due dates and commitments into structured data that is easy to scan.",
+                "Built a finance-first dashboard with four headline KPI cards: Owed to Us, We Owe, Revenue at Risk and Awaiting Review. Each card is paired with a prioritized \"Needs Attention\" queue, so critical issues such as unbilled milestones or CRM mismatches come up first with a clear Review, Decide or Compare action.",
+                "Brought upcoming billing, upcoming deadlines and a Portfolio Health breakdown (Verified, Needs Review, Exceptions, Processing, Archived) into a single view, so renewals, notice periods and invoice triggers are never missed.",
+                "Created a contracts portfolio table with contract value, next key date, CRM match status, an AI confidence meter, status chips and owner avatars, so analysts can instantly spot low-confidence extractions and discrepancies.",
+                "Made every extracted value traceable back to its source clause, with confidence thresholds and verification states, which cuts down re-checking and gives teams confidence in the data they report.",
+                "Grounded the whole experience in a researched user persona, hand-sketched information architecture and user flows, and a structured navigation of Dashboard, Contracts, My Tasks, Reports and Settings, so the product reflects how finance analysts actually work."
+            ],
+            "typography": {
+                "fontName": "Inter",
+                "tailwindFontClass": "font-inter",
+                "weights": [
+                    "Bold",
+                    "SemiBold",
+                    "Medium",
+                    "Regular"
+                ]
+            },
+            "colors": [
+                {
+                    "name": "Deep Forest Green",
+                    "base": "#0F2A1E"
+                },
+                {
+                    "name": "Primary Green",
+                    "base": "#1F7A45"
+                },
+                {
+                    "name": "Alert Red",
+                    "base": "#D92D20"
+                },
+                {
+                    "name": "Review Amber",
+                    "base": "#9A6B00"
+                },
+                {
+                    "name": "Info Blue",
+                    "base": "#1570EF"
+                }
+            ]
+        }
+    },
+    {
         "slug": "habit-tracking-app",
         "title": "Habit Tracking App",
         "description": "A gamified habit tracking mobile app that helps people build daily routines, keep streaks alive, and grow virtual plants as a reward for consistency.",
@@ -119,7 +251,7 @@
             "UI/UX DESIGN"
         ],
         "mainImage": "/our-work/autopal-mockup.png",
-         "images": [
+        "images": [
             "/our-work/autopal-visual-1.png",
             "/our-work/autopal-visual-2.png"
         ],
@@ -818,7 +950,7 @@
         "mainImage": "/our-work/h2o.png",
         "images": [],
         "details": {
-             "showUiLayouts": false,
+            "showUiLayouts": false,
             "subtitle": "Ultra H2O: Revolutionizing Water Purification for a Healthier Future",
             "text": "Water purification involves providing comprehensive and accessible information to help users understand the importance of clean water and the various methods available for purifying it. The website should feature a user-friendly interface with sections dedicated to different purification techniques such as filtration, distillation, reverse osmosis, and UV treatment. Each method should be explained in detail, including its benefits, limitations, and suitability for different scenarios.",
             "type": "Website Design & Development",
