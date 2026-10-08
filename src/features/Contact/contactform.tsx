@@ -45,6 +45,9 @@ export default function ContactFormSection() {
     const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
     const [careerFormKey, setCareerFormKey] = useState(0); // Key to reset CareerForm state
 
+    // Sales enquiries go to sales; career and general enquiries go to info
+    const contactEmail = activeTab === "Business" ? "sales@secret-spirit.com" : "info@secret-spirit.com";
+
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -196,8 +199,8 @@ export default function ContactFormSection() {
 
                                 <div className="flex items-center gap-3">
                                     <IoMail className="text-lg md:text-xl shrink-0" />
-                                    <a href="mailto:info@secret-spirit.com" className="text-xs md:text-sm font-medium font-body text-white hover:opacity-80 transition-opacity duration-200 break-all">
-                                        info@secret-spirit.com
+                                    <a href={`mailto:${contactEmail}`} className="text-xs md:text-sm font-medium font-body text-white hover:opacity-80 transition-opacity duration-200 break-all">
+                                        {contactEmail}
                                     </a>
                                 </div>
 
