@@ -8,8 +8,8 @@ import Reveal from "@/components/common/Reveal";
 const highlights = [
   { value: 7, label: "Trusted experience over the years" },
   { value: 20, label: "Innovative Thinkers & Doers" },
-  { value: 85, label: "Delighted clients worldwide" },
-  { value: 12, label: "Countries we proudly serve" },
+  { value: 100, label: "Delighted clients worldwide" },
+  { value: 15, label: "Countries we proudly serve" },
 ];
 
 export default function PerformanceHighlightsSection() {
