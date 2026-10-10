@@ -1,10 +1,10 @@
 'use client'
 import Typewriter from 'typewriter-effect'
-import SectionHeader from '@/components/common/SectionHeader';
 import Reveal from '@/components/common/Reveal';
 import { HeroSectionBackground } from '@/components/ui/AlignedBackgroundRain';
 import Link from 'next/link';
 import { SpinningText } from '@/components/ui/spiningText'
+import HeroCursorEffects from '@/components/ui/HeroCursorEffects'
 
 
 export default function HeroSection() {
@@ -15,15 +15,23 @@ export default function HeroSection() {
     "Development"
   ];
   return (
-    <HeroSectionBackground className="bg-white max-w-7xl mx-auto flex items-center relative">
+    <div className="relative w-full overflow-hidden bg-white">
+    <HeroCursorEffects />
+    <HeroSectionBackground className="bg-transparent! max-w-7xl mx-auto flex items-center relative z-10">
       <div className="relative z-10 text-center max-w-lg md:max-w-4xl lg:max-w-6xl mx-auto px-4 w-full flex flex-col gap-4 sm:gap-6">
         {/* Top Header Text */}
         <Reveal>
-          <SectionHeader
-            subtitle="Building the future with technology"
-            title=""
-            align="center"
-          />
+          <div className="flex flex-col items-center text-center gap-1">
+            {/* Sanskrit subtitle — no letter-spacing/uppercase, they break Devanagari conjuncts */}
+            <p lang="sa" className="text-primary text-sm md:text-lg font-bold flex items-center gap-2">
+              <span className="inline-block w-10 h-0.5 bg-primary" />
+              तन्त्रज्ञानेन भविष्यस्य निर्माणम्
+              <span className="inline-block w-10 h-0.5 bg-primary" />
+            </p>
+            <p className="text-primary text-[8px] md:text-xs font-heading font-bold tracking-widest uppercase">
+              Building the future with technology
+            </p>
+          </div>
         </Reveal>
 
         {/* Main Headline */}
@@ -110,5 +118,6 @@ export default function HeroSection() {
         </Reveal>
       </div>
     </HeroSectionBackground>
+    </div>
   );
 }

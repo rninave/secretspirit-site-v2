@@ -30,7 +30,7 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
-    default: "Secretspirit | Premium UI/UX Design, Web Development & AI Integrated",
+    default: "Secretspirit | Global UI/UX Studio for Web, Mobile & AI",
     template: "%s | Secretspirit",
   },
   description: "Elevate your brand with Secretspirit. As a specialized UI/UX design agency, we craft captivating digital experiences, backed by custom web development and intelligent AI Agents to drive business growth.",
@@ -125,7 +125,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Secretspirit",
-    title: "Secretspirit | Premium UI/UX Design, Web Development & AI Agents",
+    title: "Secretspirit | Global UI/UX Studio for Web, Mobile & AI",
     description: "Elevate your brand with Secretspirit. As a specialized UI/UX design agency, we craft captivating digital experiences, backed by custom web development and intelligent AI Agents to drive business growth.",
     url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     images: [
@@ -140,7 +140,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Secretspirit | Premium UI/UX Design, Web Development & AI Agents",
+    title: "Secretspirit | Global UI/UX Studio for Web, Mobile & AI",
     description: "Elevate your brand with Secretspirit. As a specialized UI/UX design agency, we craft captivating digital experiences, backed by custom web development and intelligent AI Agents to drive business growth.",
     images: ["/og-image.png"],
   },

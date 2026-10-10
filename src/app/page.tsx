@@ -1,7 +1,7 @@
 import HomePage from "@/features/Home";
 
 export const metadata = {
-  title: "Secretspirit | Premium UI/UX Design, Web Development & AI Agents",
+  title: "Secretspirit | Global UI/UX Studio for Web, Mobile & AI",
   description: "Elevate your brand with Secretspirit. As a specialized UI/UX design agency, we craft captivating digital experiences, backed by custom web development and intelligent AI Agents to drive business growth.",
   keywords: [
   "Secretspirit",
@@ -35,7 +35,7 @@ export const metadata = {
   "digital product design agency"
 ],
   openGraph: {
-    title: "Secretspirit | Premium UI/UX Design, Web Development & AI Agents",
+    title: "Secretspirit | Global UI/UX Studio for Web, Mobile & AI",
     description: "Elevate your brand with Secretspirit. As a specialized UI/UX design agency, we craft captivating digital experiences, backed by custom web development and intelligent AI Agents to drive business growth.",
     url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     siteName: "Secretspirit",
