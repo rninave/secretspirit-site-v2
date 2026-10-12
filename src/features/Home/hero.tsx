@@ -1,10 +1,12 @@
 'use client'
+import { useState } from 'react'
 import Typewriter from 'typewriter-effect'
 import Reveal from '@/components/common/Reveal';
 import { HeroSectionBackground } from '@/components/ui/AlignedBackgroundRain';
 import Link from 'next/link';
 import { SpinningText } from '@/components/ui/spiningText'
 import HeroCursorEffects from '@/components/ui/HeroCursorEffects'
+import VideoModal from '@/components/ui/VideoModal'
 
 
 export default function HeroSection() {
@@ -14,6 +16,7 @@ export default function HeroSection() {
     "User Interface",
     "Development"
   ];
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   return (
     <div className="relative w-full overflow-hidden bg-white">
     <HeroCursorEffects />
@@ -54,11 +57,35 @@ export default function HeroSection() {
 
         {/* Description */}
         <Reveal>
-          <p className="text-body text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-3xl mx-auto font-medium leading-[30px] font-body mb-4 sm:mb-8 md:mb-12">
+          <p className="text-body text-sm xs:text-base sm:text-lg md:text-xl max-w-full md:max-w-3xl mx-auto font-medium leading-[30px] font-body mb-2 sm:mb-2">
             We're a creative digital agency specializing in intuitive and visually compelling user interfaces for web and mobile apps. From concept to execution, we help you stand out, engage users, and leave a lasting impression.
           </p>
         </Reveal>
+
+        {/* Watch Video Button */}
+        <Reveal>
+          <div className="flex justify-center mb-4 sm:mb-8 md:mb-12">
+            <button
+              type="button"
+              onClick={() => setIsVideoOpen(true)}
+              className="group inline-flex items-center gap-3 cursor-pointer rounded-full border border-primary bg-white/80 backdrop-blur-sm pl-2 pr-5 py-2 text-dark-blue font-heading font-bold text-sm sm:text-base transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-lg"
+            >
+              <span className="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-primary text-white transition-all duration-300 group-hover:bg-white group-hover:text-primary">
+                <span className="absolute inset-0 rounded-full bg-primary/40 animate-ping group-hover:hidden" />
+                <svg className="relative w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              Watch Video
+            </button>
+          </div>
+        </Reveal>
       </div>
+      <VideoModal
+        isOpen={isVideoOpen}
+        onClose={() => setIsVideoOpen(false)}
+        youtubeId="Ag2w5HeOl9I"
+      />
       {/* Scroll Indicator (closer to provided HTML structure) */}
       <div className="tp-scroll-down absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex justify-center w-full">
         <Reveal>
