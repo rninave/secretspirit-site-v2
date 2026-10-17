@@ -91,7 +91,7 @@ export default async function WorkDetails({
                         "@type": "BreadcrumbList",
                         itemListElement: [
                             { "@type": "ListItem", position: 1, name: "Home", item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') },
-                            { "@type": "ListItem", position: 2, name: "Work", item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/work' },
+                            { "@type": "ListItem", position: 2, name: "Projects", item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/work' },
                             { "@type": "ListItem", position: 3, name: project.title, item: (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000') + '/work/' + project.slug }
                         ]
                     })
@@ -105,7 +105,7 @@ export default async function WorkDetails({
                     textClassName="text-body"
                     items={[
                         { label: 'HOME', href: '/' },
-                        { label: 'WORK', href: '/work' },
+                        { label: 'PROJECTS', href: '/work' },
                         { label: 'WORK DETAIL' },
                     ]}
                 />

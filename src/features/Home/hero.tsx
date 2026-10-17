@@ -121,7 +121,7 @@ export default function HeroSection() {
 
           <div className="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24">
             {/* Rotating Text Circle */}
-              <Link href="/services" aria-label="Go to Services" className="relative inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24">
+              <Link href="/what-we-do" aria-label="Go to What We Do" className="relative inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24">
                 <SpinningText className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24" duration={8} radius={5}>
                   RESEARCH · DESIGN · DEVELOP ·
                 </SpinningText>

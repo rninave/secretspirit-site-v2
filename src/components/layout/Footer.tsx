@@ -12,8 +12,8 @@ import GunCursorArea from '@/components/common/GunCursorArea'
 const navLinks = [
   [
     { label: 'About', href: '/about' },
-    { label: 'Work', href: '/work' },
-    { label: 'Services', href: '/services' },
+    { label: 'Our Work', href: '/work' },
+    { label: 'What We Do', href: '/what-we-do' },
   ],
   [
     { label: 'Careers', href: '/about/careers' },

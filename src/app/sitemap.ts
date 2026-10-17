@@ -20,8 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'about',
     'blog',
     'contact',
-    'services',
+    'what-we-do',
+    'what-we-do/research',
+    'what-we-do/design',
+    'what-we-do/development',
     'work',
+    'products',
+    'products/secretuxd',
     'hire-us',
   ].map((p) => ({ url: `${baseUrl}/${p}`.replace(/\/+$/, '') }));
 

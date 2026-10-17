@@ -208,3 +208,184 @@
 .p-dropdown-items {
   padding: 0;
 }
+/* ---------- First-visit intro loader (IntroLoader.tsx) ---------- */
+@property --ss-intro-count {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+
+.ss-intro {
+  --ss-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ss-ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ss-ease-wipe: cubic-bezier(0.76, 0, 0.24, 1);
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  overflow: hidden;
+  /* Hides itself even if JS never runs, so the page can't stay covered */
+  animation: ss-intro-done 0s linear 3.15s forwards;
+}
+
+.ss-intro-skip .ss-intro {
+  display: none;
+}
+
+/* Two stacked curtains: the dark one lifts first, the orange one follows a beat behind */
+.ss-intro-curtain {
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary-dark);
+  animation: ss-intro-wipe 0.7s var(--ss-ease-wipe) 2.25s forwards;
+}
+
+.ss-intro-curtain--accent {
+  background: var(--color-primary);
+  animation-delay: 2.4s;
+}
+
+.ss-intro-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 0 16px;
+}
+
+.ss-intro-word {
+  position: relative;
+  display: flex;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(16px, 10vw, 24px);
+  line-height: 1.1;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  padding-bottom: 10px;
+}
+
+/* Each letter rises out of its own mask, holds, then slides out the top */
+.ss-intro-mask {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.ss-intro-letter {
+  display: inline-block;
+  transform: translateY(110%);
+  animation:
+    ss-intro-rise 0.7s var(--ss-ease-out) calc(0.15s + var(--i) * 35ms) forwards,
+    ss-intro-leave 0.45s var(--ss-ease-in) calc(1.85s + var(--i) * 25ms) forwards;
+}
+
+.ss-intro-letter--accent {
+  color: var(--color-primary);
+}
+
+.ss-intro-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation:
+    ss-intro-line-in 0.6s var(--ss-ease-out) 0.75s forwards,
+    ss-intro-line-out 0.4s var(--ss-ease-in) 1.85s forwards;
+}
+
+.ss-intro-tagline {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation:
+    ss-intro-fade-in 0.5s ease-out 0.95s forwards,
+    ss-intro-fade-out 0.3s ease-in 1.85s forwards;
+}
+
+.ss-intro-count {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 700;
+  line-height: 1;
+  counter-reset: ss-intro var(--ss-intro-count);
+  animation: ss-intro-count 1.9s cubic-bezier(0.3, 0, 0.2, 1) 0.1s forwards;
+}
+
+.ss-intro-count::after {
+  content: counter(ss-intro);
+}
+
+@keyframes ss-intro-rise {
+  to { transform: translateY(0); }
+}
+
+@keyframes ss-intro-leave {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-110%); }
+}
+
+@keyframes ss-intro-line-in {
+  to { transform: scaleX(1); }
+}
+
+@keyframes ss-intro-line-out {
+  from { transform: scaleX(1); transform-origin: right; }
+  to   { transform: scaleX(0); transform-origin: right; }
+}
+
+@keyframes ss-intro-fade-in {
+  to { opacity: 1; }
+}
+
+@keyframes ss-intro-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes ss-intro-count {
+  to { --ss-intro-count: 100; }
+}
+
+/* Curtains slide off to the right, revealing the page from left to right */
+@keyframes ss-intro-wipe {
+  to { transform: translateX(100%); }
+}
+
+@keyframes ss-intro-done {
+  to { visibility: hidden; pointer-events: none; }
+}
+
+/* Reduced motion: no movement — the wordmark shows on the dark screen, then everything fades */
+@media (prefers-reduced-motion: reduce) {
+  .ss-intro {
+    animation: ss-intro-fade-out 0.4s ease-in 1.2s forwards;
+  }
+
+  .ss-intro-curtain,
+  .ss-intro-letter,
+  .ss-intro-line,
+  .ss-intro-tagline,
+  .ss-intro-count {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  .ss-intro-curtain--accent,
+  .ss-intro-count {
+    display: none;
+  }
+}

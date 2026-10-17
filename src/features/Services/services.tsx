@@ -10,7 +10,7 @@ const Sections = [
     value: 'research',
     title: 'Research',
     bgColor: 'bg-white',
-    href: '/services/research',
+    href: '/what-we-do/research',
     description:
       'We perform a professional evaluation of the usability of your product. User feedback, product usage analytics, and heuristic evaluation all assist us in determining what needs to be fixed.',
     features: [
@@ -28,7 +28,7 @@ const Sections = [
     value: 'design',
     title: 'Design',
     bgColor: 'bg-gray-light',
-    href: '/services/design',
+    href: '/what-we-do/design',
     description:
       'We create visually compelling and user-friendly interfaces that enhance the user experience and align with your brand identity.',
     features: [
@@ -46,7 +46,7 @@ const Sections = [
     value: 'develop',
     title: 'Develop',
     bgColor: 'bg-white',
-    href: '/services/development',
+    href: '/what-we-do/development',
     description:
       'We build robust, scalable, and high-performance web and mobile applications tailored to your business needs.',
     features: [

@@ -9,6 +9,22 @@ import Link from "next/link";
 
 const menuItems: MenuItem[] = [
   {
+    label: "What we do",
+    dropdown: [
+      { label: "What we do", href: "/what-we-do" },
+      { label: "Research", href: "/what-we-do/research" },
+      { label: "Design", href: "/what-we-do/design" },
+      { label: "Development", href: "/what-we-do/development" },
+    ],
+  },
+  {
+    label: "Our work",
+    dropdown: [
+      { label: "Projects", href: "/work" },
+      { label: "Products", href: "/products" },
+    ],
+  },
+  {
     label: "About Us",
     dropdown: [
       { label: "About Secretspirit", href: "/about" },
@@ -16,17 +32,7 @@ const menuItems: MenuItem[] = [
       { label: "Events", href: "/about/events" },
     ],
   },
-  {
-    label: "Services",
-    dropdown: [
-      { label: "Services", href: "/services" },
-      { label: "Research", href: "/services/research" },
-      { label: "Design", href: "/services/design" },
-      { label: "Development", href: "/services/development" },
-    ],
-  },
   { label: "Hire Us", href: "/hire-us" },
-  { label: "Work", href: "/work" },
   { label: "Blog", href: "/blog" },
 ];
 

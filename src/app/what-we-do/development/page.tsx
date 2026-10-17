@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: "Custom Web & Software Development | Powered by UI/UX & AI",
     description: "Future-proof your business with Secretspirit’s development services. We build design-first, robust custom software, dynamic web applications, and intelligent AI integrations.",
-    url: `${baseUrl}/services/development`,
+    url: `${baseUrl}/what-we-do/development`,
     siteName: "Secretspirit",
     images: [
       {
@@ -21,7 +21,7 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-  alternates: { canonical: `${baseUrl}/services/development` },
+  alternates: { canonical: `${baseUrl}/what-we-do/development` },
 };
 
 export default function Development() {

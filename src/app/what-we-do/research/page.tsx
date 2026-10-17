@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: "UX Research & Usability Testing | Design-Driven Insights",
     description: "Make informed decisions with our in-depth UX research and heuristic analysis. Secretspirit uncovers user behaviors to optimize your digital products, setting the foundation for great UI/UX.",
-    url: `${baseUrl}/services/research`,
+    url: `${baseUrl}/what-we-do/research`,
     siteName: "Secretspirit",
     images: [
       {
@@ -21,7 +21,7 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-  alternates: { canonical: `${baseUrl}/services/research` },
+  alternates: { canonical: `${baseUrl}/what-we-do/research` },
 };
 
 export default function Research() {

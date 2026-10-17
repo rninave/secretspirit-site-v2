@@ -31,7 +31,7 @@ export default function DesignPage() {
         bgstyle="linear-gradient(123.99deg, #181616 5.78%, #131131 45.6%, #181616 81.77%)"
         breadcrumbItems={[
           { label: "HOME", href: "/" },
-          { label: "SERVICES", href: "/services" },
+          { label: "WHAT WE DO", href: "/what-we-do" },
           { label: "DESIGN" },
         ]}
         subtitle="Our expert team blends AI-augmented workflows with hands-on UX research to design intuitive, engaging experiences that prioritize usability. From user interviews to generative prototyping, we connect deeply with customer needs to deliver tailored, exceptional UI/UX solutions."

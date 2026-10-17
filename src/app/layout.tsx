@@ -7,6 +7,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Banner from "@/components/layout/banner";
 import TooltipInit from "@/components/common/tooltip";
+import IntroLoader from "@/components/common/IntroLoader";
 import { PrimeReactProvider } from "primereact/api";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -181,8 +182,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          // skip the intro loader before first paint if already seen this session
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem('ss-intro-seen')){document.documentElement.classList.add('ss-intro-skip')}}catch(e){}`,
+          }}
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index,follow" />
         <meta name="keywords" content={Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : (metadata.keywords || '')} />
@@ -197,6 +204,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${spaceGrotesk.variable} ${bricolageGrotesque.variable} antialiased flex flex-col min-h-screen overflow-x-hidden bg-white`}>
+        <IntroLoader />
         <TooltipInit />
         <Banner />
         <Header />

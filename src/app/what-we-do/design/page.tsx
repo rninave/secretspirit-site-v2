@@ -8,7 +8,7 @@ export const metadata = {
   openGraph: {
     title: "AI-Powered UI/UX Design Agency | Secretspirit Design Studio",
     description: "Secretspirit blends AI-augmented workflows with human-led UX research to design interfaces that convert. From generative prototyping to usability testing, we build user-centric digital experiences for 2026 and beyond.",
-    url: `${baseUrl}/services/design`,
+    url: `${baseUrl}/what-we-do/design`,
     siteName: "Secretspirit",
     images: [
       {
@@ -21,7 +21,7 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-  alternates: { canonical: `${baseUrl}/services/design` },
+  alternates: { canonical: `${baseUrl}/what-we-do/design` },
 };
 
 export default function Design() {
