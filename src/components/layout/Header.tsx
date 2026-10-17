@@ -25,14 +25,14 @@ const menuItems: MenuItem[] = [
     ],
   },
   {
-    label: "About Us",
+    label: "About us",
     dropdown: [
       { label: "About Secretspirit", href: "/about" },
       { label: "Careers", href: "/about/careers" },
       { label: "Events", href: "/about/events" },
     ],
   },
-  { label: "Hire Us", href: "/hire-us" },
+  { label: "Hire us", href: "/hire-us" },
   { label: "Blog", href: "/blog" },
 ];
 
