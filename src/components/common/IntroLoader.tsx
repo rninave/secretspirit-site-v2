@@ -13,9 +13,9 @@ const ACCENT_FROM = 6
 
 /**
  * IntroLoader — first-visit splash screen.
- * "Secretspirit" rises letter by letter on a dark screen with an underline sweep,
- * tagline and 0→100 counter, then a dark + orange double curtain lifts to reveal
- * the page. Plays once per session.
+ * "Secretspirit" rises letter by letter on a white screen with an underline sweep,
+ * tagline and 0→100 counter, then a white + orange double curtain wipes left to right
+ * to reveal the page. Plays once per session.
  */
 export default function IntroLoader() {
   const [visible, setVisible] = useState(true)
@@ -62,7 +62,6 @@ export default function IntroLoader() {
                 </span>
               </span>
             ))}
-            <span className="ss-intro-line" />
           </div>
           <p className="ss-intro-tagline font-body">Research · Design · Develop</p>
         </div>

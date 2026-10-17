@@ -231,11 +231,11 @@
   display: none;
 }
 
-/* Two stacked curtains: the dark one lifts first, the orange one follows a beat behind */
+/* Two stacked curtains: the white one wipes away first, the orange one follows a beat behind */
 .ss-intro-curtain {
   position: absolute;
   inset: 0;
-  background: var(--color-primary-dark);
+  background: #fff;
   animation: ss-intro-wipe 0.7s var(--ss-ease-wipe) 2.25s forwards;
 }
 
@@ -258,13 +258,12 @@
 .ss-intro-word {
   position: relative;
   display: flex;
-  color: #fff;
+  color: var(--color-primary-dark);
   font-weight: 800;
   font-size: clamp(16px, 10vw, 24px);
   line-height: 1.1;
   letter-spacing: 1.2px;
   text-transform: uppercase;
-  opacity: 0.7;
   padding-bottom: 10px;
 }
 
@@ -302,7 +301,7 @@
 }
 
 .ss-intro-tagline {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-body);
   font-size: 12px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -316,7 +315,7 @@
   position: absolute;
   right: 24px;
   bottom: 20px;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(11, 10, 29, 0.2);
   font-size: clamp(32px, 6vw, 64px);
   font-weight: 700;
   line-height: 1;
@@ -368,7 +367,7 @@
   to { visibility: hidden; pointer-events: none; }
 }
 
-/* Reduced motion: no movement — the wordmark shows on the dark screen, then everything fades */
+/* Reduced motion: no movement — the wordmark shows on the white screen, then everything fades */
 @media (prefers-reduced-motion: reduce) {
   .ss-intro {
     animation: ss-intro-fade-out 0.4s ease-in 1.2s forwards;
